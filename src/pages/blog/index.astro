@@ -1,0 +1,462 @@
+---
+// src/pages/blog/index.astro
+import Layout from '../../components/layout/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all blog posts, sorted by date (newest first)
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => 
+  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Get unique categories for filter
+const categories = [...new Set(allPosts.map(post => post.data.category))];
+
+// Featured posts (if any)
+const featuredPosts = sortedPosts.filter(post => post.data.featured).slice(0, 3);
+---
+
+<Layout 
+  title="eLearning Insights & Resources | The E-Learning Company Blog"
+  description="Expert insights on eLearning development, training best practices, and cost guides for custom course creation."
+>
+  <!-- Hero Section -->
+  <section class="blog-hero">
+    <div class="container">
+      <h1 class="page-title">eLearning Insights & Resources</h1>
+      <p class="page-subtitle">Expert guidance on custom eLearning development, pricing, templates, and best practices</p>
+    </div>
+  </section>
+
+  <!-- Featured Posts (if any exist) -->
+  {featuredPosts.length > 0 && (
+    <section class="featured-section">
+      <div class="container">
+        <h2 class="section-title">Featured Articles</h2>
+        <div class="featured-grid">
+          {featuredPosts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="featured-card">
+              <div class="featured-content">
+                <span class="post-category">{post.data.category}</span>
+                <h3>{post.data.title}</h3>
+                <p>{post.data.description}</p>
+                <div class="post-meta">
+                  <span class="post-date">
+                    {post.data.pubDate.toLocaleDateString('en-AU', { 
+                      year: 'numeric', 
+                      month: 'long', 
+                      day: 'numeric' 
+                    })}
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Category Filter -->
+  <section class="blog-filter-section">
+    <div class="container">
+      <div class="filter-bar">
+        <button class="filter-btn active" data-category="all">All Articles</button>
+        {categories.map((category) => (
+          <button class="filter-btn" data-category={category}>
+            {category}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- All Blog Posts -->
+  <section class="blog-posts-section">
+    <div class="container">
+      <div class="posts-grid">
+        {sortedPosts.map((post) => (
+          <article class="post-card" data-category={post.data.category}>
+            <a href={`/blog/${post.slug}`} class="post-link">
+              <div class="post-header">
+                <span class="post-category">{post.data.category}</span>
+                <span class="post-date">
+                  {post.data.pubDate.toLocaleDateString('en-AU', { 
+                    month: 'short', 
+                    day: 'numeric', 
+                    year: 'numeric' 
+                  })}
+                </span>
+              </div>
+              <h3 class="post-title">{post.data.title}</h3>
+              <p class="post-excerpt">{post.data.description}</p>
+              <div class="post-tags">
+                {post.data.tags.slice(0, 3).map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+              <span class="read-more">Read article →</span>
+            </a>
+          </article>
+        ))}
+      </div>
+
+      {sortedPosts.length === 0 && (
+        <div class="no-posts">
+          <p>No blog posts yet. Check back soon for expert eLearning insights!</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Newsletter CTA (Optional) -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-card">
+        <h2>Get eLearning Insights Delivered</h2>
+        <p>Subscribe to receive guides, templates, and best practices for custom eLearning development.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="newsletter-note">Coming soon. For now, <a href="/contact">contact us</a> to stay updated.</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Category filter functionality
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const postCards = document.querySelectorAll('.post-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.dataset.category;
+      
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Filter posts
+      postCards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Hero */
+  .blog-hero {
+    padding: 100px 0 60px;
+    background: var(--bg-primary);
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .page-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Featured Section */
+  .featured-section {
+    padding: 60px 0;
+    background: var(--bg-secondary);
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+  }
+
+  .featured-card {
+    background: var(--bg-tertiary);
+    border: 2px solid var(--accent-primary);
+    border-radius: 16px;
+    padding: 40px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  .featured-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .featured-content h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 16px 0 12px;
+    font-weight: 700;
+  }
+
+  .featured-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  /* Filter Bar */
+  .blog-filter-section {
+    padding: 40px 0;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .filter-bar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 10px 24px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--accent-primary);
+    color: var(--text-primary);
+  }
+
+  .filter-btn.active {
+    background: var(--accent-gradient);
+    color: white;
+    border-color: transparent;
+  }
+
+  /* Blog Posts Grid */
+  .blog-posts-section {
+    padding: 80px 0;
+    background: var(--bg-primary);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 32px;
+  }
+
+  .post-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s ease;
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-md);
+  }
+
+  .post-link {
+    text-decoration: none;
+    display: block;
+  }
+
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .post-category {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--accent-primary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .post-date {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .post-title {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .post-excerpt {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .tag {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    border: 1px solid var(--border-color);
+  }
+
+  .read-more {
+    color: var(--accent-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .post-card:hover .read-more {
+    text-decoration: underline;
+  }
+
+  .no-posts {
+    text-align: center;
+    padding: 80px 20px;
+  }
+
+  .no-posts p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+  }
+
+  /* Newsletter Section */
+  .newsletter-section {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+  }
+
+  .newsletter-card {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border: 2px solid var(--accent-primary);
+    border-radius: 20px;
+    padding: 60px 40px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .newsletter-card h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    font-weight: 800;
+  }
+
+  .newsletter-card > p {
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    font-size: 1.125rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 12px;
+    max-width: 500px;
+    margin: 0 auto 16px;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    padding: 14px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-size: 1rem;
+  }
+
+  .newsletter-form input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+  }
+
+  .newsletter-form button {
+    background: var(--accent-gradient);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .newsletter-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
+  }
+
+  .newsletter-note {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .newsletter-note a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .newsletter-note a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .newsletter-form {
+      flex-direction: column;
+    }
+
+    .newsletter-card {
+      padding: 40px 24px;
+    }
+  }
+</style>

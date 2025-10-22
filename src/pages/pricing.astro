@@ -1,0 +1,995 @@
+---
+// src/pages/pricing.astro
+import Layout from '../components/layout/Layout.astro';
+---
+
+<Layout 
+  title="Transparent Pricing | The E-Learning Company"
+  description="Clear, transparent pricing for custom eLearning. From $5,500 + GST. No hidden costs, no surprises. Choose the tier that matches your content readiness."
+>
+  <!-- Hero Section -->
+  <section class="pricing-hero">
+    <div class="container">
+      <h1 class="page-title">Transparent Pricing for Custom eLearning</h1>
+      <p class="page-subtitle">No hidden costs. No surprise fees. Choose the tier that matches your content readiness.</p>
+    </div>
+  </section>
+
+  <!-- Pricing Tiers -->
+  <section class="pricing-tiers-section">
+    <div class="container">
+      <div class="pricing-grid">
+        
+        <!-- Tier 1 -->
+        <div class="pricing-card">
+          <div class="tier-badge">Most Affordable</div>
+          <h3 class="tier-name">Build & Develop</h3>
+          <div class="tier-price">
+            <span class="price-amount">$5,500</span>
+            <span class="price-gst">+ GST</span>
+          </div>
+          <p class="tier-description">You provide complete script, we build and design</p>
+          
+          <div class="tier-details">
+            <h4>You Provide:</h4>
+            <ul>
+              <li>Complete script written and reviewed</li>
+              <li>Content finalized and approved</li>
+            </ul>
+
+            <h4>We Provide:</h4>
+            <ul>
+              <li>Professional visual design</li>
+              <li>Articulate Rise development</li>
+              <li>SCORM package for any LMS</li>
+              <li>Quality assurance testing</li>
+            </ul>
+
+            <h4>Best For:</h4>
+            <p class="best-for">Organizations with instructional design capability or pre-written content ready to go.</p>
+
+            <h4>Example:</h4>
+            <p class="example">"We have a 10-page Word document with the exact content we want in the course."</p>
+          </div>
+
+          <a href="/contact?tier=1" class="tier-cta">Choose Tier 1</a>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="pricing-card featured">
+          <div class="tier-badge">Most Popular</div>
+          <h3 class="tier-name">Structure & Develop</h3>
+          <div class="tier-price">
+            <span class="price-amount">$7,500</span>
+            <span class="price-gst">+ GST</span>
+          </div>
+          <p class="tier-description">You provide content materials, we structure and build</p>
+          
+          <div class="tier-details">
+            <h4>You Provide:</h4>
+            <ul>
+              <li>Extensive content materials</li>
+              <li>Documents, presentations, videos</li>
+              <li>Training manuals or existing resources</li>
+            </ul>
+
+            <h4>We Provide:</h4>
+            <ul>
+              <li>Content structuring and editing</li>
+              <li>Instructional design</li>
+              <li>Professional visual design</li>
+              <li>Articulate Rise development</li>
+              <li>SCORM package for any LMS</li>
+            </ul>
+
+            <h4>Best For:</h4>
+            <p class="best-for">SMEs with content expertise who need it shaped into effective learning.</p>
+
+            <h4>Example:</h4>
+            <p class="example">"We have PowerPoint slides and training manuals we want converted into eLearning."</p>
+          </div>
+
+          <a href="/contact?tier=2" class="tier-cta">Choose Tier 2</a>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="pricing-card">
+          <div class="tier-badge">Most Comprehensive</div>
+          <h3 class="tier-name">Design & Develop</h3>
+          <div class="tier-price">
+            <span class="price-amount">$10,500</span>
+            <span class="price-gst">+ GST</span>
+          </div>
+          <p class="tier-description">We write, design, and build everything</p>
+          
+          <div class="tier-details">
+            <h4>You Provide:</h4>
+            <ul>
+              <li>Subject matter expertise</li>
+              <li>Content guidance and direction</li>
+              <li>Access to SMEs for interviews</li>
+            </ul>
+
+            <h4>We Provide:</h4>
+            <ul>
+              <li>Complete instructional design</li>
+              <li>Full content writing</li>
+              <li>Professional visual design</li>
+              <li>Articulate Rise development</li>
+              <li>SCORM package for any LMS</li>
+            </ul>
+
+            <h4>Best For:</h4>
+            <p class="best-for">Organizations that need complete course creation from concept to delivery.</p>
+
+            <h4>Example:</h4>
+            <p class="example">"We know what our team needs to learn but need you to create everything from scratch."</p>
+          </div>
+
+          <a href="/contact?tier=3" class="tier-cta">Choose Tier 3</a>
+        </div>
+
+        <!-- Custom -->
+        <div class="pricing-card custom">
+          <div class="tier-badge">Complex Projects</div>
+          <h3 class="tier-name">Custom Projects</h3>
+          <div class="tier-price">
+            <span class="price-amount">Request Quote</span>
+          </div>
+          <p class="tier-description">For specialized tools and complex builds</p>
+          
+          <div class="tier-details">
+            <h4>Custom Solutions Include:</h4>
+            <ul>
+              <li>Articulate Storyline with complex interactions</li>
+              <li>HowToo courses</li>
+              <li>Chameleon Creator builds</li>
+              <li>Parta.io experiences</li>
+              <li>7Taps microlearning</li>
+              <li>Branching scenarios and simulations</li>
+              <li>Gamification elements</li>
+              <li>Multi-course learning pathways</li>
+            </ul>
+
+            <p class="best-for">Timeline and pricing provided based on your specific requirements.</p>
+          </div>
+
+          <a href="/contact?tier=custom" class="tier-cta">Request Quote</a>
+        </div>
+
+      </div>
+
+      <!-- Not Sure CTA -->
+      <div class="not-sure-cta">
+        <p>Not sure which tier fits your needs?</p>
+        <a href="/contact" class="btn-secondary">Contact Us for Guidance</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="included-section">
+    <div class="container">
+      <h2 class="section-title">What's Included in Every Tier</h2>
+      
+      <div class="included-grid">
+        <div class="included-item">
+          <div class="included-icon">⚡</div>
+          <h3>3-Week Delivery</h3>
+          <p>Week 1: Kickoff + development<br/>Weeks 2-3: Review and revisions</p>
+        </div>
+
+        <div class="included-item">
+          <div class="included-icon">🔄</div>
+          <h3>Unlimited Revisions</h3>
+          <p>Unlimited rounds during weeks 2-3. No limit on number of reviewers.</p>
+        </div>
+
+        <div class="included-item">
+          <div class="included-icon">📱</div>
+          <h3>Modern Design</h3>
+          <p>Professional, responsive design that works on all devices.</p>
+        </div>
+
+        <div class="included-item">
+          <div class="included-icon">📦</div>
+          <h3>SCORM Compliant</h3>
+          <p>SCORM 1.2 and 2004 packages compatible with any LMS.</p>
+        </div>
+
+        <div class="included-item">
+          <div class="included-icon">📄</div>
+          <h3>Source Files</h3>
+          <p>Full source files provided so you can make future updates.</p>
+        </div>
+
+        <div class="included-item">
+          <div class="included-icon">✅</div>
+          <h3>Quality Testing</h3>
+          <p>Thorough QA testing before delivery to ensure everything works.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unlimited Revisions Explainer -->
+  <section class="revisions-explainer">
+    <div class="container">
+      <div class="explainer-card">
+        <h2>How Our Unlimited Revisions Work</h2>
+        <div class="revisions-timeline">
+          <div class="timeline-item">
+            <div class="timeline-badge">Week 1</div>
+            <h4>Development</h4>
+            <p>We build the first complete draft of your course based on the kickoff call.</p>
+          </div>
+          <div class="timeline-arrow">→</div>
+          <div class="timeline-item">
+            <div class="timeline-badge">Weeks 2-3</div>
+            <h4>Review & Revisions</h4>
+            <p>You review and provide feedback as many times as needed. No limit on revision rounds or number of reviewers.</p>
+          </div>
+          <div class="timeline-arrow">→</div>
+          <div class="timeline-item">
+            <div class="timeline-badge">Delivery</div>
+            <h4>Final Course</h4>
+            <p>We don't release until you're completely happy with the result.</p>
+          </div>
+        </div>
+
+        <div class="revisions-conditions">
+          <h4>Simple Conditions:</h4>
+          <ul>
+            <li><strong>All feedback via review link</strong> - No emails or documents (keeps everything organized)</li>
+            <li><strong>One final decision maker</strong> - To resolve any internal disagreements and approve the final course</li>
+            <li><strong>Within the 2-week window</strong> - Revisions beyond this period will be quoted separately</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's NOT Included -->
+  <section class="not-included-section">
+    <div class="container">
+      <h2 class="section-title">What's NOT Included</h2>
+      <p class="section-subtitle">To keep pricing transparent, here's what requires additional costs</p>
+      
+      <div class="not-included-grid">
+        <div class="not-included-item">
+          <h4>Custom Illustrations/Animations</h4>
+          <p>We use high-quality stock assets. Custom character animations or illustrations require additional budget.</p>
+        </div>
+        <div class="not-included-item">
+          <h4>Video Production</h4>
+          <p>We can incorporate your videos, but filming and editing services are separate.</p>
+        </div>
+        <div class="not-included-item">
+          <h4>Professional Voiceover</h4>
+          <p>Available as add-on for $500 per course.</p>
+        </div>
+        <div class="not-included-item">
+          <h4>Translation Services</h4>
+          <p>Quote provided on request based on language and word count.</p>
+        </div>
+        <div class="not-included-item">
+          <h4>Extended Revisions</h4>
+          <p>Revisions beyond the 2-week review window are quoted separately.</p>
+        </div>
+        <div class="not-included-item">
+          <h4>LMS Hosting</h4>
+          <p>We provide the SCORM package. LMS hosting and technical support are separate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add-On Services -->
+  <section class="addons-section">
+    <div class="container">
+      <h2 class="section-title">Add-On Services</h2>
+      
+      <div class="addons-grid">
+        <div class="addon-card">
+          <h3>Professional Voiceover</h3>
+          <p class="addon-price">$500 per course</p>
+          <p>Professional narration to enhance engagement and accessibility.</p>
+        </div>
+        <div class="addon-card">
+          <h3>Translation</h3>
+          <p class="addon-price">Quote on request</p>
+          <p>Translate your course into other languages (varies by language and word count).</p>
+        </div>
+        <div class="addon-card">
+          <h3>Rush Delivery</h3>
+          <p class="addon-price">+$2,000</p>
+          <p>Need it in 2 weeks instead of 3? We can prioritize your project.</p>
+        </div>
+        <div class="addon-card">
+          <h3>Extended Revision Window</h3>
+          <p class="addon-price">$500 per week</p>
+          <p>Need more than 2 weeks for internal reviews? We can extend the window.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Terms -->
+  <section class="payment-section">
+    <div class="container">
+      <h2 class="section-title">Payment Terms</h2>
+      
+      <div class="payment-grid">
+        <div class="payment-item">
+          <h4>Deposit</h4>
+          <p>50% to commence work</p>
+        </div>
+        <div class="payment-item">
+          <h4>Final Payment</h4>
+          <p>50% on delivery</p>
+        </div>
+        <div class="payment-item">
+          <h4>Payment Methods</h4>
+          <p>Bank transfer or credit card</p>
+        </div>
+        <div class="payment-item">
+          <h4>Terms</h4>
+          <p>Net 7 days</p>
+        </div>
+      </div>
+
+      <p class="payment-note">All prices in AUD. GST added for Australian customers.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="pricing-faq-section">
+    <div class="container">
+      <h2 class="section-title">Pricing FAQs</h2>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>What if my course needs to be longer than 45 minutes?</h3>
+          <p>We can accommodate longer courses. We'll provide a quote based on the additional content length. Generally, we add $2,000 per additional 15 minutes of content.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I change tiers after we start?</h3>
+          <p>Yes, if the scope changes we'll adjust pricing accordingly. We'll always discuss this with you first and get your approval before proceeding.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What happens if I need revisions after the 2-week window?</h3>
+          <p>We're happy to make updates - we'll provide a quote based on the changes needed. Most clients don't need this because we involve you throughout the development process.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What if my team can't agree on the feedback?</h3>
+          <p>That's why we require one final decision-maker. They have the authority to approve the course and resolve any internal disagreements, which keeps the project moving forward.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Do you offer payment plans?</h3>
+          <p>Not currently for individual courses, but we're happy to discuss options for multi-course projects or ongoing partnerships.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I see examples before I commit?</h3>
+          <p>Absolutely. Check out our <a href="/portfolio">portfolio</a> or <a href="/contact">contact us</a> to see examples relevant to your training category.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What if I'm still not sure which tier I need?</h3>
+          <p>No problem! <a href="/contact">Contact us</a> and we'll walk you through which option makes the most sense for your situation. We can usually determine this in a quick 15-minute conversation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="pricing-cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Ready to Get Started?</h2>
+        <p>Choose your tier or request a custom quote.</p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn-primary">Get a Quote</a>
+          <a href="/portfolio" class="btn-secondary">View Portfolio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .pricing-hero {
+    padding: 100px 0 60px;
+    background: var(--bg-primary);
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .page-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Pricing Tiers */
+  .pricing-tiers-section {
+    padding: 60px 0;
+    background: var(--bg-secondary);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+
+  .pricing-card {
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .pricing-card.featured {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  }
+
+  .pricing-card.custom {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+  }
+
+  .tier-badge {
+    display: inline-block;
+    background: var(--accent-gradient);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+  }
+
+  .tier-name {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .tier-price {
+    margin-bottom: 16px;
+  }
+
+  .price-amount {
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .price-gst {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-left: 8px;
+  }
+
+  .tier-description {
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .tier-details h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent-primary);
+    margin-top: 24px;
+    margin-bottom: 12px;
+  }
+
+  .tier-details ul {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+
+  .tier-details ul li {
+    color: var(--text-secondary);
+    padding-left: 24px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .tier-details ul li::before {
+    content: '✓';
+    color: var(--accent-primary);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+
+  .best-for,
+  .example {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .tier-cta {
+    display: block;
+    background: var(--accent-gradient);
+    color: white;
+    text-align: center;
+    padding: 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 32px;
+    transition: all 0.3s ease;
+  }
+
+  .tier-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
+  }
+
+  .not-sure-cta {
+    text-align: center;
+    padding: 40px;
+    background: var(--bg-tertiary);
+    border-radius: 16px;
+    border: 2px dashed var(--border-color);
+  }
+
+  .not-sure-cta p {
+    font-size: 1.125rem;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    background: var(--accent-gradient);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
+  }
+
+  /* What's Included */
+  .included-section {
+    padding: 100px 0;
+    background: var(--bg-primary);
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: -0.02em;
+  }
+
+  .included-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
+
+  .included-item {
+    text-align: center;
+    padding: 32px;
+  }
+
+  .included-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .included-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .included-item p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Revisions Explainer */
+  .revisions-explainer {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+  }
+
+  .explainer-card {
+    background: var(--bg-tertiary);
+    border: 2px solid var(--accent-primary);
+    border-radius: 20px;
+    padding: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .explainer-card h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 48px;
+    font-weight: 800;
+  }
+
+  .revisions-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    gap: 20px;
+  }
+
+  .timeline-item {
+    flex: 1;
+    text-align: center;
+  }
+
+  .timeline-badge {
+    background: var(--accent-gradient);
+    color: white;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .timeline-item h4 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .timeline-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .timeline-arrow {
+    color: var(--accent-primary);
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .revisions-conditions {
+    background: rgba(99, 102, 241, 0.1);
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid var(--accent-primary);
+  }
+
+  .revisions-conditions h4 {
+    font-size: 1.125rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .revisions-conditions ul {
+    list-style: none;
+  }
+
+  .revisions-conditions ul li {
+    color: var(--text-secondary);
+    padding-left: 28px;
+    margin-bottom: 12px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .revisions-conditions ul li::before {
+    content: '→';
+    color: var(--accent-primary);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+
+  .revisions-conditions ul li strong {
+    color: var(--text-primary);
+  }
+
+  /* Not Included */
+  .not-included-section {
+    padding: 100px 0;
+    background: var(--bg-primary);
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 60px;
+  }
+
+  .not-included-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
+
+  .not-included-item {
+    background: var(--bg-tertiary);
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+  }
+
+  .not-included-item h4 {
+    font-size: 1.125rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .not-included-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  /* Add-ons */
+  .addons-section {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+  }
+
+  .addons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+  }
+
+  .addon-card {
+    background: var(--bg-tertiary);
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .addon-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-4px);
+  }
+
+  .addon-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .addon-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  .addon-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Payment */
+  .payment-section {
+    padding: 100px 0;
+    background: var(--bg-primary);
+  }
+
+  .payment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  .payment-item {
+    background: var(--bg-tertiary);
+    padding: 32px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+  }
+
+  .payment-item h4 {
+    font-size: 1.125rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+    color: var(--accent-primary);
+  }
+
+  .payment-item p {
+    color: var(--text-secondary);
+  }
+
+  .payment-note {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-style: italic;
+  }
+
+  /* FAQ */
+  .pricing-faq-section {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+  }
+
+  .faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: var(--bg-tertiary);
+    padding: 32px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border-color);
+  }
+
+  .faq-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .faq-item p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .faq-item a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .faq-item a:hover {
+    text-decoration: underline;
+  }
+
+  /* Final CTA */
+  .pricing-cta-section {
+    padding: 100px 0;
+    background: var(--bg-primary);
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+    border: 2px solid var(--accent-primary);
+    border-radius: 20px;
+    padding: 80px 40px;
+    text-align: center;
+  }
+
+  .cta-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+  }
+
+  .cta-card p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--accent-gradient);
+    color: white;
+    padding: 16px 40px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .revisions-timeline {
+      flex-direction: column;
+    }
+
+    .timeline-arrow {
+      transform: rotate(90deg);
+      margin: 20px 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .explainer-card {
+      padding: 40px 24px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .cta-card {
+      padding: 60px 24px;
+    }
+
+    .cta-card h2 {
+      font-size: 2rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+    }
+  }
+</style>
