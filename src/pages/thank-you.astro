@@ -1,0 +1,180 @@
+---
+// src/pages/thank-you.astro
+import Layout from '../components/layout/Layout.astro';
+---
+
+<Layout 
+  title="Thank You | The E-Learning Company"
+  description="Thank you for your enquiry. We'll be in touch within 24 hours."
+>
+  <section class="thank-you-section">
+    <div class="container">
+      <div class="thank-you-card">
+        <div class="checkmark">✓</div>
+        <h1>Thank You!</h1>
+        <p class="lead">We've received your enquiry and will get back to you within 24 hours.</p>
+        
+        <div class="next-steps">
+          <h3>What Happens Next:</h3>
+          <ol>
+            <li>We'll review your project details</li>
+            <li>We'll email you to schedule a quick 15-minute call</li>
+            <li>You'll receive a fixed-price quote with clear timelines</li>
+          </ol>
+        </div>
+
+        <div class="cta-buttons">
+          <a href="/" class="btn-primary">Back to Home</a>
+          <a href="/pricing" class="btn-secondary">View Pricing</a>
+        </div>
+
+        <div class="contact-info">
+          <p>Need to reach us urgently?</p>
+          <p><strong>Email:</strong> hello@elearningco.com.au</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .thank-you-section {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 24px;
+    background: var(--bg-primary);
+  }
+
+  .thank-you-card {
+    background: var(--bg-tertiary);
+    border: 2px solid var(--accent-primary);
+    border-radius: 24px;
+    padding: 80px 60px;
+    text-align: center;
+    max-width: 700px;
+  }
+
+  .checkmark {
+    width: 80px;
+    height: 80px;
+    background: var(--accent-gradient);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    margin: 0 auto 32px;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+  }
+
+  .next-steps {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid var(--accent-primary);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+
+  .next-steps h3 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .next-steps ol {
+    margin-left: 24px;
+  }
+
+  .next-steps li {
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: var(--accent-gradient);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
+  }
+
+  .btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent-primary);
+  }
+
+  .contact-info {
+    padding-top: 32px;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .contact-info p {
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+
+  .contact-info strong {
+    color: var(--accent-primary);
+  }
+
+  @media (max-width: 768px) {
+    .thank-you-card {
+      padding: 60px 32px;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+    }
+  }
+</style>

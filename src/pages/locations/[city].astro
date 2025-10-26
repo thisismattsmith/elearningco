@@ -1,0 +1,901 @@
+---
+// src/pages/locations/[city].astro
+// This template creates location-specific pages for Australian capital cities
+
+export async function getStaticPaths() {
+  const cities = [
+    {
+      slug: 'sydney',
+      name: 'Sydney',
+      state: 'New South Wales',
+      timezone: 'AEDT (UTC+11)',
+      industries: ['Finance', 'Tech', 'Professional Services', 'Healthcare', 'Retail'],
+      businessHub: 'Australia\'s largest business center with strong financial services and tech sectors',
+    },
+    {
+      slug: 'melbourne',
+      name: 'Melbourne',
+      state: 'Victoria',
+      timezone: 'AEDT (UTC+11)',
+      industries: ['Healthcare', 'Manufacturing', 'Retail', 'Education', 'Professional Services'],
+      businessHub: 'Major corporate hub with diverse industries and strong L&D culture',
+    },
+    {
+      slug: 'brisbane',
+      name: 'Brisbane',
+      state: 'Queensland',
+      timezone: 'AEST (UTC+10)',
+      industries: ['Mining', 'Construction', 'Healthcare', 'Tourism', 'Government'],
+      businessHub: 'Growing business center with strong resources and government sectors',
+    },
+    {
+      slug: 'perth',
+      name: 'Perth',
+      state: 'Western Australia',
+      timezone: 'AWST (UTC+8)',
+      industries: ['Mining', 'Resources', 'Energy', 'Construction', 'Healthcare'],
+      businessHub: 'Resources capital of Australia with strong mining and energy sectors',
+    },
+    {
+      slug: 'adelaide',
+      name: 'Adelaide',
+      state: 'South Australia',
+      timezone: 'ACDT (UTC+10:30)',
+      industries: ['Healthcare', 'Manufacturing', 'Defence', 'Agriculture', 'Education'],
+      businessHub: 'Innovation hub with growing tech, defence, and healthcare sectors',
+    },
+    {
+      slug: 'canberra',
+      name: 'Canberra',
+      state: 'Australian Capital Territory',
+      timezone: 'AEDT (UTC+11)',
+      industries: ['Government', 'Defence', 'Education', 'Professional Services', 'Technology'],
+      businessHub: 'Government and policy center with strong compliance training needs',
+    },
+    {
+      slug: 'hobart',
+      name: 'Hobart',
+      state: 'Tasmania',
+      timezone: 'AEDT (UTC+11)',
+      industries: ['Tourism', 'Government', 'Healthcare', 'Agriculture', 'Education'],
+      businessHub: 'Growing business community with strong tourism and government sectors',
+    },
+    {
+      slug: 'darwin',
+      name: 'Darwin',
+      state: 'Northern Territory',
+      timezone: 'ACST (UTC+9:30)',
+      industries: ['Mining', 'Defence', 'Government', 'Tourism', 'Construction'],
+      businessHub: 'Strategic northern hub with defence, mining, and government focus',
+    },
+  ];
+
+  return cities.map(city => ({
+    params: { city: city.slug },
+    props: { city },
+  }));
+}
+
+const { city } = Astro.props;
+
+import Layout from '../../components/layout/Layout.astro';
+---
+
+<Layout 
+  title={`eLearning Development ${city.name} | Custom Training Courses | The E-Learning Company`}
+  description={`Professional eLearning development for ${city.name} organizations. 3-week delivery, transparent pricing from $5,500 + GST. Serving ${city.state} businesses with custom training.`}
+>
+  <!-- Hero Section -->
+  <section class="location-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Home</a> / <a href="/locations">Locations</a> / <span>{city.name}</span>
+      </div>
+      <h1 class="page-title">eLearning Development in {city.name}</h1>
+      <p class="page-subtitle">Professional custom eLearning courses for {city.name} organizations. Fixed pricing, 3-week delivery, zero drama.</p>
+      <div class="hero-meta">
+        <span>📍 Based in Ballarat, VIC</span>
+        <span>•</span>
+        <span>🕐 Working across {city.timezone}</span>
+        <span>•</span>
+        <span>🇦🇺 Australian owned & operated</span>
+      </div>
+      <div class="hero-cta">
+        <a href="/contact" class="btn-primary">Get a Quote</a>
+        <a href="/pricing" class="btn-secondary">View Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why-us-section">
+    <div class="container">
+      <h2 class="section-title">Why {city.name} Organizations Choose Us</h2>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🇦🇺</div>
+          <h3>Australian Based</h3>
+          <p>We're based in Australia, understand {city.state} business culture, and work in your timezone.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3>Transparent Pricing</h3>
+          <p>From $5,500 + GST. All pricing published on our website - no surprises.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">⚡</div>
+          <h3>Fast Delivery</h3>
+          <p>3 weeks from kickoff to final course. {city.name} agencies typically take 8-12 weeks.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">🤝</div>
+          <h3>Zero Drama</h3>
+          <p>No complex project management. Simple process, clear communication, on-time delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries We Serve -->
+  <section class="industries-section">
+    <div class="container">
+      <h2 class="section-title">Industries We Serve in {city.name}</h2>
+      <p class="section-subtitle">{city.businessHub}</p>
+      
+      <div class="industries-grid">
+        {city.industries.map((industry) => (
+          <div class="industry-card">
+            <h3>{industry}</h3>
+            <p>Custom training solutions for {city.name}'s {industry.toLowerCase()} sector</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="all-industries-note">
+        <p>We work with organizations across all industries in {city.name} and throughout {city.state}. Not seeing your sector? <a href="/contact">Contact us</a> - we've likely worked with similar organizations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Services -->
+  <section class="services-section">
+    <div class="container">
+      <h2 class="section-title">eLearning Services for {city.name} Organizations</h2>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Compliance Training</h3>
+          <ul>
+            <li>WHS & Safety Inductions</li>
+            <li>Sexual Harassment Prevention</li>
+            <li>Cyber Security Awareness</li>
+            <li>Privacy & Data Protection</li>
+            <li>Code of Conduct</li>
+          </ul>
+          <a href="/training/workplace-health-safety">View Compliance Courses →</a>
+        </div>
+
+        <div class="service-card">
+          <h3>Onboarding & Culture</h3>
+          <ul>
+            <li>New Employee Onboarding</li>
+            <li>Company Inductions</li>
+            <li>Diversity & Inclusion</li>
+            <li>Mental Health Awareness</li>
+            <li>Remote Work Training</li>
+          </ul>
+          <a href="/training/new-employee-onboarding">View Onboarding Courses →</a>
+        </div>
+
+        <div class="service-card">
+          <h3>Skills Development</h3>
+          <ul>
+            <li>Customer Service Training</li>
+            <li>Sales Enablement</li>
+            <li>Leadership Development</li>
+            <li>Communication Skills</li>
+            <li>Performance Management</li>
+          </ul>
+          <a href="/training/customer-service">View Skills Courses →</a>
+        </div>
+
+        <div class="service-card">
+          <h3>Operational Training</h3>
+          <ul>
+            <li>Product Training</li>
+            <li>Software & System Training</li>
+            <li>Process & Procedures</li>
+            <li>Quality Management</li>
+            <li>Change Management</li>
+          </ul>
+          <a href="/training/product-training">View Operational Courses →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing-section">
+    <div class="container">
+      <h2 class="section-title">Transparent Pricing for {city.name} Organizations</h2>
+      <p class="section-subtitle">Fixed pricing with no hidden costs. Choose the tier that matches your content readiness.</p>
+      
+      <div class="pricing-cards">
+        <div class="price-card">
+          <h3>Tier 1: Build & Develop</h3>
+          <div class="price">$5,500 <span>+ GST</span></div>
+          <p>You have a complete script ready to build</p>
+          <a href="/pricing" class="price-btn">Learn More</a>
+        </div>
+
+        <div class="price-card featured">
+          <div class="popular-badge">Most Popular</div>
+          <h3>Tier 2: Structure & Develop</h3>
+          <div class="price">$7,500 <span>+ GST</span></div>
+          <p>You have content materials that need structuring</p>
+          <a href="/pricing" class="price-btn">Learn More</a>
+        </div>
+
+        <div class="price-card">
+          <h3>Tier 3: Design & Develop</h3>
+          <div class="price">$10,500 <span>+ GST</span></div>
+          <p>We create everything from your expertise</p>
+          <a href="/pricing" class="price-btn">Learn More</a>
+        </div>
+      </div>
+
+      <div class="pricing-note">
+        <p><strong>All prices in AUD + GST.</strong> Competitive rates for {city.name} organizations—typically 50-65% less than local agencies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="process-section">
+    <div class="container">
+      <h2 class="section-title">Our Simple Process for {city.name} Clients</h2>
+      
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Get a Quote</h3>
+          <p>Contact us for a fixed-price quote. We respond within 24 hours.</p>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Kickoff Call</h3>
+          <p>1-hour call (via Zoom/Teams) to gather requirements and align on objectives.</p>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>We Build</h3>
+          <p>First draft delivered in 1-2 weeks. You review and provide feedback.</p>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Final Delivery</h3>
+          <p>Unlimited revisions in weeks 2-3. SCORM package delivered end of week 3.</p>
+        </div>
+      </div>
+
+      <div class="process-note">
+        <p><strong>Total time investment from {city.name} teams:</strong> 3-5 hours over 3 weeks. We handle the heavy lifting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Presence -->
+  <section class="local-section">
+    <div class="container">
+      <h2 class="section-title">Working with {city.name} Organizations</h2>
+      
+      <div class="local-content">
+        <div class="local-card">
+          <h3>Remote-First, Australia-Based</h3>
+          <p>While we're based in Ballarat, Victoria, we work with organizations across Australia including {city.name}. All meetings are conducted via Zoom or Microsoft Teams, making collaboration seamless regardless of location.</p>
+        </div>
+
+        <div class="local-card">
+          <h3>Understanding {city.state} Business</h3>
+          <p>We understand Australian business culture, compliance requirements, and workplace standards. We've worked with organizations throughout {city.state} and know what {city.name} businesses need.</p>
+        </div>
+
+        <div class="local-card">
+          <h3>Flexible Communication</h3>
+          <p>We work across {city.timezone} and can schedule calls to suit {city.name} business hours. Email, phone, or video calls—whatever works best for your team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Common Questions from {city.name} Organizations</h2>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Do you work with organizations in {city.name}?</h3>
+          <p>Yes! While we're based in Victoria, we work with clients across Australia including {city.name}. All collaboration is done remotely via Zoom/Teams, and we're experienced working across Australian time zones.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can you meet in person in {city.name}?</h3>
+          <p>Our process is designed to be entirely remote, which keeps costs down and timelines fast. We've found that video calls are just as effective for kickoffs and reviews. If in-person meetings are essential, we can discuss options for an additional travel fee.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How is your pricing compared to {city.name} agencies?</h3>
+          <p>We're typically 50-65% less expensive than traditional {city.name} eLearning agencies, with faster delivery (3 weeks vs 8-12 weeks). Our lean, remote-first operation means lower overhead and better value for you.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Do you understand {city.state} compliance requirements?</h3>
+          <p>Yes. We develop compliance training for organizations across Australia and are familiar with Australian workplace legislation, WHS requirements, and industry-specific regulations applicable in {city.state}.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What if we need changes after delivery?</h3>
+          <p>We provide unlimited revisions during weeks 2-3 of development. After delivery, we offer 30 days of minor updates. For larger changes, we can provide a quote, or you can use the source files we provide to make updates yourself.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can you work with our LMS?</h3>
+          <p>Yes. We deliver SCORM 1.2 and 2004 packages that work with virtually all LMS platforms used by {city.name} organizations (Moodle, Canvas, Cornerstone, SAP SuccessFactors, etc.).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Ready to Get Started?</h2>
+        <p>Get a fixed-price quote for your {city.name} eLearning project within 24 hours.</p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn-primary">Request a Quote</a>
+          <a href="/pricing" class="btn-secondary">View Full Pricing</a>
+        </div>
+        <p class="cta-note">Serving organizations throughout {city.name} and {city.state}</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .location-hero {
+    padding: 80px 0 60px;
+    background: var(--bg-primary);
+  }
+
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+
+  .breadcrumb a {
+    color: var(--accent-primary);
+    text-decoration: none;
+  }
+
+  .breadcrumb span {
+    color: var(--text-primary);
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+
+  .page-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    max-width: 800px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    font-size: 0.95rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 14px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: var(--accent-gradient);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
+  }
+
+  .btn-secondary {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent-primary);
+  }
+
+  /* Sections */
+  .why-us-section, .industries-section, .services-section, .pricing-section, .process-section, .local-section, .faq-section {
+    padding: 80px 0;
+  }
+
+  .why-us-section { background: var(--bg-secondary); }
+  .industries-section { background: var(--bg-primary); }
+  .services-section { background: var(--bg-secondary); }
+  .pricing-section { background: var(--bg-primary); }
+  .process-section { background: var(--bg-secondary); }
+  .local-section { background: var(--bg-primary); }
+  .faq-section { background: var(--bg-secondary); }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    margin-bottom: 48px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Benefits */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+  }
+
+  .benefit-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-primary);
+  }
+
+  .benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  .benefit-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .benefit-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Industries */
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .industry-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .industry-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--accent-primary);
+  }
+
+  .industry-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .all-industries-note {
+    background: var(--bg-tertiary);
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+  }
+
+  .all-industries-note p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .all-industries-note a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+  }
+
+  .service-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .service-card ul {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+
+  .service-card li {
+    color: var(--text-secondary);
+    padding-left: 24px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .service-card li::before {
+    content: '✓';
+    color: var(--accent-primary);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+
+  .service-card a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .service-card a:hover {
+    text-decoration: underline;
+  }
+
+  /* Pricing */
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  .price-card {
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .price-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-primary);
+  }
+
+  .price-card.featured {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  }
+
+  .popular-badge {
+    background: var(--accent-gradient);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .price-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  .price span {
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+
+  .price-card p {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+
+  .price-btn {
+    display: block;
+    background: var(--accent-gradient);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+
+  .price-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .pricing-note {
+    text-align: center;
+    padding: 24px;
+    background: var(--bg-tertiary);
+    border-radius: 12px;
+  }
+
+  .pricing-note p {
+    color: var(--text-secondary);
+  }
+
+  /* Process */
+  .process-steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto 40px;
+  }
+
+  .step {
+    flex: 1;
+    text-align: center;
+  }
+
+  .step-number {
+    background: var(--accent-gradient);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin: 0 auto 16px;
+  }
+
+  .step h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .step p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .step-arrow {
+    color: var(--accent-primary);
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .process-note {
+    text-align: center;
+    padding: 32px;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid var(--accent-primary);
+    border-radius: 12px;
+  }
+
+  .process-note p {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+  }
+
+  /* Local */
+  .local-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
+
+  .local-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .local-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .local-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* FAQ */
+  .faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+
+  .faq-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .faq-item p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Final CTA */
+  .final-cta-section {
+    padding: 80px 0;
+    background: var(--bg-primary);
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+    border: 2px solid var(--accent-primary);
+    border-radius: 20px;
+    padding: 60px 40px;
+    text-align: center;
+  }
+
+  .cta-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    font-weight: 800;
+  }
+
+  .cta-card p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .cta-note {
+    font-size: 1rem !important;
+    font-style: italic;
+    margin: 0 !important;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .process-steps {
+      flex-direction: column;
+    }
+
+    .step-arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .hero-meta {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .benefits-grid,
+    .industries-grid,
+    .services-grid,
+    .pricing-cards,
+    .local-content {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-cta,
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

@@ -1,0 +1,587 @@
+---
+// src/pages/contact.astro
+import Layout from '../components/layout/Layout.astro';
+
+// Get tier from URL query param if present
+const url = new URL(Astro.request.url);
+const selectedTier = url.searchParams.get('tier') || '';
+---
+
+<Layout 
+  title="Get a Quote | The E-Learning Company"
+  description="Request a fixed-price quote for your custom eLearning project. We respond within 24 hours with transparent pricing and clear timelines."
+>
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <div class="container">
+      <h1 class="page-title">Get Started With Your eLearning Project</h1>
+      <p class="page-subtitle">Tell us about your training needs and we'll get back to you within 24 hours with a fixed-price quote.</p>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact-form-section">
+    <div class="container">
+      <div class="form-wrapper">
+        
+        <!-- Left Column: Form -->
+        <div class="form-column">
+          <form 
+            name="contact"
+            method="POST" 
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/thank-you"
+          >
+            <!-- Hidden fields for Netlify -->
+            <input type="hidden" name="form-name" value="contact" />
+            
+            <!-- Honeypot for spam prevention -->
+            <p class="hidden">
+              <label>
+                Don't fill this out if you're human: 
+                <input name="bot-field" />
+              </label>
+            </p>
+
+            <!-- Name -->
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                placeholder="John Smith"
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                placeholder="john@company.com.au"
+              />
+            </div>
+
+            <!-- Company -->
+            <div class="form-group">
+              <label for="company">Company Name *</label>
+              <input 
+                type="text" 
+                id="company" 
+                name="company" 
+                required 
+                placeholder="Your Company Pty Ltd"
+              />
+            </div>
+
+            <!-- Phone (optional) -->
+            <div class="form-group">
+              <label for="phone">Phone Number (optional)</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                placeholder="+61 4XX XXX XXX"
+              />
+            </div>
+
+            <!-- Training Category -->
+            <div class="form-group">
+              <label for="category">Training Category *</label>
+              <select id="category" name="category" required>
+                <option value="">-- Select a category --</option>
+                <optgroup label="Compliance & Risk">
+                  <option value="Workplace Health & Safety">Workplace Health & Safety</option>
+                  <option value="Sexual Harassment Prevention">Sexual Harassment Prevention</option>
+                  <option value="Cyber Security Awareness">Cyber Security Awareness</option>
+                  <option value="Privacy & Data Protection">Privacy & Data Protection</option>
+                  <option value="Anti-Bribery & Corruption">Anti-Bribery & Corruption</option>
+                  <option value="Code of Conduct">Code of Conduct</option>
+                  <option value="Workplace Bullying Prevention">Workplace Bullying Prevention</option>
+                </optgroup>
+                <optgroup label="Onboarding & Culture">
+                  <option value="New Employee Onboarding">New Employee Onboarding</option>
+                  <option value="Company Induction">Company Induction Programs</option>
+                  <option value="Diversity & Inclusion">Diversity & Inclusion</option>
+                  <option value="Mental Health Awareness">Mental Health Awareness</option>
+                  <option value="Remote Work Best Practices">Remote Work Best Practices</option>
+                </optgroup>
+                <optgroup label="Skills Development">
+                  <option value="Customer Service Training">Customer Service Training</option>
+                  <option value="Sales Training">Sales Training & Enablement</option>
+                  <option value="Leadership Development">Leadership Development</option>
+                  <option value="Communication Skills">Communication Skills</option>
+                  <option value="Time Management">Time Management & Productivity</option>
+                  <option value="Conflict Resolution">Conflict Resolution</option>
+                  <option value="Feedback & Performance">Feedback & Performance Conversations</option>
+                </optgroup>
+                <optgroup label="Operational Training">
+                  <option value="Product Training">Product Training</option>
+                  <option value="Software/System Training">Software/System Training</option>
+                  <option value="Process & Procedure">Process & Procedure Training</option>
+                  <option value="Quality Management">Quality Management Systems</option>
+                  <option value="Emergency Response">Emergency Response Procedures</option>
+                  <option value="Change Management">Change Management</option>
+                </optgroup>
+                <option value="Other">Other (please specify in description)</option>
+              </select>
+            </div>
+
+            <!-- Pricing Tier -->
+            <div class="form-group">
+              <label for="tier">Which pricing tier suits your needs? *</label>
+              <select id="tier" name="tier" required value={selectedTier}>
+                <option value="">-- Select a tier --</option>
+                <option value="tier1">Tier 1 ($5,500 + GST) - I have a complete script ready</option>
+                <option value="tier2">Tier 2 ($7,500 + GST) - I have some content and resources</option>
+                <option value="tier3">Tier 3 ($10,500 + GST) - I need full content creation</option>
+                <option value="custom">Custom Quote - I need something more complex</option>
+                <option value="unsure">Not sure - Help me choose</option>
+              </select>
+            </div>
+
+            <!-- Timeline -->
+            <div class="form-group">
+              <label for="timeline">When do you need it?</label>
+              <select id="timeline" name="timeline">
+                <option value="">-- Select timeline --</option>
+                <option value="ASAP">ASAP (within 4 weeks)</option>
+                <option value="1-2 months">1-2 months</option>
+                <option value="3-6 months">3-6 months</option>
+                <option value="6+ months">6+ months</option>
+                <option value="exploring">Just exploring options</option>
+              </select>
+            </div>
+
+            <!-- Project Description -->
+            <div class="form-group">
+              <label for="description">Tell us about your project *</label>
+              <textarea 
+                id="description" 
+                name="description" 
+                rows="6" 
+                required
+                placeholder="What training do you need? Who is the audience? Do you have existing content? Any specific requirements?"
+              ></textarea>
+            </div>
+
+            <!-- How did you hear about us -->
+            <div class="form-group">
+              <label for="source">How did you hear about us?</label>
+              <select id="source" name="source">
+                <option value="">-- Select source --</option>
+                <option value="Google Search">Google Search</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Referral">Referral from colleague/friend</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Blog/Article">Blog or article</option>
+                <option value="Directory">Business directory</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">
+              Get Your Quote
+            </button>
+
+            <p class="form-note">
+              * Required fields. We'll respond within 24 hours with a fixed-price quote.
+            </p>
+          </form>
+        </div>
+
+        <!-- Right Column: Info -->
+        <div class="info-column">
+          <div class="info-card">
+            <h3>What Happens Next?</h3>
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>We Review Your Request</h4>
+                <p>Within 24 hours (usually much faster)</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Quick Discovery Call</h4>
+                <p>15-20 minute call to clarify your needs</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Fixed-Price Quote</h4>
+                <p>Clear pricing, timeline, and deliverables</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Start Your Project</h4>
+                <p>If you accept, we begin immediately</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Our Guarantee</h3>
+            <ul class="guarantee-list">
+              <li>✓ Fixed pricing with no hidden costs</li>
+              <li>✓ 3-week delivery timeline</li>
+              <li>✓ Unlimited revisions during development</li>
+              <li>✓ No obligation quote</li>
+              <li>✓ Transparent process from start to finish</li>
+            </ul>
+          </div>
+
+          <div class="info-card contact-info">
+            <h3>Prefer to Call?</h3>
+            <p>We're happy to discuss your project over the phone.</p>
+            <p class="contact-detail"><strong>Email:</strong> hello@elearningco.com.au</p>
+            <p class="contact-detail"><strong>Location:</strong> Ballarat, Victoria, Australia</p>
+            <p class="timezone-note">We work across all Australian time zones</p>
+          </div>
+
+          <div class="info-card">
+            <h3>Not Ready Yet?</h3>
+            <p>Check out our resources:</p>
+            <ul class="resource-links">
+              <li><a href="/pricing">View detailed pricing</a></li>
+              <li><a href="/about">How our process works</a></li>
+              <li><a href="/portfolio">See our work</a></li>
+              <li><a href="/blog">Read our blog</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="contact-faq-section">
+    <div class="container">
+      <h2 class="section-title">Common Questions</h2>
+      
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>What information do you need from me?</h3>
+          <p>For an accurate quote, we need to understand your training topic, audience, timeline, and what content you already have. The more details you provide, the more precise our quote will be.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How quickly can you start?</h3>
+          <p>Usually within 1-2 weeks of accepting a quote, depending on our current project load. If you have an urgent deadline, let us know and we'll do our best to accommodate.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Do you offer free consultations?</h3>
+          <p>Yes! The discovery call is complimentary. We use it to understand your needs and provide an accurate quote. There's no obligation.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What if I'm not sure what I need?</h3>
+          <p>That's completely fine. Many of our clients aren't sure where to start. We'll guide you through the options and help you determine the best approach for your situation.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can you work with international clients?</h3>
+          <p>Absolutely! We work with clients in the US, UK, Canada, New Zealand, and other English-speaking countries. International pricing available on request.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What if my budget is limited?</h3>
+          <p>We'll work with you to find a solution that fits your budget. This might mean starting with a shorter course, prioritizing essential content, or phasing the project over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .contact-hero {
+    padding: 100px 0 60px;
+    background: var(--bg-primary);
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .page-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Form Section */
+  .contact-form-section {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+  }
+
+  .form-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Form Column */
+  .form-column {
+    background: var(--bg-tertiary);
+    padding: 48px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--accent-gradient);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 700;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
+  }
+
+  .form-note {
+    margin-top: 16px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  /* Info Column */
+  .info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .info-card {
+    background: var(--bg-tertiary);
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+  }
+
+  .info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+    font-weight: 800;
+  }
+
+  .step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .step:last-child {
+    margin-bottom: 0;
+  }
+
+  .step-number {
+    background: var(--accent-gradient);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .step-content h4 {
+    font-size: 1.125rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+
+  .step-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .guarantee-list {
+    list-style: none;
+  }
+
+  .guarantee-list li {
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    padding-left: 8px;
+  }
+
+  .contact-info p {
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .contact-detail {
+    font-size: 0.95rem;
+  }
+
+  .contact-detail strong {
+    color: var(--text-primary);
+  }
+
+  .timezone-note {
+    font-size: 0.875rem;
+    font-style: italic;
+    margin-top: 16px;
+  }
+
+  .resource-links {
+    list-style: none;
+  }
+
+  .resource-links li {
+    margin-bottom: 12px;
+  }
+
+  .resource-links a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+
+  .resource-links a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  /* FAQ Section */
+  .contact-faq-section {
+    padding: 80px 0;
+    background: var(--bg-primary);
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: var(--bg-tertiary);
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+  }
+
+  .faq-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .faq-item p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .form-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .info-column {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .form-column {
+      padding: 32px 24px;
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
