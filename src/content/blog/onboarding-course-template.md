@@ -2,7 +2,7 @@
 title: "Employee Onboarding Course Structure & Template: A Complete Guide"
 description: "Ready-to-use template for new employee onboarding eLearning. Includes module structure, learning objectives, and best practices for effective onboarding."
 pubDate: 2025-10-23
-author: "The E-Learning Company"
+author: "The eLearning Company"
 category: "Onboarding & Culture"
 tags: ["Onboarding", "Template", "Course Structure", "New Employees", "HR"]
 featured: true
@@ -92,7 +92,7 @@ By the end of this module, new employees will:
 - Career growth opportunities
 
 **2.2 Meet Your Team** (4-5 minutes)
-- Organizational chart (interactive)
+- Organisational chart (interactive)
 - Direct manager introduction
 - Team member profiles with photos
 - Who to go to for what
@@ -367,7 +367,7 @@ By the end of this module, new employees will:
 - Video integration where appropriate
 
 ### Engagement Elements
-- Interactive organizational charts
+- Interactive organisational charts
 - Clickable office/facility tours
 - Employee testimonial videos
 - Scenario-based decision making
@@ -399,7 +399,7 @@ Make this template your own by customizing:
 - [ ] Specific role descriptions
 - [ ] Your actual policies and procedures
 - [ ] Screenshots/tours of your systems
-- [ ] Real organizational charts
+- [ ] Real organisational charts
 - [ ] Company-specific examples and scenarios
 - [ ] Industry-specific content
 - [ ] Links to your actual resources
@@ -520,7 +520,7 @@ Ready to build this onboarding course?
 
 **Option 2: Work With Us**
 - We'll use this template as a starting point
-- Customize entirely for your organization
+- Customize entirely for your organisation
 - Professional design and development
 - 3-week delivery
 - From $7,500 + GST
@@ -534,4 +534,4 @@ Ready to build this onboarding course?
 
 ---
 
-*This template is a starting point. Every organization is different - customize it to reflect your unique culture, policies, and needs.*
+*This template is a starting point. Every organisation is different - customize it to reflect your unique culture, policies, and needs.*

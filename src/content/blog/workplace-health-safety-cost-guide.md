@@ -2,7 +2,7 @@
 title: "Workplace Health & Safety eLearning Course Cost Guide: What to Expect in 2025"
 description: "Comprehensive guide to WHS training costs in Australia. Learn what affects pricing, typical market rates, and how to budget for custom workplace safety courses."
 pubDate: 2025-10-21
-author: "The E-Learning Company"
+author: "The eLearning Company"
 category: "Compliance & Risk"
 tags: ["WHS Training", "Cost Guide", "Compliance", "Safety Training", "Pricing"]
 featured: true
@@ -10,7 +10,7 @@ featured: true
 
 ## Understanding WHS eLearning Course Costs
 
-Creating a custom Workplace Health & Safety (WHS) eLearning course is a significant investment for Australian organizations. Understanding the factors that influence pricing helps you budget appropriately and make informed decisions about your training development.
+Creating a custom Workplace Health & Safety (WHS) eLearning course is a significant investment for Australian organisations. Understanding the factors that influence pricing helps you budget appropriately and make informed decisions about your training development.
 
 In this comprehensive guide, we'll break down what affects WHS course costs, typical market rates, and how to determine what you should expect to pay in 2025.
 
@@ -75,7 +75,7 @@ Extra features add to base costs:
 
 ## Market Rates for WHS eLearning in Australia
 
-Based on 2025 market analysis, here's what Australian organizations typically pay:
+Based on 2025 market analysis, here's what Australian organisations typically pay:
 
 ### Budget Tier ($3,000 - $7,500)
 - Freelance developers or small studios
@@ -89,7 +89,7 @@ Based on 2025 market analysis, here's what Australian organizations typically pa
 - Custom design within templates
 - Professional instructional design
 - Reasonable turnaround times (3-6 weeks)
-- Best for: Mid-sized organizations seeking quality and value
+- Best for: Mid-sized organisations seeking quality and value
 
 ### Premium Tier ($15,000 - $30,000+)
 - Full-service agencies
@@ -157,7 +157,7 @@ Follow this framework to determine your budget:
 
 ## What You Should Expect for $7,500
 
-At The E-Learning Company, our $7,500 WHS courses include:
+At The eLearning Company, our $7,500 WHS courses include:
 
 - **30-45 minutes** of professional training content
 - **Custom structure** based on your materials
@@ -243,7 +243,7 @@ The cheapest option isn't always the best value. Consider the total cost of owne
 
 ## Get a Fixed-Price Quote
 
-At The E-Learning Company, we believe in transparent pricing. Our WHS courses start at $5,500 + GST for build-only projects, with most organizations investing $7,500 - $10,500 depending on their content readiness.
+At The eLearning Company, we believe in transparent pricing. Our WHS courses start at $5,500 + GST for build-only projects, with most organisations investing $7,500 - $10,500 depending on their content readiness.
 
 [View our pricing →](/pricing)
 

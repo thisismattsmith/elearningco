@@ -37,11 +37,11 @@ Workplace health and safety training isn't just about ticking compliance boxesâ€
 
 ### The Problem with Generic WHS Training
 
-Most organizations start with generic WHS training because it's quick and affordable. But there are significant limitations:
+Most organisations start with generic WHS training because it's quick and affordable. But there are significant limitations:
 
 - **Not workplace-specific:** Generic courses can't cover your specific equipment, processes, or site hazards
 - **Low engagement:** Workers tune out content that doesn't feel relevant to their actual job
-- **Compliance gaps:** May not meet your specific industry regulations or organizational policies
+- **Compliance gaps:** May not meet your specific industry regulations or organisational policies
 - **No local context:** Often uses international examples that don't reflect Australian standards
 
 ### Benefits of Custom WHS Training
@@ -57,7 +57,7 @@ When you invest in custom WHS eLearning, you get training that:
 2. **Meets Your Compliance Obligations**
    - Covers relevant Australian WHS legislation
    - Addresses industry-specific regulations
-   - Includes your organizational policies and procedures
+   - Includes your organisational policies and procedures
    - Provides proper documentation for audits
 
 3. **Actually Engages Your Workers**
@@ -66,7 +66,7 @@ When you invest in custom WHS eLearning, you get training that:
    - Relevant examples that resonate with your team
    - Practical tips they can apply immediately
 
-4. **Scales Across Your Organization**
+4. **Scales Across Your Organisation**
    - Consistent training for all sites
    - Easy to update when procedures change
    - Tracks completion and assessment results

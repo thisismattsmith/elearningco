@@ -2,7 +2,7 @@
 title: "Articulate Rise vs Storyline: Which Tool is Right for Your eLearning Project?"
 description: "Complete comparison of Articulate Rise and Storyline. Learn the differences, when to use each tool, and which delivers better ROI for your training needs."
 pubDate: 2025-10-25
-author: "The E-Learning Company"
+author: "The eLearning Company"
 category: "eLearning Best Practices"
 tags: ["Articulate Rise", "Articulate Storyline", "Comparison", "Authoring Tools", "eLearning Development"]
 featured: true
