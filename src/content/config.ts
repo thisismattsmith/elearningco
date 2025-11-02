@@ -13,7 +13,7 @@ const blog = defineCollection({
       'Compliance & Risk',
       'Onboarding & Culture',
       'Skills Development',
-      'Operational Training',
+      'Operational & Technical',
       'eLearning Best Practices',
       'Industry Insights'
     ]),
@@ -36,7 +36,7 @@ const trainingCategories = defineCollection({
       'Compliance & Risk',
       'Onboarding & Culture', 
       'Skills Development',
-      'Operational Training'
+      'Operational & Technical'
     ]),
     topics: z.array(z.string()),
     tier1Example: z.string(),
