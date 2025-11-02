@@ -1,7 +1,7 @@
 ---
 title: "Change Management"
 description: "Change management training that reduces resistance and drives adoption. Help your people understand, adapt, and commit."
-category: "Operational & Technical"
+category: "Skills Development"
 icon: "🔄"
 topics:
   - "Understanding the specific change"
