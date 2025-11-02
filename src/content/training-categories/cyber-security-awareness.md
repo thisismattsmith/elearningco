@@ -37,7 +37,9 @@ Let's be honest: most cyber security training is forgettable the moment your tea
 
 Generic courses about "phishing" and "strong passwords" feel disconnected from your actual work environment. Your team clicks through, passes the quiz, and goes right back to using "Password123" because nothing felt relevant.
 
-**The result?** You've checked the compliance box, but your organisation is still vulnerable.
+### The result?
+
+You've checked the compliance box, but your organisation is still vulnerable.
 
 Most cyber security training feels like a compliance checkbox. Ours actually changes behaviour. Custom cyber security awareness courses built for Australian organisations in 3 weeks, designed to stick.
 
@@ -47,23 +49,25 @@ Most cyber security training feels like a compliance checkbox. Ours actually cha
 
 We build cyber security training around the actual threats your team faces:
 
-**Real Email Examples**  
+### Real Email Examples
+
 Not cartoon villains in hoodies. Actual phishing attempts that look like they're from your CEO, your clients, or your suppliers.
 
-**Your Tools & Systems**  
-Training that references your actual tech stack, not generic "computer systems." If you use Microsoft 365, Slack, and Xero, that's what we talk about.
+### Your Tools & Systems
 
-**Your Industry Context**  
+Training that references your actual tech stack, not generic "computer systems." If you use Microsoft 365, Slack and Xero, that's what we talk about.
+
+## Your Industry Context
+
 The threats facing a healthcare provider are different from a law firm or a construction company. We tailor scenarios to what your people actually experience.
 
-**Practical Next Steps**  
+## Practical Next Steps
+
 Every module ends with "here's what to do right now" - not theoretical concepts, but actual actions your team can take today.
 
 ---
 
-## Here's Why Customised Cyber Security Training Matters
-
-### Generic Training Fails Because:
+## Generic Cyber Security Training Fails Because:
 
 - It treats everyone like they're identical
 - It focuses on outdated threats (remember when we worried about USBs?)
@@ -72,7 +76,7 @@ Every module ends with "here's what to do right now" - not theoretical concepts,
 - There's no connection to your organisation's specific risks
 
 
-### Custom Training Works Because:
+## Custom Cyber Security Training Works Because:
 
 - Your team sees themselves in the scenarios
 - The threats feel real and immediate
@@ -80,7 +84,6 @@ Every module ends with "here's what to do right now" - not theoretical concepts,
 - It's engaging enough that people actually remember it
 - You can measure real behaviour change, not just completion rates
 
+## The ROI
 
-**The ROI:** One prevented ransomware attack pays for itself thousands of times over. One employee who reports a phishing attempt instead of clicking could save your entire operation.
-
----
+One prevented ransomware attack pays for itself thousands of times over. One employee who reports a phishing attempt instead of clicking could save your entire operation.
