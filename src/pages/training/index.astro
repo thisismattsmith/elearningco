@@ -1,10 +1,10 @@
 ---
 // src/pages/index.astro
-import Layout from '../components/layout/Layout.astro';
+import Layout from '../../components/layout/Layout.astro';
 ---
 
 <Layout 
-  title="The eLearning Company | Custom eLearning in 3 Weeks"
+  title="Training Categories | The eLearning Company"
   description="Professional eLearning courses delivered in 3 weeks with transparent pricing. No complexity, no drama. From $5,500 + GST."
 >
   <!-- Hero Section -->
@@ -13,7 +13,7 @@ import Layout from '../components/layout/Layout.astro';
       <div class="hero-content">
         <h1 class="hero-title">
           Custom eLearning in 3 Weeks.<br />
-          <span class="gradient-text">Transparent Pricing.</span><br />
+          <span class="gradient-text">For Your Industry.</span><br />
           Zero Drama.
         </h1>
         <p class="hero-subtitle">
@@ -23,6 +23,69 @@ import Layout from '../components/layout/Layout.astro';
           <a href="/contact" class="btn btn-primary">Get a Quote in 24 Hours</a>
           <a href="/pricing" class="btn btn-secondary">View Pricing</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- Training Categories Section -->
+  <section class="categories-section">
+    <div class="container">
+      <h2 class="section-title">We've done it all</h2>
+      <p class="section-subtitle">We've created courses across every industry and just about about every topic!</p>
+      
+      <div class="categories-wrapper">
+        <div class="category-group">
+          <h4 class="category-group-title">Compliance & Risk</h4>
+          <div class="category-tags">
+            <a href="/training/workplace-health-safety" class="category-tag">Workplace Health & Safety</a>
+            <a href="/training/sexual-harassment-prevention" class="category-tag">Sexual Harassment Prevention</a>
+            <a href="/training/cyber-security-awareness" class="category-tag">Cyber Security Awareness</a>
+            <a href="/training/privacy-data-protection" class="category-tag">Privacy & Data Protection</a>
+            <a href="/training/anti-bribery-corruption" class="category-tag">Anti-Bribery & Corruption</a>
+            <a href="/training/code-of-conduct" class="category-tag">Code of Conduct</a>
+            <a href="/training/workplace-bullying-prevention" class="category-tag">Workplace Bullying Prevention</a>
+          </div>
+        </div>
+
+        <div class="category-group">
+          <h4 class="category-group-title">Onboarding & Culture</h4>
+          <div class="category-tags">
+            <a href="/training/new-employee-onboarding" class="category-tag">New Employee Onboarding</a>
+            <a href="/training/company-induction" class="category-tag">Company Induction Programs</a>
+            <a href="/training/diversity-inclusion" class="category-tag">Diversity & Inclusion</a>
+            <a href="/training/mental-health-awareness" class="category-tag">Mental Health Awareness</a>
+            <a href="/training/remote-work" class="category-tag">Remote Work Best Practices</a>
+          </div>
+        </div>
+
+        <div class="category-group">
+          <h4 class="category-group-title">Skills Development</h4>
+          <div class="category-tags">
+            <a href="/training/customer-service" class="category-tag">Customer Service Training</a>
+            <a href="/training/sales-training" class="category-tag">Sales Training & Enablement</a>
+            <a href="/training/leadership-development" class="category-tag">Leadership Development</a>
+            <a href="/training/communication-skills" class="category-tag">Communication Skills</a>
+            <a href="/training/time-management" class="category-tag">Time Management</a>
+            <a href="/training/conflict-resolution" class="category-tag">Conflict Resolution</a>
+            <a href="/training/feedback-performance" class="category-tag">Feedback & Performance</a>
+          </div>
+        </div>
+
+        <div class="category-group">
+          <h4 class="category-group-title">Operational Training</h4>
+          <div class="category-tags">
+            <a href="/training/product-training" class="category-tag">Product Training</a>
+            <a href="/training/software-system" class="category-tag">Software/System Training</a>
+            <a href="/training/process-procedure" class="category-tag">Process & Procedure</a>
+            <a href="/training/quality-management" class="category-tag">Quality Management</a>
+            <a href="/training/emergency-response" class="category-tag">Emergency Response</a>
+            <a href="/training/change-management" class="category-tag">Change Management</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="categories-cta">
+        <a href="/pricing" class="btn btn-secondary">View All Categories & Pricing</a>
       </div>
     </div>
   </section>
@@ -87,69 +150,6 @@ import Layout from '../components/layout/Layout.astro';
     </div>
   </section>
 
-  <!-- Training Categories Section -->
-  <section class="categories-section">
-    <div class="container">
-      <h2 class="section-title">We've done it all</h2>
-      <p class="section-subtitle">We've created courses across every industry and just about about every topic!</p>
-      
-      <div class="categories-wrapper">
-        <div class="category-group">
-          <h4 class="category-group-title">Compliance & Risk</h4>
-          <div class="category-tags">
-            <a href="/training/workplace-health-safety" class="category-tag">Workplace Health & Safety</a>
-            <a href="/training/sexual-harassment-prevention" class="category-tag">Sexual Harassment Prevention</a>
-            <a href="/training/cyber-security-awareness" class="category-tag">Cyber Security Awareness</a>
-            <a href="/training/privacy-data-protection" class="category-tag">Privacy & Data Protection</a>
-            <a href="/training/anti-bribery-corruption" class="category-tag">Anti-Bribery & Corruption</a>
-            <a href="/training/code-of-conduct" class="category-tag">Code of Conduct</a>
-            <a href="/training/workplace-bullying-prevention" class="category-tag">Workplace Bullying Prevention</a>
-          </div>
-        </div>
-
-        <div class="category-group">
-          <h4 class="category-group-title">Onboarding & Culture</h4>
-          <div class="category-tags">
-            <a href="/training/new-employee-onboarding" class="category-tag">New Employee Onboarding</a>
-            <a href="/training/company-induction" class="category-tag">Company Induction Programs</a>
-            <a href="/training/diversity-inclusion" class="category-tag">Diversity & Inclusion</a>
-            <a href="/training/mental-health-awareness" class="category-tag">Mental Health Awareness</a>
-            <a href="/training/remote-work" class="category-tag">Remote Work Best Practices</a>
-          </div>
-        </div>
-
-        <div class="category-group">
-          <h4 class="category-group-title">Skills Development</h4>
-          <div class="category-tags">
-            <a href="/training/customer-service" class="category-tag">Customer Service Training</a>
-            <a href="/training/sales-training" class="category-tag">Sales Training & Enablement</a>
-            <a href="/training/leadership-development" class="category-tag">Leadership Development</a>
-            <a href="/training/communication-skills" class="category-tag">Communication Skills</a>
-            <a href="/training/time-management" class="category-tag">Time Management</a>
-            <a href="/training/conflict-resolution" class="category-tag">Conflict Resolution</a>
-            <a href="/training/feedback-performance" class="category-tag">Feedback & Performance</a>
-          </div>
-        </div>
-
-        <div class="category-group">
-          <h4 class="category-group-title">Operational Training</h4>
-          <div class="category-tags">
-            <a href="/training/product-training" class="category-tag">Product Training</a>
-            <a href="/training/software-system" class="category-tag">Software/System Training</a>
-            <a href="/training/process-procedure" class="category-tag">Process & Procedure</a>
-            <a href="/training/quality-management" class="category-tag">Quality Management</a>
-            <a href="/training/emergency-response" class="category-tag">Emergency Response</a>
-            <a href="/training/change-management" class="category-tag">Change Management</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="categories-cta">
-        <a href="/training" class="btn btn-secondary">View All Categories</a>
-      </div>
-    </div>
-  </section>
-
   <!-- Social Proof Section (To be populated) -->
   <section class="social-proof-section">
     <div class="container">
@@ -166,7 +166,7 @@ import Layout from '../components/layout/Layout.astro';
       <div class="faq-grid">
         <div class="faq-item">
           <h3>How can you deliver in 3 weeks?</h3>
-          <p>We've stripped out the unnecessary complexity that traditional agencies add - not the quality. You get effective learning design and professional visuals using modern templates. What you don't get is weeks of revision cycles and project management overhead. We've been doing this for a long time and know how to do it fast. In fact, we can deliver a course to you in under three weeks if you have an urgent need.</p>
+          <p>We've stripped out the unnecessary complexity that traditional agencies add - not the quality. You get effective learning design and professional visuals using modern templates. What you don't get is weeks of revision cycles and project management overhead. We've been doing this for 15+ years.</p>
         </div>
 
         <div class="faq-item">
