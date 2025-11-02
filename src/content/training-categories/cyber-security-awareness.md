@@ -31,28 +31,6 @@ bestPractices:
   - "Update quarterly with new threat examples"
 ---
 
-**H1:** Cyber Security Training That Your Team Won't Ignore
-
-**Subheadline:** Most cyber security training feels like a compliance checkbox. Ours actually changes behaviour. Custom cyber security awareness courses built for Australian organisations in 3 weeks, designed to stick.
-
-**CTA Button:** Get a Quote for Cyber Security Training
-
----
-
-## What You Get Section
-
-**Your Custom Cyber Security Awareness Course Includes:**
-
-- Custom cyber security course in Articulate Rise or Storyline
-- 3-week delivery timeline from kickoff to final course
-- 30-45 minutes of engaging learning content
-- Real-world scenarios your team will actually encounter
-- SCORM-compliant for any LMS platform
-- Unlimited revisions during development
-- Source files provided so you own everything
-
----
-
 ## The Problem With Most Cyber Security Training
 
 Let's be honest: most cyber security training is forgettable the moment your team finishes the quiz.
@@ -60,6 +38,8 @@ Let's be honest: most cyber security training is forgettable the moment your tea
 Generic courses about "phishing" and "strong passwords" feel disconnected from your actual work environment. Your team clicks through, passes the quiz, and goes right back to using "Password123" because nothing felt relevant.
 
 **The result?** You've checked the compliance box, but your organisation is still vulnerable.
+
+Most cyber security training feels like a compliance checkbox. Ours actually changes behaviour. Custom cyber security awareness courses built for Australian organisations in 3 weeks, designed to stick.
 
 ---
 
@@ -81,49 +61,6 @@ Every module ends with "here's what to do right now" - not theoretical concepts,
 
 ---
 
-## Our Process
-
-### 1. Content Kickoff Call (Week 1)
-**1 hour** where we discuss:
-- Your biggest security concerns (what keeps you up at night?)
-- Recent incidents or near-misses
-- Your tech environment and tools
-- Your team's current security habits
-- Learning objectives and assessment approach
-
-### 2. First Draft Development (Week 1-2)
-We build the complete course and deliver it for your review. You'll see:
-- Real-world scenarios relevant to your organisation
-- Interactive decision-making exercises
-- Clear, jargon-free explanations
-- Practical security habits embedded throughout
-
-### 3. Revisions & Finalisation (Week 2-3)
-You review, we refine. Most clients only need one revision round because we nail the tone and relevance from the start.
-
-**Result:** SCORM package delivered, ready to deploy to your team.
-
----
-
-## Common Cyber Security Topics We Cover
-
-Your course will be custom-built, but here are the modules most Australian organisations need:
-
-- **Phishing & Email Security** - Spotting sophisticated scams, not obvious ones
-- **Password Security & MFA** - Why it matters and how to make it painless
-- **Social Engineering** - The psychology attackers use to manipulate your team
-- **Safe Browsing & Downloads** - What's actually risky vs. what's fine
-- **Mobile Device Security** - Because work doesn't stop at the office
-- **Data Handling & Privacy** - What can be shared, what can't, and why
-- **Remote Work Security** - Home WiFi, coffee shops, and travel risks
-- **Incident Reporting** - How to report (and why people don't)
-- **Cloud Security Basics** - Using SharePoint, Dropbox, and cloud tools safely
-- **Ransomware Response** - What to do if something goes wrong
-
-**Tailored to Your Needs:** We'll focus on what matters most for your organisation.
-
----
-
 ## Why Custom Cyber Security Training Matters
 
 ### Generic Training Fails Because:
@@ -141,22 +78,6 @@ Your course will be custom-built, but here are the modules most Australian organ
 - You can measure real behaviour change, not just completion rates
 
 **The ROI:** One prevented ransomware attack pays for itself thousands of times over. One employee who reports a phishing attempt instead of clicking could save your entire operation.
-
----
-
-## Unique Marketing Angle: "The Email Your CEO Didn't Send"
-
-**What makes cyber security training memorable?** When your team recognises the exact phishing email that lands in their inbox next week.
-
-We build scenarios around the attacks that are actually working right now:
-- Fake invoices that look identical to real ones
-- "Urgent" emails from executives who are supposedly travelling
-- Supplier payment changes that seem legitimate
-- IT helpdesk impersonation that's frighteningly convincing
-
-Your course becomes a reference point: *"This is like that scenario in the training."*
-
-That's when behaviour actually changes.
 
 ---
 
@@ -181,34 +102,3 @@ Incident response, reporting process, no-blame culture
 Scenario-based quiz using realistic examples from your industry
 
 ---
-
-## FAQ: Cyber Security Training
-
-**How technical should the content be?**  
-Not very. We explain concepts clearly without jargon. Your team doesn't need to understand encryption algorithms - they need to understand why clicking that link is a bad idea.
-
-**Can you include actual phishing examples?**  
-Yes. We can incorporate real examples (anonymised) or create realistic scenarios based on current threats. We can even reference actual attempts your organisation has seen.
-
-**What if we need to update the training regularly?**  
-Cyber threats evolve fast. We recommend annual updates to keep scenarios current. We can do quick refreshes for significantly less than building from scratch.
-
-**Can the course include quizzes and assessments?**  
-Absolutely. We build scenario-based assessments that test decision-making, not memorisation. Your team practices responding to realistic situations.
-
-**Will this meet our compliance requirements?**  
-Most likely. We can align content to frameworks like Essential Eight, ISO 27001, or industry-specific requirements. Tell us what you need to comply with and we'll build accordingly.
-
-**What if our team is mostly non-technical?**  
-Perfect. That's exactly who needs this training most. We avoid technical jargon and focus on practical, everyday security behaviours.
-
----
-
-## Ready to Build Cyber Security Training That Actually Works?
-
-Stop ticking the compliance box. Start changing behaviour.
-
-**Get a quote in 24 hours** - tell us about your organisation and your biggest security concerns.
-
-**CTA Button:** Request a Quote  
-**Secondary Link:** See How Our Process Works
