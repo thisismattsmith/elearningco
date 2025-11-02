@@ -338,8 +338,16 @@ const { Content } = await category.render();
 
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr; /* mobile default: single column */
     gap: 32px;
+  }
+
+  /* Desktop: 3 columns (3xN grid). With up to 9 items this becomes a 3x3 layout. */
+  @media (min-width: 1024px) {
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: start;
+    }
   }
 
   .feature-card {
