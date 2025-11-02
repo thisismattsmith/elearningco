@@ -75,7 +75,6 @@ Every module ends with "here's what to do right now" - not theoretical concepts,
 - It's boring, so people tune out
 - There's no connection to your organisation's specific risks
 
-
 ## Custom Cyber Security Training Works Because:
 
 - Your team sees themselves in the scenarios

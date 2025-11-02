@@ -1,110 +1,173 @@
 ---
-title: "Workplace Health & Safety"
-description: "Professional WHS training courses that meet Australian compliance requirements and actually engage your team."
+title: "Sexual Harassment Prevention"
+description: "Sexual harassment training that creates actual culture change. Move beyond compliance to genuine understanding and respect."
 category: "Compliance & Risk"
-icon: "🛡️"
+icon: "🗣️"
 topics:
-  - "Hazard identification and risk assessment"
-  - "Personal protective equipment (PPE) requirements"
-  - "Emergency procedures and evacuation protocols"
-  - "Incident reporting and investigation"
-  - "Manual handling and ergonomics"
-  - "Chemical safety and SDS management"
-  - "Contractor and visitor safety induction"
-  - "Safety leadership and culture"
-  - "Work at heights safety procedures"
-  - "Confined space entry requirements"
-tier1Example: "We have a complete WHS induction script with all our site-specific procedures documented and approved. We just need it built into an engaging online format."
-tier2Example: "We have PowerPoint presentations from our classroom WHS training and our safety manual. We need these converted into an effective eLearning course."
-tier3Example: "We know what safety topics our team needs to cover based on our risk assessment, but we need you to interview our safety officer and create the entire course."
+  - "Legal definitions and Australian workplace standards"
+  - "Recognising inappropriate behaviour and boundaries"
+  - "Power dynamics and consent in the workplace"
+  - "Bystander intervention strategies"
+  - "Microaggressions and subtle harassment"
+  - "Social situations and professional boundaries"
+  - "Digital and remote harassment"
+  - "Reporting processes and confidentiality"
+  - "Manager responsibilities and obligations"
+  - "Creating respectful workplace culture"
+tier1Example: "We have our sexual harassment policy and recent case studies. We need these turned into respectful but direct training that creates genuine understanding."
+tier2Example: "We have some materials from legal but they're too dense and clinical. We need help making this accessible while staying legally compliant."
+tier3Example: "We know we need comprehensive sexual harassment training but don't have content beyond our policy. We need you to develop training that's sensitive but effective."
 commonMistakes:
-  - "Making WHS training boring and checkbox-focused instead of engaging and practical"
-  - "Using generic content that doesn't reflect your actual workplace hazards"
-  - "Failing to update training when procedures or equipment changes"
-  - "Not including real scenarios and examples from your industry"
-  - "Overwhelming learners with too much information in one course"
+  - "Being so legally cautious it becomes meaningless"
+  - "Using dramatic scenarios that don't reflect real workplace situations"
+  - "Treating it as a one-time compliance exercise"
+  - "Not addressing power dynamics and intersectionality"
+  - "Failing to include bystander intervention strategies"
 bestPractices:
-  - "Focus on practical application, not just compliance"
-  - "Use real workplace photos and scenarios"
-  - "Keep modules short and focused (15-20 minutes max)"
-  - "Include interactive decision-making scenarios"
-  - "Regular updates to reflect workplace changes"
+  - "Use realistic grey-area scenarios for genuine learning"
+  - "Address the difference between intent and impact"
+  - "Include clear reporting procedures and protections"
+  - "Make it inclusive across all genders and identities"
+  - "Focus on prevention through culture, not just policy"
 ---
 
-## Why Custom WHS Training Matters
+# Sexual Harassment Training Designed to Create Culture Change
 
-Workplace health and safety training isn't just about ticking compliance boxes—it's about keeping your team safe and creating a culture where safety is genuinely valued. Generic off-the-shelf WHS courses can't address your specific workplace hazards, equipment, or procedures.
+A lot of sexual harassment training is uncomfortable, ineffective, and quickly forgotten. We build courses that create genuine understanding, clear boundaries, and lasting behavioural change for Australian workplaces.
 
-### The Problem with Generic WHS Training
+---
 
-Most organisations start with generic WHS training because it's quick and affordable. But there are significant limitations:
+## What You Get Section
 
-- **Not workplace-specific:** Generic courses can't cover your specific equipment, processes, or site hazards
-- **Low engagement:** Workers tune out content that doesn't feel relevant to their actual job
-- **Compliance gaps:** May not meet your specific industry regulations or organisational policies
-- **No local context:** Often uses international examples that don't reflect Australian standards
+**Your Custom Sexual Harassment Prevention Course Includes:**
 
-### Benefits of Custom WHS Training
+- Custom training course in Articulate Rise or Storyline
+- 3-week delivery timeline from kickoff to final course
+- 30-45 minutes of meaningful learning content
+- Scenario-based learning that builds real understanding
+- SCORM-compliant for any LMS platform
+- Unlimited revisions during development
+- Source files provided so you own everything
 
-When you invest in custom WHS eLearning, you get training that:
+---
 
-1. **Reflects Your Actual Workplace**
-   - Uses photos of your actual equipment and work areas
-   - Addresses your specific hazards and control measures
-   - Includes your emergency procedures and evacuation routes
-   - References your actual PPE requirements
+## The Problem With Most Sexual Harassment Training
 
-2. **Meets Your Compliance Obligations**
-   - Covers relevant Australian WHS legislation
-   - Addresses industry-specific regulations
-   - Includes your organisational policies and procedures
-   - Provides proper documentation for audits
+Let's address the elephant in the room: most sexual harassment training doesn't work.
 
-3. **Actually Engages Your Workers**
-   - Scenarios based on real workplace situations
-   - Interactive decision-making activities
-   - Relevant examples that resonate with your team
-   - Practical tips they can apply immediately
+It's often:
 
-4. **Scales Across Your Organisation**
-   - Consistent training for all sites
-   - Easy to update when procedures change
-   - Tracks completion and assessment results
-   - Reduces time away from work (vs. classroom training)
+- A checkbox exercise that everyone dreads
+- Focused on legal definitions instead of practical situations
+- So cautious it becomes meaningless
+- Disconnected from your actual workplace culture
+- Forgotten within days
 
-### Common WHS Training Topics We Develop
+**The result?** You've met your legal obligation, but your workplace culture hasn't actually changed. People still don't know where the line is, or what to do when they see something inappropriate.
 
-We've developed WHS courses covering:
+---
 
-- **General WHS Inductions:** Site-specific induction for new workers and contractors
-- **Hazard Identification:** Teaching workers to spot and report hazards
-- **Manual Handling:** Proper lifting techniques and ergonomic practices
-- **Chemical Safety:** SDS management and hazardous substance handling
-- **Work at Heights:** Fall prevention and working safely at elevation
-- **Confined Spaces:** Entry procedures and atmospheric testing
-- **Emergency Response:** Evacuation, first aid, and incident management
-- **PPE Training:** Selection, use, and maintenance of protective equipment
+## Our Approach: Real Situations, Clear Boundaries, Respectful Conversations
 
-### Making WHS Training Effective
+We build sexual harassment prevention training that people actually engage with:
 
-The most effective WHS training:
+**Real Workplace Scenarios**  
+Not dramatic fictional situations. Real workplace moments where boundaries get tested - the comment in the kitchen, the "joke" in a meeting, the repeated social invitations, the power dynamic in a review.
 
-- **Starts with real scenarios:** "You're about to start work and notice..."
-- **Makes consequences clear:** Without being preachy or fear-mongering
-- **Provides practical solutions:** Not just "don't do this" but "here's what to do instead"
-- **Tests understanding:** With scenario-based assessments, not just knowledge recall
-- **Reinforces culture:** Emphasizing that safety is everyone's responsibility
+**Clear But Not Preachy**  
+Your team deserves to be treated like adults. We explain the "why" behind the rules, not just the rules themselves. Understanding creates buy-in.
 
-### Investment in Safety
+**Bystander Intervention**  
+Most incidents are witnessed by others. We teach your team how to speak up, support colleagues, and interrupt inappropriate behaviour - not just how to avoid being the perpetrator.
 
-Custom WHS training is an investment in your most valuable asset—your people. The cost of a WHS incident (injury, lost time, workers' comp claims, reputational damage) far outweighs the cost of proper training.
+**Reporting That Works**  
+If people don't know how to report (or don't trust that reporting will help), your policy is useless. We make the reporting process crystal clear and emphasise organisational commitment to action.
 
-At $5,500-$10,500 for a custom course, you're getting professional training that:
-- Reduces workplace incidents and near-misses
-- Improves safety culture and worker engagement
-- Provides defensible evidence of proper training for regulators
-- Scales across your entire workforce without ongoing costs
+**Inclusive & Intersectional**  
+Sexual harassment affects people across all genders, orientations, and identities. Our training reflects this reality without tokenism.
 
-### Ready to Get Started?
+---
 
-Whether you need a general WHS induction or specialized safety training, we can help. Our 3-week delivery timeline means you can have professional, compliant training up and running quickly—not in 3-6 months like traditional agencies.
+## Common Sexual Harassment Training Topics We Cover
+
+Your course will be customised, but most Australian organisations need:
+
+- **Legal Definitions & Protections** - What sexual harassment is (and isn't) under Australian law
+- **Recognising Inappropriate Behaviour** - The spectrum from uncomfortable to illegal
+- **Power Dynamics & Consent** - Why position matters in every interaction
+- **Bystander Intervention** - How to speak up safely and effectively
+- **Microaggressions & Subtle Harassment** - The "small" things that create hostile environments
+- **Social Situations & Boundaries** - Work drinks, conferences, team events
+- **Digital & Remote Harassment** - Messages, video calls, and online behaviour
+- **Reporting Process** - Your specific procedures, confidentiality, and protections
+- **Manager Responsibilities** - What leaders must do when they witness or receive reports
+- **Creating Respectful Culture** - How everyone contributes to workplace safety
+
+**Tailored to Your Workplace:** We'll focus on the scenarios most relevant to your industry and environment.
+
+---
+
+## Why Custom Sexual Harassment Training Matters
+
+### Generic Training Fails Because:
+
+- It doesn't reflect your actual workplace situations
+- It's so legally cautious it becomes vague
+- People can't see themselves in the scenarios
+- Your reporting process isn't included or is wrong
+- It treats a serious issue with the gravity of a software tutorial
+
+### Custom Training Works Because:
+
+- Scenarios feel real and relevant
+- Your policies and procedures are accurately represented
+- The tone matches your organisational culture
+- People learn how to navigate real situations they'll encounter
+- It sends a message that you take this seriously enough to invest properly
+
+**The Impact:** Reduced incidents, increased reporting confidence, protected employees, reduced legal risk, and a culture where everyone understands boundaries.
+
+---
+
+## Unique Marketing Angle: "The Grey Areas Are Where Culture Lives"
+
+Most people know the extreme examples are wrong. The challenge is the grey areas:
+
+- Is it okay to compliment someone's appearance?
+- When does "friendly" become "too friendly"?
+- How do you know if you're being too sensitive?
+- What if everyone else is laughing at the joke?
+- When should you speak up versus let it go?
+
+**This is where culture actually lives** - in the everyday moments where people make judgment calls.
+
+Our training focuses here. Not on the obvious violations everyone already knows are wrong, but on the nuanced situations where people genuinely aren't sure. That's where real learning happens.
+
+We help your team develop better judgment, not just memorise rules.
+
+---
+
+## FAQ: Sexual Harassment Training
+
+**How do you handle sensitive content without being preachy?**  
+We treat your team like adults who want to do the right thing. The tone is direct, respectful, and educational - not condescending or fear-based. We explain the "why" behind boundaries, which creates genuine understanding.
+
+**Can you customise scenarios for our specific industry?**  
+Absolutely. Office-based scenarios are different from retail, healthcare, construction, or hospitality. We build scenarios that reflect your actual work environment.
+
+**What if we've had a recent incident?**  
+We can build training that addresses specific gaps without calling out individuals. This helps prevent similar situations without creating a blame culture.
+
+**How often should this training be refreshed?**  
+Most organisations do annual refresher training. We recommend updating every 1-2 years to keep scenarios current and reinforce key messages.
+
+**Can managers get different/additional content?**  
+Yes. Managers have additional responsibilities around reporting, responding, and prevention. We can build manager-specific modules or entirely separate courses.
+
+**Will this meet legal compliance requirements?**  
+Yes. We align content with Australian workplace laws and regulations, including the Sex Discrimination Act and Fair Work Act requirements. Tell us your specific compliance needs.
+
+**What about different cultural backgrounds and sensitivities?**  
+Good training acknowledges that people come from different backgrounds while being clear that Australian workplace standards apply to everyone. We handle this with respect and clarity.
+
+---
