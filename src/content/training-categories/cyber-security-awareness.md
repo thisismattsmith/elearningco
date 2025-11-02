@@ -61,44 +61,26 @@ Every module ends with "here's what to do right now" - not theoretical concepts,
 
 ---
 
-## Why Custom Cyber Security Training Matters
+## Here's Why Customised Cyber Security Training Matters
 
 ### Generic Training Fails Because:
+
 - It treats everyone like they're identical
 - It focuses on outdated threats (remember when we worried about USBs?)
 - It doesn't reflect how your team actually works
 - It's boring, so people tune out
 - There's no connection to your organisation's specific risks
 
+
 ### Custom Training Works Because:
+
 - Your team sees themselves in the scenarios
 - The threats feel real and immediate
 - The solutions are practical for your environment
 - It's engaging enough that people actually remember it
 - You can measure real behaviour change, not just completion rates
 
+
 **The ROI:** One prevented ransomware attack pays for itself thousands of times over. One employee who reports a phishing attempt instead of clicking could save your entire operation.
-
----
-
-## Example Cyber Security Course Structure
-
-**Module 1: The Human Firewall**  
-Why you're the first line of defence (and why that's actually empowering)
-
-**Module 2: Email Is Weaponised**  
-Real phishing examples, decision-making practice, what to look for
-
-**Module 3: Passwords & Access**  
-The password manager conversation, MFA without the pain, account security
-
-**Module 4: Your Devices, Your Responsibility**  
-Mobile, laptop, and home office security that doesn't feel like paranoia
-
-**Module 5: When Things Go Wrong**  
-Incident response, reporting process, no-blame culture
-
-**Interactive Assessment:**  
-Scenario-based quiz using realistic examples from your industry
 
 ---
