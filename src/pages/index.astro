@@ -211,6 +211,13 @@ import Layout from '../components/layout/Layout.astro';
 </Layout>
 
 <style>
+  /* Import Work Sans for this page and apply to all headings */
+  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap');
+
+  :global(h1, h2, h3, h4, h5, h6) {
+    font-family: 'Work Sans', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
   /* Variables */
   :root {
     --bg-primary: #0a0a0f;
