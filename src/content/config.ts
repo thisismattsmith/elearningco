@@ -13,7 +13,7 @@ const blog = defineCollection({
       'Compliance & Risk',
       'Onboarding & Culture',
       'Skills Development',
-      'Operational Training',
+      'Operational & Technical',
       'eLearning Best Practices',
       'Industry Insights'
     ]),
