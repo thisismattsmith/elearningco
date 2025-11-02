@@ -1,110 +1,136 @@
 ---
-title: "Workplace Health & Safety"
-description: "Professional WHS training courses that meet Australian compliance requirements and actually engage your team."
-category: "Compliance & Risk"
-icon: "🛡️"
+title: "Process & Procedure Training"
+description: "Process training that ensures consistency and quality. Embed your processes so work gets done right, every time."
+category: "Operational & Technical"
+icon: "⚙️"
 topics:
-  - "Hazard identification and risk assessment"
-  - "Personal protective equipment (PPE) requirements"
-  - "Emergency procedures and evacuation protocols"
-  - "Incident reporting and investigation"
-  - "Manual handling and ergonomics"
-  - "Chemical safety and SDS management"
-  - "Contractor and visitor safety induction"
-  - "Safety leadership and culture"
-  - "Work at heights safety procedures"
-  - "Confined space entry requirements"
-tier1Example: "We have a complete WHS induction script with all our site-specific procedures documented and approved. We just need it built into an engaging online format."
-tier2Example: "We have PowerPoint presentations from our classroom WHS training and our safety manual. We need these converted into an effective eLearning course."
-tier3Example: "We know what safety topics our team needs to cover based on our risk assessment, but we need you to interview our safety officer and create the entire course."
+  - "Process overview and purpose"
+  - "Step-by-step instructions"
+  - "Decision points and branching"
+  - "Quality standards and checkpoints"
+  - "Common mistakes prevention"
+  - "Exception handling"
+  - "Documentation requirements"
+  - "Escalation and support"
+  - "Tools and systems used"
+  - "Safety considerations"
+  - "Regulatory requirements"
+  - "Quality checks and verification"
+  - "Handoffs and communication"
+  - "Troubleshooting"
+  - "Continuous improvement"
+tier1Example: "We have detailed SOPs documented. We need these turned into engaging training that people will actually follow and remember."
+tier2Example: "We have process documentation but it's text-heavy. We need visual, step-by-step training that makes procedures clear."
+tier3Example: "Our processes aren't followed consistently. We need training that helps people understand why procedures exist and how to apply them."
 commonMistakes:
-  - "Making WHS training boring and checkbox-focused instead of engaging and practical"
-  - "Using generic content that doesn't reflect your actual workplace hazards"
-  - "Failing to update training when procedures or equipment changes"
-  - "Not including real scenarios and examples from your industry"
-  - "Overwhelming learners with too much information in one course"
+  - "Just reading procedure documents instead of teaching"
+  - "Not explaining why steps matter"
+  - "Missing decision points and exception handling"
+  - "Not showing common mistakes proactively"
+  - "Making it boring instead of practical"
 bestPractices:
-  - "Focus on practical application, not just compliance"
-  - "Use real workplace photos and scenarios"
-  - "Keep modules short and focused (15-20 minutes max)"
-  - "Include interactive decision-making scenarios"
-  - "Regular updates to reflect workplace changes"
+  - "Explain the why behind every step"
+  - "Use visual process maps and flowcharts"
+  - "Address common mistakes before they happen"
+  - "Show decision logic, not just steps"
+  - "Include 'people don't follow because...' prevention"
 ---
 
-## Why Custom WHS Training Matters
+# Process Training That Ensures Consistency and Quality
 
-Workplace health and safety training isn't just about ticking compliance boxes—it's about keeping your team safe and creating a culture where safety is genuinely valued. Generic off-the-shelf WHS courses can't address your specific workplace hazards, equipment, or procedures.
+You have documented processes. But people don't follow them. 
 
-### The Problem with Generic WHS Training
+Why?
 
-Most organisations start with generic WHS training because it's quick and affordable. But there are significant limitations:
+It's not because they're lazy or careless.
 
-- **Not workplace-specific:** Generic courses can't cover your specific equipment, processes, or site hazards
-- **Low engagement:** Workers tune out content that doesn't feel relevant to their actual job
-- **Compliance gaps:** May not meet your specific industry regulations or organisational policies
-- **No local context:** Often uses international examples that don't reflect Australian standards
+**Reason 1:** They don't understand why the process exists
 
-### Benefits of Custom WHS Training
+"This seems like unnecessary paperwork" → skipped steps → quality issues
 
-When you invest in custom WHS eLearning, you get training that:
+**Reason 2:** The process seems illogical to them
 
-1. **Reflects Your Actual Workplace**
-   - Uses photos of your actual equipment and work areas
-   - Addresses your specific hazards and control measures
-   - Includes your emergency procedures and evacuation routes
-   - References your actual PPE requirements
+"This doesn't make sense" → shortcuts → compliance failures
 
-2. **Meets Your Compliance Obligations**
-   - Covers relevant Australian WHS legislation
-   - Addresses industry-specific regulations
-   - Includes your organisational policies and procedures
-   - Provides proper documentation for audits
+**Reason 3:** They weren't properly trained
 
-3. **Actually Engages Your Workers**
-   - Scenarios based on real workplace situations
-   - Interactive decision-making activities
-   - Relevant examples that resonate with your team
-   - Practical tips they can apply immediately
+"I wasn't shown this" → invented approach → inconsistent results
 
-4. **Scales Across Your Organisation**
-   - Consistent training for all sites
-   - Easy to update when procedures change
-   - Tracks completion and assessment results
-   - Reduces time away from work (vs. classroom training)
+**Reason 4:** The process doesn't handle exceptions
 
-### Common WHS Training Topics We Develop
+"My situation is different" → workaround → process breakdown
 
-We've developed WHS courses covering:
+**Reason 5:** Following the process is hard/confusing
 
-- **General WHS Inductions:** Site-specific induction for new workers and contractors
-- **Hazard Identification:** Teaching workers to spot and report hazards
-- **Manual Handling:** Proper lifting techniques and ergonomic practices
-- **Chemical Safety:** SDS management and hazardous substance handling
-- **Work at Heights:** Fall prevention and working safely at elevation
-- **Confined Spaces:** Entry procedures and atmospheric testing
-- **Emergency Response:** Evacuation, first aid, and incident management
-- **PPE Training:** Selection, use, and maintenance of protective equipment
+"This is too complicated" → simplified version → missing critical steps
+The solution isn't better enforcement. It's better training.
 
-### Making WHS Training Effective
+## The Problem With Most Process Training
 
-The most effective WHS training:
+Most process training is just documented procedures:
 
-- **Starts with real scenarios:** "You're about to start work and notice..."
-- **Makes consequences clear:** Without being preachy or fear-mongering
-- **Provides practical solutions:** Not just "don't do this" but "here's what to do instead"
-- **Tests understanding:** With scenario-based assessments, not just knowledge recall
-- **Reinforces culture:** Emphasizing that safety is everyone's responsibility
+"Here's the PDF. Follow these steps. Here's the checklist. Let us know if you have questions."
 
-### Investment in Safety
+Then people do the work and:
 
-Custom WHS training is an investment in your most valuable asset—your people. The cost of a WHS incident (injury, lost time, workers' comp claims, reputational damage) far outweighs the cost of proper training.
+- Don't follow the process because they don't understand why it matters
+- Skip steps because they seem unnecessary
+- Create shortcuts that break quality
+- Can't remember the sequence without constantly checking
+- Make mistakes at decision points
+- Don't know what to do when things don't go as planned
 
-At $5,500-$10,500 for a custom course, you're getting professional training that:
-- Reduces workplace incidents and near-misses
-- Improves safety culture and worker engagement
-- Provides defensible evidence of proper training for regulators
-- Scales across your entire workforce without ongoing costs
+**Documentation isn't training. Understanding enables compliance.**
 
-### Ready to Get Started?
+## Our Approach: Process Training That Sticks
 
-Whether you need a general WHS induction or specialized safety training, we can help. Our 3-week delivery timeline means you can have professional, compliant training up and running quickly—not in 3-6 months like traditional agencies.
+We build process training that creates genuine understanding:
+
+### The Why Behind the How
+
+Not just "do step 3" but "here's why step 3 matters and what breaks if you skip it." 
+*Understanding creates buy-in.*
+
+## Decision Points Explained
+
+Processes have branches - if this happens, do that. If that happens, do this. We teach the logic, not just the checklist.
+
+## Common Mistakes Prevented
+
+What typically goes wrong? Where do people usually mess up? We address errors proactively.
+
+## Realistic Scenarios
+
+Not ideal conditions - real situations with complications, exceptions, and problem-solving required.
+
+## Visual Process Maps
+
+Written procedures are hard to follow. We use flowcharts, diagrams, and visual aids that make process logic clear.
+
+---
+
+## Why Custom Process Training Matters
+
+### Generic Process Training Fails Because:
+
+- Not your specific processes
+- Doesn't explain why steps matter
+- Missing your decision logic
+- Doesn't address your common errors
+- Not contexualised to your quality standards
+
+### Custom Process Training Works Because:
+
+- Your exact processes documented
+- Why behind how creates understanding
+- Decision logic clearly explained
+- Your common mistakes addressed proactively
+- Quality standards embedded throughout
+
+## The ROI of procedural/process eLearning 
+
+Higher process compliance. Better quality outcomes. Fewer errors and rework. Reduced supervision needs. Faster new hire competence. Consistent execution regardless of who does the work. Maintained standards.
+
+When people understand processes, they follow them. When they don't, they invent alternatives.
+
+We build understanding.

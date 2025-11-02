@@ -37,20 +37,6 @@ A lot of sexual harassment training is uncomfortable, ineffective, and quickly f
 
 ---
 
-## What You Get Section
-
-**Your Custom Sexual Harassment Prevention Course Includes:**
-
-- Custom training course in Articulate Rise or Storyline
-- 3-week delivery timeline from kickoff to final course
-- 30-45 minutes of meaningful learning content
-- Scenario-based learning that builds real understanding
-- SCORM-compliant for any LMS platform
-- Unlimited revisions during development
-- Source files provided so you own everything
-
----
-
 ## The Problem With Most Sexual Harassment Training
 
 Let's address the elephant in the room: most sexual harassment training doesn't work.
@@ -129,7 +115,7 @@ Your course will be customised, but most Australian organisations need:
 
 ---
 
-## Unique Marketing Angle: "The Grey Areas Are Where Culture Lives"
+## "The Grey Areas Are Where Culture Lives"
 
 Most people know the extreme examples are wrong. The challenge is the grey areas:
 
@@ -144,30 +130,5 @@ Most people know the extreme examples are wrong. The challenge is the grey areas
 Our training focuses here. Not on the obvious violations everyone already knows are wrong, but on the nuanced situations where people genuinely aren't sure. That's where real learning happens.
 
 We help your team develop better judgment, not just memorise rules.
-
----
-
-## FAQ: Sexual Harassment Training
-
-**How do you handle sensitive content without being preachy?**  
-We treat your team like adults who want to do the right thing. The tone is direct, respectful, and educational - not condescending or fear-based. We explain the "why" behind boundaries, which creates genuine understanding.
-
-**Can you customise scenarios for our specific industry?**  
-Absolutely. Office-based scenarios are different from retail, healthcare, construction, or hospitality. We build scenarios that reflect your actual work environment.
-
-**What if we've had a recent incident?**  
-We can build training that addresses specific gaps without calling out individuals. This helps prevent similar situations without creating a blame culture.
-
-**How often should this training be refreshed?**  
-Most organisations do annual refresher training. We recommend updating every 1-2 years to keep scenarios current and reinforce key messages.
-
-**Can managers get different/additional content?**  
-Yes. Managers have additional responsibilities around reporting, responding, and prevention. We can build manager-specific modules or entirely separate courses.
-
-**Will this meet legal compliance requirements?**  
-Yes. We align content with Australian workplace laws and regulations, including the Sex Discrimination Act and Fair Work Act requirements. Tell us your specific compliance needs.
-
-**What about different cultural backgrounds and sensitivities?**  
-Good training acknowledges that people come from different backgrounds while being clear that Australian workplace standards apply to everyone. We handle this with respect and clarity.
 
 ---
