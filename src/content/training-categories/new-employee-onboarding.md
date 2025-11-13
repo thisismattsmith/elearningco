@@ -32,4 +32,62 @@ bestPractices:
   - "Make it a reference resource, not one-time content"
 ---
 
-fhghfg
+## The Problem With Most Onboarding
+
+Most new employees spend their first week drowning in information they'll never remember.
+
+They sit through:
+
+- Hours of policy readings
+- System demonstrations they can't follow without access
+- Generic presentations about "our values"
+- Death by PDF and handbook
+
+The result? Day one enthusiasm turns into confusion and anxiety. They don't know who to ask for help, where to find anything, or what's actually expected of them.
+And you've just wasted your chance to make a great first impression.
+
+## Our Approach: Welcome Them Properly
+
+We build onboarding that actually helps new employees succeed:
+
+### Culture, Not Just Compliance
+
+Yes, they need to know policies. But they also need to understand how things really work here. The unwritten rules, the team dynamics, who to ask for what, how decisions get made.
+
+### Practical, Not Theoretical
+
+Not "here's our organisational structure" - but "here's who you'll actually work with and what they do." Not "we value collaboration" - but "here's how we collaborate: tools, meetings, communication norms."
+
+### Welcoming, Not Overwhelming
+
+Information delivered in digestible chunks, with personality and warmth. New employees should feel excited to join, not intimidated by everything they don't know yet.
+
+### Just-In-Time Information
+
+Not everything on day one. The course can be structured so people get information when they need it: first day, first week, first month, first 90 days.
+
+### Connections, Not Just Content
+
+Who are the key people? What do teams do? How do I fit in? We help new employees build their mental map of the organisation.
+
+## Why Custom Onboarding Training Matters
+
+Generic Onboarding Fails Because:
+
+- It's a compliance dump, not a welcome
+- New employees can't tell what's actually important
+- Your unique culture gets lost in policy language
+- There's no sense of who you are as an organisation
+- Information overload kills enthusiasm
+
+Custom Onboarding Works Because:
+
+- It reflects your actual culture and how work happens
+- New employees feel welcomed, not processed
+- They get the information they need, when they need it
+- Your employer brand comes to life
+- People feel confident and connected faster
+
+## The ROI
+
+Faster time to productivity. Higher retention (people stay when onboarding is good). Better cultural fit. Reduced manager time answering basic questions. New employees who feel like they belong from day one.
