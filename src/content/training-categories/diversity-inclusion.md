@@ -36,4 +36,63 @@ bestPractices:
   - "Include intersectionality and multiple identities"
 ---
 
-fdhfg
+## The Problem With Most D&I Training
+
+Let's be honest about what usually happens with diversity and inclusion training...
+
+Everyone sits through a course that:
+
+- Lists protected categories and legal definitions
+- Warns about what not to say or do
+- Feels like HR covering the organisation legally
+- Creates more anxiety than understanding
+- Leaves people walking on eggshells
+
+The result? People become cautious and performative instead of genuinely inclusive. They know what not to do, but not what to do. Conversations become careful rather than authentic.
+And the people who need to feel included? They still don't.
+
+## Our Approach: Understanding Before Rules
+
+We build D&I training that actually changes workplace culture:
+
+### Start With Why It Matters
+
+Not because it's the law. Because diverse teams make better decisions. Because excluding talent is expensive. Because everyone deserves to do their best work without fighting their environment.
+
+### Build Empathy, Not Just Awareness
+
+Understanding what it's like to be the only woman in the room. The only person with a disability. The only person who doesn't celebrate Christmas. The only person over 50. Perspective creates change.
+
+### Practical Micro-Actions
+
+Not vague goals like "be more inclusive" but specific behaviours: How do you interrupt a biased comment? How do you make meetings more accessible? How do you pronounce names you're unfamiliar with? What questions should you not ask?
+
+### Psychological Safety
+
+People need to feel safe asking genuine questions and making mistakes. We create space for learning, not just finger-pointing.
+
+### Your Culture, Your Context
+
+Your industry, your location, your demographic reality. D&I in mining looks different than D&I in tech. Rural Australia has different challenges than Sydney. We tailor accordingly.
+
+## Why Custom D&I Training Matters
+
+Generic D&I Training Fails Because:
+
+- It feels like legal compliance, not genuine care
+- Scenarios don't reflect your actual workplace
+- It ignores your industry's specific challenges
+- The tone is either preachy or overly cautious
+- People don't see themselves or their experiences in it
+
+Custom D&I Training Works Because:
+
+- Scenarios feel real and relevant to your people
+- It acknowledges your starting point honestly
+- Industry-specific challenges are addressed
+- The tone respects intelligence while challenging assumptions
+- People see practical application, not abstract ideals
+
+## The ROI
+
+Better talent attraction and retention. Improved innovation and decision-making. Reduced HR complaints and legal risk. Higher engagement from diverse team members. Reputation as an employer of choice. Access to wider talent pools.
