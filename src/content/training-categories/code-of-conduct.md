@@ -39,8 +39,11 @@ bestPractices:
 ## Most code of conduct training works like this:
 
 Show the code of conduct document. 
+
 Read through the policies. 
+
 Explain what not to do. Test comprehension. 
+
 Done.
 
 Your team now knows:
@@ -49,6 +52,7 @@ Your team now knows:
 - Where to find it (they'll never look)
 - The rules in abstract terms
 - They're supposed to "behave ethically"
+
 
 But they don't know:
 
@@ -83,9 +87,10 @@ The code only works if people feel safe raising concerns. We address psychologic
 
 What does good look like? Bad? We tell the story of your values through realistic examples that resonate.
 
-## Why Custom Code of Conduct Training Matters
+## Here's Why Custom Code of Conduct Training Matters
 
 ### Generic Code Training Fails Because:
+
 
 - It treats all codes as identical
 - Scenarios don't reflect your workplace reality
@@ -94,6 +99,7 @@ What does good look like? Bad? We tell the story of your values through realisti
 - It's a compliance exercise, not culture-building
 
 ### Custom Code Training Works Because:
+
 
 - Your specific code and values drive content
 - Scenarios feel real and relevant to daily decisions
