@@ -35,3 +35,67 @@ bestPractices:
   - "Show your actual products/services and policies"
 ---
 
+## The Problem With Most Customer Service Training
+
+Most customer service training sounds like this:
+
+*"Always greet the customer with a smile. Be friendly and professional. Listen actively. Solve their problem. Thank them for their business."*
+
+Great advice. Completely useless.
+
+Because here's what actually happens:
+
+- The customer is already angry before you say hello
+- The problem isn't one you can actually solve
+- They're demanding something against policy
+- You've got five other customers waiting
+- The system is down and you have no answers
+- They're taking their frustration out on you personally
+
+Generic training teaches the easy situations. *Real training* prepares people for the hard ones.
+
+## Our Approach: Real Customers, Real Problems, Real Skills
+
+We build customer service training around the situations that actually challenge your team:
+
+### Your Actual Customer Base
+
+Not generic "customers" - your specific customers with their specific needs, frustrations, and expectations. Retail customers are different from B2B clients. Healthcare patients need different handling than telecom subscribers.
+
+### The Difficult Situations
+
+Angry customers. Unreasonable demands. Policy conflicts. Service failures. When you can't give them what they want. When they ask for a manager. When they threaten to leave. This is where training matters.
+
+### Judgment, Not Scripts
+
+Scripts break the moment reality diverges from the template. We teach decision-making frameworks: when to bend rules, when to hold boundaries, when to escalate, how to recover from mistakes.
+
+### Emotional Intelligence
+
+Reading frustration levels. Recognising when someone needs empathy vs when they need solutions. De-escalation techniques that actually work. Managing your own stress when customers are difficult.
+
+### Your Brand Voice
+
+Customer service should reflect your brand. Formal or casual? Efficient or chatty? Empowered or by-the-book? We match your organisational style.
+
+## Why Custom Customer Service eLearning Matters
+
+Generic Service Training Fails Because:
+
+- Scenarios don't match your actual customers
+- It teaches ideal situations, not difficult realities
+- Your policies and constraints aren't reflected
+- The brand voice doesn't match your culture
+- There's no practice handling the truly challenging moments
+
+Custom Service Training Works Because:
+
+- Your team sees the exact situations they face daily
+- Scenarios include your policies, products, and processes
+- It builds judgment for the grey areas
+- The language and approach match your brand
+- People practice the hard conversations, not just the easy ones
+
+## The ROI
+
+Higher customer retention. Reduced complaints and escalations. Fewer refunds and service failures. Lower staff turnover (burnout from difficult customers). Improved reviews and reputation. Customers who become advocates, not detractors.
