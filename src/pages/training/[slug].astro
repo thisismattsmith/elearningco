@@ -203,7 +203,7 @@ const { Content } = await category.render();
         </div>
 
         <div class="faq-item">
-          <h3>Can you customize the content for our organisation?</h3>
+          <h3>Can you customise the content for our organisation?</h3>
           <p>Absolutely! All our courses are custom-built for your specific needs, policies, and procedures. We incorporate your branding, terminology, and examples.</p>
         </div>
 
@@ -248,7 +248,7 @@ const { Content } = await category.render();
 <style>
   /* Hero */
   .category-hero {
-    padding: 120px 0 80px;
+    padding: 120px 120px 80px;
     background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     position: relative;
     overflow: hidden;
@@ -289,13 +289,14 @@ const { Content } = await category.render();
     font-weight: 800;
     margin-bottom: 20px;
     letter-spacing: -0.02em;
+    max-width: 800px;
   }
 
   .page-subtitle {
     font-size: 1.25rem;
     color: var(--text-secondary);
     margin-bottom: 32px;
-    max-width: 800px;
+    max-width: 600px;
   }
 
   .hero-cta {
@@ -610,13 +611,37 @@ const { Content } = await category.render();
     margin-bottom: 16px;
   }
 
+  .content-wrapper :global(h3) {
+    color: var(--text-primary);
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  .content-wrapper :global(ul) {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    padding-left:16px;
+  }
+
+  .content-wrapper :global(ol) {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    padding-left:16px;
+  }
+
+  .content-wrapper :global(li) {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    margin-left:16px;
+  }
+
   .content-wrapper :global(p) {
     margin-bottom: 20px;
   }
 
   /* Mistakes */
   .mistakes-section {
-    padding: 80px 0;
+    padding: 80px 80px;
     background: var(--bg-primary);
     margin-left: 40px;
     margin-right: 40px;
