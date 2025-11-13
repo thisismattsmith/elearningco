@@ -34,4 +34,76 @@ bestPractices:
   - "Include the 'that's just how they are' normalisation pattern"
 ---
 
-dfbdfb
+## The Problem With Most Bullying Training
+
+Most workplace bullying training follows a predictable pattern:
+
+Define bullying.
+
+List examples. 
+
+Explain it's not okay. 
+
+Show the reporting process. 
+
+Tell people not to do it.
+
+...
+
+Then *reality* happens:
+
+- Someone's "tough management style" creates fear and resentment
+- A colleague's "jokes" consistently target the same person
+- Power imbalances make people afraid to speak up
+- Behaviour sits in the grey area between firm and abusive
+- Witnesses stay silent because "it's not my business"
+- Targets don't report because they fear not being believed or facing retaliation
+
+Generic training defines bullying. 
+
+**Real training changes behaviour.**
+
+## Our Approach: Recognition, Response, Prevention
+
+We build bullying prevention training that addresses reality:
+
+### The Grey Areas
+
+Not just obvious bullying (everyone knows assault and overt threats are wrong). The subtle patterns: exclusion, undermining, public criticism, workload manipulation, credit-stealing. The behaviours people excuse or miss.
+
+### Power Dynamics
+
+Bullying often involves power imbalances - manager to staff, experienced to junior, dominant group to marginalised person. We address how power complicates recognition and response.
+
+### Bystander Action
+
+Most bullying has witnesses. We teach people how to intervene safely, support targets, and challenge behaviour without escalating.
+
+### Distinguishing Firm from Harmful
+Performance management, direct feedback, and accountability aren't bullying. We help people distinguish between appropriate leadership and abusive behaviour.
+
+### Building Prevention Culture
+Training one-time doesn't prevent bullying. We focus on building psychological safety, respectful norms, and accountability that persists.
+
+## Why Custom Bullying Prevention Training Matters
+
+Generic Bullying Training Fails Because:
+
+- Scenarios don't match your workplace dynamics
+- Industry-specific power structures aren't addressed
+- Your policies and processes aren't reflected
+- Cultural context is missing
+- It's preachy rather than practical
+
+
+Custom Bullying Training Works Because:
+
+- Scenarios feel real and relevant to your environment
+- Industry and organisational context is embedded
+- Your reporting processes and protections are clear
+- People learn what to do, not just what not to do
+- Training addresses your specific cultural challenges
+
+## The ROI
+
+Reduced turnover (people leave toxic environments). Fewer compensation claims. Improved morale and productivity. Protected psychological safety. Legal compliance. Early intervention before situations escalate. Reputation as respectful employer.
