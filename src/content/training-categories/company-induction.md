@@ -34,3 +34,66 @@ bestPractices:
   - "Make it a reference people can return to when stuck"
   - "Include the practical stuff: where's the bathroom, where do I park"
 ---
+
+## The Problem With Most Company Inductions
+
+Most company inductions follow this pattern:
+
+New starter arrives. Gets shown around. Handed a stack of forms. Someone mentions the WiFi password. Supervisor is busy so they sit waiting. Eventually they watch outdated videos. Safety talk happens but nothing sticks. First week is confusion.
+
+The result:
+
+- New starters don't know where anything is
+- They're asking questions about things they should already know
+- They're not productive for weeks
+- They don't understand critical safety requirements
+- Nobody has time to properly induct them
+- Bad habits form because proper processes weren't explained
+
+Your induction should solve this. *Most don't.*
+
+## Our Approach: Operational and Ready
+
+We build company induction training that gets people working properly:
+
+### Site-Specific Information
+
+Not generic workplace orientation. Your specific site layout, facilities, emergency procedures, access requirements. New starters know where to go and what to do.
+
+### Essential Safety
+
+The critical safety information that must be understood before someone starts work. Hazards, controls, emergency procedures, reporting. Compliance met, safety established.
+
+### Your Systems & Processes
+
+How work actually happens here. Your equipment, your software, your workflows, your documentation. The practical knowledge that makes someone functional.
+
+### Who's Who
+
+Key people, teams, reporting lines. Who to ask for what. How to escalate issues. Building the mental map of your organisation.
+
+### Industry-Appropriate
+
+Construction site induction is different from office induction, which differs from healthcare facility induction. We build for your operational reality.
+
+## Why Custom Company Induction Matters
+
+Generic Induction Training Fails Because:
+
+- It's not site-specific
+- Your safety requirements aren't covered
+- Systems and processes aren't explained
+- It doesn't reflect your operational reality
+- New starters still ask the same questions
+
+Custom Induction Training Works Because:
+
+- Site-specific information is accurate and visual
+- Your critical safety requirements are front and centre
+- Systems, equipment, and processes are documented
+- New starters can reference it when confused
+- Reduces supervisor time spent answering basic questions
+
+## The ROI
+
+Faster productivity. Reduced safety incidents with new starters. Less supervisor time on basic orientation. Consistent induction regardless of site supervisor availability. Compliance met systematically. Reduced early-tenure turnover from confusion.
