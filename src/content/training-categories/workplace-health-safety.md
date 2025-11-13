@@ -44,7 +44,8 @@ Most organisations start with generic WHS training because it's quick and afford
 - **Compliance gaps:** May not meet your specific industry regulations or organisational policies
 - **No local context:** Often uses international examples that don't reflect Australian standards
 
-### Benefits of Custom WHS Training
+
+## The Benefits of Custom WHS Training
 
 When you invest in custom WHS eLearning, you get training that:
 
