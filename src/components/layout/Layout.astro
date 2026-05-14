@@ -1,5 +1,7 @@
 ---
 // src/components/layout/Layout.astro
+import '../../styles/global.css';
+
 interface Props {
   title: string;
   description: string;
@@ -16,12 +18,12 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={title} />
@@ -29,28 +31,34 @@ const { title, description } = Astro.props;
 
     <!-- Sitemap -->
     <link rel="sitemap" href="/sitemap-index.xml" />
-    
-    <!-- Google Font: Work Sans (applies to headings) -->
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
+    <!-- Fonts: Archivo Black (display), Inter (workhorse), JetBrains Mono (meta) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
     <title>{title}</title>
   </head>
   <body>
     <header class="site-header">
       <nav class="nav-container">
         <div class="nav-content">
-          <a href="/" class="logo">
-            <span class="logo-text">The eLearning Company</span>
+          <a href="/" class="logo" aria-label="The eLearning Company — home">
+            <span class="logo-mark" aria-hidden="true"></span>
+            <span class="logo-text">The eLearning Co.</span>
           </a>
-          
+
           <div class="nav-links">
             <a href="/pricing">Pricing</a>
-            <a href="/about">How It Works</a>
+            <a href="/about">How it works</a>
             <a href="/blog">Blog</a>
-            <a href="/contact" class="nav-cta">Get a Quote</a>
+            <a href="/contact" class="nav-cta">Get a quote</a>
           </div>
 
-          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
@@ -67,38 +75,54 @@ const { title, description } = Astro.props;
       <div class="footer-container">
         <div class="footer-grid">
           <div class="footer-col">
-            <h3 class="footer-brand">The eLearning Company</h3>
-            <p class="footer-tagline">Custom eLearning in 3 weeks. Transparent pricing. Zero drama.</p>
+            <div class="footer-brand">The eLearning Co.</div>
+            <p class="footer-tagline">
+              Effective eLearning, delivered. Based in Australia.
+            </p>
           </div>
 
           <div class="footer-col">
             <h4>Services</h4>
             <ul>
               <li><a href="/pricing">Pricing</a></li>
-              <li><a href="/about">How It Works</a></li>
-              <li><a href="/training">Training Categories</a></li>
+              <li><a href="/about">How it works</a></li>
+              <li><a href="/training">Training categories</a></li>
             </ul>
           </div>
 
           <div class="footer-col">
             <h4>Company</h4>
             <ul>
-              <li><a href="/about">About Us</a></li>
+              <li><a href="/about">About us</a></li>
               <li><a href="/blog">Blog</a></li>
               <li><a href="/contact">Contact</a></li>
             </ul>
           </div>
 
           <div class="footer-col">
-            <h4>Get Started</h4>
+            <h4>Get started</h4>
             <p class="footer-cta-text">Ready to build your eLearning course?</p>
-            <a href="/contact" class="footer-cta-btn">Get a Quote</a>
+            <a href="/contact" class="footer-cta-btn">Get a quote</a>
           </div>
+        </div>
+
+        <div class="footer-locations">
+          <p class="footer-locations-text">
+            We can help you create eLearning in
+            <a href="/locations/melbourne">Melbourne</a>,
+            <a href="/locations/sydney">Sydney</a>,
+            <a href="/locations/canberra">Canberra</a>,
+            <a href="/locations/adelaide">Adelaide</a>,
+            <a href="/locations/perth">Perth</a>,
+            <a href="/locations/brisbane">Brisbane</a>, and
+            <a href="/locations/hobart">Hobart</a>.
+            We also work virtually and flexibly across all regions.
+          </p>
         </div>
 
         <div class="footer-bottom">
           <p>&copy; {new Date().getFullYear()} The eLearning Company. All rights reserved.</p>
-          <p class="footer-disclaimer">All prices in AUD + GST</p>
+          <p class="meta">All prices in AUD + GST</p>
         </div>
       </div>
     </footer>
@@ -107,334 +131,25 @@ const { title, description } = Astro.props;
       // Mobile menu toggle
       const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
       const navLinks = document.querySelector('.nav-links');
-      
+
       mobileMenuToggle?.addEventListener('click', () => {
-        navLinks?.classList.toggle('active');
+        const isActive = navLinks?.classList.toggle('active');
         mobileMenuToggle.classList.toggle('active');
+        mobileMenuToggle.setAttribute('aria-expanded', String(!!isActive));
       });
 
       // Close mobile menu when clicking outside
       document.addEventListener('click', (e) => {
-        if (!e.target.closest('.nav-content')) {
+        const target = e.target as HTMLElement | null;
+        if (target && !target.closest('.nav-content')) {
           navLinks?.classList.remove('active');
           mobileMenuToggle?.classList.remove('active');
+          mobileMenuToggle?.setAttribute('aria-expanded', 'false');
         }
       });
     </script>
+
     <!-- 100% privacy-first analytics -->
-<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
   </body>
 </html>
-
-<style is:global>
-  /* Reset & Base Styles */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  :root {
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #121218;
-    --bg-tertiary: #1a1a24;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0b2;
-    --accent-primary: #6366f1;
-    --accent-secondary: #8b5cf6;
-    --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-    --border-color: #2a2a3a;
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* Apply Work Sans to all headings */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Work Sans', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  }
-
-  /* Header Styles */
-  .site-header {
-    background: rgba(10, 10, 15, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-  }
-
-  .logo {
-    text-decoration: none;
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--text-primary);
-    transition: opacity 0.2s ease;
-  }
-
-  .logo:hover {
-    opacity: 0.8;
-  }
-
-  .logo-text {
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-family: Work Sans, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    align-items: center;
-  }
-
-  .nav-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.2s ease;
-  }
-
-  .nav-links a:hover {
-    color: var(--text-primary);
-  }
-
-  .nav-cta {
-    background: var(--accent-gradient);
-    color: white !important;
-    padding: 10px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .nav-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
-  }
-
-  /* Mobile Menu Toggle */
-  .mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-  }
-
-  .mobile-menu-toggle span {
-    width: 24px;
-    height: 2px;
-    background: var(--text-primary);
-    transition: all 0.3s ease;
-    border-radius: 2px;
-  }
-
-  .mobile-menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-  }
-
-  .mobile-menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .mobile-menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-  }
-
-  /* Footer Styles */
-  .site-footer {
-    background: var(--bg-secondary);
-    border-top: 1px solid var(--border-color);
-    padding: 80px 0 40px;
-    margin-top: 100px;
-  }
-
-  .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 48px;
-    margin-bottom: 60px;
-  }
-
-  .footer-col h3 {
-    font-size: 1.5rem;
-    margin-bottom: 12px;
-    font-weight: 800;
-  }
-
-  .footer-col h4 {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-    color: var(--text-primary);
-  }
-
-  .footer-brand {
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .footer-tagline {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-top: 12px;
-  }
-
-  .footer-col ul {
-    list-style: none;
-  }
-
-  .footer-col ul li {
-    margin-bottom: 12px;
-  }
-
-  .footer-col ul li a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .footer-col ul li a:hover {
-    color: var(--text-primary);
-  }
-
-  .footer-cta-text {
-    color: var(--text-secondary);
-    margin-bottom: 16px;
-    font-size: 0.95rem;
-  }
-
-  .footer-cta-btn {
-    display: inline-block;
-    background: var(--accent-gradient);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .footer-cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
-  }
-
-  .footer-bottom {
-    padding-top: 40px;
-    border-top: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-  }
-
-  .footer-disclaimer {
-    font-size: 0.875rem;
-  }
-
-  /* Responsive Design */
-  @media (max-width: 1024px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .mobile-menu-toggle {
-      display: flex;
-    }
-
-    .nav-links {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--bg-secondary);
-      flex-direction: column;
-      padding: 24px;
-      gap: 20px;
-      border-bottom: 1px solid var(--border-color);
-      display: none;
-    }
-
-    .nav-links.active {
-      display: flex;
-    }
-
-    .nav-links a {
-      width: 100%;
-      text-align: center;
-      padding: 12px;
-    }
-
-    .nav-cta {
-      width: 100%;
-    }
-
-    .footer-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-
-    .footer-bottom {
-      flex-direction: column;
-      gap: 12px;
-      text-align: center;
-    }
-  }
-
-  /* Smooth Scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Selection */
-  ::selection {
-    background: var(--accent-primary);
-    color: white;
-  }
-
-  ::-moz-selection {
-    background: var(--accent-primary);
-    color: white;
-  }

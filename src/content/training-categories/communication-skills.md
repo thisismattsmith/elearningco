@@ -1,6 +1,7 @@
 ---
 title: "Communication Skills"
 description: "Communication training that improves how your team actually works together. Real conversations, practical skills, better collaboration."
+intro: "Communication skills training works best when it focuses on the conversations your team actually struggles with—pushing back on senior stakeholders, asking for what you need, having difficult conversations with peers. Generic content teaches communication theory. Custom training builds the specific muscle your people need for the work they actually do."
 category: "Skills Development"
 icon: "💬"
 topics:

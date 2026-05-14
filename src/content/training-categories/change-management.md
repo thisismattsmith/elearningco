@@ -1,6 +1,7 @@
 ---
 title: "Change Management"
 description: "Change management training that reduces resistance and drives adoption. Help your people understand, adapt, and commit."
+intro: "Change management training is about helping your team move through transitions well—a new system, a restructure, a strategic shift. Custom training is built around your specific change, the concerns your people actually have, and the practical steps that help adoption stick. Generic change-management theory can't do that work for you."
 category: "Skills Development"
 icon: "🔄"
 topics:

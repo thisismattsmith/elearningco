@@ -1,6 +1,7 @@
 ---
 title: "Quality Management Systems"
 description: "QMS training that embeds quality culture. Make quality management practical, not bureaucratic."
+intro: "Quality management training only matters when your team understands how quality shows up in their specific work—the inspections, the documentation, the moments where shortcuts become defects. Custom training is built around your standards, your processes, and the quality decisions your team actually makes. Generic ISO content can't replace knowing your own system."
 category: "Operational & Technical"
 icon: "✅"
 topics:

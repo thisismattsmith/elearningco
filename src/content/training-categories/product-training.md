@@ -1,6 +1,7 @@
 ---
 title: "Product Training"
 description: "Product training that turns your team into confident advocates. Deep knowledge, practical application, customer conversations."
+intro: "Product training only works when it reflects how your product actually behaves—the features customers love, the edge cases that trip people up, the questions sales gets asked over and over. Generic product training can't possibly know any of that. Custom training is built around your product, your customer, and the moments your team needs to be confident."
 category: "Operational & Technical"
 icon: "📦"
 topics:

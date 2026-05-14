@@ -1,6 +1,7 @@
 ---
 title: "Leadership Development"
 description: "Leadership training that creates leaders people actually want to follow. Real challenges, practical skills, genuine capability."
+intro: "Leadership development that changes behaviour is grounded in the real challenges your managers face—giving difficult feedback, holding people accountable, leading through change. Generic leadership content stays at the level of principles. Custom training works through your specific situations, your organisational dynamics, and the practical decisions managers make week to week."
 category: "Skills Development"
 icon: "⭐"
 topics:

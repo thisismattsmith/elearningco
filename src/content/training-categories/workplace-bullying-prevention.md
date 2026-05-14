@@ -1,6 +1,7 @@
 ---
 title: "Workplace Bullying Prevention"
 description: "Bullying prevention training that actually changes behaviour. Recognise harm, respond effectively, build respectful workplaces."
+intro: "Workplace bullying prevention training is about more than defining the term. It's about helping managers spot patterns, supporting people who experience harm, and giving bystanders the confidence to act. Custom training reflects your industry, your reporting channels, and the kinds of situations that actually happen in your workplace."
 category: "Compliance & Risk"
 icon: "🛡️"
 topics:

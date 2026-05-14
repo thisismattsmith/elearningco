@@ -1,6 +1,7 @@
 ---
 title: "New Employee Onboarding"
 description: "Onboarding that turns new hires into contributors fast. Culture, connections, and confidence from day one."
+intro: "First impressions stick. A new employee's onboarding shapes how they feel about your company for years—how welcome they feel, how clearly they understand their role, and how quickly they can start doing meaningful work. Generic onboarding tries to cover everyone with the same content. Custom onboarding reflects your business, your team, and the specific role a new starter is stepping into."
 category: "Onboarding & Culture"
 icon: "👋"
 topics:

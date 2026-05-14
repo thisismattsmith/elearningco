@@ -1,6 +1,7 @@
 ---
 title: "Sexual Harassment Prevention"
 description: "Sexual harassment training that creates actual culture change. Move beyond compliance to genuine understanding and respect."
+intro: "Effective sexual harassment prevention training isn't a tickbox exercise that staff click through to satisfy compliance. It teaches your people to recognise behaviour, support each other, and act with confidence when something isn't right. Generic courses don't reflect your industry, your reporting channels, or the realities of your workplace—custom training does."
 category: "Compliance & Risk"
 icon: "🗣️"
 topics:

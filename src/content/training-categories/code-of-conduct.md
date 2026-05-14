@@ -1,6 +1,7 @@
 ---
 title: "Code of Conduct Training"
 description: "Code of conduct training that makes your values actionable. Transform policy into lived behaviour and ethical decision-making."
+intro: "A code of conduct only does its job if people understand what it means in practice. Custom code of conduct training translates your organisation's values into the specific situations your team encounters—conflicts of interest, respect at work, speaking up. Generic content can't capture what makes your culture different."
 category: "Compliance & Risk"
 icon: "📜"
 topics:

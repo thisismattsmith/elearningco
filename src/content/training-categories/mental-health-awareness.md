@@ -1,6 +1,7 @@
 ---
 title: "Mental Health Awareness"
 description: "Mental health training that creates supportive workplaces. Recognise struggles, start conversations, know when to get help."
+intro: "Mental health awareness training that lands is about more than reciting statistics or listing warning signs. It gives your team the language to talk about wellbeing, the confidence to check in with each other, and clarity on where to go for support. Custom training reflects your industry's pressures, your workplace's culture, and the specific support pathways available to your people."
 category: "Onboarding & Culture"
 icon: "🧠"
 topics:

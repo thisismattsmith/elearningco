@@ -1,6 +1,7 @@
 ---
 title: "Sales Training & Enablement"
 description: "Sales training that closes deals, not just covers theory. Real objections, tough conversations, competitive situations."
+intro: "Sales training that lands is built around your product, your buyer, and your sales process—not a generic methodology applied to everyone. Custom training reflects how your team actually wins deals, the objections they actually face, and the conversations they actually have. Your salespeople don't need another five-step framework. They need the framework that works for what you sell."
 category: "Skills Development"
 icon: "📈"
 topics:

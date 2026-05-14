@@ -1,6 +1,7 @@
 ---
 title: "Conflict Resolution"
 description: "Conflict resolution training that addresses problems, not just symptoms. Navigate disagreement productively, address tension early."
+intro: "Conflict at work is normal. Handled well, it leads to better decisions and stronger relationships. Handled badly, it corrodes trust and performance. Custom conflict resolution training is built around the actual disagreements that arise in your workplace—not abstract examples—and gives your team practical language for the moments that matter most."
 category: "Skills Development"
 icon: "🤝"
 topics:

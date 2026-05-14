@@ -3,34 +3,53 @@
 import Layout from '../components/layout/Layout.astro';
 ---
 
-<Layout 
+<Layout
   title="Thank You | The eLearning Company"
   description="Thank you for your enquiry. We'll be in touch within 24 hours."
 >
-  <section class="thank-you-section">
+  <section class="section section--yellow thank-you-section">
     <div class="container">
-      <div class="thank-you-card">
-        <div class="checkmark">✓</div>
-        <h1>Thank You!</h1>
-        <p class="lead">We've received your enquiry and will get back to you within 24 hours.</p>
-        
-        <div class="next-steps">
-          <h3>What Happens Next:</h3>
-          <ol>
-            <li>We'll review your project details</li>
-            <li>We'll email you to schedule a quick 15-minute call</li>
-            <li>You'll receive a fixed-price quote with clear timelines</li>
+      <div class="thank-you-content">
+        <span class="pill-meta confirmation-pill">
+          <span class="confirmation-mark" aria-hidden="true">✓</span>
+          Received
+        </span>
+
+        <h1 class="display display-xl thank-you-title">
+          <span class="accent-teal">Thanks.</span><br />
+          We'll be in touch soon.
+        </h1>
+
+        <p class="lede thank-you-lede">
+          We've received your enquiry and will get back to you within 24 hours.
+        </p>
+
+        <div class="next-steps-card">
+          <span class="meta next-steps-label">What happens next</span>
+          <ol class="next-steps-list">
+            <li>
+              <span class="step-num">01</span>
+              <span>We'll review your project details.</span>
+            </li>
+            <li>
+              <span class="step-num">02</span>
+              <span>We'll email you to schedule a quick 15-minute call.</span>
+            </li>
+            <li>
+              <span class="step-num">03</span>
+              <span>You'll receive a fixed-price quote with clear timelines.</span>
+            </li>
           </ol>
         </div>
 
-        <div class="cta-buttons">
-          <a href="/" class="btn-primary">Back to Home</a>
-          <a href="/pricing" class="btn-secondary">View Pricing</a>
+        <div class="thank-you-actions">
+          <a href="/" class="btn btn--primary">Back to home</a>
+          <a href="/pricing" class="btn btn--secondary">View pricing</a>
         </div>
 
-        <div class="contact-info">
-          <p>Need to reach us urgently?</p>
-          <p><strong>Email:</strong> contact@elearningcompany.net</p>
+        <div class="urgent-contact">
+          <span class="meta urgent-label">Need to reach us urgently?</span>
+          <a href="mailto:contact@elearningcompany.net" class="urgent-email">contact@elearningcompany.net</a>
         </div>
       </div>
     </div>
@@ -38,143 +57,129 @@ import Layout from '../components/layout/Layout.astro';
 </Layout>
 
 <style>
+  /* ============================================================
+     Page-specific styles only.
+     ============================================================ */
+
   .thank-you-section {
-    min-height: 70vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
+    padding-top: clamp(64px, 8vw, 100px);
+    padding-bottom: clamp(64px, 8vw, 100px);
+  }
+
+  .thank-you-content {
+    max-width: 800px;
+  }
+
+  /* Confirmation pill — distinct from regular pill-meta because it has an icon */
+  .confirmation-pill {
+    margin-bottom: 32px;
+    background: var(--c-ink);
+    color: var(--c-paper);
+    padding: 6px 14px 6px 8px;
+    gap: 8px;
+  }
+  .confirmation-mark {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    padding: 100px 24px;
-    background: var(--bg-primary);
-  }
-
-  .thank-you-card {
-    background: var(--bg-tertiary);
-    border: 2px solid var(--accent-primary);
-    border-radius: 24px;
-    padding: 80px 60px;
-    text-align: center;
-    max-width: 700px;
-  }
-
-  .checkmark {
-    width: 80px;
-    height: 80px;
-    background: var(--accent-gradient);
-    color: white;
+    width: 18px;
+    height: 18px;
+    background: var(--c-paper);
+    color: var(--c-ink);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    margin: 0 auto 32px;
+    font-size: 11px;
     font-weight: 700;
+    font-family: var(--font-sans);
+    line-height: 1;
   }
 
-  h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 20px;
+  .thank-you-title {
+    margin-bottom: 32px;
+    max-width: 800px;
   }
 
-  .lead {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    margin-bottom: 40px;
+  .thank-you-lede {
+    margin-bottom: 48px;
+    max-width: 580px;
   }
 
-  .next-steps {
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid var(--accent-primary);
-    border-radius: 16px;
+  /* Next steps card */
+  .next-steps-card {
+    background: var(--c-paper);
+    border: 1px solid rgba(21, 25, 46, 0.08);
+    border-radius: var(--r-lg);
     padding: 32px;
     margin-bottom: 40px;
-    text-align: left;
+    max-width: 640px;
   }
-
-  .next-steps h3 {
-    font-size: 1.25rem;
+  .next-steps-label {
+    display: block;
+    color: var(--c-ink-muted);
     margin-bottom: 20px;
-    font-weight: 700;
-    text-align: center;
   }
-
-  .next-steps ol {
-    margin-left: 24px;
+  .next-steps-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
   }
-
-  .next-steps li {
-    color: var(--text-secondary);
-    margin-bottom: 12px;
-    line-height: 1.6;
-  }
-
-  .cta-buttons {
+  .next-steps-list li {
     display: flex;
     gap: 16px;
-    justify-content: center;
-    margin-bottom: 40px;
+    align-items: flex-start;
+    color: var(--c-ink);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--c-ink-muted);
+    flex-shrink: 0;
+    padding-top: 4px;
+    min-width: 22px;
   }
 
-  .btn-primary,
-  .btn-secondary {
-    display: inline-block;
-    padding: 14px 32px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: all 0.3s ease;
+  /* Actions */
+  .thank-you-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
   }
 
-  .btn-primary {
-    background: var(--accent-gradient);
-    color: white;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
-  }
-
-  .btn-secondary {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    border: 2px solid var(--border-color);
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--accent-primary);
-  }
-
-  .contact-info {
+  /* Urgent contact */
+  .urgent-contact {
     padding-top: 32px;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid rgba(21, 25, 46, 0.15);
   }
-
-  .contact-info p {
-    color: var(--text-secondary);
+  .urgent-label {
+    display: block;
+    color: var(--c-ink-muted);
     margin-bottom: 8px;
   }
-
-  .contact-info strong {
-    color: var(--accent-primary);
+  .urgent-email {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    color: var(--c-ink);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    font-weight: 500;
+  }
+  .urgent-email:hover {
+    color: var(--c-blue);
   }
 
-  @media (max-width: 768px) {
-    .thank-you-card {
-      padding: 60px 32px;
-    }
-
-    h1 {
-      font-size: 2rem;
-    }
-
-    .cta-buttons {
-      flex-direction: column;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      width: 100%;
-    }
+  /* ---- Responsive ---- */
+  @media (max-width: 600px) {
+    .thank-you-actions .btn { width: 100%; }
+    .next-steps-card { padding: 24px; }
   }
 </style>

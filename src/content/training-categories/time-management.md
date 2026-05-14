@@ -1,6 +1,7 @@
 ---
 title: "Time Management & Productivity"
 description: "Time management training that actually increases output. Prioritisation, focus, workload management when everything feels urgent."
+intro: "Time management training that sticks isn't a productivity system you bolt on. It's about how your team makes choices when there's more work than time—what gets priority, what gets pushed, what gets said no to. Custom training reflects your specific workload, your team's actual constraints, and the decisions your people face every day."
 category: "Skills Development"
 icon: "⏰"
 topics:

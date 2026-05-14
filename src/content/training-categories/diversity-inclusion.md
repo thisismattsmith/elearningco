@@ -1,6 +1,7 @@
 ---
 title: "Diversity & Inclusion"
 description: "D&I training that creates actual belonging. Move beyond awareness to understanding, practical skills, and inclusive culture."
+intro: "Diversity and inclusion training only works when it speaks to the realities of your workplace. Off-the-shelf content stays at the level of definitions and theory. Custom training brings in your team's actual experiences, your industry's specific dynamics, and the everyday situations where inclusion gets practiced—or doesn't. It builds shared understanding, not just shared vocabulary."
 category: "Onboarding & Culture"
 icon: "🌈"
 topics:

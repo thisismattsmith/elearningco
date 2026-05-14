@@ -1,6 +1,7 @@
 ---
 title: "Anti-Bribery & Corruption"
 description: "Anti-bribery training that protects your organisation and your people. Navigate grey areas, resist pressure, compete ethically."
+intro: "Anti-bribery and corruption training works when it's grounded in real situations your team will actually face—a supplier offering hospitality during a tender, a request to speed up an approval, a payment that doesn't quite add up. Generic courses describe theoretical scenarios. Custom training reflects your industry, your jurisdictions, and the choices your people will actually need to make."
 category: "Compliance & Risk"
 icon: "⚖️"
 topics:

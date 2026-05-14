@@ -1,6 +1,7 @@
 ---
 title: "Emergency Response Procedures"
 description: "Emergency response training that prepares your team for crisis. Build muscle memory so your team responds, not panics."
+intro: "Emergency response training only works if your team can act fast under pressure—and that requires practice on your specific procedures, in your specific environment. Generic content teaches general principles. Custom training rehearses your actual evacuation routes, your specific muster points, and the exact steps your people need to take when seconds matter."
 category: "Operational & Technical"
 icon: "🚨"
 topics:

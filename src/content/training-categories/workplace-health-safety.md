@@ -1,6 +1,7 @@
 ---
 title: "Workplace Health & Safety"
 description: "Professional WHS training courses that meet Australian compliance requirements and actually engage your team."
+intro: "Workplace health and safety training isn't just about ticking compliance boxes—it's about keeping your team safe and creating a culture where safety is genuinely valued. Generic off-the-shelf WHS courses can't address your specific workplace hazards, equipment, or procedures."
 category: "Compliance & Risk"
 icon: "🛡️"
 topics:

@@ -1,0 +1,625 @@
+/* ============================================================
+   The eLearning Company — global styles
+   ============================================================
+   Imported once by Layout.astro. Defines:
+   1. Design tokens (CSS custom properties)
+   2. Reset & base typography
+   3. Layout primitives (container, section, sectioned bg variants)
+   4. Site chrome (header, footer)
+   5. Component utilities (buttons, pills, cards, meta-mono, highlight)
+   6. Responsive rules
+   Per-page <style> blocks should only contain page-specific layout.
+   ============================================================ */
+
+/* ----------  1. TOKENS  ---------- */
+:root {
+  /* Bold section colours — each has a role */
+  --c-lilac:      #C8B6FF;  /* Hero & marketing moments */
+  --c-yellow:     #F5D547;  /* Pricing & value moments */
+  --c-turquoise:  #7EE8DA;  /* Process & how-it-works */
+  --c-navy:       #15192E;  /* Proof, blog, dark sections */
+
+  /* Deeper variants for borders, hovers, on-color text where needed */
+  --c-lilac-deep:     #A48BFF;
+  --c-yellow-deep:    #D9B72A;
+  --c-turquoise-deep: #4FC9B7;
+
+  /* Subdued tints for cards, hovers, soft surfaces */
+  --c-lilac-tint:     #F0EAFF;
+  --c-yellow-tint:    #FBF1C7;
+  --c-turquoise-tint: #D8F5EF;
+
+  /* Neutrals — warm, not stark */
+  --c-paper:       #FAF8F3;  /* default page bg */
+  --c-paper-deep:  #F1EDE2;  /* subdued surface */
+  --c-ink:         #15192E;  /* near-black, same as navy */
+  --c-ink-soft:    #2D3147;
+  --c-ink-muted:   #5B5F7A;
+
+  /* Accent blues — verified WCAG */
+  --c-blue:        #1E3A8A;  /* on light backgrounds */
+  --c-blue-light:  #BFDBFE;  /* on navy only */
+  --c-teal:        #0F4C5C;  /* secondary dark accent for yellow sections */
+
+  /* Type */
+  --font-display: 'Archivo Black', 'Helvetica Neue Condensed Black', Impact, sans-serif;
+  --font-sans:    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Scale & rhythm */
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 12px;
+  --r-pill: 999px;
+
+  --section-pad: clamp(72px, 9vw, 120px);
+  --container: 1200px;
+  --gutter: clamp(24px, 4vw, 48px);
+}
+
+/* ----------  2. RESET & BASE  ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--c-paper);
+  color: var(--c-ink);
+  line-height: 1.6;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: var(--c-ink); color: var(--c-paper); }
+
+img, svg { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+/* ----------  3. TYPOGRAPHY  ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--c-ink);
+}
+
+/* Display headlines use Archivo Black, uppercase, tight */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400; /* Archivo Black is already heavy */
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.display-xl { font-size: clamp(48px, 9vw, 128px); }
+.display-lg { font-size: clamp(40px, 6vw, 80px); }
+.display-md { font-size: clamp(32px, 4vw, 56px); }
+
+/* Workhorse headings — for section titles, FAQ, card titles */
+.heading-xl { font-size: clamp(36px, 4vw, 56px); font-weight: 700; }
+.heading-lg { font-size: clamp(28px, 3vw, 40px); font-weight: 600; }
+.heading-md { font-size: clamp(22px, 2.2vw, 28px); font-weight: 600; }
+.heading-sm { font-size: 20px; font-weight: 600; }
+
+.lede {
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.55;
+  color: var(--c-ink-soft);
+  max-width: 640px;
+}
+
+.muted { color: var(--c-ink-muted); }
+
+/* Meta-mono — small caps utility text for metadata only */
+.meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* ----------  4. LAYOUT PRIMITIVES  ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section {
+  padding: var(--section-pad) 0;
+  position: relative;
+}
+
+/* Section background variants — each represents one of the roles */
+.section--paper      { background: var(--c-paper); color: var(--c-ink); }
+.section--paper-deep { background: var(--c-paper-deep); color: var(--c-ink); }
+.section--lilac      { background: var(--c-lilac); color: var(--c-ink); }
+.section--yellow     { background: var(--c-yellow); color: var(--c-ink); }
+.section--turquoise  { background: var(--c-turquoise); color: var(--c-ink); }
+.section--navy       { background: var(--c-navy); color: var(--c-paper); }
+
+/* When a section is on navy, override heading colors so they stay light */
+.section--navy h1,
+.section--navy h2,
+.section--navy h3,
+.section--navy h4 {
+  color: var(--c-paper);
+}
+.section--navy .lede,
+.section--navy .muted {
+  color: rgba(250, 248, 243, 0.75);
+}
+
+/* Hairline divider between sections (use sparingly) */
+.rule {
+  border: none;
+  height: 1px;
+  background: rgba(21, 25, 46, 0.08);
+}
+
+/* ----------  5. SITE CHROME — header  ---------- */
+.site-header {
+  background: var(--c-paper);
+  border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo {
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--c-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo .logo-mark {
+  width: 24px;
+  height: 24px;
+  background: var(--c-lilac);
+  border-radius: var(--r-sm);
+  display: inline-block;
+}
+
+.logo:hover { opacity: 0.7; }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--c-ink);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: opacity 0.15s ease;
+}
+
+.nav-links a:hover { opacity: 0.6; }
+
+.nav-links a.nav-cta {
+  background: var(--c-ink);
+  color: var(--c-paper);
+  padding: 10px 18px;
+  border-radius: var(--r-md);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s ease;
+}
+
+.nav-links a.nav-cta:hover {
+  background: var(--c-blue);
+  opacity: 1;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-menu-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--c-ink);
+  transition: all 0.25s ease;
+  border-radius: 2px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 7px); }
+.mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+.mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -7px); }
+
+/* ----------  5. SITE CHROME — footer  ---------- */
+.site-footer {
+  background: var(--c-navy);
+  color: var(--c-paper);
+  padding: 80px 0 32px;
+}
+
+.footer-container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 48px;
+  margin-bottom: 64px;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+  color: var(--c-paper);
+}
+
+.footer-tagline {
+  color: rgba(250, 248, 243, 0.7);
+  line-height: 1.6;
+  font-size: 15px;
+  max-width: 320px;
+}
+
+.footer-col h4 {
+  font-size: 13px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  color: rgba(250, 248, 243, 0.55);
+}
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a {
+  color: var(--c-paper);
+  text-decoration: none;
+  font-size: 15px;
+  transition: opacity 0.15s ease;
+}
+.footer-col ul li a:hover { opacity: 0.65; }
+
+.footer-cta-text {
+  color: rgba(250, 248, 243, 0.7);
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.footer-cta-btn {
+  display: inline-block;
+  background: var(--c-lilac);
+  color: var(--c-ink);
+  padding: 12px 20px;
+  border-radius: var(--r-md);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background 0.15s ease;
+}
+
+.footer-cta-btn:hover { background: var(--c-paper); }
+
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid rgba(250, 248, 243, 0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(250, 248, 243, 0.55);
+}
+
+.footer-locations {
+  padding-top: 32px;
+  padding-bottom: 28px;
+  border-top: 1px solid rgba(250, 248, 243, 0.12);
+}
+.footer-locations-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(250, 248, 243, 0.7);
+  max-width: 900px;
+}
+.footer-locations-text a {
+  color: var(--c-paper);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(250, 248, 243, 0.25);
+  font-weight: 500;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.footer-locations-text a:hover {
+  color: var(--c-lilac);
+  border-bottom-color: var(--c-lilac);
+}
+
+.footer-locations + .footer-bottom {
+  border-top: none;
+  padding-top: 0;
+}
+
+.footer-bottom .meta { font-size: 12px; }
+
+/* ----------  6. COMPONENTS — buttons  ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 15px;
+  padding: 14px 24px;
+  border-radius: var(--r-md);
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn--primary {
+  background: var(--c-ink);
+  color: var(--c-paper);
+  border-color: var(--c-ink);
+}
+.btn--primary:hover { background: var(--c-blue); border-color: var(--c-blue); }
+
+.btn--secondary {
+  background: transparent;
+  color: var(--c-ink);
+  border-color: var(--c-ink);
+}
+.btn--secondary:hover { background: var(--c-ink); color: var(--c-paper); }
+
+/* On navy backgrounds, secondary buttons invert */
+.section--navy .btn--secondary {
+  color: var(--c-paper);
+  border-color: var(--c-paper);
+}
+.section--navy .btn--secondary:hover {
+  background: var(--c-paper);
+  color: var(--c-ink);
+}
+
+.btn--accent {
+  background: var(--c-yellow);
+  color: var(--c-ink);
+  border-color: var(--c-yellow);
+}
+.btn--accent:hover {
+  background: var(--c-yellow-deep);
+  border-color: var(--c-yellow-deep);
+}
+
+/* ----------  6. COMPONENTS — pills  ---------- */
+/* Small pill — meta-mono kicker, sits above headlines */
+.pill-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--c-ink);
+  color: var(--c-paper);
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.pill-meta--yellow { background: var(--c-yellow); color: var(--c-ink); }
+.pill-meta--lilac  { background: var(--c-lilac); color: var(--c-ink); }
+
+/* Large value pill — loud, sits next to or below headlines */
+.pill-value {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  background: var(--c-yellow);
+  color: var(--c-ink);
+  padding: 18px 28px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 32px);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.pill-value .pill-suffix {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+/* ----------  6. COMPONENTS — cards  ---------- */
+/* Label-above-value cards, from the dark-section reference */
+.card {
+  padding: 24px 24px 28px;
+  border-radius: var(--r-md);
+  background: var(--c-paper-deep);
+  color: var(--c-ink);
+  border: 1px solid rgba(21, 25, 46, 0.06);
+}
+
+.card .card-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+  color: var(--c-ink-muted);
+}
+
+.card .card-value {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+/* Card variant for navy backgrounds */
+.section--navy .card {
+  background: rgba(250, 248, 243, 0.05);
+  border-color: rgba(250, 248, 243, 0.1);
+  color: var(--c-paper);
+}
+.section--navy .card .card-label { color: rgba(250, 248, 243, 0.55); }
+
+/* Card variant — content card (FAQ, value props) */
+.content-card {
+  background: var(--c-paper);
+  color: var(--c-ink);
+  border: 1px solid rgba(21, 25, 46, 0.08);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.content-card:hover {
+  border-color: var(--c-ink);
+}
+
+.section--navy .content-card {
+  background: rgba(250, 248, 243, 0.05);
+  border-color: rgba(250, 248, 243, 0.12);
+  color: var(--c-paper);
+}
+
+/* ----------  6. COMPONENTS — highlight swipe  ---------- */
+/* Robust across line wraps thanks to box-decoration-break */
+.mark {
+  background-color: var(--c-yellow);
+  background-image: linear-gradient(transparent 14%, var(--c-yellow) 14%, var(--c-yellow) 86%, transparent 86%);
+  padding: 0 6px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.mark--turquoise {
+  background-color: var(--c-turquoise);
+  background-image: linear-gradient(transparent 14%, var(--c-turquoise) 14%, var(--c-turquoise) 86%, transparent 86%);
+}
+
+/* On navy backgrounds, highlight is lilac */
+.section--navy .mark,
+.mark--lilac {
+  background-color: var(--c-lilac);
+  background-image: linear-gradient(transparent 14%, var(--c-lilac) 14%, var(--c-lilac) 86%, transparent 86%);
+  color: var(--c-ink);
+}
+
+/* ----------  6. COMPONENTS — accent text  ---------- */
+.accent-blue { color: var(--c-blue); }
+.section--navy .accent-blue { color: var(--c-blue-light); }
+
+/* On lilac, yellow, turquoise sections, accent blue is dark blue */
+.section--lilac .accent-blue,
+.section--yellow .accent-blue,
+.section--turquoise .accent-blue,
+.section--paper .accent-blue,
+.section--paper-deep .accent-blue {
+  color: var(--c-blue);
+}
+
+/* Teal accent — used on yellow sections where blue reads as competing */
+.accent-teal { color: var(--c-teal); }
+
+/* ----------  6. COMPONENTS — section kicker  ---------- */
+/* Small label above section titles ("01 / How it works") */
+.section-kicker {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--c-ink-muted);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.section--navy .section-kicker { color: rgba(250, 248, 243, 0.6); }
+
+/* ----------  7. RESPONSIVE  ---------- */
+@media (max-width: 900px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+  .nav-links.active a:not(.nav-cta) { display: block; }
+
+  .mobile-menu-toggle { display: flex; }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--c-paper);
+    flex-direction: column;
+    padding: 24px var(--gutter);
+    gap: 18px;
+    align-items: stretch;
+    border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+    display: none;
+  }
+  .nav-links.active { display: flex; }
+  .nav-links a {
+    text-align: center;
+    padding: 12px 0;
+    font-size: 17px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}

@@ -1,6 +1,7 @@
 ---
 title: "Remote Work Best Practices"
 description: "Remote work training that builds high-performing distributed teams. Communication, collaboration, productivity, connection."
+intro: "Remote and hybrid work has changed how teams operate, and the skills that make it work aren't intuitive—they're learned. Custom training reflects how your team actually works, the tools you use, and the specific challenges of your context. Generic content can't address the unwritten norms that make collaboration feel easy or difficult in your particular workplace."
 category: "Onboarding & Culture"
 icon: "💻"
 topics:

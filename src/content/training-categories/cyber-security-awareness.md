@@ -1,6 +1,7 @@
 ---
 title: "Cyber Security Awareness"
 description: "Cyber security training that changes behaviour, not just awareness. Real threats, real scenarios, practical protection."
+intro: "Your people are the front line of your cyber security. Phishing emails get more convincing every month, deepfake voices have started impersonating executives, and a single careless click can compromise an entire organisation. Generic awareness training treats every workforce the same. Custom training reflects the actual threats your team faces and the systems they use."
 category: "Compliance & Risk"
 icon: "🔐"
 topics:

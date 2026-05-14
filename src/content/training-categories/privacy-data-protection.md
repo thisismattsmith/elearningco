@@ -1,6 +1,7 @@
 ---
 title: "Privacy & Data Protection"
 description: "Privacy training that makes data protection second nature. Turn complex regulations into practical daily habits."
+intro: "Privacy isn't only a legal obligation under the Australian Privacy Principles—it's an everyday decision about how your team handles personal information. Most data breaches start with a small human error, not a sophisticated attack. Custom privacy training builds the everyday habits that keep customer and employee data protected."
 category: "Compliance & Risk"
 icon: "🔒"
 topics:

@@ -1,6 +1,7 @@
 ---
 title: "Company Induction Programmes"
 description: "Company induction that gets new starters productive fast. Essential operational knowledge, site-specific safety, your systems."
+intro: "Company inductions are the moment new starters meet your culture for the first time. They're learning who you are, how decisions get made, and where they fit in. Generic induction content treats every workplace the same. Custom inductions tell your story in your voice—the history that matters, the values that show up in daily work, and the people they'll actually be collaborating with."
 category: "Onboarding & Culture"
 icon: "🏢"
 topics:

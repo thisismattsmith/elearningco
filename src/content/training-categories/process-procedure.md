@@ -1,6 +1,7 @@
 ---
 title: "Process & Procedure Training"
 description: "Process training that ensures consistency and quality. Embed your processes so work gets done right, every time."
+intro: "Process and procedure training works when it reflects how the work actually happens—not the version in a manual that's been outdated for two years. Custom training captures the current process, the decisions people actually make, and the steps that genuinely matter. It gets new starters competent quickly and gives existing staff a single source of truth."
 category: "Operational & Technical"
 icon: "⚙️"
 topics:

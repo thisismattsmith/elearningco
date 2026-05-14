@@ -1,6 +1,7 @@
 ---
 title: "Software/System Training"
 description: "Software training that gets your team actually using the system. Workflow-focused, practical, adoption-driving."
+intro: "Software and system training that lands isn't a generic walkthrough of features. It's task-focused: 'here's how to do the thing you actually do.' Custom training is built around your real workflows, your specific configuration, and the steps your team takes every day. Generic vendor training shows you the software. Custom training shows you how your team uses it."
 category: "Operational & Technical"
 icon: "💻"
 topics:

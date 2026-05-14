@@ -13,178 +13,1488 @@ export async function getStaticPaths() {
 
 const { category } = Astro.props;
 const { Content } = await category.render();
+
+// Mockup content per category. Each entry gives the browser mockup
+// realistic, category-specific content. Falls back to topic[0] if a
+// category isn't explicitly mapped (the page still renders correctly).
+type MockupQuestion = {
+  number: number;
+  question: string;
+  prompt: string;
+  options: string[];
+};
+
+type MockupCompletion = {
+  heading: string;
+  subheading: string;
+  cta: string;
+  // Element id within the page to scroll to when CTA is clicked
+  ctaTarget: string;
+};
+
+type MockupSlide = {
+  moduleLabel: string;
+  timeLeft: string;
+  progressPercent: number;
+  totalQuestions: number;
+  // Initial visible question (shown server-side)
+  question: string;
+  prompt: string;
+  options: string[];
+  startQuestionNumber: number;
+  // Optional follow-up questions cycled by Continue clicks
+  additionalQuestions?: MockupQuestion[];
+  // Optional completion screen after the final question
+  completion?: MockupCompletion;
+};
+
+const mockupBySlug: Record<string, MockupSlide> = {
+  'workplace-health-safety': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Identifying workplace hazards',
+    prompt: 'Walk through your workspace. Which of these everyday hazards have you spotted in the last week?',
+    options: [
+      'Cables across walkways',
+      'Boxes stacked above shoulder height',
+      'Equipment blocking emergency exits',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Assessing risk',
+        prompt: 'A trolley is parked across a fire exit during a busy shift. Which of these would you do?',
+        options: [
+          'Move the trolley yourself if safe to do so',
+          'Log the issue in the safety register',
+          'Tell your supervisor before leaving the area',
+        ],
+      },
+      {
+        number: 5,
+        question: 'After spotting a hazard',
+        prompt: 'You notice a frayed power cable on shared equipment. What happens next?',
+        options: [
+          'Tag the equipment as out of service',
+          'Report it through your incident reporting process',
+          'Keep using it carefully until end of shift',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Psychosocial safety",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'sexual-harassment-prevention': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Recognising the behaviour',
+    prompt: "A colleague keeps making 'jokes' about another team member's appearance, even after they've asked them to stop. Which of these describes what's happening?",
+    options: [
+      'Sexual harassment, regardless of intent',
+      'A workplace conflict between two people',
+      'Something the team member needs to address themselves',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'If you witness it',
+        prompt: "You see something at work that doesn't feel right but you're not the target. What can you do?",
+        options: [
+          'Check in privately with the person being targeted',
+          'Document what you saw with dates and details',
+          'Raise it with HR or a manager you trust',
+        ],
+      },
+      {
+        number: 5,
+        question: 'Making a report',
+        prompt: 'Someone you manage tells you they want to make a complaint. What should happen next?',
+        options: [
+          'Listen without judgement and take it seriously',
+          'Explain the formal reporting options available',
+          'Maintain confidentiality and avoid investigating yourself',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Bystander action",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'cyber-security-awareness': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Spotting a phishing email',
+    prompt: "You receive an email from 'IT Support' asking you to verify your password via a link. Which of these are red flags?",
+    options: [
+      'Urgency or pressure to act immediately',
+      'A sender address that looks slightly off',
+      'A request you would not normally receive by email',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Strong passwords',
+        prompt: 'Which of these are habits of a secure password?',
+        options: [
+          'A long passphrase rather than a short complex string',
+          'A different password for every important account',
+          'Stored in a password manager, not written down',
+        ],
+      },
+      {
+        number: 5,
+        question: 'If something goes wrong',
+        prompt: 'You clicked a suspicious link and entered your credentials. What now?',
+        options: [
+          'Change your password immediately from another device',
+          'Notify your IT team straight away',
+          'Watch for unusual activity on your accounts',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Protecting customer data",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'privacy-data-protection': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Handling personal information',
+    prompt: 'A client asks for a list of all the information your organisation holds about them. What applies?',
+    options: [
+      "They have the right to access their own data",
+      "You must respond within the timeframe set by privacy law",
+      "Their identity should be verified before sharing anything",
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Data minimisation',
+        prompt: 'You\'re designing a new form. Which of these reflect good privacy practice?',
+        options: [
+          "Only collect what's necessary for the stated purpose",
+          'Be clear about why each piece of information is needed',
+          "Don't keep data longer than you need it",
+        ],
+      },
+      {
+        number: 5,
+        question: 'Reporting a data breach',
+        prompt: 'Personal information has been accidentally emailed to the wrong recipient. What should happen?',
+        options: [
+          'Contain the breach as quickly as possible',
+          'Assess the risk of serious harm',
+          'Notify your privacy officer without delay',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Working with third parties",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'anti-bribery-corruption': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Recognising a bribe',
+    prompt: 'A supplier offers you tickets to a major sporting event during a tender process. Which of these are concerns?',
+    options: [
+      'The timing — during an active tender',
+      'The value — significantly above token hospitality',
+      'The potential influence on a business decision',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Gifts and hospitality',
+        prompt: "Which of these are reasonable to accept without raising it with your manager?",
+        options: [
+          'A branded notepad at a conference',
+          'Coffee with a long-standing client',
+          'Lunch at a venue you would normally pay for yourself',
+        ],
+      },
+      {
+        number: 5,
+        question: 'If you suspect corruption',
+        prompt: 'A colleague mentions a payment to a government contact to speed up approvals. What now?',
+        options: [
+          'Report it through your whistleblower channel',
+          "Don't get involved in any part of the arrangement",
+          'Document the conversation and the date',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Third-party due diligence",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'code-of-conduct': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Conflicts of interest',
+    prompt: "Your sister-in-law applies for a role you're hiring for. Which of these should you do?",
+    options: [
+      'Disclose the relationship to your manager',
+      'Step aside from the hiring decision',
+      'Let HR run the process independently',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Respect at work',
+        prompt: 'A teammate makes a comment that lands badly with someone else in the meeting. What are reasonable responses?',
+        options: [
+          'Acknowledge the impact, even if the intent was different',
+          "Check in with the person who was affected afterwards",
+          'Raise it with the speaker privately rather than in the moment',
+        ],
+      },
+      {
+        number: 5,
+        question: 'Speaking up',
+        prompt: 'You see a pattern of behaviour that breaches the code. What helps?',
+        options: [
+          'Document specific examples with dates',
+          'Use the formal reporting channel',
+          "Know you can speak up without retaliation",
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Living the values",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'workplace-bullying-prevention': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'What counts as bullying',
+    prompt: 'A manager regularly publicly criticises one team member but not others, over several months. Which of these apply?',
+    options: [
+      "Repeated behaviour, not a one-off incident",
+      'Unreasonable conduct that targets an individual',
+      'A risk to that person\'s health and safety',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Robust feedback vs bullying',
+        prompt: 'A manager gives direct, critical feedback about performance. When does this stay reasonable?',
+        options: [
+          "Focused on the work, not the person",
+          "Delivered privately and respectfully",
+          "Part of a fair performance process",
+        ],
+      },
+      {
+        number: 5,
+        question: 'Supporting someone',
+        prompt: 'A colleague tells you they think they\'re being bullied. What helps in the first conversation?',
+        options: [
+          'Listen without judging or jumping to solutions',
+          'Help them document what\'s been happening',
+          'Make them aware of formal and informal support options',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Bystander action",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'new-employee-onboarding': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Your first week',
+    prompt: "You're three days into a new role. Which of these would help most right now?",
+    options: [
+      'A clear picture of who does what in your team',
+      'Time to read through key documents and tools',
+      'A short conversation with your manager about priorities',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Knowing where to find things',
+        prompt: "You need to find your team's shared documents but you're not sure where they live. What's a good first step?",
+        options: [
+          'Check your onboarding hub or starter portal',
+          'Ask a teammate who has been there a while',
+          'Bring it up in your next manager catch-up',
+        ],
+      },
+      {
+        number: 5,
+        question: 'Asking for help',
+        prompt: "You're stuck on something but worried about looking like you don't know what you're doing. What helps?",
+        options: [
+          'Try for a short time before reaching out',
+          'Frame the question with what you have already tried',
+          'Reach out to your buddy or your manager',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Meeting your team",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'company-induction': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Knowing the values',
+    prompt: 'Our values shape how we make decisions. Which of these is most useful for a new starter to remember?',
+    options: [
+      'The values themselves, in plain language',
+      'A real example of what they look like in practice',
+      "Who to ask if you're not sure how a value applies",
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'How decisions get made',
+        prompt: "You have an idea for improving something but you're not sure how to raise it. Which of these are appropriate?",
+        options: [
+          'Bring it up in your team meeting',
+          'Mention it in your one-on-one with your manager',
+          'Use the internal channel for suggestions',
+        ],
+      },
+      {
+        number: 5,
+        question: 'Knowing the people',
+        prompt: "Beyond your immediate team, who's worth knowing in your first few months?",
+        options: [
+          'The teams you regularly collaborate with',
+          'Your People & Culture contact',
+          'The person responsible for your work area',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: How we work together",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'diversity-inclusion': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Everyday inclusion',
+    prompt: 'In a team meeting, the same few voices dominate every discussion. What helps make space for others?',
+    options: [
+      'Asking quieter team members directly for their thoughts',
+      'Using round-robin formats for important discussions',
+      'Following up in writing after the meeting',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'When something lands wrong',
+        prompt: 'A colleague says something that lands badly with someone else in the room. What can you do as a witness?',
+        options: [
+          'Acknowledge the impact in the moment if appropriate',
+          'Check in privately with the person affected',
+          'Raise it with the speaker afterwards',
+        ],
+      },
+      {
+        number: 5,
+        question: 'Bias in decisions',
+        prompt: "You're shortlisting candidates for a role. Which of these help reduce bias?",
+        options: [
+          'Use the same questions for every candidate',
+          'Score against agreed criteria, not gut feel',
+          'Have more than one person involved in the decision',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Inclusive language",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'mental-health-awareness': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Noticing the signs',
+    prompt: "A colleague who's usually upbeat has been withdrawn and missing meetings for a few weeks. What might be worth doing?",
+    options: [
+      'Check in privately, away from the team',
+      'Lead with a specific observation, not a diagnosis',
+      'Ask what would help, rather than assume',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Looking after yourself',
+        prompt: "You're feeling stretched and finding it hard to switch off. Which of these are reasonable to try?",
+        options: [
+          'Talk to your manager about workload',
+          "Use the support that's available to you (EAP, leave)",
+          'Set a clear stop time and protect it',
+        ],
+      },
+      {
+        number: 5,
+        question: 'When to escalate',
+        prompt: "Someone shares that they're struggling and you're worried about their safety. What's appropriate?",
+        options: [
+          'Stay with them rather than leaving them alone',
+          'Help them connect with professional support',
+          "Tell your manager or People & Culture if there's risk",
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Where to find support",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'remote-work': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Async by default',
+    prompt: "You need a teammate's input but it's not urgent. Which of these are reasonable?",
+    options: [
+      'Send a message with the context they need to reply later',
+      'Use the team channel rather than a direct message',
+      'Suggest a meeting only if writing it out gets long',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Staying visible',
+        prompt: "You're working from home and want your contribution to be seen. What helps without overdoing it?",
+        options: [
+          'Share progress updates in your team channel',
+          'Surface decisions and rationale in writing',
+          'Speak up early in meetings, not only at the end',
+        ],
+      },
+      {
+        number: 5,
+        question: 'Setting boundaries',
+        prompt: 'Work hours are blurring into evenings. Which of these are sustainable?',
+        options: [
+          "Use status updates to signal when you're available",
+          'Mute notifications outside your working hours',
+          'Talk to your manager if expectations feel unclear',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Running great meetings",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'customer-service': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'A frustrated caller',
+    prompt: "A customer is on the line, clearly frustrated about a delay that wasn't your fault. What's the most useful opening?",
+    options: [
+      "Acknowledge the frustration before getting into details",
+      "Confirm what you understand has happened",
+      "Tell them what you can do, not what you can't",
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Recovering a bad experience',
+        prompt: "The product arrived damaged. The customer wants compensation. You can replace it, but not refund. What helps the conversation?",
+        options: [
+          'Lead with the specific action you can take',
+          'Be honest about what you can\'t do, without over-explaining',
+          'Offer one extra thing if the situation warrants it',
+        ],
+      },
+      {
+        number: 5,
+        question: 'When you have to say no',
+        prompt: "A customer is asking for something outside policy. What lands better than 'I can\'t do that'?",
+        options: [
+          'Explain why the policy exists, briefly',
+          "Offer the closest thing you can do",
+          'Acknowledge the inconvenience without apologising for the rule',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Difficult conversations",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'sales-training': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Qualifying the opportunity',
+    prompt: "On a discovery call, the prospect says they're 'exploring options.' What's worth understanding before you spend more time?",
+    options: [
+      "What's driving the search right now",
+      "Who else is involved in the decision",
+      'What success looks like for them',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Handling an objection',
+        prompt: "Late in the process, the buyer says 'It's just more expensive than we expected.' What's a useful first response?",
+        options: [
+          'Ask what they\'re comparing the cost to',
+          "Quantify the value of what they're buying",
+          'Find out what budget constraint they\'re working with',
+        ],
+      },
+      {
+        number: 5,
+        question: 'Asking for the close',
+        prompt: "The conversation has been positive. What makes asking for the decision easier?",
+        options: [
+          'Summarise what you\'ve agreed on so far',
+          'Be specific about what happens next',
+          'Make it easy to say yes — and easy to ask for time',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Running a tight pipeline",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'leadership-development': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Holding the bar',
+    prompt: "One of your team has missed two deadlines this month. Their work is usually solid. What's the right opening for the conversation?",
+    options: [
+      "Lead with what you've noticed, not what you've concluded",
+      "Ask before you assume — there may be context you don't have",
+      "Be clear about the impact, not just the behaviour",
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'A hard piece of feedback',
+        prompt: "You need to tell a senior team member their behaviour in meetings is shutting other people down. What helps the message land?",
+        options: [
+          "Give a specific example, not a pattern claim",
+          'Make it about impact, not personality',
+          'Be direct — softening it makes it easier to dismiss',
+        ],
+      },
+      {
+        number: 5,
+        question: 'Leading through change',
+        prompt: "Your team is about to absorb a significant reorganisation. What do they need from you in the first week?",
+        options: [
+          "Honesty about what you know and don't know",
+          "Space to react before you push for buy-in",
+          "Clarity on what's actually changing for them",
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Coaching conversations",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'communication-skills': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Pushing back well',
+    prompt: "A senior stakeholder is pushing a deadline you don't think is realistic. What lands better than 'that won't work'?",
+    options: [
+      "Spell out what the deadline would cost",
+      "Offer the trade-off — what would have to give",
+      'Propose an alternative that meets the underlying need',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Disagreeing in the room',
+        prompt: "A peer is making a recommendation you don't agree with. The decision is about to be made. What helps?",
+        options: [
+          "Name your concern clearly, not vaguely",
+          'Be specific about what worries you',
+          "Suggest a way to test the disagreement, not win it",
+        ],
+      },
+      {
+        number: 5,
+        question: 'Asking for what you need',
+        prompt: "You need more time, or more help, or both. What makes the ask land?",
+        options: [
+          "State it plainly — don't bury it in caveats",
+          "Be specific about what you need and why",
+          "Make it easy for the other person to say yes",
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Writing for clarity",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'time-management': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'When everything feels urgent',
+    prompt: "It's Monday morning. Four things are 'urgent.' What helps you pick what actually matters first?",
+    options: [
+      "Distinguish urgent from important",
+      "Ask what happens if each one waits a day",
+      "Check who's actually waiting on which one",
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Saying no, well',
+        prompt: "A peer asks for help on something that would derail your week. What's a clean way to decline?",
+        options: [
+          "Say no without over-explaining",
+          "Be honest about your current load",
+          "Offer when you could help, or who else could",
+        ],
+      },
+      {
+        number: 5,
+        question: 'Protecting focus time',
+        prompt: "You need three hours to finish something important. What actually works?",
+        options: [
+          "Block it in your calendar like a meeting",
+          "Mute notifications for the duration",
+          "Tell people what you're doing so they know not to interrupt",
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Working with your calendar",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'conflict-resolution': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Noticing the tension',
+    prompt: "Two people on your team have stopped collaborating well. No incident, just a chill. What helps before it gets worse?",
+    options: [
+      "Talk to each of them separately first",
+      "Ask what's going on, rather than assume",
+      "Decide whether you need to step in or let them work it out",
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'A difficult conversation',
+        prompt: "You're meeting with a colleague to talk through a disagreement. What sets it up to go well?",
+        options: [
+          "Be clear about what you want the conversation to achieve",
+          "Lead with what you've noticed, not what you've decided",
+          "Make space for their version of events",
+        ],
+      },
+      {
+        number: 5,
+        question: 'After the discussion',
+        prompt: "The conversation went better than expected. What helps it actually change things?",
+        options: [
+          "Agree what each of you will do differently",
+          "Decide when you'll check in on how it's going",
+          "Don't pretend it never happened",
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Mediating between others",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'feedback-performance': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Talking about under-performance',
+    prompt: "Someone on your team is consistently missing the mark on a key part of their role. What sets up a useful first conversation?",
+    options: [
+      "Be specific about what's not landing, with examples",
+      "Ask what they're seeing — there may be context you don't have",
+      "Agree on what good looks like before talking about gaps",
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'A behaviour concern',
+        prompt: "Their work is strong but their behaviour in meetings is shutting others down. How do you raise it?",
+        options: [
+          "Describe the behaviour, not the person",
+          "Talk about the impact on others, not your interpretation",
+          "Be specific — vague feedback is easy to dismiss",
+        ],
+      },
+      {
+        number: 5,
+        question: 'A growth conversation',
+        prompt: "You want to talk to a high performer about what's next. What makes the conversation useful?",
+        options: [
+          "Ask what they're interested in, before suggesting paths",
+          "Be honest about what you can and can't offer",
+          "Talk about specific next steps, not vague aspirations",
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Documenting the conversation",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'product-training': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'When the customer asks',
+    prompt: "A customer wants to know if a feature does something specific. You're not 100% sure. What's the right move?",
+    options: [
+      "Tell them what you know, and what you don't",
+      'Offer to confirm and come back to them',
+      'Show them where to look in the product or docs',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'A tricky question',
+        prompt: "A customer asks about a workaround for something the product doesn't quite do yet. How do you handle it?",
+        options: [
+          "Be honest about the current limitation",
+          'Share the workaround if there\'s a reasonable one',
+          "Flag the request internally so it gets considered",
+        ],
+      },
+      {
+        number: 5,
+        question: 'Finding the answer fast',
+        prompt: "You need to confirm a detail before responding. Where do you look first?",
+        options: [
+          'The internal product wiki',
+          "The release notes for the most recent version",
+          'The team channel for anyone who has hit this before',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Working with product feedback",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'software-system': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'A common task',
+    prompt: "You need to do something you do every week. What's the most reliable way to get it right the first time?",
+    options: [
+      'Follow the documented steps',
+      'Use the template or saved view, not a fresh start',
+      "Double-check the inputs before you confirm",
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'When it doesn\'t work as expected',
+        prompt: "The system isn't doing what you expected. What's worth trying before you escalate?",
+        options: [
+          'Refresh and try the exact same steps again',
+          'Check whether something obvious is missing — a flag, a field, a permission',
+          "Look up the issue in the team's troubleshooting notes",
+        ],
+      },
+      {
+        number: 5,
+        question: 'Getting help',
+        prompt: "You've tried what you can and you're still stuck. What's the right next step?",
+        options: [
+          "Post in the team channel with context — what you tried, what you saw",
+          'Log a support ticket if it\'s a system issue',
+          "Capture a screenshot or screen recording before the problem moves",
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Reporting and dashboards",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'process-procedure': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Getting the steps right',
+    prompt: "You're running through a standard process. Which of these reduce the chance of mistakes?",
+    options: [
+      'Follow the documented order — even when it feels slow',
+      "Tick steps off as you complete them",
+      "Check the latest version of the procedure before you start",
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'When you hit an exception',
+        prompt: "The case in front of you doesn't fit the standard process. What helps?",
+        options: [
+          'Document what makes this one different',
+          'Check whether there\'s a documented exception path',
+          "Escalate before improvising",
+        ],
+      },
+      {
+        number: 5,
+        question: 'When something looks wrong',
+        prompt: "Halfway through, you realise an earlier step was skipped. What now?",
+        options: [
+          'Stop and assess before continuing',
+          'Document what was missed and when',
+          "Tell whoever needs to know so it can be addressed",
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Continuous improvement",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'quality-management': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Spotting a defect',
+    prompt: "Something has come through that isn't to standard. What's the right first response?",
+    options: [
+      'Stop it from moving further down the line',
+      "Document what you found, where, and when",
+      'Capture evidence before anything changes',
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'The documentation that matters',
+        prompt: "Which of these are worth getting right for traceability?",
+        options: [
+          'The batch or lot reference',
+          'Who handled it and at what step',
+          "What was tested and what the result was",
+        ],
+      },
+      {
+        number: 5,
+        question: 'Escalating an issue',
+        prompt: "The issue might be more than a one-off. What helps your investigation start well?",
+        options: [
+          'Get the relevant records together early',
+          "Notify the quality lead before assumptions are made",
+          'Hold the affected stock until the situation is clear',
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Audit readiness",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'emergency-response': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'When the alarm sounds',
+    prompt: "The evacuation alarm goes off in your building. What do you do first?",
+    options: [
+      'Stop what you\'re doing — even mid-task',
+      "Take the nearest safe exit route",
+      "Leave belongings behind",
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Your role on the way out',
+        prompt: "You're moving towards the muster point. What helps everyone, not just you?",
+        options: [
+          "Don't use lifts",
+          'Check anyone needing assistance has support',
+          "Stay calm and don't run",
+        ],
+      },
+      {
+        number: 5,
+        question: 'At the muster point',
+        prompt: "You're outside at the assembly area. What matters now?",
+        options: [
+          'Check in with your warden so you\'re marked accounted for',
+          "Stay until the all-clear, not just until it feels safe",
+          "Don't re-enter the building under any circumstances",
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: First aid basics",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+
+  'change-management': {
+    moduleLabel: 'Check in',
+    timeLeft: '2 min remaining',
+    progressPercent: 85,
+    totalQuestions: 5,
+    startQuestionNumber: 3,
+    question: 'Reading the room',
+    prompt: "A significant change has been announced. Your team's reactions are mixed. What's a useful first move?",
+    options: [
+      "Make space for people to react before pushing for buy-in",
+      'Listen for what people are actually worried about',
+      "Be honest about what you do and don't know",
+    ],
+    additionalQuestions: [
+      {
+        number: 4,
+        question: 'Keeping the work moving',
+        prompt: "You're in the middle of a transition. What helps the team stay productive?",
+        options: [
+          'Be clear about what isn\'t changing',
+          "Set short-term priorities so people aren't stuck",
+          "Make the new ways of working visible early",
+        ],
+      },
+      {
+        number: 5,
+        question: 'Making it stick',
+        prompt: "A few weeks in, some people are reverting to old habits. What's worth doing?",
+        options: [
+          'Acknowledge the pull — old habits are easier',
+          'Make the new way the easier option, wherever you can',
+          "Reinforce what's working without punishing slips",
+        ],
+      },
+    ],
+    completion: {
+      heading: 'Check in complete',
+      subheading: "Let's move to part 3: Sustaining the change",
+      cta: 'Our process',
+      ctaTarget: 'our-process',
+    },
+  },
+};
+
+// Build a sensible default if a category isn't explicitly mapped.
+const fallbackMockup: MockupSlide = {
+  moduleLabel: 'Check in',
+  timeLeft: '2 min remaining',
+  progressPercent: 85,
+  totalQuestions: 5,
+  startQuestionNumber: 3,
+  question: category.data.topics?.[0] || `Introduction to ${category.data.title.toLowerCase()}`,
+  prompt: 'Think about the last time this came up in your workplace. Which of these best describes what happened?',
+  options: (category.data.topics || []).slice(1, 4).map(t => t),
+};
+
+const mockup = mockupBySlug[category.slug] || fallbackMockup;
+
+// URL shown in the browser bar — full slug, matches the actual page path
+const urlSlug = category.slug;
 ---
 
-<Layout 
+<Layout
   title={`${category.data.title} eLearning Development | The eLearning Company`}
   description={`Professional ${category.data.title.toLowerCase()} courses delivered in 3 weeks from $5,500 + GST. ${category.data.description}`}
 >
-  <!-- Hero Section -->
-  <section class="category-hero">
+  <!-- ============================================================
+       1. Hero — lilac · asymmetric 2-col with browser mockup
+       ============================================================ -->
+  <section class="section section--lilac category-hero">
     <div class="container">
-      <div class="breadcrumb">
-        <a href="/">Home</a> / <a href="/training">Training Categories</a> / <span>{category.data.title}</span>
-      </div>
-      <h1 class="page-title">{category.data.title} eLearning Development</h1>
-      <p class="page-subtitle">{category.data.description}</p>
-      <div class="hero-cta">
-        <a href="/contact?category={category.data.title}" class="btn-primary">Get a Quote</a>
-        <a href="/pricing" class="btn-secondary">View Pricing</a>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/training">Training categories</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">{category.data.title}</span>
+      </nav>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="pill-meta hero-pill">{category.data.category}</span>
+
+          <h1 class="display display-lg page-title">
+            {category.data.title}<br />
+            <span class="accent-blue">eLearning development.</span>
+          </h1>
+          <p class="lede page-subtitle">{category.data.description}</p>
+
+          <div class="hero-cta">
+            <a href={`/contact?category=${encodeURIComponent(category.data.title)}`} class="btn btn--primary">Get a quote</a>
+            <a href="/pricing" class="btn btn--secondary">View pricing</a>
+          </div>
+        </div>
+
+        <!-- ===== Course browser mockup ===== -->
+        <div class="mockup-col">
+          <div class="browser" role="region" aria-label={`Sample ${category.data.title} course module`}>
+            <div class="browser-bar">
+              <div class="browser-dots" aria-hidden="true">
+                <span class="dot dot--red"></span>
+                <span class="dot dot--yellow"></span>
+                <span class="dot dot--green"></span>
+              </div>
+              <div class="browser-controls" aria-hidden="true">
+                <svg class="browser-arrow browser-arrow--inactive" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M10 4 6 8l4 4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <svg class="browser-arrow browser-arrow--inactive" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M6 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="browser-url">
+                <svg class="url-lock" viewBox="0 0 12 14" width="10" height="12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <rect x="2" y="6" width="8" height="6" rx="1"/>
+                  <path d="M4 6V4a2 2 0 0 1 4 0v2" stroke-linecap="round"/>
+                </svg>
+                <span class="url-text">elc.training/{urlSlug}</span>
+              </div>
+              <div class="browser-controls-right" aria-hidden="true">
+                <span class="control-dot"></span>
+                <span class="control-dot"></span>
+                <span class="control-dot"></span>
+              </div>
+            </div>
+
+            <div class="browser-tab-strip" aria-hidden="true">
+              <div class="browser-tab browser-tab--active">
+                <span class="tab-favicon"></span>
+                <span class="tab-title">{category.data.title} · Module</span>
+                <span class="tab-close">×</span>
+              </div>
+              <div class="browser-tab browser-tab--inactive">
+                <span class="tab-favicon tab-favicon--alt"></span>
+                <span class="tab-title">Dashboard</span>
+              </div>
+              <span class="tab-add" aria-hidden="true">+</span>
+            </div>
+
+            <div class="course-screen">
+              <div class="course-meta-row">
+                <span class="course-module-label">{mockup.moduleLabel}</span>
+                <span class="course-time-left">{mockup.timeLeft}</span>
+              </div>
+
+              <div class="progress-track" aria-hidden="true">
+                <div class="progress-fill" style={`width: ${mockup.progressPercent}%`}></div>
+              </div>
+
+              <!-- Question view (default) -->
+              <div class="course-question-view" data-view="question">
+                <h3 class="course-q">{mockup.question}</h3>
+                <p class="course-prompt">{mockup.prompt}</p>
+
+                <ul class="course-options" role="list">
+                  {mockup.options.slice(0, 3).map((opt) => (
+                    <li>
+                      <button type="button" class="course-option" aria-pressed="false">
+                        <span class="option-box" aria-hidden="true">
+                          <svg class="option-check" viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 6l3 3 5-6" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <span class="option-label">{opt}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+
+                <div class="course-footer">
+                  <span class="course-progress-text">Question {mockup.startQuestionNumber} of {mockup.totalQuestions}</span>
+                  <button class="course-continue" type="button">
+                    Continue <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Completion view (hidden by default; shown after final question) -->
+              {mockup.completion && (
+                <div class="course-completion-view" data-view="completion" hidden>
+                  <div class="completion-icon" aria-hidden="true">
+                    <svg viewBox="0 0 32 32" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <path d="M6 16l7 7L26 9" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <h3 class="completion-heading">{mockup.completion.heading}</h3>
+                  <p class="completion-subheading">{mockup.completion.subheading}</p>
+                  <button class="course-continue completion-cta" type="button" data-scroll-target={mockup.completion.ctaTarget}>
+                    {mockup.completion.cta} <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+              )}
+
+              <!-- Mockup data embedded for the runtime script -->
+              <script type="application/json" class="mockup-data" set:html={JSON.stringify({
+                start: {
+                  number: mockup.startQuestionNumber,
+                  question: mockup.question,
+                  prompt: mockup.prompt,
+                  options: mockup.options.slice(0, 3),
+                },
+                progressStart: mockup.progressPercent,
+                total: mockup.totalQuestions,
+                additional: mockup.additionalQuestions || [],
+                completion: mockup.completion || null,
+              })} />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- What You Get Section -->
-  <section class="what-you-get-section">
+  <!-- ============================================================
+       2. Intro — paper-deep · subtle separation from hero. Sells the
+       category emotionally before structured info kicks in. Falls
+       back to description if no `intro` is provided in frontmatter.
+       ============================================================ -->
+  <section class="section section--paper-deep intro-section">
     <div class="container">
-      <h2 class="section-title">What You Get</h2>
+      <p class="intro-lede">
+        {category.data.intro || category.data.description}
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. What you get — paper
+       ============================================================ -->
+  <section class="section section--paper what-you-get-section">
+    <div class="container">
+      <span class="section-kicker">What you get</span>
+      <h2 class="display display-md section-title">Development without drama.</h2>
+
       <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>3-Week Delivery</h3>
-          <p>From kickoff to final course, guaranteed</p>
+        <div class="feature-item">
+          <span class="meta feature-num">01</span>
+          <h3 class="heading-sm">3-week delivery</h3>
+          <p>From kickoff to final course.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">💎</div>
-          <h3>Fixed Pricing</h3>
-          <p>From $5,500 + GST, no hidden costs</p>
+        <div class="feature-item">
+          <span class="meta feature-num">02</span>
+          <h3 class="heading-sm">Fixed pricing</h3>
+          <p>From $5,500 + GST. No hidden costs.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔄</div>
-          <h3>Unlimited Revisions</h3>
-          <p>During weeks 2-3 of development</p>
+        <div class="feature-item">
+          <span class="meta feature-num">03</span>
+          <h3 class="heading-sm">Unlimited revisions</h3>
+          <p>During weeks 2 and 3 of development.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>Modern Design</h3>
-          <p>Responsive, works on all devices</p>
+        <div class="feature-item">
+          <span class="meta feature-num">04</span>
+          <h3 class="heading-sm">Modern design</h3>
+          <p>Responsive, works on all devices.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">📦</div>
-          <h3>SCORM Compliant</h3>
-          <p>Works with any LMS platform</p>
+        <div class="feature-item">
+          <span class="meta feature-num">05</span>
+          <h3 class="heading-sm">SCORM compliant</h3>
+          <p>Works with any LMS platform.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">✅</div>
-          <h3>Source Files</h3>
-          <p>Full files provided for future updates</p>
+        <div class="feature-item">
+          <span class="meta feature-num">06</span>
+          <h3 class="heading-sm">Source files</h3>
+          <p>Full files provided for future updates.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Process Section -->
-  <section class="process-section">
+  <!-- ============================================================
+       4. Process — turquoise · id="our-process" for mockup scroll
+       ============================================================ -->
+  <section class="section section--turquoise process-section" id="our-process">
     <div class="container">
-      <h2 class="section-title">Our Simple 3-Week Process</h2>
+      <span class="section-kicker">Our process</span>
+      <h2 class="display display-md section-title">
+        Three simple steps.<br />
+        Three easy weeks.
+      </h2>
+
       <div class="process-steps">
         <div class="process-step">
-          <div class="step-number">Week 1</div>
-          <h3>We Build</h3>
+          <div class="step-badge">Week 1</div>
+          <h3 class="heading-sm">We build</h3>
           <p>We start as soon as you send us your brief, branding and resources.</p>
         </div>
-        <div class="process-arrow">→</div>
         <div class="process-step">
-          <div class="step-number">Week 2</div>
-          <h3>You Review</h3>
+          <div class="step-badge">Week 2</div>
+          <h3 class="heading-sm">You review</h3>
           <p>You receive the complete first draft for review. Provide feedback via our review link with your whole team.</p>
         </div>
-        <div class="process-arrow">→</div>
         <div class="process-step">
-          <div class="step-number">Week 3</div>
-          <h3>We Deliver</h3>
+          <div class="step-badge">Week 3</div>
+          <h3 class="heading-sm">We deliver</h3>
           <p>We'll continue to implement your feedback and finalise the course. Then, at the end of the third week we'll deliver the SCORM package ready for your LMS.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Topics Section -->
-  <section class="topics-section">
+  <!-- ============================================================
+       5. Pricing — paper · follows process
+       ============================================================ -->
+  <section class="section section--paper pricing-section">
     <div class="container">
-      <h2 class="section-title">Common {category.data.title} Topics We Cover</h2>
-      <div class="topics-grid">
-        {category.data.topics.map((topic) => (
-          <div class="topic-item">
-            <span class="topic-icon">✓</span>
-            <span>{topic}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+      <span class="section-kicker">Pricing</span>
+      <h2 class="display display-md section-title">
+        Pricing for {category.data.title.toLowerCase()} training.
+      </h2>
+      <p class="lede section-subtitle">
+        You don't need to blow your training budget to get high quality {category.data.title.toLowerCase()} eLearning.
+      </p>
 
-  <!-- Pricing Tiers Section -->
-  <section class="pricing-section">
-    <div class="container">
-      <h2 class="section-title">Pricing for {category.data.title} Training</h2>
-      <p class="section-subtitle">Choose the tier that matches your content readiness</p>
-      
       <div class="pricing-tiers">
         <!-- Tier 1 -->
         <div class="tier-card">
-          <h3>Tier 1: Build & Develop</h3>
-          <div class="tier-price">$5,500 <span>+ GST</span></div>
-          <p class="tier-description">You have a complete script ready to build</p>
-          <div class="tier-example">
-            <strong>Example:</strong>
-            <p>{category.data.tier1Example}</p>
+          <div class="tier-badge">Tier 1</div>
+          <h3 class="heading-md tier-name">Content ready</h3>
+          <div class="tier-price">
+            <span class="price-amount">$5,500</span>
+            <span class="price-gst">+ GST</span>
           </div>
-          <a href="/contact?tier=1&category={category.data.title}" class="tier-btn">Choose Tier 1</a>
+          <p class="tier-description">You have a complete script ready to build.</p>
+
+          <div class="best-for-block best-for-block--lilac">
+            <span class="meta best-for-label">Example</span>
+            <p class="best-for-example">"{category.data.tier1Example}"</p>
+          </div>
+
+          <a href={`/contact?tier=1&category=${encodeURIComponent(category.data.title)}`} class="btn btn--secondary tier-cta">Choose tier 1</a>
         </div>
 
         <!-- Tier 2 -->
-        <div class="tier-card featured">
-          <div class="popular-badge">Most Popular</div>
-          <h3>Tier 2: Structure & Develop</h3>
-          <div class="tier-price">$7,500 <span>+ GST</span></div>
-          <p class="tier-description">You have content materials that need structuring</p>
-          <div class="tier-example">
-            <strong>Example:</strong>
-            <p>{category.data.tier2Example}</p>
+        <div class="tier-card">
+          <div class="tier-badge">Tier 2</div>
+          <h3 class="heading-md tier-name">Content needs shaping</h3>
+          <div class="tier-price">
+            <span class="price-amount">$7,500</span>
+            <span class="price-gst">+ GST</span>
           </div>
-          <a href="/contact?tier=2&category={category.data.title}" class="tier-btn">Choose Tier 2</a>
+          <p class="tier-description">You have content materials that need structuring.</p>
+
+          <div class="best-for-block best-for-block--yellow">
+            <span class="meta best-for-label">Example</span>
+            <p class="best-for-example">"{category.data.tier2Example}"</p>
+          </div>
+
+          <a href={`/contact?tier=2&category=${encodeURIComponent(category.data.title)}`} class="btn btn--secondary tier-cta">Choose tier 2</a>
         </div>
 
         <!-- Tier 3 -->
         <div class="tier-card">
-          <h3>Tier 3: Design & Develop</h3>
-          <div class="tier-price">$10,500 <span>+ GST</span></div>
-          <p class="tier-description">We create everything from your expertise</p>
-          <div class="tier-example">
-            <strong>Example:</strong>
-            <p>{category.data.tier3Example}</p>
+          <div class="tier-badge">Tier 3</div>
+          <h3 class="heading-md tier-name">Start from scratch</h3>
+          <div class="tier-price">
+            <span class="price-amount">$10,500</span>
+            <span class="price-gst">+ GST</span>
           </div>
-          <a href="/contact?tier=3&category={category.data.title}" class="tier-btn">Choose Tier 3</a>
+          <p class="tier-description">We create everything from your expertise.</p>
+
+          <div class="best-for-block best-for-block--turquoise">
+            <span class="meta best-for-label">Example</span>
+            <p class="best-for-example">"{category.data.tier3Example}"</p>
+          </div>
+
+          <a href={`/contact?tier=3&category=${encodeURIComponent(category.data.title)}`} class="btn btn--secondary tier-cta">Choose tier 3</a>
         </div>
       </div>
 
       <div class="pricing-note">
-        <p>Not sure which tier? <a href="/contact?category={category.data.title}">Contact us</a> and we'll help you choose.</p>
+        <p>Not sure which tier? <a href={`/contact?category=${encodeURIComponent(category.data.title)}`} class="inline-link">Contact us</a> and we'll help you choose.</p>
       </div>
     </div>
   </section>
 
-  <!-- Why Custom Training Matters -->
-  <section class="why-custom-section">
+  <!-- ============================================================
+       6. Topics — paper-deep · moved to follow pricing
+       ============================================================ -->
+  <section class="section section--paper-deep topics-section">
     <div class="container">
-      <h2 class="section-title">Why Custom {category.data.title} Training Matters</h2>
-      <div class="content-wrapper">
-        <Content />
-      </div>
+      <span class="section-kicker">Topics</span>
+      <h2 class="display display-md section-title">
+        Common {category.data.title.toLowerCase()} topics we cover.
+      </h2>
+
+      <ul class="topics-grid">
+        {category.data.topics.map((topic) => (
+          <li class="topic-item">
+            <span class="topic-marker" aria-hidden="true">→</span>
+            <span class="topic-text">{topic}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
-  <!-- Common Mistakes (if provided) -->
+  <!-- ============================================================
+       7. Common mistakes — navy · only if data present
+       Heading now category-specific. Capped at 6 items for an even
+       3x2 or 2x3 grid.
+       ============================================================ -->
   {category.data.commonMistakes && category.data.commonMistakes.length > 0 && (
-    <section class="mistakes-section">
+    <section class="section section--navy mistakes-section">
       <div class="container">
-        <h2 class="section-title">Common Mistakes to Avoid</h2>
+        <span class="section-kicker">Common mistakes</span>
+        <h2 class="display display-md section-title">
+          Common mistakes with <span class="mark--lilac">{category.data.title.toLowerCase()}</span>.
+        </h2>
+
         <div class="mistakes-grid">
-          {category.data.commonMistakes.map((mistake) => (
+          {category.data.commonMistakes.slice(0, 6).map((mistake, index) => (
             <div class="mistake-card">
-              <span class="mistake-icon">⚠️</span>
-              <p>{mistake}</p>
+              <span class="meta mistake-num">{String(index + 1).padStart(2, '0')}</span>
+              <p class="mistake-text">{mistake}</p>
             </div>
           ))}
         </div>
@@ -192,580 +1502,1019 @@ const { Content } = await category.render();
     </section>
   )}
 
-  <!-- FAQ Section -->
-  <section class="category-faq-section">
+  <!-- ============================================================
+       8. FAQ — paper · 4 items so the 2x2 grid renders cleanly.
+       Heading + kicker now category-specific for SEO.
+       ============================================================ -->
+  <section class="section section--paper category-faq-section">
     <div class="container">
-      <h2 class="section-title">Frequently Asked Questions</h2>
+      <span class="section-kicker">Frequently asked questions</span>
+      <h2 class="heading-xl section-title">
+        FAQs about our {category.data.title.toLowerCase()} eLearning development.
+      </h2>
+
       <div class="faq-list">
-        <div class="faq-item">
-          <h3>How long does a {category.data.title.toLowerCase()} course take to develop?</h3>
-          <p>We deliver all courses in 3 weeks from kickoff. Week 1 is development, weeks 2-3 are for your review (with unlimited revisions during that time).</p>
+        <div class="faq-item content-card">
+          <h3 class="heading-sm">Do you have experience with {category.data.title.toLowerCase()}?</h3>
+          <p>Yes. We've developed {category.data.title.toLowerCase()} courses for organisations across multiple industries. Our 15+ years of eLearning experience means we understand both the learning design and the subject-specific requirements.</p>
         </div>
 
-        <div class="faq-item">
-          <h3>Can you customise the content for our organisation?</h3>
-          <p>Absolutely! All our courses are custom-built for your specific needs, policies, and procedures. We incorporate your branding, terminology, and examples.</p>
+        <div class="faq-item content-card">
+          <h3 class="heading-sm">Can you customise the content for our organisation?</h3>
+          <p>Absolutely. All our {category.data.title.toLowerCase()} courses are custom-built for your specific needs, policies, and procedures. We incorporate your branding, terminology, and examples.</p>
         </div>
 
-        <div class="faq-item">
-          <h3>What if we need to make changes after delivery?</h3>
-          <p>We provide unlimited revisions during the 2-week review period. After delivery, we can make updates for an additional fee, or you can use the source files we provide.</p>
+        <div class="faq-item content-card">
+          <h3 class="heading-sm">How long does a {category.data.title.toLowerCase()} course take to develop?</h3>
+          <p>3 weeks from kickoff to final delivery. Week 1 is development, weeks 2 and 3 are for your review with unlimited revisions.</p>
         </div>
 
-        <div class="faq-item">
-          <h3>Do you have experience with {category.data.title.toLowerCase()}?</h3>
-          <p>Yes! We've developed {category.data.title.toLowerCase()} courses for organisations across multiple industries. Our 15+ years of eLearning experience means we understand both the learning design and compliance requirements.</p>
+        <div class="faq-item content-card">
+          <h3 class="heading-sm">What if {category.data.title.toLowerCase()} isn't quite what we need?</h3>
+          <p>If your training needs don't fit neatly into this category, get in touch and we'll discuss. We've worked across most topic areas and can usually adapt our approach to match what your team actually needs.</p>
         </div>
+      </div>
 
-        <div class="faq-item">
-          <h3>What format will the course be delivered in?</h3>
-          <p>We deliver SCORM 1.2 and 2004 packages that work with any LMS. We also provide the source files (Articulate Rise or Storyline) so you can make future updates if needed.</p>
-        </div>
+      <div class="faq-cta">
+        <p>For pricing, timeline, and process questions, see our <a href="/pricing#faq" class="faq-cta-link">full FAQ</a>.</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="faq-item">
-          <h3>Can you handle urgent timelines?</h3>
-          <p>Our standard timeline is 3 weeks, but we can accommodate rush projects for an additional fee. Contact us to discuss your specific deadline.</p>
+  <!-- ============================================================
+       9. Final CTA — lilac
+       ============================================================ -->
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Ready to develop your<br />
+          <span class="accent-blue">{category.data.title.toLowerCase()} course?</span>
+        </h2>
+        <p class="lede cta-text">
+          Get a fixed-price quote within 24 hours. No obligation, completely transparent pricing.
+        </p>
+        <div class="cta-buttons">
+          <a href={`/contact?category=${encodeURIComponent(category.data.title)}`} class="btn btn--primary">Get a quote</a>
+          <a href="/pricing" class="btn btn--secondary">View full pricing</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA -->
-  <section class="final-cta-section">
+  <!-- ============================================================
+       10. Long-form content — paper-deep · the markdown body
+       Slimmed visual treatment. Kept for SEO depth + buyers who
+       genuinely want to read in detail.
+       ============================================================ -->
+  <section class="section section--paper-deep long-form-section">
     <div class="container">
-      <div class="cta-card">
-        <h2>Ready to Develop Your {category.data.title} Course?</h2>
-        <p>Get a fixed-price quote within 24 hours. No obligation, completely transparent pricing.</p>
-        <div class="cta-buttons">
-          <a href="/contact?category={category.data.title}" class="btn-primary">Get a Quote</a>
-          <a href="/pricing" class="btn-secondary">View Full Pricing</a>
+      <details class="long-form-details">
+        <summary class="long-form-summary">
+          <span class="meta">Read more about {category.data.title.toLowerCase()} eLearning</span>
+          <span class="long-form-chev" aria-hidden="true">↓</span>
+        </summary>
+        <div class="prose-wrapper">
+          <Content />
         </div>
-      </div>
+      </details>
     </div>
   </section>
 </Layout>
 
-<style>
-  /* Hero */
-  .category-hero {
-    padding: 120px 120px 80px;
-    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-    position: relative;
-    overflow: hidden;
-  }
+<script>
+  // Mockup interactivity — toggle options, advance through additional
+  // questions, show completion screen, then reset. All visual; nothing
+  // is persisted.
+  const browser = document.querySelector('.browser');
+  if (browser) {
+    const dataEl = browser.querySelector('.mockup-data');
+    const data = dataEl ? JSON.parse(dataEl.textContent || '{}') : null;
+    if (!data) {
+      // Should not happen, but bail rather than throw
+      console.warn('Mockup data missing');
+    }
 
-  .category-hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-    pointer-events: none;
+    const questionView = browser.querySelector<HTMLElement>('[data-view="question"]');
+    const completionView = browser.querySelector<HTMLElement>('[data-view="completion"]');
+    const questionEl = browser.querySelector<HTMLElement>('.course-q');
+    const promptEl = browser.querySelector<HTMLElement>('.course-prompt');
+    const optionsList = browser.querySelector<HTMLElement>('.course-options');
+    const progressFill = browser.querySelector<HTMLElement>('.progress-fill');
+    const progressText = browser.querySelector<HTMLElement>('.course-progress-text');
+
+    // Index 0 = the initial question (already rendered), 1+ = additional
+    // questions, length = trigger completion view
+    let stepIndex = 0;
+    let progress = data?.progressStart ?? 85;
+
+    const renderQuestion = (q: { number: number; question: string; prompt: string; options: string[] }) => {
+      if (questionEl) questionEl.textContent = q.question;
+      if (promptEl) promptEl.textContent = q.prompt;
+      if (optionsList) {
+        optionsList.innerHTML = q.options.slice(0, 3).map((opt: string) => `
+          <li>
+            <button type="button" class="course-option" aria-pressed="false">
+              <span class="option-box" aria-hidden="true">
+                <svg class="option-check" viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 6l3 3 5-6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="option-label">${opt.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</span>
+            </button>
+          </li>
+        `).join('');
+        attachOptionHandlers();
+      }
+      if (progressText) progressText.textContent = `Question ${q.number} of ${data.total}`;
+    };
+
+    const showCompletion = () => {
+      if (questionView) questionView.hidden = true;
+      if (completionView) completionView.hidden = false;
+      if (progressFill) progressFill.style.width = '100%';
+      if (progressText) progressText.textContent = 'Complete';
+    };
+
+    const resetToStart = () => {
+      stepIndex = 0;
+      progress = data.progressStart;
+      if (questionView) questionView.hidden = false;
+      if (completionView) completionView.hidden = true;
+      if (progressFill) progressFill.style.width = `${progress}%`;
+      renderQuestion(data.start);
+    };
+
+    const attachOptionHandlers = () => {
+      const options = browser.querySelectorAll<HTMLButtonElement>('.course-option');
+      options.forEach((opt) => {
+        opt.addEventListener('click', () => {
+          const pressed = opt.getAttribute('aria-pressed') === 'true';
+          opt.setAttribute('aria-pressed', String(!pressed));
+        });
+      });
+    };
+
+    attachOptionHandlers();
+
+    // Continue button on the question view
+    const continueBtn = questionView?.querySelector<HTMLButtonElement>('.course-continue');
+    continueBtn?.addEventListener('click', () => {
+      stepIndex += 1;
+      const hasMore = stepIndex <= (data.additional?.length || 0);
+      if (!hasMore) {
+        // No more questions — show completion or reset
+        if (data.completion) {
+          showCompletion();
+        } else {
+          resetToStart();
+        }
+        return;
+      }
+      // Advance progress by 5%, render next question
+      progress = Math.min(95, progress + 5);
+      if (progressFill) progressFill.style.width = `${progress}%`;
+      const next = data.additional[stepIndex - 1];
+      renderQuestion(next);
+    });
+
+    // CTA on completion view — scrolls the page to the matching section,
+    // then quietly resets the demo so it's ready when the user scrolls back up.
+    const completionBtn = completionView?.querySelector<HTMLButtonElement>('.course-continue');
+    completionBtn?.addEventListener('click', () => {
+      const targetId = completionBtn.getAttribute('data-scroll-target');
+      if (targetId) {
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+      // Reset after a short delay so the scroll has started before
+      // the visible state changes (avoids flicker in the user's peripheral vision)
+      setTimeout(resetToStart, 800);
+    });
+  }
+</script>
+
+<style>
+  /* ============================================================
+     Page-specific styles only.
+     All tokens, primitives, and shared components live in global.css.
+     ============================================================ */
+
+  /* ---- Hero ---- */
+  .category-hero {
+    padding-top: clamp(56px, 8vw, 96px);
+    padding-bottom: clamp(80px, 10vw, 120px);
+    overflow: hidden; /* prevents the mockup shadow from causing horizontal scroll */
   }
 
   .breadcrumb {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-  }
-
-  .breadcrumb a {
-    color: var(--accent-primary);
-    text-decoration: none;
-  }
-
-  .breadcrumb a:hover {
-    text-decoration: underline;
-  }
-
-  .breadcrumb span {
-    color: var(--text-primary);
-  }
-
-  .page-title {
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
-    max-width: 800px;
-  }
-
-  .page-subtitle {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    margin-bottom: 32px;
-    max-width: 600px;
-  }
-
-  .hero-cta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-ink);
+    opacity: 0.7;
+    margin-bottom: 40px;
     display: flex;
-    gap: 16px;
     flex-wrap: wrap;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    display: inline-block;
-    padding: 14px 32px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: all 0.3s ease;
-  }
-
-  .btn-primary {
-    background: var(--accent-gradient);
-    color: white;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
-  }
-
-  .btn-secondary {
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
-    border: 2px solid var(--border-color);
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--accent-primary);
-  }
-
-  /* What You Get */
-  .what-you-get-section {
-    padding: 80px 0;
-    background: var(--bg-secondary);
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* mobile default: single column */
-    gap: 32px;
-  }
-
-  /* Desktop: 3 columns (3xN grid). With up to 9 items this becomes a 3x3 layout. */
-  @media (min-width: 1024px) {
-    .features-grid {
-      grid-template-columns: repeat(3, 1fr);
-      align-items: start;
-    }
-  }
-
-  .feature-card {
-    text-align: center;
-    padding: 24px;
-  }
-
-  .feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-  }
-
-  .feature-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 8px;
-    font-weight: 700;
-  }
-
-  .feature-card p {
-    color: var(--text-secondary);
-  }
-
-  /* Process */
-  .process-section {
-    padding: 80px 0;
-    background: var(--bg-primary);
-  }
-
-  .process-steps {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    max-width: 1000px;
-    margin: 0 auto;
+    gap: 6px;
   }
-
-  .process-step {
-    flex: 1;
-    text-align: center;
+  .breadcrumb a {
+    color: var(--c-ink);
+    text-decoration: none;
+    transition: opacity 0.15s ease;
   }
+  .breadcrumb a:hover { opacity: 0.5; }
+  .breadcrumb-sep { opacity: 0.5; }
+  .breadcrumb-current { opacity: 0.6; }
 
-  .step-number {
-    background: var(--accent-gradient);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 20px;
-    display: inline-block;
-    font-weight: 700;
-    margin-bottom: 16px;
-  }
-
-  .process-step h3 {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-    font-weight: 700;
-  }
-
-  .process-step p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  .process-arrow {
-    color: var(--accent-primary);
-    font-size: 2rem;
-    font-weight: 700;
-  }
-
-  /* Topics */
-  .topics-section {
-    padding: 80px 0;
-    background: var(--bg-secondary);
-  }
-
-  .topics-grid {
+  /* Asymmetric hero grid — copy left, mockup right */
+  .hero-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 16px;
-    margin-left: 40px;
-    margin-right: 40px;
+    grid-template-columns: 1fr 1.05fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
   }
 
-  .topic-item {
-    background: var(--bg-tertiary);
-    padding: 16px 20px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
+  .hero-pill { margin-bottom: 24px; }
+  .page-title { margin-bottom: 24px; max-width: 560px; }
+  .page-subtitle { margin-bottom: 40px; max-width: 520px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ---- Browser mockup ---- */
+  .mockup-col {
+    /* Sit closer to the right edge of the container — adds asymmetric tension */
+    margin-right: clamp(-32px, -2vw, -12px);
+  }
+
+  /* The browser window itself */
+  .browser {
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(0, 0, 0, 0.06),
+      0 2px 6px rgba(21, 25, 46, 0.08),
+      0 12px 32px rgba(21, 25, 46, 0.18),
+      0 32px 80px rgba(21, 25, 46, 0.22);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    /* Subtle 3D rotation gives more "window in space" feel without being gimmicky */
+    transform: perspective(2400px) rotateY(-2deg) rotateX(0.5deg);
+    transform-origin: left center;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Browser top bar — flat tray, no gradient */
+  .browser-bar {
+    background: #E8E8E8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 12px;
     display: flex;
     align-items: center;
     gap: 12px;
+    min-height: 36px;
   }
 
-  .topic-icon {
-    color: var(--accent-primary);
-    font-weight: 700;
+  /* Standard macOS traffic light dots */
+  .browser-dots {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+  }
+  .dot--red    { background: #FF5F57; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.12); }
+  .dot--yellow { background: #FEBC2E; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.12); }
+  .dot--green  { background: #28C840; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.12); }
+
+  /* Back / forward arrows */
+  .browser-controls {
+    display: flex;
+    gap: 4px;
+    color: #8E8E93;
+    flex-shrink: 0;
+    margin-left: 4px;
+  }
+  .browser-arrow--inactive { opacity: 0.45; }
+
+  /* URL address bar — pill shape, slightly inset look */
+  .browser-url {
+    flex: 1;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    padding: 5px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    color: #3C3C43;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+  .url-lock {
+    flex-shrink: 0;
+    color: #8E8E93;
+  }
+  .url-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  /* Pricing */
-  .pricing-section {
-    padding: 80px 0;
-    background: var(--bg-primary);
-    margin-left: 40px;
-    margin-right: 40px;
+  /* Right-side dot controls (menu, share, etc.) */
+  .browser-controls-right {
+    display: flex;
+    gap: 3px;
+    flex-shrink: 0;
+  }
+  .control-dot {
+    width: 3px;
+    height: 3px;
+    background: #8E8E93;
+    border-radius: 50%;
   }
 
-  .section-subtitle {
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 1.125rem;
-    margin-bottom: 48px;
+  /* Browser tab strip */
+  .browser-tab-strip {
+    background: #E0E0E0;
+    display: flex;
+    align-items: end;
+    padding: 0 8px;
+    gap: 1px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
+  .browser-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px 8px;
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    color: #3C3C43;
+    border-radius: 6px 6px 0 0;
+    min-width: 0;
+    max-width: 200px;
+    position: relative;
+    top: 2px;
+  }
+  .browser-tab--active {
+    background: #FFFFFF;
+    color: var(--c-ink);
+    box-shadow: 0 -1px 0 rgba(0,0,0,0.08), 1px 0 0 rgba(0,0,0,0.08), -1px 0 0 rgba(0,0,0,0.08);
+    font-weight: 500;
+  }
+  .browser-tab--inactive { opacity: 0.7; }
+  .tab-favicon {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    background: var(--c-blue);
+    flex-shrink: 0;
+  }
+  .tab-favicon--alt {
+    background: #8E8E93;
+  }
+  .tab-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .tab-close {
+    color: #8E8E93;
+    margin-left: 4px;
+    font-size: 14px;
+    line-height: 1;
+  }
+  .tab-add {
+    color: #8E8E93;
+    padding: 4px 10px;
+    font-size: 16px;
+    align-self: center;
+  }
+
+  /* Course screen content — what the learner sees */
+  .course-screen {
+    padding: 28px;
+    color: var(--c-ink);
+    font-family: var(--font-sans);
+    background: #FFFFFF;
+  }
+
+  .course-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-ink-muted);
+    margin-bottom: 14px;
+  }
+
+  .progress-track {
+    height: 4px;
+    background: rgba(21, 25, 46, 0.08);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--c-ink);
+    border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+
+  .course-q {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--c-ink);
+    margin-bottom: 12px;
+  }
+  .course-prompt {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--c-ink-soft);
+    margin-bottom: 20px;
+  }
+
+  .course-options {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  /* Each option is a <button> styled as a row.
+     aria-pressed toggles between unselected and selected states. */
+  .course-option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid rgba(21, 25, 46, 0.12);
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--c-ink);
+    background: #FFFFFF;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .course-option:hover {
+    border-color: rgba(21, 25, 46, 0.3);
+    background: rgba(21, 25, 46, 0.02);
+  }
+  .course-option:focus-visible {
+    outline: 2px solid var(--c-blue);
+    outline-offset: 2px;
+  }
+  .course-option[aria-pressed="true"] {
+    border-color: var(--c-ink);
+    background: rgba(21, 25, 46, 0.03);
+  }
+  .option-box {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1.5px solid rgba(21, 25, 46, 0.3);
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-paper);
+    background: #FFFFFF;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .course-option[aria-pressed="true"] .option-box {
+    background: var(--c-ink);
+    border-color: var(--c-ink);
+  }
+  /* Check icon always rendered, hidden until selected */
+  .option-check {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+  .course-option[aria-pressed="true"] .option-check {
+    opacity: 1;
+  }
+  .option-label {
+    line-height: 1.4;
+  }
+
+  .course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid rgba(21, 25, 46, 0.08);
+  }
+  .course-progress-text {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-ink-muted);
+  }
+  .course-continue {
+    background: var(--c-ink);
+    color: var(--c-paper);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.15s ease, transform 0.05s ease;
+  }
+  .course-continue:hover {
+    background: var(--c-blue);
+  }
+  .course-continue:active {
+    transform: translateY(1px);
+  }
+  .course-continue:focus-visible {
+    outline: 2px solid var(--c-blue);
+    outline-offset: 2px;
+  }
+
+  /* Completion view — replaces the question/options block when the
+     final question is answered. Quiet success state, no judgement. */
+  .course-completion-view {
+    padding: 8px 4px 4px;
+  }
+  .completion-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: rgba(21, 25, 46, 0.06);
+    color: var(--c-ink);
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  .completion-heading {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--c-ink);
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .completion-subheading {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--c-ink-soft);
+    margin-bottom: 24px;
+  }
+  .completion-cta {
+    /* Inherits .course-continue styling, just slight visual emphasis */
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+
+  /* ---- What you get ---- */
+  .what-you-get-section .section-title { margin-bottom: 64px; max-width: 600px; }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .feature-num {
+    display: block;
+    color: var(--c-ink-muted);
+    margin-bottom: 14px;
+  }
+  .feature-item h3 { margin-bottom: 8px; }
+  .feature-item p {
+    color: var(--c-ink-soft);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* ---- Process ---- */
+  .process-section .section-title { margin-bottom: 64px; }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .process-step {
+    background: var(--c-paper);
+    border-radius: var(--r-lg);
+    padding: 32px 28px;
+    border: 1px solid rgba(21, 25, 46, 0.06);
+  }
+  .step-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    background: var(--c-ink);
+    color: var(--c-paper);
+    padding: 6px 12px;
+    border-radius: var(--r-pill);
+    margin-bottom: 20px;
+  }
+  .process-step h3 { margin-bottom: 10px; }
+  .process-step p {
+    color: var(--c-ink-soft);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* ---- Topics ---- */
+  .topics-section .section-title { margin-bottom: 56px; max-width: 800px; }
+  .topics-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 32px;
+  }
+  .topic-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+  }
+  .topic-marker {
+    font-family: var(--font-mono);
+    color: var(--c-ink-muted);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .topic-text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--c-ink);
+  }
+
+  /* ---- Pricing tiers ---- */
+  .pricing-section .section-title { margin-bottom: 12px; }
+  .pricing-section .section-subtitle { margin-bottom: 56px; }
 
   .pricing-tiers {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
     margin-bottom: 32px;
   }
 
   .tier-card {
-    background: var(--bg-tertiary);
-    border: 2px solid var(--border-color);
-    border-radius: 20px;
-    padding: 40px;
-    position: relative;
-    transition: all 0.3s ease;
+    background: var(--c-paper);
+    border: 1px solid rgba(21, 25, 46, 0.08);
+    border-radius: var(--r-lg);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease;
   }
+  .tier-card:hover { border-color: var(--c-ink); }
 
-  .tier-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent-primary);
-  }
-
-  .tier-card.featured {
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-  }
-
-  .popular-badge {
-    background: var(--accent-gradient);
-    color: white;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    display: inline-block;
+  .tier-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--c-ink-muted);
     margin-bottom: 16px;
   }
 
-  .tier-card h3 {
-    font-size: 1.5rem;
+  .tier-name {
     margin-bottom: 16px;
-    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.2;
   }
 
   .tier-price {
-    font-size: 2.5rem;
-    font-weight: 800;
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 12px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 14px;
   }
-
-  .tier-price span {
-    font-size: 1rem;
-    color: var(--text-secondary);
+  .price-amount {
+    font-family: var(--font-display);
+    font-size: 40px;
+    line-height: 1;
+    color: var(--c-ink);
+    letter-spacing: -0.02em;
+  }
+  .price-gst {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-ink-muted);
   }
 
   .tier-description {
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .tier-example {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--c-ink-soft);
     margin-bottom: 24px;
   }
 
-  .tier-example strong {
+  /* Reuses .best-for-block from pricing page idiom — defined inline here
+     so this template is self-contained */
+  .best-for-block {
+    border-radius: var(--r-md);
+    padding: 18px 18px 20px;
+    margin-bottom: 28px;
+    flex: 1;
+  }
+  .best-for-block--lilac     { background: var(--c-lilac-tint); }
+  .best-for-block--yellow    { background: var(--c-yellow-tint); }
+  .best-for-block--turquoise { background: var(--c-turquoise-tint); }
+
+  .best-for-label {
     display: block;
+    color: var(--c-ink);
+    opacity: 0.7;
     margin-bottom: 8px;
-    font-size: 0.9rem;
-    color: var(--accent-primary);
+    font-size: 10px;
   }
-
-  .tier-example p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
+  .best-for-example {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--c-ink);
     font-style: italic;
   }
 
-  .tier-btn {
-    display: block;
-    background: var(--accent-gradient);
-    color: white;
-    text-align: center;
-    padding: 14px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: all 0.3s ease;
-  }
-
-  .tier-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
+  .tier-cta {
+    margin-top: auto;
+    width: 100%;
   }
 
   .pricing-note {
     text-align: center;
-    padding: 32px;
-    background: var(--bg-tertiary);
-    border-radius: 12px;
-    border: 2px dashed var(--border-color);
+    padding: 24px 0 0;
+    font-size: 16px;
+    color: var(--c-ink-soft);
+  }
+  .inline-link {
+    color: var(--c-blue);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    font-weight: 500;
+  }
+  .inline-link:hover { color: var(--c-ink); }
+
+  /* ---- Intro section — short lede paragraph below hero ---- */
+  .intro-section {
+    padding-top: clamp(48px, 6vw, 80px);
+    padding-bottom: clamp(48px, 6vw, 80px);
+  }
+  .intro-lede {
+    font-family: var(--font-sans);
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--c-ink);
+    max-width: 1000px;
+    margin: 0;
+    font-weight: 400;
   }
 
-  .pricing-note a {
-    color: var(--accent-primary);
-    text-decoration: none;
+  /* ---- Long-form section — collapsible markdown body at bottom ---- */
+  .long-form-section {
+    padding-top: clamp(48px, 6vw, 72px);
+    padding-bottom: clamp(48px, 6vw, 72px);
+  }
+  .long-form-details {
+    max-width: 760px;
+  }
+  .long-form-summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-top: 1px solid rgba(21, 25, 46, 0.15);
+    border-bottom: 1px solid rgba(21, 25, 46, 0.15);
+    transition: border-color 0.15s ease;
+  }
+  .long-form-summary::-webkit-details-marker { display: none; }
+  .long-form-summary:hover {
+    border-color: var(--c-ink);
+  }
+  .long-form-summary .meta {
+    color: var(--c-ink);
+  }
+  .long-form-chev {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--c-ink);
+    opacity: 0.6;
+    transition: transform 0.2s ease;
+  }
+  details[open] .long-form-chev {
+    transform: rotate(180deg);
+  }
+  .long-form-details .prose-wrapper {
+    padding-top: 32px;
+  }
+
+  /* ---- Prose wrapper — shared between long-form and any other rendered markdown ---- */
+  .prose-wrapper {
+    max-width: 760px;
+    color: var(--c-ink-soft);
+    font-size: 17px;
+    line-height: 1.75;
+  }
+  .prose-wrapper :global(h2) {
+    color: var(--c-ink);
+    margin-top: 40px;
+    margin-bottom: 16px;
+    font-size: clamp(22px, 2.5vw, 28px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .prose-wrapper :global(h2:first-child) { margin-top: 0; }
+  .prose-wrapper :global(h3) {
+    color: var(--c-ink);
+    margin-top: 28px;
+    margin-bottom: 12px;
+    font-size: 20px;
     font-weight: 600;
   }
-
-  .pricing-note a:hover {
-    text-decoration: underline;
-  }
-
-  /* Why Custom */
-  .why-custom-section {
-    padding: 80px 0;
-    background: var(--bg-secondary);
-  }
-
-  .content-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    font-size: 1.125rem;
-  }
-
-  .content-wrapper :global(h2) {
-    color: var(--text-primary);
-    margin-top: 32px;
-    margin-bottom: 16px;
-  }
-
-  .content-wrapper :global(h3) {
-    color: var(--text-primary);
-    margin-top: 16px;
-    margin-bottom: 8px;
-  }
-
-  .content-wrapper :global(ul) {
-    margin-top: 16px;
-    margin-bottom: 16px;
-    padding-left:16px;
-  }
-
-  .content-wrapper :global(ol) {
-    margin-top: 16px;
-    margin-bottom: 16px;
-    padding-left:16px;
-  }
-
-  .content-wrapper :global(li) {
-    margin-top: 16px;
-    margin-bottom: 16px;
-    margin-left:16px;
-  }
-
-  .content-wrapper :global(p) {
+  .prose-wrapper :global(p) {
     margin-bottom: 20px;
   }
-
-  /* Mistakes */
-  .mistakes-section {
-    padding: 80px 80px;
-    background: var(--bg-primary);
-    margin-left: 40px;
-    margin-right: 40px;
+  .prose-wrapper :global(ul),
+  .prose-wrapper :global(ol) {
+    margin: 0 0 20px 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  .prose-wrapper :global(ul li),
+  .prose-wrapper :global(ol li) {
+    padding: 6px 0 6px 24px;
+    position: relative;
+  }
+  .prose-wrapper :global(ul li::before) {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--c-ink-muted);
+    font-family: var(--font-mono);
+  }
+  .prose-wrapper :global(ol) { counter-reset: olcount; }
+  .prose-wrapper :global(ol li) { counter-increment: olcount; }
+  .prose-wrapper :global(ol li::before) {
+    content: counter(olcount, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    color: var(--c-ink-muted);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    top: 8px;
+  }
+  .prose-wrapper :global(strong) { color: var(--c-ink); font-weight: 600; }
+  .prose-wrapper :global(a) {
+    color: var(--c-blue);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+  }
+  .prose-wrapper :global(a:hover) { color: var(--c-ink); }
+  .prose-wrapper :global(blockquote) {
+    border-left: 3px solid var(--c-ink);
+    padding-left: 20px;
+    margin: 24px 0;
+    color: var(--c-ink);
+    font-style: italic;
   }
 
+  /* ---- Common mistakes ---- */
+  .mistakes-section .section-title { margin-bottom: 56px; }
   .mistakes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-  }
-
-  .mistake-card {
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 24px;
-    display: flex;
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
-
-  .mistake-icon {
-    font-size: 1.5rem;
+  .mistake-card {
+    background: rgba(250, 248, 243, 0.05);
+    border: 1px solid rgba(250, 248, 243, 0.1);
+    border-radius: var(--r-lg);
+    padding: 24px 28px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .mistake-num {
+    color: rgba(250, 248, 243, 0.5);
     flex-shrink: 0;
+    font-size: 13px;
+    padding-top: 2px;
+  }
+  .mistake-text {
+    color: var(--c-paper);
+    line-height: 1.55;
+    font-size: 15px;
   }
 
-  .mistake-card p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  /* FAQ */
-  .category-faq-section {
-    padding: 80px 0;
-    background: var(--bg-secondary);
-  }
-
+  /* ---- FAQ ---- */
+  .category-faq-section .section-title { margin-bottom: 56px; }
   .faq-list {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .faq-item {
-    background: var(--bg-tertiary);
-    padding: 32px;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    border: 1px solid var(--border-color);
-  }
-
-  .faq-item h3 {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-    font-weight: 700;
-  }
-
-  .faq-item p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-
-  /* Final CTA */
-  .final-cta-section {
-    padding: 80px 0;
-    background: var(--bg-primary);
-  }
-
-  .cta-card {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
-    border: 2px solid var(--accent-primary);
-    border-radius: 20px;
-    padding: 60px 40px;
-    text-align: center;
-    margin-left: 40px;
-    margin-right: 40px;
-  }
-
-  .cta-card h2 {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-    font-weight: 800;
-  }
-
-  .cta-card p {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
     margin-bottom: 32px;
   }
-
-  .cta-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
+  .faq-item h3 { margin-bottom: 12px; }
+  .faq-item p {
+    color: var(--c-ink-soft);
+    line-height: 1.7;
+    font-size: 15px;
   }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .process-steps {
-      flex-direction: column;
-    }
-
-    .process-arrow {
-      transform: rotate(90deg);
-    }
+  .faq-cta {
+    text-align: center;
+    font-size: 16px;
+    color: var(--c-ink-soft);
   }
+  .faq-cta-link {
+    color: var(--c-blue);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid currentColor;
+  }
+  .faq-cta-link:hover { color: var(--c-ink); }
 
-  @media (max-width: 768px) {
-    .page-title {
-      font-size: 2rem;
-    }
+  /* ---- Final CTA ---- */
+  .cta-content { max-width: 800px; }
+  .cta-title { margin-bottom: 24px; }
+  .cta-text { margin-bottom: 40px; max-width: 580px; }
+  .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    .pricing-tiers {
+  /* ---- Responsive ---- */
+  @media (max-width: 1100px) {
+    .hero-grid {
       grid-template-columns: 1fr;
+      gap: 56px;
     }
-
-    .hero-cta,
-    .cta-buttons {
-      flex-direction: column;
+    .mockup-col {
+      margin-right: 0;
+      max-width: 560px;
     }
-
-    .btn-primary,
-    .btn-secondary {
-      width: 100%;
-      text-align: center;
+    .browser {
+      transform: none; /* drop the 3D rotation on smaller screens */
     }
+    .page-title,
+    .page-subtitle {
+      max-width: 720px;
+    }
+  }
+  @media (max-width: 1024px) {
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-steps,
+    .pricing-tiers { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 900px) {
+    .topics-grid,
+    .mistakes-grid,
+    .faq-list { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .features-grid { grid-template-columns: 1fr; }
+    .hero-cta .btn,
+    .cta-buttons .btn { width: 100%; }
+    /* Browser mockup at mobile — compress padding and font sizes */
+    .course-screen { padding: 20px; }
+    .course-q { font-size: 17px; }
+    .browser-tab--inactive { display: none; }
+    .browser-controls { display: none; }
   }
 </style>

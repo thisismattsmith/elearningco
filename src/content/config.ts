@@ -31,6 +31,10 @@ const trainingCategories = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    // Long-form intro paragraph shown under the hero. Sells the page emotionally
+    // before the buyer hits the structured sections. Falls back to `description`
+    // if not provided.
+    intro: z.string().optional(),
     icon: z.string().optional(),
     category: z.enum([
       'Compliance & Risk',

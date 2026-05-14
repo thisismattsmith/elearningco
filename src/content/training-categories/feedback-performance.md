@@ -1,6 +1,7 @@
 ---
 title: "Feedback & Performance Conversations"
 description: "Feedback training that makes performance conversations actually productive. Regular feedback, not just annual reviews."
+intro: "Feedback and performance conversations are some of the most consequential moments in a manager's week, and most managers get little practice. Custom training works through your real situations: under-performance, behaviour concerns, growth conversations. It builds confidence by rehearsing the specific exchanges your managers actually have—not generic 'feedback sandwich' templates."
 category: "Skills Development"
 icon: "📊"
 topics:

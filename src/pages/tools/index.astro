@@ -1,0 +1,403 @@
+---
+// src/pages/tools/index.astro
+// Index page listing all 8 authoring tools.
+// Tool data is duplicated from [tool].astro for now —
+// if we add many more tools we should extract to a shared file,
+// but with 8 tools the duplication is manageable.
+import Layout from '../../components/layout/Layout.astro';
+
+const tools = [
+  {
+    slug: 'articulate-rise',
+    name: 'Articulate Rise',
+    tagline: 'Modern, responsive courses that work on any device.',
+    bestFor: ['Quick deployment', 'Mobile learning', 'Compliance training'],
+    pricing: '$5,500 + GST',
+    deliveryTime: '3 weeks',
+    complexity: 'Simple to moderate',
+  },
+  {
+    slug: 'articulate-storyline',
+    name: 'Articulate Storyline',
+    tagline: 'Custom interactions, branching, and complex simulations.',
+    bestFor: ['Complex scenarios', 'Branching simulations', 'Software training'],
+    pricing: '$10,500 + GST',
+    deliveryTime: '3-6 weeks',
+    complexity: 'Moderate to complex',
+  },
+  {
+    slug: 'chameleon-creator',
+    name: 'Chameleon Creator',
+    tagline: 'SCORM-free, lightweight courses for rapid deployment.',
+    bestFor: ['No LMS available', 'Web-based delivery', 'Quick updates'],
+    pricing: '$7,500 + GST',
+    deliveryTime: '3-4 weeks',
+    complexity: 'Simple to moderate',
+  },
+  {
+    slug: 'adobe-captivate',
+    name: 'Adobe Captivate',
+    tagline: 'Software simulations and responsive eLearning.',
+    bestFor: ['Software demonstrations', 'Screen captures', 'Technical training'],
+    pricing: '$10,500 + GST',
+    deliveryTime: '4-8 weeks',
+    complexity: 'Moderate to complex',
+  },
+  {
+    slug: 'howtoo',
+    name: 'HowToo',
+    tagline: 'Modern, collaborative course creation platform.',
+    bestFor: ['Team collaboration', 'Fast deployment', 'Modern aesthetics'],
+    pricing: '$7,500 + GST',
+    deliveryTime: '2-4 weeks',
+    complexity: 'Simple to moderate',
+  },
+  {
+    slug: 'parta',
+    name: 'Parta.io',
+    tagline: 'Interactive video-based learning experiences.',
+    bestFor: ['Video-based learning', 'Interactive scenarios', 'Branching stories'],
+    pricing: 'Custom quote',
+    deliveryTime: '4-6 weeks',
+    complexity: 'Moderate',
+  },
+  {
+    slug: '7taps',
+    name: '7Taps',
+    tagline: 'Mobile-first microlearning in minutes.',
+    bestFor: ['Microlearning', 'Mobile-first', 'Quick tips'],
+    pricing: '$7,500 + GST',
+    deliveryTime: '1-2 weeks',
+    complexity: 'Simple',
+  },
+  {
+    slug: 'coassemble',
+    name: 'Coassemble',
+    tagline: 'Australian-built learning platform.',
+    bestFor: ['Australian businesses', 'Template-based', 'LMS included'],
+    pricing: '$7,500 + GST',
+    deliveryTime: '2-4 weeks',
+    complexity: 'Simple to moderate',
+  },
+];
+---
+
+<Layout
+  title="Authoring Tools | The eLearning Company"
+  description="We build custom eLearning courses in 8 different authoring tools. Find the right fit for your project — from Articulate Rise to 7Taps microlearning."
+>
+  <!-- ============================================================
+       1. Hero — lilac
+       ============================================================ -->
+  <section class="section section--lilac tools-hero">
+    <div class="container">
+      <span class="pill-meta hero-pill">Authoring tools</span>
+      <h1 class="display display-xl hero-title">
+        Eight authoring tools.<br />
+        <span class="accent-blue">One reliable team.</span>
+      </h1>
+      <p class="lede hero-subtitle">
+        We're certified developers across the major eLearning authoring platforms. Pick the tool that suits your project — or let us recommend one.
+      </p>
+      <div class="hero-cta">
+        <a href="/contact" class="btn btn--primary">Get a quote</a>
+        <a href="#tools-grid" class="btn btn--secondary">Browse tools</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. Tools grid — paper
+       ============================================================ -->
+  <section class="section section--paper tools-grid-section" id="tools-grid">
+    <div class="container">
+      <span class="section-kicker">All tools</span>
+      <h2 class="display display-md section-title">
+        Choose the right tool<br />
+        for your project.
+      </h2>
+      <p class="lede section-subtitle">
+        Each tool has its strengths. Click through to see what fits — or skip to the bottom if you'd rather we choose for you.
+      </p>
+
+      <div class="tools-grid">
+        {tools.map((tool) => (
+          <a href={`/tools/${tool.slug}`} class="tool-card">
+            <header class="tool-card-header">
+              <h3 class="heading-md tool-name">{tool.name}</h3>
+              <p class="tool-tagline">{tool.tagline}</p>
+            </header>
+
+            <div class="tool-meta">
+              <div class="tool-meta-row">
+                <span class="meta tool-meta-label">From</span>
+                <span class="tool-meta-value">{tool.pricing}</span>
+              </div>
+              <div class="tool-meta-row">
+                <span class="meta tool-meta-label">Timeline</span>
+                <span class="tool-meta-value">{tool.deliveryTime}</span>
+              </div>
+              <div class="tool-meta-row">
+                <span class="meta tool-meta-label">Complexity</span>
+                <span class="tool-meta-value">{tool.complexity}</span>
+              </div>
+            </div>
+
+            <div class="tool-best-for">
+              <span class="meta tool-best-for-label">Best for</span>
+              <ul class="tool-best-for-list">
+                {tool.bestFor.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <footer class="tool-card-footer">
+              <span class="tool-card-cta">Learn more <span class="arrow" aria-hidden="true">→</span></span>
+            </footer>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. Decision helper — navy · the "not sure?" CTA
+       ============================================================ -->
+  <section class="section section--navy decision-section">
+    <div class="container">
+      <div class="decision-content">
+        <span class="section-kicker">Not sure which tool?</span>
+        <h2 class="display display-md decision-title">
+          We'll <span class="mark--lilac">recommend the right one.</span>
+        </h2>
+        <p class="lede decision-text">
+          During a quick 15-minute discovery call, we'll listen to your requirements and recommend the tool that fits — even if it's not one of ours.
+        </p>
+
+        <div class="decision-points">
+          <div class="decision-point">
+            <span class="meta decision-num">01</span>
+            <p>Tell us about your training content and audience.</p>
+          </div>
+          <div class="decision-point">
+            <span class="meta decision-num">02</span>
+            <p>We'll suggest the best tool based on your needs.</p>
+          </div>
+          <div class="decision-point">
+            <span class="meta decision-num">03</span>
+            <p>Get a fixed-price quote with clear timelines.</p>
+          </div>
+        </div>
+
+        <div class="decision-cta">
+          <a href="/contact" class="btn btn--accent">Get a recommendation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. Final CTA — lilac
+       ============================================================ -->
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Ready to<br />
+          <span class="accent-blue">get started?</span>
+        </h2>
+        <p class="lede cta-text">
+          Tell us about your project and we'll respond within 24 hours.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/pricing" class="btn btn--secondary">View pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ============================================================
+     Page-specific styles only.
+     ============================================================ */
+
+  /* ---- 1. Hero ---- */
+  .tools-hero {
+    padding-top: clamp(64px, 8vw, 100px);
+    padding-bottom: clamp(80px, 10vw, 120px);
+  }
+  .hero-pill { margin-bottom: 24px; }
+  .hero-title { margin-bottom: 32px; max-width: 1100px; }
+  .hero-subtitle { margin-bottom: 40px; max-width: 640px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ---- 2. Tools grid ---- */
+  .tools-grid-section .section-title { margin-bottom: 16px; max-width: 720px; }
+  .tools-grid-section .section-subtitle { margin-bottom: 56px; }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .tool-card {
+    background: var(--c-paper-deep);
+    border: 1px solid rgba(21, 25, 46, 0.08);
+    border-radius: var(--r-lg);
+    padding: 32px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .tool-card:hover {
+    border-color: var(--c-ink);
+    transform: translateY(-2px);
+  }
+
+  .tool-card-header {
+    border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+    padding-bottom: 20px;
+  }
+  .tool-name {
+    margin-bottom: 8px;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+  }
+  .tool-tagline {
+    color: var(--c-ink-soft);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* Tool meta — three label/value rows */
+  .tool-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+  }
+  .tool-meta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .tool-meta-label {
+    color: var(--c-ink-muted);
+  }
+  .tool-meta-value {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--c-ink);
+    line-height: 1.3;
+  }
+
+  /* Tool best for */
+  .tool-best-for {
+    flex: 1;
+  }
+  .tool-best-for-label {
+    display: block;
+    color: var(--c-ink-muted);
+    margin-bottom: 10px;
+  }
+  .tool-best-for-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .tool-best-for-list li {
+    padding: 4px 0 4px 20px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--c-ink);
+  }
+  .tool-best-for-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--c-ink-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* Tool card footer */
+  .tool-card-footer {
+    padding-top: 20px;
+    border-top: 1px solid rgba(21, 25, 46, 0.08);
+  }
+  .tool-card-cta {
+    color: var(--c-blue);
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tool-card-cta .arrow {
+    font-family: var(--font-mono);
+    transition: transform 0.2s ease;
+  }
+  .tool-card:hover .tool-card-cta .arrow {
+    transform: translateX(4px);
+  }
+
+  /* ---- 3. Decision helper ---- */
+  .decision-section { padding-top: clamp(80px, 10vw, 120px); padding-bottom: clamp(80px, 10vw, 120px); }
+  .decision-content { max-width: 820px; }
+  .decision-title { margin-bottom: 24px; }
+  .decision-text { margin-bottom: 48px; max-width: 640px; }
+
+  .decision-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+  .decision-num {
+    display: block;
+    color: rgba(250, 248, 243, 0.55);
+    margin-bottom: 14px;
+  }
+  .decision-point p {
+    color: rgba(250, 248, 243, 0.85);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .decision-cta {
+    display: flex;
+    gap: 12px;
+  }
+
+  /* ---- 4. Final CTA ---- */
+  .cta-content { max-width: 800px; }
+  .cta-title { margin-bottom: 24px; }
+  .cta-text { margin-bottom: 40px; max-width: 500px; }
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 1024px) {
+    .decision-points { grid-template-columns: 1fr; gap: 24px; }
+  }
+  @media (max-width: 900px) {
+    .tools-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .tool-meta { grid-template-columns: 1fr; gap: 12px; }
+    .hero-cta .btn,
+    .cta-buttons .btn { width: 100%; }
+  }
+</style>

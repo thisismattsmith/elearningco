@@ -1,6 +1,7 @@
 ---
 title: "Customer Service Training"
 description: "Customer service training that turns interactions into relationships. Build problem-solving ability, not robotic responses."
+intro: "Customer service training only delivers when it reflects the actual conversations your team has every day. Generic courses teach scripts and rules. Custom training works through your real situations—the difficult callers, the complicated requests, the moments where a careful response keeps a relationship and a rushed one ends it. Your team already knows the theory. They need the practice."
 category: "Skills Development"
 icon: "💬"
 topics:
