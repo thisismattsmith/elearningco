@@ -1,7 +1,7 @@
 ---
 title: "Australian Compliance Training in 2026: What's Actually Required?"
 description: "A practical overview of mandatory workplace training in Australia — sexual harassment, WHS, anti-discrimination, industry-specific. What's mandated, what's expected, what's defensible."
-pubDate: 2026-05-20
+pubDate: 2026-05-19
 author: "The eLearning Company"
 category: "Industry Insights"
 tags: ["Compliance Training", "Australia", "WHS", "Sexual Harassment", "Anti-Discrimination", "Positive Duty", "L&D"]
