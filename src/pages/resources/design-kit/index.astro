@@ -1,0 +1,440 @@
+---
+// src/pages/resources/design-kit/index.astro
+// eLearning design kit — filterable card grid of components,
+// design advice, and tools. Each card links to a detail page
+// with best practice guidance.
+
+import Layout from '../../../components/layout/Layout.astro';
+
+// Category definitions. Each category has its own colour, used for
+// the filter button background and the card stripe.
+// Adding a new category? Add it here and to the kit items below.
+type Category = 'Components' | 'Interactions' | 'Design advice' | 'eLearning tools';
+const categories: Category[] = ['Components', 'Interactions', 'Design advice', 'eLearning tools'];
+
+const categoryClass: Record<Category, string> = {
+  'Components':       'cat-lilac',
+  'Interactions':     'cat-blue',
+  'Design advice':    'cat-turquoise',
+  'eLearning tools':  'cat-yellow',
+};
+
+// Kit items. Add new ones here as detail pages are built.
+// `available: false` shows the card greyed out without a link.
+type KitItem = {
+  slug: string;
+  title: string;
+  description: string;
+  category: Category;
+  available: boolean;
+};
+
+const kitItems: KitItem[] = [
+  // ----- Components -----
+  {
+    slug: 'radio-buttons',
+    title: 'Radio buttons',
+    description: 'Use for single-choice questions where only one answer can be selected.',
+    category: 'Components',
+    available: true,
+  },
+  {
+    slug: 'sliders',
+    title: 'Sliders',
+    description: 'Use for adjusting a value along a range — zoom levels, comfort, confidence.',
+    category: 'Components',
+    available: true,
+  },
+  { slug: 'checkboxes',  title: 'Checkboxes',      description: 'Use when learners can select more than one option from a list.',         category: 'Components',      available: true },
+  { slug: 'dials',       title: 'Dials',           description: 'A circular alternative to sliders for analogue-style inputs.',           category: 'Components',      available: true },
+  { slug: 'primary-buttons',     title: 'Primary buttons',    description: 'The CTAs that drive action: Submit, Continue, Get started.',           category: 'Components', available: true },
+  { slug: 'navigation-buttons',  title: 'Navigation buttons', description: 'Next, Previous, and the patterns that move learners through content.', category: 'Components', available: true },
+  { slug: 'toggle-buttons',      title: 'Toggle buttons',     description: 'On/off, sort/filter, and segmented controls for state.',                category: 'Components', available: true },
+  { slug: 'carousels',   title: 'Carousels',       description: 'Sequential content that benefits from manual paging.',                    category: 'Components',      available: true },
+  { slug: 'text-entry',  title: 'Text entry',      description: 'Free-text inputs for reflection and short-answer activities.',           category: 'Components',      available: true },
+  { slug: 'links',       title: 'Links',           description: 'Inline and standalone links — when, where, and how.',                     category: 'Components',      available: true },
+
+  // ----- Interactions -----
+  { slug: 'branching-scenarios',   title: 'Branching scenarios',   description: 'Decision-driven stories where the learner shapes the outcome.',   category: 'Interactions', available: true },
+  { slug: 'hotspots',              title: 'Hotspots',              description: 'Interactive points on an image for exploratory learning.',        category: 'Interactions', available: true },
+  { slug: 'drag-and-drop',         title: 'Drag and drop',         description: 'Sort, match, or sequence items by dragging them into place.',     category: 'Interactions', available: true },
+  { slug: 'quizzes',               title: 'Quizzes',               description: 'Multi-question assessments that test what learners have grasped.', category: 'Interactions', available: true },
+  { slug: 'click-to-reveal',       title: 'Click to reveal',       description: 'Tabs, accordions, and flip cards for chunking optional content.', category: 'Interactions', available: true },
+  { slug: 'software-simulations',  title: 'Software simulations',  description: 'Click-through training for applications and tools.',              category: 'Interactions', available: true },
+  { slug: 'real-world-simulations',title: 'Real-world simulations',description: 'Immersive scenarios that mirror real workplace systems.',         category: 'Interactions', available: true },
+
+  // ----- Design advice -----
+  { slug: 'writing-assessment-questions', title: 'Writing good assessment questions', description: 'How to choose the right question type and write each one so it tests understanding.', category: 'Design advice', available: true },
+  { slug: 'writing-engaging-scenarios',   title: 'Writing engaging scenarios',         description: 'How to write scenarios that feel real, not like training exercises.',                 category: 'Design advice', available: true },
+  { slug: 'choosing-level-of-detail',     title: 'Choosing the right level of detail', description: 'When to go deep, when to summarise, and how to decide.',                              category: 'Design advice', available: true },
+  { slug: 'using-white-space',            title: 'Using white space',                  description: 'Why white space matters in eLearning and how to use it deliberately.',                category: 'Design advice', available: true },
+  { slug: 'colour-theory-intro',          title: 'Intro to colour theory in eLearning',description: 'Practical colour theory for learning designers.',                                     category: 'Design advice', available: true },
+  { slug: 'writing-for-screen',           title: 'Writing for screen, not page',       description: 'eLearning copy is different from training manuals. How to write the way people read on screens.', category: 'Design advice', available: true },
+  { slug: 'typography-for-elearning',     title: 'Typography for eLearning',           description: 'Practical typography that supports rather than fights the content.',                  category: 'Design advice', available: true },
+  { slug: 'designing-for-accessibility',  title: 'Designing for accessibility',        description: 'eLearning-specific accessibility, in plain terms. Not WCAG theory — the actual decisions.', category: 'Design advice', available: true },
+
+  // ----- eLearning tools -----
+  { slug: 'articulate-rise',     title: 'Articulate Rise',     description: 'The web-based authoring tool for fast, responsive courses.',         category: 'eLearning tools', available: true },
+  { slug: 'articulate-storyline',title: 'Articulate Storyline',description: 'The slide-based tool for complex interactions and simulations.',     category: 'eLearning tools', available: true },
+  { slug: 'chameleon-creator',   title: 'Chameleon Creator',   description: 'Australian/NZ-built design-first authoring with hosting and analytics.', category: 'eLearning tools', available: true },
+  { slug: 'mindsmith',           title: 'Mindsmith',           description: 'AI-native authoring for fast first drafts and multi-language rollout.', category: 'eLearning tools', available: true },
+  { slug: 'parta',               title: 'Parta',               description: 'Productivity-first platform with real-time collaboration and element-level commenting.', category: 'eLearning tools', available: true },
+  { slug: 'howtoo',              title: 'HowToo',              description: 'Australian-built tool with strong accessibility credentials and AI course creator.', category: 'eLearning tools', available: true },
+];
+---
+
+<Layout
+  title="eLearning Design Kit | The eLearning Company"
+  description="Best practice guides for the building blocks of eLearning. Components, design advice, and tools — with working examples."
+>
+  <!-- ============================================================
+       1. Hero — lilac
+       ============================================================ -->
+  <section class="section section--lilac kit-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Design kit</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">eLearning Design Kit</span>
+      <h1 class="display display-xl hero-title">
+        The design kit<br />
+        <span class="accent-blue">for eLearning.</span>
+      </h1>
+      <p class="lede hero-subtitle">
+        Best practice guides for the building blocks of every course. What components are for, what they aren't for, and how to use them well. With working examples.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. Filter bar — paper-deep
+       ============================================================ -->
+  <section class="section section--paper-deep kit-filter-section">
+    <div class="container">
+      <div class="filter-header">
+        <span class="meta filter-label">Filter by category</span>
+      </div>
+      <div class="filter-bar" role="group" aria-label="Filter design kit items by category">
+        <button class="filter-btn active" data-category="all" aria-pressed="true">All</button>
+        {categories.map((cat) => (
+          <button
+            class={`filter-btn filter-btn--${categoryClass[cat]}`}
+            data-category={cat}
+            aria-pressed="false"
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. Kit grid — paper
+       ============================================================ -->
+  <section class="section section--paper kit-grid-section">
+    <div class="container">
+      <div class="kit-grid">
+        {kitItems.map((item) => {
+          const Card = item.available ? 'a' : 'div';
+          const cardProps = item.available
+            ? { href: `/resources/design-kit/${item.slug}` }
+            : { 'aria-hidden': 'true' };
+          return (
+            <Card
+              {...cardProps}
+              class:list={[
+                'kit-card',
+                `kit-card--${categoryClass[item.category]}`,
+                !item.available && 'kit-card--coming-soon',
+              ]}
+              data-category={item.category}
+            >
+              <div class="kit-card-stripe" aria-hidden="true"></div>
+              <div class="kit-card-body">
+                <span class={`kit-card-pill pill-${categoryClass[item.category]}`}>
+                  {item.category}
+                </span>
+                <h3 class="heading-md kit-card-title">{item.title}</h3>
+                <p class="kit-card-desc">{item.description}</p>
+                {item.available ? (
+                  <span class="kit-card-cta">Read the guide <span aria-hidden="true">→</span></span>
+                ) : (
+                  <span class="kit-card-cta kit-card-cta--soon">Coming soon</span>
+                )}
+              </div>
+            </Card>
+          );
+        })}
+      </div>
+
+      <div id="no-results" class="no-results" hidden>
+        <p>No items in this category yet. Check back as we build it out.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. Final CTA — lilac
+       ============================================================ -->
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want us to build it<br />
+          <span class="accent-blue">for you?</span>
+        </h2>
+        <p class="lede cta-text">
+          We use these principles on every course we build. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/pricing" class="btn btn--secondary">View pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Filter cards by category. Updates aria-pressed and the
+  // visible/hidden state of each card.
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.kit-card');
+  const noResults = document.getElementById('no-results');
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const category = button.dataset.category;
+
+      filterButtons.forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      button.classList.add('active');
+      button.setAttribute('aria-pressed', 'true');
+
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = '';
+          visibleCount += 1;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (noResults) {
+        noResults.hidden = visibleCount > 0;
+      }
+    });
+  });
+</script>
+
+<style>
+  /* ============================================================
+     Page-specific styles only.
+     ============================================================ */
+
+  /* ---- 1. Hero ---- */
+  .kit-hero {
+    padding-top: clamp(56px, 7vw, 80px);
+    padding-bottom: clamp(72px, 9vw, 96px);
+  }
+  .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-ink);
+    opacity: 0.7;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+  .breadcrumb a {
+    color: var(--c-ink);
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .breadcrumb a:hover { opacity: 0.5; }
+  .breadcrumb-sep { opacity: 0.5; }
+  .breadcrumb-current { opacity: 0.6; }
+
+  .hero-pill { margin-bottom: 24px; }
+  .hero-title { margin-bottom: 32px; max-width: 1000px; }
+  .hero-subtitle { max-width: 720px; }
+
+  /* ---- 2. Filter bar ---- */
+  .kit-filter-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .filter-header { margin-bottom: 16px; }
+  .filter-label { color: var(--c-ink-muted); }
+
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    background: var(--c-paper);
+    color: var(--c-ink);
+    border: 1px solid rgba(21, 25, 46, 0.15);
+    padding: 8px 16px;
+    border-radius: var(--r-md);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .filter-btn:hover { border-color: var(--c-ink); }
+  .filter-btn.active {
+    background: var(--c-ink);
+    color: var(--c-paper);
+    border-color: var(--c-ink);
+  }
+
+  /* When a category-specific filter button is active, swap to that
+     category's colour rather than the default dark fill. */
+  .filter-btn--cat-lilac.active {
+    background: var(--c-lilac);
+    color: var(--c-ink);
+    border-color: var(--c-lilac);
+  }
+  .filter-btn--cat-blue.active {
+    background: var(--c-blue);
+    color: var(--c-paper);
+    border-color: var(--c-blue);
+  }
+  .filter-btn--cat-turquoise.active {
+    background: var(--c-turquoise);
+    color: var(--c-ink);
+    border-color: var(--c-turquoise);
+  }
+  .filter-btn--cat-yellow.active {
+    background: var(--c-yellow);
+    color: var(--c-ink);
+    border-color: var(--c-yellow);
+  }
+
+  /* ---- 3. Kit grid ---- */
+  .kit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .kit-card {
+    background: var(--c-paper);
+    border: 1px solid rgba(21, 25, 46, 0.08);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    position: relative;
+  }
+  a.kit-card:hover {
+    border-color: var(--c-ink);
+    transform: translateY(-2px);
+  }
+  .kit-card--coming-soon {
+    opacity: 0.45;
+    cursor: default;
+  }
+
+  /* Coloured top stripe — the category indicator */
+  .kit-card-stripe {
+    height: 6px;
+    width: 100%;
+  }
+  .kit-card--cat-lilac .kit-card-stripe     { background: var(--c-lilac); }
+  .kit-card--cat-blue .kit-card-stripe      { background: var(--c-blue); }
+  .kit-card--cat-turquoise .kit-card-stripe { background: var(--c-turquoise); }
+  .kit-card--cat-yellow .kit-card-stripe    { background: var(--c-yellow); }
+
+  .kit-card-body {
+    padding: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Category pill — small uppercase label, takes the category colour */
+  .kit-card-pill {
+    display: inline-flex;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 4px 10px;
+    border-radius: var(--r-sm);
+    margin-bottom: 16px;
+    align-self: flex-start;
+  }
+  .pill-cat-lilac     { background: var(--c-lilac-tint); color: var(--c-ink); }
+  .pill-cat-blue      { background: var(--c-blue-light); color: var(--c-ink); }
+  .pill-cat-turquoise { background: var(--c-turquoise-tint); color: var(--c-ink); }
+  .pill-cat-yellow    { background: var(--c-yellow-tint); color: var(--c-ink); }
+
+  .kit-card-title {
+    margin-bottom: 10px;
+    font-size: 22px;
+    line-height: 1.25;
+  }
+  .kit-card-desc {
+    color: var(--c-ink-soft);
+    line-height: 1.55;
+    font-size: 14px;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .kit-card-cta {
+    color: var(--c-blue);
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: auto;
+  }
+  .kit-card-cta--soon {
+    color: var(--c-ink-muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  a.kit-card:hover .kit-card-cta { color: var(--c-ink); }
+
+  .no-results {
+    padding: 80px 20px;
+    text-align: center;
+    color: var(--c-ink-muted);
+  }
+
+  /* ---- 4. Final CTA ---- */
+  .cta-content { max-width: 800px; }
+  .cta-title { margin-bottom: 24px; }
+  .cta-text { margin-bottom: 40px; max-width: 580px; }
+  .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 1000px) {
+    .kit-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .kit-grid { grid-template-columns: 1fr; }
+    .cta-buttons .btn { width: 100%; }
+  }
+</style>

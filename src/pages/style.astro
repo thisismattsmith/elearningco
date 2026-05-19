@@ -1,0 +1,911 @@
+---
+// src/pages/style.astro
+//
+// Internal visual style guide. Not for public consumption.
+// Marked noindex on the page and disallowed in /robots.txt.
+//
+import Layout from '../components/layout/Layout.astro';
+
+// Token data — pulled directly from global.css so this page can never
+// drift from the source of truth. If you add a token in global.css,
+// add it here too; if you change a value here, change global.css.
+
+const brandColours = [
+  { name: '--c-lilac',         hex: '#C8B6FF', usage: 'Hero & marketing moments. Primary brand colour.' },
+  { name: '--c-yellow',        hex: '#F5D547', usage: 'Pricing & value moments. Secondary brand.' },
+  { name: '--c-turquoise',     hex: '#7EE8DA', usage: 'Process & how-it-works. Tertiary brand.' },
+  { name: '--c-navy',          hex: '#15192E', usage: 'Proof points, blog, dark sections.' },
+];
+
+const brandDeeps = [
+  { name: '--c-lilac-deep',     hex: '#A48BFF', usage: 'Hover and emphasis on lilac surfaces.' },
+  { name: '--c-yellow-deep',    hex: '#D9B72A', usage: 'Hover and emphasis on yellow surfaces.' },
+  { name: '--c-turquoise-deep', hex: '#4FC9B7', usage: 'Hover and emphasis on turquoise surfaces.' },
+];
+
+const brandTints = [
+  { name: '--c-lilac-tint',     hex: '#F0EAFF', usage: 'Lilac-themed callouts on paper.' },
+  { name: '--c-yellow-tint',    hex: '#FBF1C7', usage: 'Yellow-themed callouts on paper.' },
+  { name: '--c-turquoise-tint', hex: '#D8F5EF', usage: 'Turquoise-themed callouts on paper.' },
+];
+
+const neutrals = [
+  { name: '--c-paper',          hex: '#FAF8F3', usage: 'Default page background.' },
+  { name: '--c-paper-deep',     hex: '#F1EDE2', usage: 'Subdued surface inside cards and grouped content.' },
+  { name: '--c-ink',            hex: '#15192E', usage: 'Body text on light. Same value as navy.' },
+  { name: '--c-ink-soft',       hex: '#2D3147', usage: 'Secondary text.' },
+  { name: '--c-ink-muted',      hex: '#5B5F7A', usage: 'Captions, meta, hints.' },
+];
+
+const supporting = [
+  { name: '--c-blue',           hex: '#1E3A8A', usage: 'Accent on light backgrounds. Links, emphasis.' },
+  { name: '--c-blue-light',     hex: '#BFDBFE', usage: 'Accent on navy backgrounds only.' },
+  { name: '--c-teal',           hex: '#0F4C5C', usage: 'Secondary dark accent on yellow sections.' },
+];
+
+const radii = [
+  { name: '--r-sm',   value: '4px',   usage: 'Tight chips, tags.' },
+  { name: '--r-md',   value: '6px',   usage: 'Buttons, inputs, cards. The default.' },
+  { name: '--r-lg',   value: '12px',  usage: 'Larger cards and feature blocks.' },
+  { name: '--r-pill', value: '999px', usage: 'Pill-shaped elements (kickers, badges).' },
+];
+
+const fonts = [
+  { name: '--font-display', value: "'Archivo Black'", usage: 'Hero titles, display headings. Use sparingly.' },
+  { name: '--font-sans',    value: "'Inter'",         usage: 'Body, headings, UI. The workhorse.' },
+  { name: '--font-mono',    value: "'JetBrains Mono'", usage: 'Meta text, kickers, code, numerals.' },
+];
+---
+
+<Layout
+  title="Style guide — internal"
+  description="Internal style guide. Not for public listing."
+  noindex={true}
+>
+  <section class="section section--lilac sg-hero">
+    <div class="container">
+      <span class="pill-meta hero-pill">Internal · noindex</span>
+      <h1 class="display display-xl page-title">
+        Style<br />
+        <span class="accent-blue">guide.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Visual reference for The eLearning Co. design system. Tokens, components, and patterns rendered live. Single source of truth: <code>src/styles/global.css</code> — if a token here disagrees with that file, the file wins.
+      </p>
+      <nav class="sg-toc" aria-label="Style guide contents">
+        <a href="#colour">Colour</a>
+        <a href="#typography">Typography</a>
+        <a href="#radii">Radii</a>
+        <a href="#sections">Section backgrounds</a>
+        <a href="#buttons">Buttons</a>
+        <a href="#pills">Pills</a>
+        <a href="#forms">Form elements</a>
+        <a href="#accents">Accents & marks</a>
+        <a href="#links">Links</a>
+        <a href="#meta">Meta text</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- COLOUR -->
+  <section class="section section--paper sg-section" id="colour">
+    <div class="container">
+      <span class="section-kicker">01 — Colour</span>
+      <h2 class="display display-md sg-section-title">Brand palette.</h2>
+      <p class="sg-lede">Four primary brand colours, each tied to a content theme. Use the primary value for backgrounds and surfaces; the deep variants for hover and emphasis; the tints for callouts on paper.</p>
+
+      <div class="sg-swatch-grid">
+        {brandColours.map((c) => (
+          <div class="sg-swatch">
+            <div class="sg-swatch-chip" style={`background: ${c.hex};`}></div>
+            <div class="sg-swatch-meta">
+              <code class="sg-swatch-token">{c.name}</code>
+              <code class="sg-swatch-hex">{c.hex}</code>
+              <p class="sg-swatch-usage">{c.usage}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="sg-subhead">Deep variants — hover & emphasis</h3>
+      <div class="sg-swatch-grid sg-swatch-grid--small">
+        {brandDeeps.map((c) => (
+          <div class="sg-swatch">
+            <div class="sg-swatch-chip" style={`background: ${c.hex};`}></div>
+            <div class="sg-swatch-meta">
+              <code class="sg-swatch-token">{c.name}</code>
+              <code class="sg-swatch-hex">{c.hex}</code>
+              <p class="sg-swatch-usage">{c.usage}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="sg-subhead">Tints — callout backgrounds on paper</h3>
+      <div class="sg-swatch-grid sg-swatch-grid--small">
+        {brandTints.map((c) => (
+          <div class="sg-swatch">
+            <div class="sg-swatch-chip sg-swatch-chip--bordered" style={`background: ${c.hex};`}></div>
+            <div class="sg-swatch-meta">
+              <code class="sg-swatch-token">{c.name}</code>
+              <code class="sg-swatch-hex">{c.hex}</code>
+              <p class="sg-swatch-usage">{c.usage}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="sg-subhead">Neutrals — paper & ink</h3>
+      <div class="sg-swatch-grid sg-swatch-grid--small">
+        {neutrals.map((c) => (
+          <div class="sg-swatch">
+            <div class="sg-swatch-chip sg-swatch-chip--bordered" style={`background: ${c.hex};`}></div>
+            <div class="sg-swatch-meta">
+              <code class="sg-swatch-token">{c.name}</code>
+              <code class="sg-swatch-hex">{c.hex}</code>
+              <p class="sg-swatch-usage">{c.usage}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="sg-subhead">Supporting — accents</h3>
+      <div class="sg-swatch-grid sg-swatch-grid--small">
+        {supporting.map((c) => (
+          <div class="sg-swatch">
+            <div class="sg-swatch-chip" style={`background: ${c.hex};`}></div>
+            <div class="sg-swatch-meta">
+              <code class="sg-swatch-token">{c.name}</code>
+              <code class="sg-swatch-hex">{c.hex}</code>
+              <p class="sg-swatch-usage">{c.usage}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="section section--paper-deep sg-section" id="typography">
+    <div class="container">
+      <span class="section-kicker">02 — Typography</span>
+      <h2 class="display display-md sg-section-title">Type system.</h2>
+      <p class="sg-lede">Three fonts: Archivo Black for display, Inter for everything text-heavy, JetBrains Mono for meta and numerals. Display sizes are responsive (<code>clamp()</code>) so they scale gracefully between mobile and desktop.</p>
+
+      <h3 class="sg-subhead">Font families</h3>
+      <div class="sg-tokens">
+        {fonts.map((f) => (
+          <div class="sg-token-row">
+            <code class="sg-token-name">{f.name}</code>
+            <code class="sg-token-value">{f.value}</code>
+            <span class="sg-token-usage">{f.usage}</span>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="sg-subhead">Display sizes</h3>
+      <div class="sg-type-specimen">
+        <div class="sg-type-row">
+          <span class="sg-type-label">display display-xl</span>
+          <p class="display display-xl sg-type-example">The quick brown fox.</p>
+        </div>
+        <div class="sg-type-row">
+          <span class="sg-type-label">display display-lg</span>
+          <p class="display display-lg sg-type-example">The quick brown fox.</p>
+        </div>
+        <div class="sg-type-row">
+          <span class="sg-type-label">display display-md</span>
+          <p class="display display-md sg-type-example">The quick brown fox.</p>
+        </div>
+      </div>
+
+      <h3 class="sg-subhead">Headings</h3>
+      <div class="sg-type-specimen">
+        <div class="sg-type-row">
+          <span class="sg-type-label">heading-xl</span>
+          <p class="heading-xl sg-type-example">Section title — heading-xl.</p>
+        </div>
+        <div class="sg-type-row">
+          <span class="sg-type-label">heading-lg</span>
+          <p class="heading-lg sg-type-example">Sub-section — heading-lg.</p>
+        </div>
+        <div class="sg-type-row">
+          <span class="sg-type-label">heading-md</span>
+          <p class="heading-md sg-type-example">Card heading — heading-md.</p>
+        </div>
+        <div class="sg-type-row">
+          <span class="sg-type-label">heading-sm</span>
+          <p class="heading-sm sg-type-example">Tight heading — heading-sm.</p>
+        </div>
+      </div>
+
+      <h3 class="sg-subhead">Body & lede</h3>
+      <div class="sg-type-specimen">
+        <div class="sg-type-row">
+          <span class="sg-type-label">.lede</span>
+          <p class="lede sg-type-example">A lede paragraph sits below a major title and sets up the page. Slightly larger and looser than body, usually a single sentence or two.</p>
+        </div>
+        <div class="sg-type-row">
+          <span class="sg-type-label">body (default p)</span>
+          <p class="sg-type-example">Standard body text. Inter at base size, comfortable line-height for reading at length. Used in essay pages, descriptions, and any place the learner needs to actually read.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RADII -->
+  <section class="section section--paper sg-section" id="radii">
+    <div class="container">
+      <span class="section-kicker">03 — Border radii</span>
+      <h2 class="display display-md sg-section-title">Corner radii.</h2>
+      <p class="sg-lede">Four radius values cover every rounding need. <code>--r-md</code> is the default for buttons, inputs, and cards.</p>
+
+      <div class="sg-radii-grid">
+        {radii.map((r) => (
+          <div class="sg-radius-card">
+            <div class="sg-radius-demo" style={`border-radius: ${r.value};`}>
+              <code>{r.value}</code>
+            </div>
+            <code class="sg-token-name">{r.name}</code>
+            <p class="sg-radius-usage">{r.usage}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION BACKGROUNDS -->
+  <section class="section section--paper-deep sg-section" id="sections">
+    <div class="container">
+      <span class="section-kicker">04 — Section backgrounds</span>
+      <h2 class="display display-md sg-section-title">Surface palette.</h2>
+      <p class="sg-lede">Section backgrounds are applied via modifier classes on <code>.section</code>. Each background sets a default text colour and pairs with specific accent classes (see Accents below).</p>
+
+      <div class="sg-bg-stack">
+        <div class="sg-bg-row sg-bg-row--lilac">
+          <div class="sg-bg-meta">
+            <code class="sg-bg-class">.section--lilac</code>
+            <code class="sg-bg-hex">#C8B6FF</code>
+            <p>Hero sections, brand-forward marketing moments. Ink text reads well.</p>
+          </div>
+        </div>
+        <div class="sg-bg-row sg-bg-row--yellow">
+          <div class="sg-bg-meta">
+            <code class="sg-bg-class">.section--yellow</code>
+            <code class="sg-bg-hex">#F5D547</code>
+            <p>Pricing reveals, value moments. Pair with teal accent for emphasis.</p>
+          </div>
+        </div>
+        <div class="sg-bg-row sg-bg-row--turquoise">
+          <div class="sg-bg-meta">
+            <code class="sg-bg-class">.section--turquoise</code>
+            <code class="sg-bg-hex">#7EE8DA</code>
+            <p>Process and how-it-works sections. Also the hero colour for design-advice pages.</p>
+          </div>
+        </div>
+        <div class="sg-bg-row sg-bg-row--paper">
+          <div class="sg-bg-meta">
+            <code class="sg-bg-class">.section--paper</code>
+            <code class="sg-bg-hex">#FAF8F3</code>
+            <p>The default content section. Most of the site sits on paper.</p>
+          </div>
+        </div>
+        <div class="sg-bg-row sg-bg-row--paper-deep">
+          <div class="sg-bg-meta">
+            <code class="sg-bg-class">.section--paper-deep</code>
+            <code class="sg-bg-hex">#F1EDE2</code>
+            <p>Slight tone shift to separate adjacent content sections without going full lilac/yellow.</p>
+          </div>
+        </div>
+        <div class="sg-bg-row sg-bg-row--navy">
+          <div class="sg-bg-meta">
+            <code class="sg-bg-class">.section--navy</code>
+            <code class="sg-bg-hex">#15192E</code>
+            <p>Proof points, UX best-practice blocks, blog index. Use <code>--c-blue-light</code> for accents inside navy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUTTONS -->
+  <section class="section section--paper sg-section" id="buttons">
+    <div class="container">
+      <span class="section-kicker">05 — Buttons</span>
+      <h2 class="display display-md sg-section-title">Buttons.</h2>
+      <p class="sg-lede">Primary and secondary variants. Always built on <code>&lt;button&gt;</code> or <code>&lt;a&gt;</code> elements for native accessibility. See the <a href="/resources/design-kit/primary-buttons">primary buttons</a> guide for usage principles.</p>
+
+      <h3 class="sg-subhead">On paper backgrounds</h3>
+      <div class="sg-button-stage sg-button-stage--paper">
+        <a href="#" class="btn btn--primary">Primary button</a>
+        <a href="#" class="btn btn--secondary">Secondary button</a>
+        <button class="btn btn--primary" disabled>Disabled</button>
+      </div>
+
+      <h3 class="sg-subhead">On lilac backgrounds</h3>
+      <div class="sg-button-stage sg-button-stage--lilac">
+        <a href="#" class="btn btn--primary">Primary button</a>
+        <a href="#" class="btn btn--secondary">Secondary button</a>
+      </div>
+
+      <h3 class="sg-subhead">On navy backgrounds</h3>
+      <div class="sg-button-stage sg-button-stage--navy">
+        <a href="#" class="btn btn--primary">Primary button</a>
+        <a href="#" class="btn btn--secondary">Secondary button</a>
+      </div>
+
+      <h3 class="sg-subhead">On yellow backgrounds</h3>
+      <div class="sg-button-stage sg-button-stage--yellow">
+        <a href="#" class="btn btn--primary">Primary button</a>
+        <a href="#" class="btn btn--secondary">Secondary button</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLS -->
+  <section class="section section--paper-deep sg-section" id="pills">
+    <div class="container">
+      <span class="section-kicker">06 — Pills & kickers</span>
+      <h2 class="display display-md sg-section-title">Pills.</h2>
+      <p class="sg-lede">Pills label content — section kickers, hero pills, category tags. Always uppercase, JetBrains Mono, with consistent letter-spacing. Section kickers (<code>.section-kicker</code>) are unboxed; pills (<code>.pill-*</code>) sit inside a coloured shape.</p>
+
+      <h3 class="sg-subhead">Section kickers (no box)</h3>
+      <div class="sg-pills-stage">
+        <span class="section-kicker">01 — Section kicker</span>
+        <span class="section-kicker">Working example</span>
+        <span class="section-kicker">Design considerations</span>
+      </div>
+
+      <h3 class="sg-subhead">Meta pills (boxed)</h3>
+      <div class="sg-pills-stage">
+        <span class="pill-meta">Component</span>
+        <span class="pill-meta">Interaction</span>
+        <span class="pill-meta">Design advice</span>
+        <span class="pill-meta">eLearning tool</span>
+      </div>
+
+      <h3 class="sg-subhead">Hero pills (used in component-hero)</h3>
+      <div class="sg-pills-stage sg-pills-stage--lilac">
+        <span class="pill-meta hero-pill">Component</span>
+      </div>
+
+      <h3 class="sg-subhead">Category pills (design kit index)</h3>
+      <div class="sg-pills-stage">
+        <span class="kit-card-pill pill-cat-lilac">Components</span>
+        <span class="kit-card-pill pill-cat-blue">Interactions</span>
+        <span class="kit-card-pill pill-cat-turquoise">Design advice</span>
+        <span class="kit-card-pill pill-cat-yellow">eLearning tools</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMS -->
+  <section class="section section--paper sg-section" id="forms">
+    <div class="container">
+      <span class="section-kicker">07 — Form elements</span>
+      <h2 class="display display-md sg-section-title">Form elements.</h2>
+      <p class="sg-lede">Native HTML inputs with custom styling. All inputs have visible focus states (3px lilac ring) and consistent border treatment.</p>
+
+      <div class="sg-form-grid">
+        <div class="sg-form-row">
+          <label class="sg-form-label" for="sg-text">Text input</label>
+          <input id="sg-text" class="sg-form-input" type="text" placeholder="Placeholder text…" />
+          <p class="sg-form-helper">Helper text sits below the input.</p>
+        </div>
+
+        <div class="sg-form-row">
+          <label class="sg-form-label" for="sg-textarea">Textarea</label>
+          <textarea id="sg-textarea" class="sg-form-textarea" rows="3" placeholder="Multi-line input…"></textarea>
+        </div>
+
+        <div class="sg-form-row">
+          <span class="sg-form-label">Radio group</span>
+          <label class="sg-radio">
+            <input type="radio" name="sg-radio" checked />
+            <span>Option one</span>
+          </label>
+          <label class="sg-radio">
+            <input type="radio" name="sg-radio" />
+            <span>Option two</span>
+          </label>
+          <label class="sg-radio">
+            <input type="radio" name="sg-radio" />
+            <span>Option three</span>
+          </label>
+        </div>
+
+        <div class="sg-form-row">
+          <span class="sg-form-label">Checkbox group</span>
+          <label class="sg-checkbox">
+            <input type="checkbox" checked />
+            <span>Option A</span>
+          </label>
+          <label class="sg-checkbox">
+            <input type="checkbox" />
+            <span>Option B</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCENTS -->
+  <section class="section section--paper-deep sg-section" id="accents">
+    <div class="container">
+      <span class="section-kicker">08 — Accents & marks</span>
+      <h2 class="display display-md sg-section-title">Accents & marks.</h2>
+      <p class="sg-lede">Visual treatments applied to spans inside display text. Use sparingly — these are emphasis tools.</p>
+
+      <h3 class="sg-subhead">.accent-blue — coloured span in display text</h3>
+      <div class="sg-accent-stage">
+        <p class="display display-md">
+          The quick brown <span class="accent-blue">fox jumps.</span>
+        </p>
+      </div>
+
+      <h3 class="sg-subhead">.mark--lilac — highlight inside navy section UX titles</h3>
+      <div class="sg-accent-stage sg-accent-stage--navy">
+        <p class="display display-md">
+          How to do it <span class="mark--lilac">well</span>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section class="section section--paper sg-section" id="links">
+    <div class="container">
+      <span class="section-kicker">09 — Links</span>
+      <h2 class="display display-md sg-section-title">Links.</h2>
+      <p class="sg-lede">Three patterns: inline (in prose), standalone (with arrow), and button-styled (rare, for prominent navigation). See the <a href="/resources/design-kit/links">links guide</a> for principles.</p>
+
+      <h3 class="sg-subhead">Inline link in body</h3>
+      <p class="sg-link-example">
+        A regular paragraph with an <a href="#" class="sg-link-inline">inline link</a> inside it. Underlined, blue, with a subtle hover state.
+      </p>
+
+      <h3 class="sg-subhead">Standalone link with arrow</h3>
+      <p>
+        <a href="#" class="sg-link-standalone">
+          Read the full guide <span aria-hidden="true">→</span>
+        </a>
+      </p>
+
+      <h3 class="sg-subhead">Button-styled link</h3>
+      <p>
+        <a href="#" class="btn btn--primary">Primary button link</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- META -->
+  <section class="section section--paper-deep sg-section" id="meta">
+    <div class="container">
+      <span class="section-kicker">10 — Meta text</span>
+      <h2 class="display display-md sg-section-title">Meta text patterns.</h2>
+      <p class="sg-lede">Small mono text for captions, labels, statuses. Always uppercase or tight casing, JetBrains Mono, muted colour.</p>
+
+      <div class="sg-meta-stage">
+        <p><span class="meta">Caption ·</span> Standard inline caption pattern, used inside paragraphs for context.</p>
+        <p><span class="meta">Status</span> Block-form meta label, used on dashboard-style elements.</p>
+        <p>Code reference: <code>--c-lilac</code> renders inline.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--lilac sg-footer-cta">
+    <div class="container">
+      <p class="lede sg-end">
+        End of style guide. For the principles behind each component, see the <a href="/resources/design-kit">design kit</a>. For implementation, see <code>src/styles/global.css</code>.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ============================================================
+     Style guide page styling — self-contained.
+     ============================================================ */
+
+  .sg-hero { padding-bottom: clamp(40px, 5vw, 60px); }
+  .sg-section { padding: clamp(56px, 7vw, 80px) 0; }
+  .sg-section-title { margin-bottom: 16px; }
+  .sg-lede {
+    max-width: 720px;
+    color: var(--c-ink-soft);
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0 0 40px 0;
+  }
+  .sg-lede a {
+    color: var(--c-blue);
+    text-decoration: underline;
+  }
+  .sg-lede code, .sg-section code:not(pre code) {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: rgba(21, 25, 46, 0.06);
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: var(--c-ink);
+  }
+  .sg-subhead {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--c-ink-muted);
+    margin: 36px 0 16px 0;
+    font-weight: 500;
+  }
+
+  /* Table of contents */
+  .sg-toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(21, 25, 46, 0.15);
+  }
+  .sg-toc a {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--c-ink);
+    text-decoration: none;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: var(--r-sm);
+    transition: background 0.15s ease;
+  }
+  .sg-toc a:hover { background: rgba(255, 255, 255, 0.7); }
+
+  /* ===== COLOUR ===== */
+  .sg-swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .sg-swatch-grid--small { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .sg-swatch {
+    background: var(--c-paper);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid rgba(21, 25, 46, 0.06);
+  }
+  .sg-swatch-chip {
+    height: 80px;
+    width: 100%;
+  }
+  .sg-swatch-chip--bordered {
+    border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+  }
+  .sg-swatch-meta {
+    padding: 12px 14px;
+  }
+  .sg-swatch-token {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--c-ink);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .sg-swatch-hex {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--c-ink-muted);
+    margin-bottom: 8px;
+  }
+  .sg-swatch-usage {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--c-ink-soft);
+  }
+
+  /* ===== TYPOGRAPHY ===== */
+  .sg-tokens {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .sg-token-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 2fr;
+    gap: 16px;
+    padding: 10px 14px;
+    background: var(--c-paper);
+    border-radius: var(--r-sm);
+    align-items: center;
+  }
+  .sg-token-name {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--c-ink);
+    font-weight: 500;
+  }
+  .sg-token-value {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--c-ink-muted);
+  }
+  .sg-token-usage {
+    font-size: 13px;
+    color: var(--c-ink-soft);
+    line-height: 1.5;
+  }
+  .sg-type-specimen {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+  .sg-type-row {
+    border-left: 3px solid rgba(21, 25, 46, 0.12);
+    padding-left: 16px;
+  }
+  .sg-type-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--c-ink-muted);
+    margin-bottom: 8px;
+  }
+  .sg-type-example { margin: 0; }
+
+  /* ===== RADII ===== */
+  .sg-radii-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+  .sg-radius-card {
+    background: var(--c-paper);
+    border: 1px solid rgba(21, 25, 46, 0.06);
+    padding: 16px;
+    text-align: center;
+  }
+  .sg-radius-demo {
+    height: 80px;
+    background: var(--c-ink);
+    color: var(--c-paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+  .sg-radius-demo code { background: transparent; color: inherit; padding: 0; }
+  .sg-radius-usage {
+    margin: 8px 0 0 0;
+    font-size: 12px;
+    color: var(--c-ink-soft);
+    line-height: 1.45;
+  }
+
+  /* ===== SECTION BACKGROUNDS ===== */
+  .sg-bg-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sg-bg-row {
+    padding: 28px 24px;
+    border-radius: var(--r-md);
+  }
+  .sg-bg-row--lilac      { background: var(--c-lilac); }
+  .sg-bg-row--yellow     { background: var(--c-yellow); }
+  .sg-bg-row--turquoise  { background: var(--c-turquoise); }
+  .sg-bg-row--paper      { background: var(--c-paper); border: 1px solid rgba(21, 25, 46, 0.08); }
+  .sg-bg-row--paper-deep { background: var(--c-paper-deep); }
+  .sg-bg-row--navy       { background: var(--c-navy); }
+  .sg-bg-row--navy .sg-bg-meta code,
+  .sg-bg-row--navy .sg-bg-meta p { color: var(--c-paper); }
+  .sg-bg-row--navy .sg-bg-meta code { background: rgba(255, 255, 255, 0.12); }
+  .sg-bg-meta { color: var(--c-ink); }
+  .sg-bg-class {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .sg-bg-hex {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--c-ink-muted);
+    margin-bottom: 8px;
+  }
+  .sg-bg-meta p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 540px;
+  }
+
+  /* ===== BUTTONS ===== */
+  .sg-button-stage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 24px;
+    border-radius: var(--r-md);
+    margin-bottom: 16px;
+  }
+  .sg-button-stage--paper    { background: var(--c-paper); border: 1px solid rgba(21, 25, 46, 0.08); }
+  .sg-button-stage--lilac    { background: var(--c-lilac); }
+  .sg-button-stage--navy     { background: var(--c-navy); }
+  .sg-button-stage--yellow   { background: var(--c-yellow); }
+
+  /* ===== PILLS ===== */
+  .sg-pills-stage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    padding: 24px;
+    background: var(--c-paper);
+    border-radius: var(--r-md);
+    border: 1px solid rgba(21, 25, 46, 0.08);
+    margin-bottom: 16px;
+    align-items: center;
+  }
+  .sg-pills-stage--lilac { background: var(--c-lilac); border: none; }
+
+  /* Category pills — duplicating styles from design-kit/index.astro
+     for the showcase. Keep in sync. */
+  .kit-card-pill {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: var(--r-pill);
+    font-weight: 500;
+  }
+  .pill-cat-lilac     { background: var(--c-lilac-tint);     color: #4B2D9B; }
+  .pill-cat-blue      { background: var(--c-blue-light);     color: #1E3A8A; }
+  .pill-cat-turquoise { background: var(--c-turquoise-tint); color: #0F4C5C; }
+  .pill-cat-yellow    { background: var(--c-yellow-tint);    color: #6B5A11; }
+
+  /* ===== FORMS ===== */
+  .sg-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 720px;
+  }
+  @media (max-width: 620px) {
+    .sg-form-grid { grid-template-columns: 1fr; }
+  }
+  .sg-form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sg-form-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--c-ink-muted);
+    margin-bottom: 4px;
+  }
+  .sg-form-input,
+  .sg-form-textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid rgba(21, 25, 46, 0.18);
+    border-radius: var(--r-md);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    background: var(--c-paper);
+    color: var(--c-ink);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    box-sizing: border-box;
+  }
+  .sg-form-textarea { resize: vertical; }
+  .sg-form-input:focus,
+  .sg-form-textarea:focus {
+    outline: none;
+    border-color: var(--c-ink);
+    box-shadow: 0 0 0 3px var(--c-lilac);
+  }
+  .sg-form-helper {
+    margin: 0;
+    font-size: 12px;
+    color: var(--c-ink-muted);
+  }
+
+  .sg-radio,
+  .sg-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 0;
+    cursor: pointer;
+    font-size: 15px;
+    color: var(--c-ink);
+  }
+  .sg-radio input,
+  .sg-checkbox input {
+    accent-color: var(--c-ink);
+    cursor: pointer;
+  }
+
+  /* ===== ACCENTS ===== */
+  .sg-accent-stage {
+    padding: 32px 24px;
+    background: var(--c-paper);
+    border: 1px solid rgba(21, 25, 46, 0.08);
+    border-radius: var(--r-md);
+    margin-bottom: 16px;
+  }
+  .sg-accent-stage--navy {
+    background: var(--c-navy);
+    border: none;
+    color: var(--c-paper);
+  }
+  .sg-accent-stage p { margin: 0; }
+
+  /* ===== LINKS ===== */
+  .sg-link-example {
+    background: var(--c-paper);
+    padding: 14px 16px;
+    border-radius: var(--r-md);
+    border: 1px solid rgba(21, 25, 46, 0.08);
+    margin: 0 0 16px 0;
+  }
+  .sg-link-inline {
+    color: var(--c-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 500;
+  }
+  .sg-link-inline:hover {
+    color: var(--c-ink);
+    text-decoration-thickness: 2px;
+  }
+  .sg-link-standalone {
+    color: var(--c-blue);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+    transition: color 0.15s ease;
+  }
+  .sg-link-standalone:hover { color: var(--c-ink); }
+
+  /* ===== META TEXT ===== */
+  .sg-meta-stage {
+    background: var(--c-paper);
+    padding: 20px;
+    border-radius: var(--r-md);
+    border: 1px solid rgba(21, 25, 46, 0.08);
+  }
+  .sg-meta-stage p {
+    margin: 0 0 12px 0;
+    color: var(--c-ink-soft);
+    line-height: 1.6;
+  }
+  .sg-meta-stage p:last-child { margin-bottom: 0; }
+
+  /* ===== FOOTER CTA ===== */
+  .sg-footer-cta { padding: clamp(40px, 5vw, 64px) 0; }
+  .sg-end {
+    margin: 0;
+    max-width: 720px;
+  }
+  .sg-end a {
+    color: var(--c-blue);
+    text-decoration: underline;
+  }
+</style>

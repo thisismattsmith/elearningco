@@ -1,0 +1,161 @@
+---
+// src/pages/resources/design-kit/colour-theory-intro.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+import '../../../styles/design-kit-essay.css';
+---
+
+<Layout
+  title="Intro to colour theory in eLearning | Design Kit | The eLearning Company"
+  description="Practical colour theory for learning designers. How to pick a palette that supports learning, signals hierarchy, and meets accessibility standards."
+>
+  <section class="section section--turquoise component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Intro to colour theory</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Design advice</span>
+      <h1 class="display display-xl page-title">
+        Intro to colour theory<br />
+        <span class="accent-blue">in eLearning.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Most eLearning colour palettes are inherited rather than designed — brand guidelines arrive, the designer fits training into them, and "more brand colour" becomes the only adjustment lever. This guide covers the practical colour theory you need to do better: hierarchy through contrast, accessibility as the floor, and palettes that support learning rather than fight it.
+      </p>
+    </div>
+  </section>
+
+  <article class="section section--paper essay-section">
+    <div class="container">
+
+      <!-- Part 1: contrast and hierarchy -->
+      <span class="section-kicker">Part one</span>
+      <h2 class="display display-md essay-title">Colour does hierarchy, not decoration.</h2>
+
+      <p class="essay-intro">
+        In eLearning, the primary job of colour is to organise the learner's attention. A well-chosen palette makes important things look important, related things look related, and supporting things stay quiet. Decoration is a side benefit — useful, but never the goal. Every colour choice should answer the question "what does the learner need to see first?"
+      </p>
+
+      <h3 class="essay-section-heading">Pick one accent colour and use it sparingly.</h3>
+      <p>
+        Most courses overuse colour, applying their brand palette to every element until nothing stands out. Better: pick one accent colour, use it for the things that actually need attention — the primary <a href="/resources/design-kit/primary-buttons">button</a>, the active state of a <a href="/resources/design-kit/toggle-buttons">toggle</a>, the key takeaway of a section — and let everything else sit in neutral tones. The accent works <em>because</em> everything around it doesn't compete with it.
+      </p>
+
+      <h3 class="essay-section-heading">Build a contrast scale, not a brand palette.</h3>
+      <p>
+        Brand colours are usually three or four flat values. A working palette needs more range than that. Take your main brand colour and build a scale of tints and shades — lighter for backgrounds, slightly darker for hover states, deepest for emphasis. The same is true for greys: not one grey but five or six, scaling from "barely visible" to "almost black". Without this scale, you'll find yourself reaching for ad-hoc colours every time you need a subtle distinction.
+      </p>
+
+      <h3 class="essay-section-heading">Use neutrals as the foundation.</h3>
+      <p>
+        90% of a course's surface area should be neutral — off-white backgrounds, dark grey text, subtle dividers. Colour is the punctuation, not the prose. A course where the brand colour is everywhere is a course where the brand colour does nothing. Save the brand for the moments that matter, and let neutrals carry the structure.
+      </p>
+
+      <h3 class="essay-section-heading">Don't carry meaning in colour alone.</h3>
+      <p>
+        Roughly 1 in 12 men and 1 in 200 women have some form of colour blindness. A red "incorrect" pill and a green "correct" pill convey nothing to them. Always pair colour with a second cue — an icon, a word, a position, a pattern. This is also a Web Content Accessibility Guidelines (WCAG) requirement, but more importantly, it's how to actually communicate to every learner.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <!-- Part 2: accessibility -->
+      <span class="section-kicker">Part two</span>
+      <h2 class="display display-md essay-title">Accessibility is the floor, not the goal.</h2>
+
+      <p class="essay-intro">
+        Accessibility-compliant colour isn't about meeting a checkbox — it's the bare minimum for content that everyone can read. Below the floor, you're excluding learners. Above the floor, you have room to design.
+      </p>
+
+      <h3 class="essay-section-heading">Contrast ratios — the actual numbers.</h3>
+      <p>
+        WCAG 2.1 AA — the standard most enterprise courses target — requires at least <strong>4.5:1 contrast</strong> between body text and its background. Large text (18pt+ or 14pt+ bold) drops to 3:1. UI components and graphical objects need 3:1. These aren't recommendations; they're requirements for many regulated industries and contracts.
+      </p>
+      <p>
+        Free tools — WebAIM's contrast checker, Stark, Adobe's contrast analyser — make these checks instant. Run every colour pair before committing. The most common failure: light grey text on white backgrounds. The second most common: brand-colour text on brand-colour backgrounds. Both fail consistently in audits.
+      </p>
+
+      <h3 class="essay-section-heading">"Beautiful but unreadable" is a real trap.</h3>
+      <p>
+        Pale-on-pale palettes look elegant in design mocks and fail in the real world. Older displays, sunny rooms, lower-end laptops, dimmed brightness for battery — all reduce effective contrast below what looked fine in a controlled environment. Design with the worst-case viewing condition in mind, not the best.
+      </p>
+
+      <h3 class="essay-section-heading">Test in greyscale.</h3>
+      <p>
+        Pull the whole course into greyscale (most browsers can do this with an inspector filter). If the hierarchy still reads — important things still stand out, structure is still legible — your colour palette is doing more than carrying meaning by hue alone. If everything flattens to the same value, your palette is over-relying on colour distinction.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <!-- Part 3: putting it together -->
+      <span class="section-kicker">Part three</span>
+      <h2 class="display display-md essay-title">Building a palette in practice.</h2>
+
+      <p class="essay-intro">
+        How to actually put a working palette together, starting from whatever brand constraints you have.
+      </p>
+
+      <h3 class="essay-section-heading">Start with the neutral, not the brand colour.</h3>
+      <p>
+        Pick your background (usually a near-white — pure white can feel clinical and tiring at long reading lengths), then your darkest text colour (rarely pure black — too harsh; deep navy or dark grey reads softer). That pair is the foundation. Everything else gets layered on top. Building a palette by starting with the brand colour usually produces courses that feel branded but not designed.
+      </p>
+
+      <h3 class="essay-section-heading">Pick one functional accent.</h3>
+      <p>
+        Your accent colour does the heavy lifting: primary <a href="/resources/design-kit/primary-buttons">buttons</a>, active states, links, highlights. Pick a single colour that works well against your neutral background, has enough contrast for the 4.5:1 requirement when used on text, and ideally has tint/shade variants you can use for hover and pressed states.
+      </p>
+
+      <h3 class="essay-section-heading">Add semantic colours sparingly.</h3>
+      <p>
+        Green for success, amber for warning, red for error — these are conventions worth honouring because learners arrive with them already learned. But keep semantic colours rare. If every other element on the page is green or amber or red, the actual error states lose their punch. Save them for moments that need the meaning.</p>
+
+      <h3 class="essay-section-heading">Test the palette in context.</h3>
+      <p>
+        Mock up a real course screen — heading, body text, a button, a piece of feedback, a quiz question — using the full palette. Step back. Does the eye land on the primary button? Does the hierarchy read? Is anything competing for attention that shouldn't be? Palettes that look balanced in a swatch sheet often produce noisy real pages. Real screens are the test.
+      </p>
+
+      <h3 class="essay-section-heading">When brand colours are limiting</h3>
+      <p>
+        Sometimes brand guidelines give you two colours and a logo, and you have to build a working palette around that constraint. The trick is to use the brand colour as your accent only — not as the dominant colour. The rest of the palette is neutrals plus one or two functional colours. Most "the brand is overwhelming the course" problems are really "the brand is being used for too much" problems. Restraint helps.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <p class="essay-conclusion">
+        Colour in eLearning has a job: organise the learner's attention, signal hierarchy, and stay out of the way of the content. Build a palette of neutrals plus one accent, meet accessibility contrast requirements as the floor, never carry meaning in colour alone, and test in real contexts before committing. The discipline isn't about taste — it's about doing what colour does well, deliberately.
+      </p>
+
+      <p class="essay-related">
+        Related guides:
+        <a href="/resources/design-kit/using-white-space">Using white space</a> ·
+        <a href="/resources/design-kit/primary-buttons">Primary buttons</a> ·
+        <a href="/resources/design-kit/toggle-buttons">Toggle buttons</a> ·
+        <a href="/resources/design-kit/choosing-level-of-detail">Choosing the right level of detail</a>
+      </p>
+    </div>
+  </article>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course<br />
+          <span class="accent-blue">designed deliberately?</span>
+        </h2>
+        <p class="lede cta-text">
+          We make colour, type, and layout choices that serve the learning. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

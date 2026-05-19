@@ -1,0 +1,195 @@
+---
+// src/pages/resources/index.astro
+// Top-level resources index. Currently lists the eLearning design kit;
+// add more resource cards here over time (templates, guides, etc).
+import Layout from '../../components/layout/Layout.astro';
+---
+
+<Layout
+  title="Resources | The eLearning Company"
+  description="Practical resources for L&D teams and learning designers: the eLearning design kit, component best practices, and design advice."
+>
+  <!-- ============================================================
+       1. Hero — lilac
+       ============================================================ -->
+  <section class="section section--lilac resources-hero">
+    <div class="container">
+      <span class="pill-meta hero-pill">Resources</span>
+      <h1 class="display display-xl hero-title">
+        Practical resources<br />
+        <span class="accent-blue">for L&amp;D teams.</span>
+      </h1>
+      <p class="lede hero-subtitle">
+        Best practice guides, design advice, and a working library of eLearning components. Built from 15+ years of building courses, not from a textbook.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. Resource cards — paper
+       ============================================================ -->
+  <section class="section section--paper resources-grid-section">
+    <div class="container">
+      <span class="section-kicker">What's here</span>
+      <h2 class="display display-md section-title">Browse our resources.</h2>
+
+      <div class="resource-cards">
+        <a href="/resources/design-kit" class="resource-card">
+          <div class="resource-card-marker resource-card-marker--lilac" aria-hidden="true"></div>
+          <div class="resource-card-body">
+            <span class="meta resource-card-kicker">eLearning Design Kit</span>
+            <h3 class="heading-md resource-card-title">Design kit for eLearning components.</h3>
+            <p class="resource-card-desc">
+              Best practice guides for the building blocks of every eLearning course — radio buttons, sliders, hotspots, carousels, and more. With working examples you can interact with.
+            </p>
+            <span class="resource-card-cta">Open the design kit <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+
+        <a href="/resources/effective-elearning-brief" class="resource-card">
+          <div class="resource-card-marker resource-card-marker--yellow" aria-hidden="true"></div>
+          <div class="resource-card-body">
+            <span class="meta resource-card-kicker">Practical guide</span>
+            <h3 class="heading-md resource-card-title">Writing a brief that gets a fast quote.</h3>
+            <p class="resource-card-desc">
+              The seven things to include in your brief so vendors can quote quickly and accurately. Short, specific, opinionated.
+            </p>
+            <span class="resource-card-cta">Read the guide <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+
+        <a href="/resources/giving-effective-feedback" class="resource-card">
+          <div class="resource-card-marker resource-card-marker--turquoise" aria-hidden="true"></div>
+          <div class="resource-card-body">
+            <span class="meta resource-card-kicker">Practical guide</span>
+            <h3 class="heading-md resource-card-title">Giving effective feedback during review.</h3>
+            <p class="resource-card-desc">
+              How to give feedback on a course draft that moves the project forward — specific over vague, behavioural over taste-based, batched over piecemeal.
+            </p>
+            <span class="resource-card-cta">Read the guide <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. Final CTA — lilac
+       ============================================================ -->
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Need a course built,<br />
+          <span class="accent-blue">not just resourced?</span>
+        </h2>
+        <p class="lede cta-text">
+          Get a fixed-price quote within 24 hours. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/pricing" class="btn btn--secondary">View pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ============================================================
+     Page-specific styles only.
+     ============================================================ */
+
+  /* ---- 1. Hero ---- */
+  .resources-hero {
+    padding-top: clamp(64px, 8vw, 100px);
+    padding-bottom: clamp(72px, 9vw, 96px);
+  }
+  .hero-pill { margin-bottom: 24px; }
+  .hero-title { margin-bottom: 32px; max-width: 1000px; }
+  .hero-subtitle { max-width: 720px; }
+
+  /* ---- 2. Resource cards ---- */
+  .resources-grid-section .section-title { margin-bottom: 56px; }
+
+  .resource-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .resource-card {
+    background: var(--c-paper-deep);
+    border: 1px solid rgba(21, 25, 46, 0.06);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    position: relative;
+  }
+  a.resource-card:hover {
+    border-color: var(--c-ink);
+    transform: translateY(-2px);
+  }
+  .resource-card--coming-soon {
+    opacity: 0.5;
+    cursor: default;
+  }
+  .resource-card-marker {
+    height: 8px;
+    width: 100%;
+  }
+  .resource-card-marker--lilac { background: var(--c-lilac); }
+  .resource-card-marker--yellow { background: var(--c-yellow); }
+  .resource-card-marker--turquoise { background: var(--c-turquoise); }
+  .resource-card-marker--neutral { background: rgba(21, 25, 46, 0.12); }
+
+  .resource-card-body {
+    padding: 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .resource-card-kicker {
+    color: var(--c-ink-muted);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .resource-card-title {
+    margin-bottom: 14px;
+    font-size: 24px;
+    line-height: 1.25;
+  }
+  .resource-card-desc {
+    color: var(--c-ink-soft);
+    line-height: 1.6;
+    font-size: 15px;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .resource-card-cta {
+    color: var(--c-blue);
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: auto;
+  }
+  a.resource-card:hover .resource-card-cta {
+    color: var(--c-ink);
+  }
+
+  /* ---- 3. Final CTA ---- */
+  .cta-content { max-width: 800px; }
+  .cta-title { margin-bottom: 24px; }
+  .cta-text { margin-bottom: 40px; max-width: 580px; }
+  .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 768px) {
+    .resource-cards { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .cta-buttons .btn { width: 100%; }
+  }
+</style>

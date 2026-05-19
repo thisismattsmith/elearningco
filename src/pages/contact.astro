@@ -2,19 +2,49 @@
 // src/pages/contact.astro
 import Layout from '../components/layout/Layout.astro';
 
-// Get query params for pre-filling form
-const url = new URL(Astro.request.url);
-const selectedTier = url.searchParams.get('tier') || '';
-const selectedCategory = url.searchParams.get('category') || '';
+// NOTE on architecture: this site builds statically (no SSR adapter), which
+// means Astro.request.url cannot read per-visitor query params at build time.
+// Tier locking and description prefill therefore happen client-side via the
+// inline script at the bottom of this file. The tierCopy data is embedded
+// as a JSON script tag so the client-side JS can read it without duplication.
 
-// Tier value mapping (URL uses '1', '2', '3', 'custom'; form values are 'tier1' etc)
-const tierMap: Record<string, string> = {
-  '1': 'tier1',
-  '2': 'tier2',
-  '3': 'tier3',
-  'custom': 'custom',
+// Tier copy — single source of truth. Rendered into a JSON <script> tag
+// so the client-side handler can read it. Centralised so the hero, the
+// confirmation card, and the meta title all stay in sync.
+const tierCopy = {
+  tier1: {
+    label: 'Tier 1 — Content ready',
+    price: '$5,500 + GST',
+    description: 'You provide a complete script. We build and design.',
+    heroLine1: "Tier 1 it is.",
+    heroLine2: "Let's get the details.",
+    subtitle: "You have the script ready. We just need a few details to send back a fixed-price quote within 24 hours.",
+  },
+  tier2: {
+    label: 'Tier 2 — Content needs shaping',
+    price: '$7,500 + GST',
+    description: 'You provide content materials. We structure and build.',
+    heroLine1: "Tier 2 it is.",
+    heroLine2: "Let's get the details.",
+    subtitle: "You have content materials we can work from. Tell us a bit about the project and we'll come back with a fixed-price quote within 24 hours.",
+  },
+  tier3: {
+    label: 'Tier 3 — Start from scratch',
+    price: '$10,500 + GST',
+    description: 'We write, design, and build everything.',
+    heroLine1: "Tier 3 it is.",
+    heroLine2: "Let's get the details.",
+    subtitle: "We'll write, design, and build the whole course. Share what you've got — even just the topic — and we'll come back with a fixed-price quote within 24 hours.",
+  },
+  custom: {
+    label: 'Custom quote',
+    price: 'POA',
+    description: 'Specialised tools or complex builds.',
+    heroLine1: "Custom quote.",
+    heroLine2: "Tell us what you need.",
+    subtitle: "For specialised tools, complex builds, or anything that doesn't fit the standard tiers. The more you can share, the sharper the quote.",
+  },
 };
-const preSelectedTier = tierMap[selectedTier] || '';
 ---
 
 <Layout
@@ -23,17 +53,32 @@ const preSelectedTier = tierMap[selectedTier] || '';
 >
   <!-- ============================================================
        1. Hero — lilac · welcoming, the conversion page
+       Both generic and tier-locked variants render in the HTML.
+       Client-side JS shows the right one based on ?tier= in URL.
        ============================================================ -->
   <section class="section section--lilac contact-hero">
     <div class="container">
-      <span class="pill-meta hero-pill">Get a quote</span>
-      <h1 class="display display-xl hero-title">
-        Let's build<br />
-        <span class="accent-blue">something good.</span>
-      </h1>
-      <p class="lede hero-subtitle">
-        Tell us about your training needs and we'll get back to you within 24 hours with a fixed-price quote.
-      </p>
+      <!-- Generic hero (default visible state) -->
+      <div data-hero-generic>
+        <span class="pill-meta hero-pill">Get a quote</span>
+        <h1 class="display display-xl hero-title">
+          Let's build<br />
+          <span class="accent-blue">something good.</span>
+        </h1>
+        <p class="lede hero-subtitle">
+          Tell us about your training needs and we'll get back to you within 24 hours with a fixed-price quote.
+        </p>
+      </div>
+
+      <!-- Tier-specific hero (hidden by default; JS shows when ?tier= matches) -->
+      <div data-hero-tier hidden>
+        <span class="pill-meta hero-pill" data-tier-label>Get a quote</span>
+        <h1 class="display display-xl hero-title">
+          <span data-tier-hero-line-1></span><br />
+          <span class="accent-blue" data-tier-hero-line-2></span>
+        </h1>
+        <p class="lede hero-subtitle" data-tier-subtitle></p>
+      </div>
     </div>
   </section>
 
@@ -92,57 +137,32 @@ const preSelectedTier = tierMap[selectedTier] || '';
             <div class="form-section-block">
               <span class="meta form-section-label">About the project</span>
 
-              <div class="form-group">
-                <label for="category">Training category <span class="required" aria-hidden="true">*</span></label>
-                <select id="category" name="category" required>
-                  <option value="">Select a category</option>
-                  <optgroup label="Compliance & Risk">
-                    <option value="Workplace Health & Safety" selected={selectedCategory === 'Workplace Health & Safety'}>Workplace Health &amp; Safety</option>
-                    <option value="Sexual Harassment Prevention" selected={selectedCategory === 'Sexual Harassment Prevention'}>Sexual Harassment Prevention</option>
-                    <option value="Cyber Security Awareness" selected={selectedCategory === 'Cyber Security Awareness'}>Cyber Security Awareness</option>
-                    <option value="Privacy & Data Protection" selected={selectedCategory === 'Privacy & Data Protection'}>Privacy &amp; Data Protection</option>
-                    <option value="Anti-Bribery & Corruption" selected={selectedCategory === 'Anti-Bribery & Corruption'}>Anti-Bribery &amp; Corruption</option>
-                    <option value="Code of Conduct" selected={selectedCategory === 'Code of Conduct'}>Code of Conduct</option>
-                    <option value="Workplace Bullying Prevention" selected={selectedCategory === 'Workplace Bullying Prevention'}>Workplace Bullying Prevention</option>
-                  </optgroup>
-                  <optgroup label="Onboarding & Culture">
-                    <option value="New Employee Onboarding" selected={selectedCategory === 'New Employee Onboarding'}>New Employee Onboarding</option>
-                    <option value="Company Induction" selected={selectedCategory === 'Company Induction'}>Company Induction Programs</option>
-                    <option value="Diversity & Inclusion" selected={selectedCategory === 'Diversity & Inclusion'}>Diversity &amp; Inclusion</option>
-                    <option value="Mental Health Awareness" selected={selectedCategory === 'Mental Health Awareness'}>Mental Health Awareness</option>
-                    <option value="Remote Work Best Practices" selected={selectedCategory === 'Remote Work Best Practices'}>Remote Work Best Practices</option>
-                  </optgroup>
-                  <optgroup label="Skills Development">
-                    <option value="Customer Service Training" selected={selectedCategory === 'Customer Service Training'}>Customer Service Training</option>
-                    <option value="Sales Training" selected={selectedCategory === 'Sales Training'}>Sales Training &amp; Enablement</option>
-                    <option value="Leadership Development" selected={selectedCategory === 'Leadership Development'}>Leadership Development</option>
-                    <option value="Communication Skills" selected={selectedCategory === 'Communication Skills'}>Communication Skills</option>
-                    <option value="Time Management" selected={selectedCategory === 'Time Management'}>Time Management &amp; Productivity</option>
-                    <option value="Conflict Resolution" selected={selectedCategory === 'Conflict Resolution'}>Conflict Resolution</option>
-                    <option value="Feedback & Performance" selected={selectedCategory === 'Feedback & Performance'}>Feedback &amp; Performance Conversations</option>
-                  </optgroup>
-                  <optgroup label="Operational & Technical">
-                    <option value="Product Training" selected={selectedCategory === 'Product Training'}>Product Training</option>
-                    <option value="Software/System Training" selected={selectedCategory === 'Software/System Training'}>Software/System Training</option>
-                    <option value="Process & Procedure" selected={selectedCategory === 'Process & Procedure'}>Process &amp; Procedure Training</option>
-                    <option value="Quality Management" selected={selectedCategory === 'Quality Management'}>Quality Management Systems</option>
-                    <option value="Emergency Response" selected={selectedCategory === 'Emergency Response'}>Emergency Response Procedures</option>
-                    <option value="Change Management" selected={selectedCategory === 'Change Management'}>Change Management</option>
-                  </optgroup>
-                  <option value="Other" selected={selectedCategory === 'Other'}>Other (please specify in description)</option>
-                </select>
-              </div>
-
-              <div class="form-group">
+              <!-- Tier picker (default visible state) -->
+              <div class="form-group" data-tier-picker>
                 <label for="tier">Which pricing tier suits your needs? <span class="required" aria-hidden="true">*</span></label>
                 <select id="tier" name="tier" required>
                   <option value="">Select a tier</option>
-                  <option value="tier1" selected={preSelectedTier === 'tier1'}>Tier 1 — Content ready ($5,500 + GST)</option>
-                  <option value="tier2" selected={preSelectedTier === 'tier2'}>Tier 2 — Content needs shaping ($7,500 + GST)</option>
-                  <option value="tier3" selected={preSelectedTier === 'tier3'}>Tier 3 — Start from scratch ($10,500 + GST)</option>
-                  <option value="custom" selected={preSelectedTier === 'custom'}>Custom quote — something more complex</option>
+                  <option value="tier1">Tier 1 — Content ready ($5,500 + GST)</option>
+                  <option value="tier2">Tier 2 — Content needs shaping ($7,500 + GST)</option>
+                  <option value="tier3">Tier 3 — Start from scratch ($10,500 + GST)</option>
+                  <option value="custom">Custom quote — something more complex</option>
                   <option value="unsure">Not sure — help me choose</option>
                 </select>
+              </div>
+
+              <!-- Tier-locked confirmation card (hidden by default; JS shows when ?tier= matches) -->
+              <div class="form-group tier-locked" data-tier-locked hidden>
+                <span class="meta tier-locked-label">Your selected tier</span>
+                <div class="tier-locked-card">
+                  <div class="tier-locked-body">
+                    <div class="tier-locked-name" data-tier-locked-name></div>
+                    <div class="tier-locked-desc" data-tier-locked-desc></div>
+                  </div>
+                  <div class="tier-locked-price" data-tier-locked-price></div>
+                </div>
+                <!-- Hidden input — set by JS so the form posts the locked tier -->
+                <input type="hidden" name="tier" data-tier-locked-input value="" />
+                <a href="/pricing" class="tier-locked-change">Wrong tier? See all options →</a>
               </div>
 
               <div class="form-group">
@@ -308,6 +328,89 @@ const preSelectedTier = tierMap[selectedTier] || '';
       </div>
     </div>
   </section>
+
+  <!-- ================================================================
+       Tier copy as JSON, read by the client-side handler below.
+       Data is hard-coded in frontmatter (no user input), so XSS risk
+       is zero. is:inline keeps Astro from bundling/transforming this.
+       ================================================================ -->
+  <script id="tier-copy-data" type="application/json" is:inline set:html={JSON.stringify(tierCopy)} />
+
+  <!-- ================================================================
+       Client-side tier detection. Reads ?tier= and ?category= from the
+       URL on page load and swaps generic content for tier-locked content
+       when applicable. Runs immediately (deferred until DOM is parsed).
+       Site is statically built, so this runs in the browser, not at build.
+       ================================================================ -->
+  <script is:inline>
+    (function () {
+      // Map URL tier values ('1', '2', '3', 'custom') to keys in tierCopy.
+      var tierUrlToKey = { '1': 'tier1', '2': 'tier2', '3': 'tier3', 'custom': 'custom' };
+
+      // Read query params.
+      var params = new URLSearchParams(window.location.search);
+      var rawTier = params.get('tier') || '';
+      var category = params.get('category') || '';
+      var tierKey = tierUrlToKey[rawTier] || '';
+
+      // Load tier copy from the embedded JSON.
+      var dataEl = document.getElementById('tier-copy-data');
+      var tierCopy = dataEl ? JSON.parse(dataEl.textContent) : {};
+      var locked = tierKey && tierCopy[tierKey] ? tierCopy[tierKey] : null;
+
+      // 1. Tier-aware hero swap.
+      if (locked) {
+        var heroGeneric = document.querySelector('[data-hero-generic]');
+        var heroTier = document.querySelector('[data-hero-tier]');
+        if (heroGeneric) heroGeneric.hidden = true;
+        if (heroTier) {
+          heroTier.hidden = false;
+          var label = heroTier.querySelector('[data-tier-label]');
+          var line1 = heroTier.querySelector('[data-tier-hero-line-1]');
+          var line2 = heroTier.querySelector('[data-tier-hero-line-2]');
+          var subtitle = heroTier.querySelector('[data-tier-subtitle]');
+          if (label) label.textContent = locked.label;
+          if (line1) line1.textContent = locked.heroLine1;
+          if (line2) line2.textContent = locked.heroLine2;
+          if (subtitle) subtitle.textContent = locked.subtitle;
+        }
+
+        // 2. Tier-aware form swap.
+        var picker = document.querySelector('[data-tier-picker]');
+        var lockedBlock = document.querySelector('[data-tier-locked]');
+        if (picker) {
+          picker.hidden = true;
+          // Critical: remove `required` from the now-hidden picker so the
+          // form can submit. The browser blocks submission if a required
+          // field has no value, even when hidden.
+          var sel = picker.querySelector('#tier');
+          if (sel) sel.removeAttribute('required');
+        }
+        if (lockedBlock) {
+          lockedBlock.hidden = false;
+          var name = lockedBlock.querySelector('[data-tier-locked-name]');
+          var desc = lockedBlock.querySelector('[data-tier-locked-desc]');
+          var price = lockedBlock.querySelector('[data-tier-locked-price]');
+          var hidden = lockedBlock.querySelector('[data-tier-locked-input]');
+          if (name) name.textContent = locked.label;
+          if (desc) desc.textContent = locked.description;
+          if (price) price.textContent = locked.price;
+          if (hidden) hidden.value = tierKey;
+        }
+
+        // 3. Update the page title to match the tier (helpful for tabs/bookmarks).
+        document.title = locked.label + ' — Get a quote | The eLearning Company';
+      }
+
+      // 4. Pre-fill description from ?category= regardless of tier state.
+      if (category) {
+        var desc = document.getElementById('description');
+        if (desc && !desc.value) {
+          desc.value = "I'm interested in " + category + " training.\n\n";
+        }
+      }
+    })();
+  </script>
 </Layout>
 
 <style>
@@ -439,6 +542,62 @@ const preSelectedTier = tierMap[selectedTier] || '';
     padding-right: 36px;
   }
 
+  /* Locked-tier confirmation block — shown when arriving from /pricing
+     via a tier-specific CTA. Replaces the tier dropdown. */
+  .tier-locked-label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .tier-locked-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 20px;
+    background: var(--c-lilac-tint);
+    border: 1px solid var(--c-lilac);
+    border-radius: var(--r-md);
+  }
+  .tier-locked-body { min-width: 0; }
+  .tier-locked-name {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--c-ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .tier-locked-desc {
+    font-size: 13px;
+    color: var(--c-ink-soft);
+    line-height: 1.45;
+  }
+  .tier-locked-price {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--c-ink);
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+  }
+  .tier-locked-change {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--c-blue);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+    transition: color 0.15s ease;
+  }
+  .tier-locked-change:hover { color: var(--c-ink); }
+  @media (max-width: 480px) {
+    .tier-locked-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  }
   .submit-btn {
     width: 100%;
     padding: 16px 24px;

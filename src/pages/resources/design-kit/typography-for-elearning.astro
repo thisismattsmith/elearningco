@@ -1,0 +1,166 @@
+---
+// src/pages/resources/design-kit/typography-for-elearning.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+import '../../../styles/design-kit-essay.css';
+---
+
+<Layout
+  title="Typography for eLearning | Design Kit | The eLearning Company"
+  description="Practical typography for learning designers. How to set type that reads well, builds hierarchy, and supports rather than fights the content."
+>
+  <section class="section section--turquoise component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Typography for eLearning</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Design advice</span>
+      <h1 class="display display-xl page-title">
+        Typography<br />
+        <span class="accent-blue">for eLearning.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Type is doing more work in your course than you probably credit it for. Hierarchy. Pace. Readability. Tone. The same content set badly is exhausting; set well, it's invisible. Most eLearning courses fail their typography test in three or four predictable ways. Here's how to pass.
+      </p>
+    </div>
+  </section>
+
+  <article class="section section--paper essay-section">
+    <div class="container">
+
+      <span class="section-kicker">Part one</span>
+      <h2 class="display display-md essay-title">Type is the hierarchy.</h2>
+
+      <p class="essay-intro">
+        Before colour, before icons, before layout flourishes — type does the hierarchy. Big things are important. Small things are supporting. Bold things demand attention. The mistake most courses make is using too many type sizes, too many weights, too many variations — until the type "system" becomes noise and nothing stands out.
+      </p>
+
+      <h3 class="essay-section-heading">Three sizes is enough. Four is generous.</h3>
+      <p>
+        Most courses need only a heading size, a subheading size, and a body size. Maybe a small caption size. That's it. Add a fifth size and you've blurred the system — the reader's eye no longer knows what's important because too many things <em>look</em> important. A tight type scale forces design decisions; a sprawling one hides them.
+      </p>
+
+      <h3 class="essay-section-heading">Match size to importance, not to space.</h3>
+      <p>
+        A common failure: making text bigger because the slide looks empty, or smaller because it doesn't fit. The size should be set by hierarchy. If a heading is bigger than it needs to be because the canvas felt empty, the heading reads as more important than it is. If a paragraph is smaller because it didn't fit, the paragraph reads as less important. Both are lies the eye believes. Resize <em>only</em> when the meaning warrants it; if a section won't fit, cut content instead of shrinking it.
+      </p>
+
+      <h3 class="essay-section-heading">Weight does what size can't.</h3>
+      <p>
+        Bold draws the eye within a paragraph. Italic carries emphasis or marks something distinct (a term being defined, a thought, a quote). Use both sparingly — when everything is bolded, nothing is. A single bolded phrase per paragraph is the rule; two is the maximum. Beyond that, the reader stops registering bold as emphasis and starts seeing it as visual noise.
+      </p>
+
+      <h3 class="essay-section-heading">Don't make body text small to look "elegant".</h3>
+      <p>
+        Some designers reduce body type to 14px or smaller because it reads as refined in a mockup. In the real world it reads as squinting. eLearning body text should be 16px minimum — usually 17 or 18 on desktop. Anyone reviewing the course on a laptop in afternoon light or after long screen time will thank you for the extra two pixels.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <span class="section-kicker">Part two</span>
+      <h2 class="display display-md essay-title">Choosing fonts for readability.</h2>
+
+      <p class="essay-intro">
+        eLearning is read-at-length content. The font's job is to disappear — let the reader process the words, not the typeface. Decorative or distinctive fonts work as display, never as body. Most courses do better with a single workhorse font and resist the urge to "pair" it with a contrasting one.
+      </p>
+
+      <h3 class="essay-section-heading">One body font is usually enough.</h3>
+      <p>
+        A font pairing — display font for headings, body font for paragraphs — looks sophisticated in design references and complicates real courses. Two fonts means two sets of weights to license, two sets of fallbacks to manage, more places for things to go wrong. A single well-chosen sans-serif (Inter, Source Sans, IBM Plex Sans) carries headings <em>and</em> body fine if used at the right weights.
+      </p>
+
+      <h3 class="essay-section-heading">Sans over serif for screen body text.</h3>
+      <p>
+        Serif fonts read beautifully in print at high resolution. On screens, especially at body size, they can read fussier — the small serifs become visual texture rather than letterforms. There are exceptions (Source Serif, Charter), but the default for eLearning body should be a clean sans-serif. Serifs are fine for one-off display moments — a hero quote, a chapter opener.
+      </p>
+
+      <h3 class="essay-section-heading">Check the font on real screens before committing.</h3>
+      <p>
+        A font that looks great in a designer's Figma file can look thin or hinted-poorly on a Windows laptop with default rendering. Before you commit a course to a font, test it on at least three screens: a high-DPI Mac, a mid-tier Windows machine, and a phone. If it falters on any of them, you have a problem most of your learners will encounter.
+      </p>
+
+      <h3 class="essay-section-heading">Beware "system" defaults that are actually awful.</h3>
+      <p>
+        Defaulting to "Arial" or "Verdana" because they're "safe" produces courses that look generic — the visual equivalent of stock photography. If you can use a free professional font (the Google Fonts catalogue is mostly excellent), use one. Inter, Source Sans 3, IBM Plex Sans are all free, well-hinted, and instantly more refined than the system defaults.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <span class="section-kicker">Part three</span>
+      <h2 class="display display-md essay-title">The details that make a difference.</h2>
+
+      <p class="essay-intro">
+        The big calls — size scale, font choice — are foundational. The details below are what separate a course that reads <em>fine</em> from one that reads <em>well</em>. They're cheap once you know about them.
+      </p>
+
+      <h3 class="essay-section-heading">Line height is half the readability.</h3>
+      <p>
+        Body text should have line-height around 1.5 to 1.7 times the font size. Tighter and lines pack together — reading slows, the eye loses its place between lines. Looser and the relationship between consecutive lines disappears. Most authoring tools default to about 1.2, which is too tight for body text. Override it.
+      </p>
+
+      <h3 class="essay-section-heading">Line length matters more than people credit.</h3>
+      <p>
+        Reading research is consistent: optimal line length for sustained reading is 60-75 characters. Shorter and the eye breaks too often. Longer and it struggles to find the next line on return. eLearning slides regularly stretch text across the full width of a 1280-pixel canvas — 130 characters per line — and reading falls off a cliff. Constrain the text column. The empty space to the right isn't waste; it's what makes the words readable.
+      </p>
+
+      <h3 class="essay-section-heading">Set headings tighter than body.</h3>
+      <p>
+        Body text wants generous line-height (1.5+). Headings want tighter — usually 1.1 to 1.25. Tight heading line-height holds the headline together as a single visual unit; loose line-height makes it look like two unrelated lines stacked on top of each other. Most authoring tools use one line-height value across all text. Override it for headings.
+      </p>
+
+      <h3 class="essay-section-heading">Capitalisation carries meaning.</h3>
+      <p>
+        ALL CAPS slows reading by about 15% — the eye uses word-shape to recognise familiar words, and caps eliminates that cue. Reserve it for short labels, kicker text, and short headings where impact beats readability. Sentence case (only the first word capitalised) reads fastest and works best for headings, subheadings, and buttons. Title Case (Most Words Capitalised) is a third option; it reads as more formal but slower than sentence case.
+      </p>
+
+      <h3 class="essay-section-heading">Don't use justified text.</h3>
+      <p>
+        Full justification — text aligned to both left and right margins — creates rivers of white space inside paragraphs as the spacing between words is stretched to fit. It looks "neat" in a screenshot and reads worse than left-aligned text every time. Left-align body text, leaving a "ragged right" edge. Trust the visual rhythm of natural line endings.
+      </p>
+
+      <h3 class="essay-section-heading">Watch for orphans and widows.</h3>
+      <p>
+        An "orphan" is a single short line at the end of a paragraph; a "widow" is a single word that wraps to its own line. Both look careless. Most authoring tools won't fix these automatically — you have to spot them and either reword slightly or adjust line breaks. Worth the five seconds. A heading that ends with one word stranded on a second line tells the reader nobody cared enough to look.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <p class="essay-conclusion">
+        Type works when you stop noticing it. Build a tight scale of three sizes. Pick one workhorse font. Set generous line-height on body and tight line-height on headings. Constrain line length. Left-align, sentence case, no orphans. None of this is glamorous, none of it wins design awards. It just means your course reads well, which is the whole point.
+      </p>
+
+      <p class="essay-related">
+        Related guides:
+        <a href="/resources/design-kit/writing-for-screen">Writing for screen, not page</a> ·
+        <a href="/resources/design-kit/colour-theory-intro">Intro to colour theory</a> ·
+        <a href="/resources/design-kit/using-white-space">Using white space</a> ·
+        <a href="/resources/design-kit/designing-for-accessibility">Designing for accessibility</a>
+      </p>
+    </div>
+  </article>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course<br />
+          <span class="accent-blue">set well?</span>
+        </h2>
+        <p class="lede cta-text">
+          We make typography choices that serve the learning, not the design portfolio. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

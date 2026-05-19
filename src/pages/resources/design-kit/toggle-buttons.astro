@@ -1,0 +1,420 @@
+---
+// src/pages/resources/design-kit/toggle-buttons.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+---
+
+<Layout
+  title="Toggle buttons in eLearning | Design Kit | The eLearning Company"
+  description="When to use toggles, switches, and segmented controls. Includes working examples of both patterns and how to choose between them."
+>
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Toggle buttons</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Component</span>
+      <h1 class="display display-xl page-title">
+        Toggle<br />
+        <span class="accent-blue">buttons.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Toggles flip something on or off. Segmented controls pick one of several mutually exclusive options. They live in a strange space between buttons and form controls — but with the right pattern, they're some of the clearest interactions in eLearning.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Switching state immediately.</h2>
+          <p class="purpose-lede">
+            A toggle's action takes effect the moment the learner clicks — no submit, no save. That's the defining behaviour. Used right, toggles feel responsive and direct. Used wrong, they confuse learners about whether their choice was actually applied.
+          </p>
+          <ul class="purpose-list">
+            <li>On/off switches for settings (audio, captions, accessibility options).</li>
+            <li>Segmented controls for mutually exclusive views or modes.</li>
+            <li>Filter pills that include or exclude content from a list.</li>
+            <li>Display preferences like dark mode or font size.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Quiz answers or form submissions.</h2>
+          <p class="purpose-lede">
+            If the action needs a "submit" step, it's not a toggle. Use <a href="/resources/design-kit/radio-buttons">radio buttons</a> for single-choice questions, <a href="/resources/design-kit/checkboxes">checkboxes</a> for multi-select, and <a href="/resources/design-kit/primary-buttons">primary buttons</a> for actions that need confirmation.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Quiz answers — use <a href="/resources/design-kit/radio-buttons">radio buttons</a>.</li>
+            <li>Multi-select selections — use <a href="/resources/design-kit/checkboxes">checkboxes</a>.</li>
+            <li>Form submissions — use <a href="/resources/design-kit/primary-buttons">primary buttons</a>.</li>
+            <li>Destructive actions that need confirmation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Working example: an on/off switch + a segmented control -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working examples</span>
+      <h2 class="display display-md section-title">Two patterns.</h2>
+      <p class="lede section-subtitle">
+        The two most common toggle patterns in eLearning. The switch is for binary on/off. The segmented control is for one-of-many. Both apply immediately on click.
+      </p>
+
+      <div class="example-card tgl-card">
+        <!-- On/off switch -->
+        <div class="tgl-group">
+          <div class="tgl-group-meta">
+            <span class="meta">On/off switch</span>
+            <span class="meta" data-tgl-switch-state>Off</span>
+          </div>
+          <label class="tgl-switch">
+            <input type="checkbox" data-tgl-switch aria-label="Closed captions" />
+            <span class="tgl-switch-track" aria-hidden="true">
+              <span class="tgl-switch-thumb"></span>
+            </span>
+            <span class="tgl-switch-label">Closed captions</span>
+          </label>
+          <p class="tgl-helper" data-tgl-switch-helper>
+            Toggle to enable captions on the course video.
+          </p>
+        </div>
+
+        <hr class="tgl-divider" />
+
+        <!-- Segmented control -->
+        <div class="tgl-group">
+          <div class="tgl-group-meta">
+            <span class="meta">Segmented control</span>
+            <span class="meta" data-tgl-segment-state>Medium</span>
+          </div>
+          <fieldset class="tgl-segment" role="radiogroup" aria-label="Font size">
+            <legend class="sr-only">Font size</legend>
+            <label class="tgl-segment-option">
+              <input type="radio" name="font-size" value="small" />
+              <span>Small</span>
+            </label>
+            <label class="tgl-segment-option">
+              <input type="radio" name="font-size" value="medium" checked />
+              <span>Medium</span>
+            </label>
+            <label class="tgl-segment-option">
+              <input type="radio" name="font-size" value="large" />
+              <span>Large</span>
+            </label>
+          </fieldset>
+          <p class="tgl-helper">
+            Pick a font size. Notice the change applies immediately, with no "save" button.
+          </p>
+          <p class="tgl-preview" data-tgl-preview>
+            The quick brown fox jumps over the lazy dog.
+          </p>
+        </div>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        Both controls are built on native HTML inputs (<code>checkbox</code> and <code>radio</code>) for accessibility. The visual treatment is custom; the keyboard, screen-reader, and form behaviour comes for free.
+      </p>
+    </div>
+  </section>
+
+  <!-- Design considerations -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the visuals right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">State is the whole game</h3>
+          <p>A toggle's only job is to communicate "this is on" or "this is off". The active state has to be unmissable — different colour, different position, different texture. If a learner can't tell at a glance whether captions are on or off, the toggle has failed.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Don't rely on colour alone</h3>
+          <p>Some toggles communicate state only with green vs grey. That fails for colour-blind users and on low-contrast screens. Combine colour with shape, position, or a fill pattern — the active state should be obvious even in black and white.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Segmented controls need clear active state</h3>
+          <p>One option in a segmented control should be visibly "selected" — usually filled in dark colour while the others are outlined or muted. If all three options look equally weighted, the control becomes ambiguous.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Accessibility — use native inputs</h3>
+          <p>Build switches on <code>&lt;input type="checkbox"&gt;</code> and segmented controls on <code>&lt;input type="radio"&gt;</code>. Custom-built toggles using <code>&lt;div&gt;</code>s almost always break Tab, Space, and arrow-key behaviour. Native inputs handle this for free.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility — labels and announcements</h3>
+          <p>Every toggle needs a visible label that explains what it does. The label should be clickable too — extends the tap target and helps anyone with imprecise pointer control. Screen readers will announce the label plus state ("Captions, off").</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Animate the state change</h3>
+          <p>A toggle that snaps between states feels broken; one with a 150ms slide or fade feels confident. The animation isn't decoration — it tells the learner their click was received and registered.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UX best practice -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to use toggles <span class="mark--lilac">that don't confuse</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">Apply immediately, always.</h3>
+          <p>The reason to use a toggle (versus a <a href="/resources/design-kit/checkboxes">checkbox</a> + Submit) is that the change happens the moment the learner clicks. If your toggle requires a "Save changes" button, you've picked the wrong component. Pair toggles with instant effect, or use a different pattern.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Label what's on, not what the toggle does.</h3>
+          <p>"Captions" beats "Show captions". "Dark mode" beats "Enable dark mode". The label describes the thing being controlled; the on/off state describes what the toggle is currently doing. "Turn off captions" inside the toggle gets confusing — is it currently on, or is that the action?</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Confirm destructive toggles.</h3>
+          <p>Most toggles are safe — captions, font size, dark mode. Some aren't. If a toggle disables features the learner might need ("Skip the assessment"), or resets state ("Reset progress on this scene"), pair it with a confirmation step or undo affordance. Toggles that immediately erase work are punishing.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Two options? Use a switch. Three to five? Use a segmented control.</h3>
+          <p>Binary on/off = a switch. Three to five mutually exclusive options = a segmented control. Six or more options means the segmented control gets cramped — use <a href="/resources/design-kit/radio-buttons">radio buttons</a> or a dropdown instead. The visual format should match the cognitive demand of the choice.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Don't mix toggles and submit forms on the same screen.</h3>
+          <p>If half the controls on a screen apply immediately and half wait for a submit, learners lose track of which is which. Pick one model per screen — either everything is immediate (settings panel) or everything waits for submit (form). Mixing creates an "did my change apply?" moment that you can't afford.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Provide an undo path for important toggles.</h3>
+          <p>"Skip remaining scenes" should let the learner come back. "Reduce reading load" should let them restore the full content. Toggles aren't quizzes — they're meant to be experimented with. A toggle that locks the learner out of changing their mind defeats the format.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Persist state across the course.</h3>
+          <p>If a learner turns captions on in scene 1, captions should still be on in scene 12. Toggles that reset on every scene make learners adjust the same settings repeatedly — slow, irritating, and a sign the navigation state isn't being tracked properly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for a toggle.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Accessibility preferences</h3>
+          <p>Captions on/off, audio descriptions, dyslexic-friendly fonts. These are personal settings that need to apply immediately and persist across the course.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Display mode</h3>
+          <p>Light/dark, or small/medium/large font. Segmented controls make this clean: three options, one selected, change applied immediately.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Filter pills in a resource library</h3>
+          <p>"Show me: leadership / sales / for managers." Each pill toggles whether its category is included. Multi-select toggles are sometimes called "chip groups".</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Module visibility settings</h3>
+          <p>In adaptive courses, learners can switch on or off optional sections. A toggle ("Show advanced content") is the right pattern — instant application, easy to reverse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course<br />
+          <span class="accent-blue">built well?</span>
+        </h2>
+        <p class="lede cta-text">
+          We apply these principles on every course we build. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Switch
+  const sw      = document.querySelector<HTMLInputElement>('[data-tgl-switch]');
+  const swState = document.querySelector<HTMLElement>('[data-tgl-switch-state]');
+  const swHelper= document.querySelector<HTMLElement>('[data-tgl-switch-helper]');
+
+  sw?.addEventListener('change', () => {
+    const on = sw.checked;
+    if (swState)  swState.textContent  = on ? 'On' : 'Off';
+    if (swHelper) swHelper.textContent = on
+      ? 'Captions are now on. The change applied instantly — no save required.'
+      : 'Toggle to enable captions on the course video.';
+  });
+
+  // Segmented control
+  const segInputs = document.querySelectorAll<HTMLInputElement>('input[name="font-size"]');
+  const segState  = document.querySelector<HTMLElement>('[data-tgl-segment-state]');
+  const preview   = document.querySelector<HTMLElement>('[data-tgl-preview]');
+
+  segInputs.forEach((inp) => {
+    inp.addEventListener('change', () => {
+      const v = inp.value;
+      if (segState) segState.textContent = v.charAt(0).toUpperCase() + v.slice(1);
+      if (preview) {
+        preview.style.fontSize = v === 'small' ? '13px' : v === 'large' ? '20px' : '16px';
+      }
+    });
+  });
+</script>
+
+<style>
+  .tgl-card { max-width: 580px; }
+
+  .tgl-group { padding: 4px 0; }
+  .tgl-group-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+
+  /* Switch */
+  .tgl-switch {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .tgl-switch input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .tgl-switch-track {
+    width: 48px;
+    height: 26px;
+    background: rgba(21, 25, 46, 0.2);
+    border-radius: 13px;
+    position: relative;
+    transition: background 0.15s ease;
+    flex-shrink: 0;
+  }
+  .tgl-switch-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: var(--c-paper);
+    border-radius: 50%;
+    transition: transform 0.15s ease;
+    box-shadow: 0 1px 3px rgba(21, 25, 46, 0.2);
+  }
+  .tgl-switch input:checked + .tgl-switch-track {
+    background: var(--c-ink);
+  }
+  .tgl-switch input:checked + .tgl-switch-track .tgl-switch-thumb {
+    transform: translateX(22px);
+  }
+  .tgl-switch input:focus-visible + .tgl-switch-track {
+    box-shadow: 0 0 0 3px var(--c-lilac);
+  }
+  .tgl-switch-label {
+    font-size: 15px;
+    color: var(--c-ink);
+    font-weight: 500;
+  }
+
+  /* Segmented control */
+  .tgl-segment {
+    display: inline-flex;
+    padding: 3px;
+    background: var(--c-paper-deep);
+    border-radius: var(--r-md);
+    border: 1px solid rgba(21, 25, 46, 0.08);
+    gap: 3px;
+  }
+  .tgl-segment-option {
+    cursor: pointer;
+    position: relative;
+  }
+  .tgl-segment-option input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .tgl-segment-option span {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--c-ink-soft);
+    border-radius: calc(var(--r-md) - 3px);
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .tgl-segment-option:hover span { color: var(--c-ink); }
+  .tgl-segment-option input:checked + span {
+    background: var(--c-ink);
+    color: var(--c-paper);
+  }
+  .tgl-segment-option input:focus-visible + span {
+    outline: 2px solid var(--c-lilac);
+    outline-offset: 2px;
+  }
+
+  .tgl-helper {
+    margin: 12px 0 0 0;
+    color: var(--c-ink-soft);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .tgl-preview {
+    margin-top: 12px;
+    padding: 12px 14px;
+    background: var(--c-paper-deep);
+    border-radius: var(--r-md);
+    color: var(--c-ink);
+    transition: font-size 0.15s ease;
+  }
+  .tgl-divider {
+    margin: 32px 0;
+    border: none;
+    border-top: 1px solid rgba(21, 25, 46, 0.08);
+  }
+</style>

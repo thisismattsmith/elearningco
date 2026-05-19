@@ -1,0 +1,348 @@
+---
+// src/pages/resources/design-kit/links.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+---
+
+<Layout
+  title="Links in eLearning | Design Kit | The eLearning Company"
+  description="When to use a link instead of a button, how to label inline links, and the patterns to avoid."
+>
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Links</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Component</span>
+      <h1 class="display display-xl page-title">
+        <span class="accent-blue">Links.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Inline links inside body text. Standalone links between sections. Buttons styled to look like links. They're the most-used and least-considered component in any course — and the difference between a well-linked module and a badly-linked one is huge.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Navigation, not action.</h2>
+          <p class="purpose-lede">
+            A link takes the learner somewhere — another page, another resource, another part of the same course. The defining behaviour is that the destination, not the action, is the point. Links live inside text and look like text.
+          </p>
+          <ul class="purpose-list">
+            <li>Inline references to related content ("see the <a href="/resources/design-kit/checkboxes">checkboxes guide</a>").</li>
+            <li>Standalone "Read more" or "Learn more" lines below a summary.</li>
+            <li>Citations, sources, and external resources.</li>
+            <li>Navigation to optional or supplementary material.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Actions and submissions.</h2>
+          <p class="purpose-lede">
+            If clicking the thing performs an action — submitting a quiz, saving progress, opening a modal — it's a <a href="/resources/design-kit/primary-buttons">button</a>, not a link. Styling a button to look like a link confuses learners and breaks accessibility.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Submit, Save, Continue actions — use <a href="/resources/design-kit/primary-buttons">primary buttons</a>.</li>
+            <li>Toggling visibility of inline content — use <a href="/resources/design-kit/toggle-buttons">toggle buttons</a>.</li>
+            <li>Quiz answers — use <a href="/resources/design-kit/radio-buttons">radio buttons</a>.</li>
+            <li>Anything destructive — needs an explicit, confirmable button.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Working example: three link patterns and an anti-pattern -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working examples</span>
+      <h2 class="display display-md section-title">Three patterns, one anti-pattern.</h2>
+      <p class="lede section-subtitle">
+        How links should look in body text, in standalone positions, and as button-styled links — plus what not to do. Hover over each to see the affordance.
+      </p>
+
+      <div class="example-card lnk-card">
+        <!-- Pattern 1: inline link in prose -->
+        <div class="lnk-group">
+          <span class="meta lnk-meta">1 — Inline link</span>
+          <p class="lnk-body">
+            A link inside a sentence should be clearly distinct from the surrounding text — usually underlined and in a different colour. For background on this principle, see <a href="/resources/design-kit/writing-assessment-questions" class="lnk-example-inline">Writing good assessment questions</a>. The underline is what makes it scannable as a link, not the colour alone.
+          </p>
+        </div>
+
+        <!-- Pattern 2: standalone "Read more" link -->
+        <div class="lnk-group">
+          <span class="meta lnk-meta">2 — Standalone link</span>
+          <p class="lnk-body">
+            Sometimes a link stands on its own line, usually below a summary or as a "continue reading" affordance.
+          </p>
+          <a href="/resources/design-kit/branching-scenarios" class="lnk-example-standalone">
+            Read about branching scenarios <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <!-- Pattern 3: button-styled link (use sparingly) -->
+        <div class="lnk-group">
+          <span class="meta lnk-meta">3 — Button-styled link</span>
+          <p class="lnk-body">
+            For prominent navigation — usually only one per page — a link can be styled like a button. It still <em>does</em> a link thing (navigation), but visually competes for attention with primary actions.
+          </p>
+          <a href="/resources/design-kit" class="lnk-example-buttoned">
+            Back to design kit
+          </a>
+        </div>
+
+        <hr class="lnk-divider" />
+
+        <!-- Anti-pattern -->
+        <div class="lnk-group lnk-group--bad">
+          <span class="meta lnk-meta lnk-meta--bad">Anti-pattern: link as action</span>
+          <p class="lnk-body">
+            <button class="lnk-example-fake" type="button">Submit my answer</button>
+            — this looks like a link but performs an action. Learners can't tell what will happen when they click. Use a <a href="/resources/design-kit/primary-buttons">primary button</a> instead. Conversely, real navigation styled as a button (anti-pattern: "Get help" button that just takes you to a help page) hides the destination.
+          </p>
+        </div>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        The pattern matters more than the visual styling. The key test: if clicking takes you somewhere, it's a link. If clicking does something, it's a button. Misusing the components confuses learners and breaks screen reader behaviour.
+      </p>
+    </div>
+  </section>
+
+  <!-- Design considerations -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the visuals right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">Underline by default</h3>
+          <p>The classic underline-on-links convention has held up for thirty years because it works. Removing underlines to "look cleaner" loses an enormous accessibility cue. Keep underlines on inline links, especially in body text where they need to be scannable.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Distinct colour, plus underline</h3>
+          <p>Colour alone fails colour-blind users. Underline alone is sometimes ambiguous (italics? emphasis?). Combine the two — a distinct link colour and an underline — and the link reads as a link to virtually everyone.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Hover and focus states are mandatory</h3>
+          <p>On hover, the link should change — darker colour, thicker underline, slight shift. On keyboard focus, a visible outline. Without these, users get no signal that the cursor is over a clickable element.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Accessibility — use real anchor tags</h3>
+          <p>Use <code>&lt;a href="..."&gt;</code>. Not styled <code>&lt;span&gt;</code>s, not JavaScript-only clicks. Native anchors are keyboard-focusable, screen-reader-announced, and openable in new tabs. Custom-built links almost always break one of these expectations.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility — descriptive link text</h3>
+          <p>"Click here" tells a screen reader nothing. "Read about assessment questions" tells them everything. Screen reader users often navigate by pulling up a list of all links on the page — every "Click here" appears identical and the list becomes useless.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Indicate external links</h3>
+          <p>Links that leave the course should signal that — a small ↗ icon, a "(opens in new tab)" annotation, or both. Learners who unexpectedly find themselves in a new browser tab feel disoriented; a visual cue prevents that.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UX best practice -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to use links <span class="mark--lilac">well</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">Link the destination, not "click here".</h3>
+          <p>"See the <em>assessment questions guide</em>" beats "Click <em>here</em> to see the assessment questions guide". The link should describe where it leads. This isn't pedantic — it's what makes a page scannable, what helps screen reader users, and what improves SEO. Every "click here" is a missed opportunity.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Don't link every reference.</h3>
+          <p>If you mention "radio buttons" four times on a page, link the first mention. Don't repeat the link. After the first instance, the term reads as recognised vocabulary — adding more links makes the page look spammy and breaks the rhythm of reading.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Open external links in new tabs — internal links in the same tab.</h3>
+          <p>Going to an external resource? New tab — the learner doesn't lose their place. Going to another page on the same course or site? Same tab — the browser's back button is the user's expected escape hatch. Mixing this up is one of the most common usability complaints on training platforms.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Avoid links inside high-stakes content.</h3>
+          <p>If learners are mid-quiz, mid-scenario, or mid-assessment, don't drop links into the content that take them away. They'll click, lose their place, and resent the course. Save inline links for explanatory content; for action content, link to "related resources" sections after the assessment is complete.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Surface the most useful link first.</h3>
+          <p>If a paragraph mentions three things you could link to, link the one most relevant to what the learner is doing now. Don't link the first thing they encounter just because it appeared first. Curate.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Test that broken links don't slip into production.</h3>
+          <p>Every long-form course accumulates dead links — to internal pages that moved, to external sites that changed URLs, to LMS resources that got renamed. Run a link checker before launch, and again every six months. A 404 inside a course breaks trust in a way that's hard to recover.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Be consistent with link styling across the course.</h3>
+          <p>If links in scene 1 are blue and underlined, links in scene 12 should look the same. Inconsistent link styling (sometimes underlined, sometimes not; sometimes coloured, sometimes plain) makes learners doubt every interaction. Pick a style, document it, enforce it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for a link.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">References inside explanatory text</h3>
+          <p>"For a deeper dive on this topic, see [linked guide]." Common in resource libraries, design kits, and reference content.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">External resources and citations</h3>
+          <p>"This module is based on research from [linked study]." Useful for credibility, accessibility (learners can verify), and SEO if the page is public.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">"Skip to" or "Read more" affordances</h3>
+          <p>Standalone link at the bottom of a summary card — "Read full case study →". Better than a button because the action is navigation, not state change.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Supplementary downloads</h3>
+          <p>Linked PDFs, worksheets, or checklists. Pair the link with the file type and size — "Download the workbook (PDF, 1.2MB)" — so learners know what they're committing to.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course<br />
+          <span class="accent-blue">built well?</span>
+        </h2>
+        <p class="lede cta-text">
+          We apply these principles on every course we build. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .lnk-card { max-width: 720px; }
+  .lnk-group { padding: 18px 0; }
+  .lnk-meta { display: block; margin-bottom: 10px; }
+  .lnk-body {
+    margin: 0;
+    color: var(--c-ink);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .lnk-body em { font-style: italic; }
+
+  /* Pattern 1: inline link */
+  .lnk-example-inline {
+    color: var(--c-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 500;
+  }
+  .lnk-example-inline:hover {
+    color: var(--c-ink);
+    text-decoration-thickness: 2px;
+  }
+
+  /* Pattern 2: standalone link with arrow */
+  .lnk-example-standalone {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--c-blue);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+  .lnk-example-standalone:hover {
+    color: var(--c-ink);
+  }
+  .lnk-example-standalone:hover span {
+    transform: translateX(3px);
+    display: inline-block;
+  }
+
+  /* Pattern 3: button-styled link */
+  .lnk-example-buttoned {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 10px 18px;
+    background: var(--c-ink);
+    color: var(--c-paper);
+    border-radius: var(--r-md);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: background 0.15s ease;
+  }
+  .lnk-example-buttoned:hover { background: var(--c-blue); }
+
+  /* Anti-pattern: link-styled button */
+  .lnk-example-fake {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--c-blue);
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 500;
+  }
+
+  .lnk-group--bad {
+    background: rgba(220, 38, 38, 0.04);
+    padding: 18px 16px;
+    border-radius: var(--r-md);
+    border-left: 3px solid rgba(220, 38, 38, 0.4);
+  }
+  .lnk-meta--bad { color: rgba(220, 38, 38, 0.8); }
+
+  .lnk-divider {
+    margin: 32px 0 12px 0;
+    border: none;
+    border-top: 1px solid rgba(21, 25, 46, 0.08);
+  }
+</style>

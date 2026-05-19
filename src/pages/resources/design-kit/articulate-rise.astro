@@ -1,0 +1,194 @@
+---
+// src/pages/resources/design-kit/articulate-rise.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+import '../../../styles/design-kit-tool.css';
+---
+
+<Layout
+  title="Articulate Rise | Design Kit | The eLearning Company"
+  description="An honest look at Articulate Rise — what it does well, where it struggles, and when it's the right tool for the job."
+>
+  <section class="section section--yellow component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Articulate Rise</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">eLearning tool</span>
+      <h1 class="display display-xl page-title">
+        Articulate<br />
+        <span class="accent-blue">Rise.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Rise is Articulate's web-based authoring tool — block-based, responsive by default, fast to produce in. If <a href="/resources/design-kit/articulate-storyline">Storyline</a> is the workshop, Rise is the workhorse.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper tool-section">
+    <div class="container">
+      <div class="tool-meta">
+        <div class="tool-meta-item">
+          <span class="meta tool-meta-label">Type</span>
+          <p class="tool-meta-value">Web-based, block-based authoring tool</p>
+        </div>
+        <div class="tool-meta-item">
+          <span class="meta tool-meta-label">Output</span>
+          <p class="tool-meta-value">SCORM 1.2 / 2004, xAPI, Web, PDF export</p>
+        </div>
+        <div class="tool-meta-item">
+          <span class="meta tool-meta-label">Pricing</span>
+          <p class="tool-meta-value">Part of Articulate 360, around $US1,400/year</p>
+        </div>
+        <div class="tool-meta-item">
+          <span class="meta tool-meta-label">Best for</span>
+          <p class="tool-meta-value">Linear, content-driven courses — compliance, onboarding, awareness training</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper-deep tool-strengths-section">
+    <div class="container">
+      <span class="section-kicker">Strengths</span>
+      <h2 class="display display-md section-title">What it's great at.</h2>
+
+      <div class="tool-points">
+        <div class="tool-point">
+          <h3 class="heading-sm">Responsive by default</h3>
+          <p>Every Rise block looks correct on phones, tablets, and desktop without any manual tuning. This single fact saves enormous amounts of time compared to most slide-based tools, where responsiveness is hand-work.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Fast to produce</h3>
+          <p>A Rise course goes from script to launch in days, not weeks. The block library — text, image, video, knowledge check, scenario, accordion — covers most needs without custom work. The format keeps authors focused on writing rather than fighting layouts.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Web-based and collaborative</h3>
+          <p>Multiple authors can work on a course at the same time. Reviewers can comment via Articulate Review. No installation, no file syncing, no "who has the latest version" confusion.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">LMS-friendly output</h3>
+          <p>Rise exports SCORM 1.2, 2004, xAPI, and Web. Drop the package into any modern LMS and it works. We've tested with SuccessFactors, Cornerstone, Litmos, Moodle, and Workday with no surprises.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper tool-weaknesses-section">
+    <div class="container">
+      <span class="section-kicker">Weaknesses</span>
+      <h2 class="display display-md section-title">Where it struggles.</h2>
+
+      <div class="tool-points">
+        <div class="tool-point">
+          <h3 class="heading-sm">Limited customisation</h3>
+          <p>You can adjust the colour palette, fonts, and accent style. You cannot move blocks pixel-by-pixel, override the underlying CSS, or build custom layouts. This is by design — and on most projects, that's a feature. When it's not, Rise will frustrate you.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Built-in interactions are limited</h3>
+          <p>Rise has good <a href="/resources/design-kit/checkboxes">multi-select</a> and <a href="/resources/design-kit/radio-buttons">single-choice</a> knowledge checks, flip cards, tabs, and accordions. Anything more complex — <a href="/resources/design-kit/branching-scenarios">deep branching</a>, custom <a href="/resources/design-kit/drag-and-drop">drag-and-drop</a> puzzles, scoring logic — needs <a href="/resources/design-kit/articulate-storyline">Storyline</a> or a workaround.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Subscription-only</h3>
+          <p>Rise comes bundled in Articulate 360. There's no perpetual licence, no team tier, no light edition. For organisations producing one course a year, the subscription cost is hard to justify.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Custom HTML embeds can break accessibility</h3>
+          <p>Rise's standard blocks are keyboard-navigable and screen-reader-friendly. Embedded HTML or JavaScript — used to extend Rise — can sidestep all of that. Be deliberate about what you embed.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Hard to differentiate visually</h3>
+          <p>Rise's strength — consistent, predictable layouts — is also its weakness. Two Rise courses from two different vendors can look almost identical. If brand distinctiveness matters, expect to invest in custom themes and asset work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy tool-decision-section">
+    <div class="container">
+      <span class="section-kicker">Decision</span>
+      <h2 class="display display-md section-title">
+        When Rise is <span class="mark--lilac">the right call</span>.
+      </h2>
+
+      <div class="decision-grid">
+        <div class="decision-col">
+          <h3 class="heading-md decision-heading">Pick Rise when</h3>
+          <ul class="decision-list">
+            <li>The content is linear and largely text/image driven.</li>
+            <li>Mobile delivery matters and responsive output is a hard requirement.</li>
+            <li>You need to ship in days, not weeks.</li>
+            <li>Multiple authors will collaborate on the same course.</li>
+            <li>You're producing several courses a year that need a consistent look.</li>
+          </ul>
+        </div>
+        <div class="decision-col decision-col--alt">
+          <h3 class="heading-md decision-heading">Pick something else when</h3>
+          <ul class="decision-list">
+            <li>The interaction is the point — use <a href="/resources/design-kit/articulate-storyline">Storyline</a> for branching, simulations, custom logic.</li>
+            <li>Brand distinctiveness matters more than speed — consider <a href="/resources/design-kit/chameleon-creator">Chameleon Creator</a> or <a href="/resources/design-kit/howtoo">HowToo</a>.</li>
+            <li>You only need a single interaction — embed a <a href="/resources/design-kit/articulate-storyline">Storyline</a> file inside a Rise course instead.</li>
+            <li>You want AI-assisted authoring — <a href="/resources/design-kit/mindsmith">Mindsmith</a> goes further on that front.</li>
+            <li>You're producing one course a year and the Articulate 360 subscription is hard to justify.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">When we reach for Rise</span>
+      <h2 class="display display-md section-title">In practice.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Compliance courses</h3>
+          <p>WHS, harassment prevention, cyber security awareness, code of conduct. Linear, knowledge-check-heavy, content-driven. Rise's natural territory.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Onboarding modules</h3>
+          <p>"Welcome to the company" courses with values, structure, and an introduction to people and tools. Rise's flexible block library suits the variety of content types.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Product and system training</h3>
+          <p>Walkthroughs with screenshots, embedded videos, and short knowledge checks. Rise's video block plus image-and-text blocks handle this pattern well.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Policy and procedure modules</h3>
+          <p>Process steps, decision trees that aren't true branching, FAQs. Rise's accordion, tabs, and list blocks make these readable on any screen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          We build in Rise<br />
+          <span class="accent-blue">every week.</span>
+        </h2>
+        <p class="lede cta-text">
+          Rise is the tool we reach for first on most projects. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+

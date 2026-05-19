@@ -1,0 +1,462 @@
+---
+// src/pages/resources/design-kit/real-world-simulations.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+---
+
+<Layout
+  title="Real-world simulations in eLearning | Design Kit | The eLearning Company"
+  description="Simulations that mirror real workplace systems and situations. When to invest in one, and how to design simulations that teach without misleading."
+>
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Real-world simulations</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Interaction</span>
+      <h1 class="display display-xl page-title">
+        Real-world<br />
+        <span class="accent-blue">simulations.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Where <a href="/resources/design-kit/software-simulations">software simulations</a> teach a tool, real-world simulations teach a situation. A simulated phone call. A workplace inbox. A radio dispatch. Designed well, they're the most immersive learning eLearning can deliver. Designed badly, they're an expensive illusion.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Practising real-world judgement in context.</h2>
+          <p class="purpose-lede">
+            Real-world simulations work when the context is the lesson — the pressure of a customer waiting on the phone, the tempo of a busy inbox, the constraints of a workplace situation. The simulation reproduces enough of the real environment that the learner's decisions feel real.
+          </p>
+          <ul class="purpose-list">
+            <li>Customer service training where tone and timing matter.</li>
+            <li>Incident response — what happens when an alert lands at 3am.</li>
+            <li>Sales discovery and objection-handling conversations.</li>
+            <li>High-pressure decision making — security, safety, compliance.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Content that has nothing to do with the environment.</h2>
+          <p class="purpose-lede">
+            Real-world simulations are expensive — usually <a href="/resources/design-kit/articulate-storyline">Storyline</a>-level investment. If the workplace context isn't doing the teaching, a <a href="/resources/design-kit/branching-scenarios">branching scenario</a> with text dialogue is cheaper and often just as effective.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Conceptual learning that can be taught in prose or video.</li>
+            <li>Single-decision content — use a branching scenario instead.</li>
+            <li>Topics where the simulated environment would mislead more than teach.</li>
+            <li>Anywhere the simulation will be technically outdated within months.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Working example: phone interface incident sim -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working example</span>
+      <h2 class="display display-md section-title">A simulated phone notification.</h2>
+      <p class="lede section-subtitle">
+        Imagine you're an on-call engineer. Your phone buzzes with an alert. You have a few seconds to decide how to respond. Pick an option — the simulation responds based on your choice.
+      </p>
+
+      <div class="example-card rws-card">
+        <div class="rws-phone-frame">
+          <div class="rws-phone-screen" data-rws-screen>
+            <div class="rws-phone-statusbar">
+              <span class="rws-phone-time" data-rws-time>3:42 AM</span>
+              <span class="rws-phone-battery" aria-hidden="true">■■■■ 27%</span>
+            </div>
+
+            <!-- Stage 1: incoming notification -->
+            <div class="rws-stage" data-rws-stage="alert">
+              <div class="rws-notif">
+                <div class="rws-notif-app">PagerOps</div>
+                <div class="rws-notif-title">P1: Payment API down</div>
+                <div class="rws-notif-body">Auth service unreachable in eu-west-1. Affecting checkout. Triggered by alert rule "api-latency &gt; 5s for 90s".</div>
+                <div class="rws-notif-time">Now</div>
+              </div>
+
+              <div class="rws-actions">
+                <button class="rws-btn rws-btn--primary" type="button" data-rws-choice="ack">Acknowledge — I'm on it</button>
+                <button class="rws-btn rws-btn--secondary" type="button" data-rws-choice="escalate">Escalate to the senior on-call</button>
+                <button class="rws-btn rws-btn--secondary" type="button" data-rws-choice="snooze">Snooze 15 min — back to bed</button>
+              </div>
+            </div>
+
+            <!-- Stage 2: outcome (rendered dynamically) -->
+            <div class="rws-stage rws-stage--outcome" data-rws-stage="outcome" hidden>
+              <div class="rws-outcome">
+                <div class="rws-outcome-meta" data-rws-outcome-meta></div>
+                <div class="rws-outcome-narrative" data-rws-outcome-narrative></div>
+              </div>
+              <button class="rws-btn rws-btn--secondary rws-reset" type="button" data-rws-reset>← Try a different choice</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="rws-debrief">
+          <span class="meta">Why this works ·</span>
+          The phone frame, the 3am timestamp, the urgent alert text — the context primes the learner to make a decision under pressure. The same content as a flat text scenario would feel less consequential.
+        </p>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        Real-world simulations frequently embed branching scenarios (this one does). The difference is the environment: the same dialogue inside a "phone screen" frame feels more real than the same dialogue as a centred text box.
+      </p>
+    </div>
+  </section>
+
+  <!-- Design considerations -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the framing right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">Environment carries the realism</h3>
+          <p>What makes a real-world simulation real is the surrounding context: the phone frame, the inbox layout, the radio chatter, the timestamp. The decision points might be the same as a flat <a href="/resources/design-kit/branching-scenarios">branching scenario</a>, but the environment changes how the learner responds.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Show pressure, don't fake it</h3>
+          <p>Timestamps. Counter-ticking down. A queue of waiting items. Visible signs of context that learners would feel in the real situation. Be careful: don't add fake pressure that doesn't reflect real conditions — countdowns the real job doesn't have feel manipulative.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Sound when warranted</h3>
+          <p>Phone buzzes, alert tones, radio static — sound is part of the real environment, and a silent simulation feels off. But always offer a "play without sound" mode, label captions for audio content, and never auto-play sound on page load. See the <a href="/resources/design-kit/toggle-buttons">toggle buttons</a> page for the on/off pattern.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Accessibility — describe the simulated environment</h3>
+          <p>Screen readers can't see the phone frame. Use an <code>aria-label</code> on the simulation container to describe the environment ("Simulated phone screen showing an incoming alert"). Make sure decision buttons have meaningful text — "Acknowledge alert" not "Button 1".</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility — alternative paths</h3>
+          <p>If the simulation is mouse-heavy or visual-heavy, provide a text-based alternative path that delivers the same learning. This isn't extra work for accessibility — it's an honest acknowledgement that not every learner experiences the simulation the same way.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Mobile awareness</h3>
+          <p>A simulated phone interface on a real phone looks weird. Plan for it: scale down, switch to a more abstract framing, or hide the device chrome and just show the content on mobile. Don't make the learner zoom into a tiny simulated phone on their actual phone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UX best practice -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to make simulations <span class="mark--lilac">feel real</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">Decide whether the environment is the lesson.</h3>
+          <p>If the content is "what do you do when you get an alert at 3am" — the timestamp and the phone frame are doing real work. If the content is "how do you prioritise competing requests in general" — the environment is decoration and a branching scenario will teach the same thing for less money. Be honest about which one you're building.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Keep the simulation focused.</h3>
+          <p>The temptation is to build everything — full inbox, full call history, full system. Resist. The simulation should focus on the decision points you want the learner to practice. Visual fidelity around those decision points; flat or absent everywhere else. Big simulations are exhausting to build, maintain, and complete.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Realistic copy beats elaborate UI.</h3>
+          <p>A phone screen with three buttons and realistic alert text will outperform a beautifully rendered interface with stiff training language. Spend more on the words people will actually read — the alert title, the customer's message, the radio dispatch — than on the chrome around them.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Show consequences inside the simulation.</h3>
+          <p>"You acknowledged the alert. Your phone buzzes again 30 seconds later — the senior engineer is asking if you need help." Consequences delivered inside the simulated environment feel real. Consequences delivered as "Correct! ✓" pop the learner out of the simulation entirely.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Allow exploration of alternative paths.</h3>
+          <p>After the learner sees the outcome of their first choice, let them go back and try a different one. The whole value of a simulation is exploring the decision space — and learners often want to see "what would have happened if I'd picked B?" Make that easy. Don't punish curiosity by forcing a full restart.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Be careful about teaching the wrong realism.</h3>
+          <p>Simulations can quietly teach unrealistic expectations. If your simulated customer always responds calmly, your learners won't be prepared for a real angry one. If the simulated incident always resolves cleanly, real-life chaos will feel like failure. Build variety into your scenarios so the learner sees more than one "version" of the situation.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Debrief afterwards.</h3>
+          <p>After the simulation ends, a short reflection — what just happened, what they might do differently next time, what to look out for in the real situation — turns experience into learning. Without the debrief, the simulation becomes a moment that fades. With it, the simulation becomes a memory the learner can refer to.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for a real-world simulation.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">High-pressure incident response</h3>
+          <p>On-call engineering, emergency services, cyber incident response. Where pressure and timing are real factors and the learner needs to feel them before the real situation arrives.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Customer service training</h3>
+          <p>Simulated calls, simulated chat conversations, simulated complaint emails. The format — phone, chat, email — shapes how the response should land.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Compliance edge cases</h3>
+          <p>Spot the suspicious transaction in a simulated payment system. Identify the red flag in a simulated supplier email. Where the realism of the interface helps the learner spot what real exposure looks like.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">High-stakes conversations</h3>
+          <p>Difficult feedback. Termination conversations. Negotiation. Where realism of the moment — tone, pacing, environment — is what makes the practice useful.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Need an immersive<br />
+          <span class="accent-blue">simulation built?</span>
+        </h2>
+        <p class="lede cta-text">
+          Real-world simulations are some of our most ambitious work. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  type Choice = 'ack' | 'escalate' | 'snooze';
+
+  const outcomes: Record<Choice, { meta: string; narrative: string }> = {
+    ack: {
+      meta: '✓ You acknowledged the alert.',
+      narrative: "You hit Acknowledge. PagerOps logs your response and your name appears on the incident channel. 90 seconds later, you've opened the dashboard, confirmed the payment API is genuinely down, and you're paging the database team. The senior on-call sees your acknowledgement and stands down. By 4:15 AM, checkout is back. Sleep recovers. This is what the on-call rotation is designed for.",
+    },
+    escalate: {
+      meta: '↗ You escalated immediately.',
+      narrative: "You escalated to the senior on-call without acknowledging yourself. They respond at 3:46 AM and ask why. \"I'm not sure I can handle this one\" is a valid answer if the incident genuinely needs more senior judgement — but for a recoverable payment outage, it's also a signal that you might want a quick handover conversation tomorrow. Acknowledging first, then escalating if you can't progress, is usually the better default.",
+    },
+    snooze: {
+      meta: '⚠ You snoozed the alert.',
+      narrative: "Snooze. 15 minutes pass. The alert re-fires — louder this time, because PagerOps's escalation rules just kicked in. Your phone, your laptop, and a Slack channel that includes your manager all light up. The senior on-call pages in and finds the issue, but checkout's been down for 17 minutes by the time someone responds. This is the failure mode the rotation is supposed to prevent. Expect a conversation tomorrow.",
+    },
+  };
+
+  const stageAlert   = document.querySelector<HTMLElement>('[data-rws-stage="alert"]');
+  const stageOutcome = document.querySelector<HTMLElement>('[data-rws-stage="outcome"]');
+  const outMeta      = document.querySelector<HTMLElement>('[data-rws-outcome-meta]');
+  const outNarrative = document.querySelector<HTMLElement>('[data-rws-outcome-narrative]');
+  const resetBtn     = document.querySelector<HTMLButtonElement>('[data-rws-reset]');
+
+  function showOutcome(choice: Choice) {
+    if (!stageAlert || !stageOutcome || !outMeta || !outNarrative) return;
+    stageAlert.hidden = true;
+    stageOutcome.hidden = false;
+    outMeta.textContent = outcomes[choice].meta;
+    outNarrative.textContent = outcomes[choice].narrative;
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-rws-choice]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const choice = btn.dataset.rwsChoice as Choice;
+      if (choice) showOutcome(choice);
+    });
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    if (stageAlert) stageAlert.hidden = false;
+    if (stageOutcome) stageOutcome.hidden = true;
+  });
+</script>
+
+<style>
+  .rws-card { max-width: 680px; }
+
+  /* Phone frame styling — minimal, just enough to read as a phone */
+  .rws-phone-frame {
+    max-width: 360px;
+    margin: 0 auto 20px auto;
+    background: #1a1a1a;
+    border-radius: 32px;
+    padding: 12px;
+    box-shadow: 0 12px 36px rgba(21, 25, 46, 0.18);
+  }
+  .rws-phone-screen {
+    background: #0F1115;
+    border-radius: 22px;
+    overflow: hidden;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-family: var(--font-sans);
+  }
+  .rws-phone-statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 22px 8px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 600;
+  }
+  .rws-phone-battery {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+
+  .rws-stage {
+    flex: 1;
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Notification */
+  .rws-notif {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(6px);
+    border-radius: 14px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .rws-notif-app {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 6px;
+  }
+  .rws-notif-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .rws-notif-body {
+    font-size: 13px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 8px;
+  }
+  .rws-notif-time {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Action buttons */
+  .rws-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .rws-btn {
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.15s ease, border-color 0.15s ease;
+    text-align: left;
+  }
+  .rws-btn--primary {
+    background: rgba(126, 232, 218, 0.18);
+    border-color: rgba(126, 232, 218, 0.5);
+    color: #fff;
+  }
+  .rws-btn--primary:hover {
+    background: rgba(126, 232, 218, 0.28);
+  }
+  .rws-btn--secondary {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .rws-btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+  .rws-btn:focus-visible {
+    outline: 2px solid rgba(200, 182, 255, 0.7);
+    outline-offset: 2px;
+  }
+
+  /* Outcome screen */
+  .rws-stage--outcome {
+    justify-content: space-between;
+  }
+  .rws-outcome {
+    flex: 1;
+    overflow-y: auto;
+  }
+  .rws-outcome-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 12px;
+  }
+  .rws-outcome-narrative {
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.92);
+  }
+  .rws-reset { margin-top: 12px; }
+
+  .rws-debrief {
+    margin: 0;
+    color: var(--c-ink-soft);
+    font-size: 14px;
+    line-height: 1.55;
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .rws-debrief .meta {
+    color: var(--c-ink-muted);
+    margin-right: 4px;
+  }
+</style>

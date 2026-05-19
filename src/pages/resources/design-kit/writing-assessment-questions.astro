@@ -1,0 +1,231 @@
+---
+// src/pages/resources/design-kit/writing-assessment-questions.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+import '../../../styles/design-kit-essay.css';
+---
+
+<Layout
+  title="Writing good assessment questions | Design Kit | The eLearning Company"
+  description="How to choose the right question type for what you're assessing, and how to write each type so it actually tests understanding."
+>
+  <!-- Hero — turquoise (Design advice) -->
+  <section class="section section--turquoise component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Writing assessment questions</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Design advice</span>
+      <h1 class="display display-xl page-title">
+        Writing good<br />
+        <span class="accent-blue">assessment questions.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Most assessment questions in eLearning don't test what they think they test. They test memory of the slide that just ended, or the ability to spot the longest option. Here's how to write questions that actually measure understanding — and how to pick the right question type for the job.
+      </p>
+    </div>
+  </section>
+
+  <!-- The body — single column essay. Each section is a clear point, no padding. -->
+  <article class="section section--paper essay-section">
+    <div class="container">
+
+      <!-- ============ Part 1: choosing the right question type ============ -->
+      <span class="section-kicker">Part one</span>
+      <h2 class="display display-md essay-title">Pick the question type that fits the thing you're testing.</h2>
+
+      <p class="essay-intro">
+        Most courses default to multiple choice for everything. That's a habit, not a decision. Different question types measure different things, and the wrong format quietly fails to test what you wanted. Here's the working set, what each one is for, and how to choose.
+      </p>
+
+      <h3 class="essay-section-heading">Multiple choice (single answer)</h3>
+      <p>
+        <strong>Tests recognition of the correct answer among plausible alternatives.</strong> Reach for it when there is one defensibly correct answer and the misconceptions worth testing can be made into distractors. Don't use it for situations with multiple reasonable answers — you'll either award marks for nuance you don't actually value, or punish learners for picking a reasonable alternative.
+      </p>
+
+      <h3 class="essay-section-heading">Multiple response (multi-select)</h3>
+      <p>
+        <strong>Tests whether a learner can identify all the correct items in a set.</strong> Useful for "which of these are hazards", "which of these apply to this situation". Mark each item independently — full marks for ticking all the correct items and none of the incorrect ones. Partial credit schemes are popular but psychometrically messy. If you really need partial credit, prefer multiple separate true/false questions instead.
+      </p>
+
+      <h3 class="essay-section-heading">True or false</h3>
+      <p>
+        <strong>Tests recognition of factual claims.</strong> The simplest format, and the easiest to abuse. The 50/50 guess rate means a single true/false question tells you almost nothing about a learner. Use them in sets of four or more, or don't use them at all. They work best for testing whether learners can spot common misconceptions presented as plausible statements.
+      </p>
+
+      <h3 class="essay-section-heading">Matching</h3>
+      <p>
+        <strong>Tests paired associations.</strong> Term-to-definition, scenario-to-response, before-to-after. The format genuinely tests recognition of relationships, which MCQs can't easily do. Keep the lists short — six pairs is plenty, ten is exhausting. Make the two lists different lengths (e.g. 5 items on the left, 7 on the right) so learners can't solve the last pair by process of elimination.
+      </p>
+
+      <h3 class="essay-section-heading">Sequencing / ranking</h3>
+      <p>
+        <strong>Tests order or priority.</strong> Steps of a process, severity of incidents, order of operations. Strong fit when sequence is genuinely meaningful. Often delivered as a drag-and-drop. Watch for items that have no single correct order — if you can't defend the "right" sequence to a thoughtful learner, the question doesn't work.
+      </p>
+
+      <h3 class="essay-section-heading">Hotspot / image-based questions</h3>
+      <p>
+        <strong>Tests visual identification.</strong> "Click the hazard in this image." Powerful for spatial or perceptual learning — spotting a defect on a production line, finding the right control on a dashboard, identifying a posture risk. Don't use it where the answer could be described in words just as easily. Hotspots earn their place when the visual is the lesson.
+      </p>
+
+      <h3 class="essay-section-heading">Short answer (typed input)</h3>
+      <p>
+        <strong>Tests recall, not recognition.</strong> Much harder than MCQ because there's no list of options to prompt the answer. Use sparingly and only where exact answers exist — a definition, a value, a name. For anything subjective, you'll either need a human marker or accept that you're just collecting reflection, not assessing it.
+      </p>
+
+      <h3 class="essay-section-heading">Drag-and-drop categorisation</h3>
+      <p>
+        <strong>Tests classification.</strong> A specialised form of multi-select where the act of sorting makes the categorisation more cognitively demanding than ticking checkboxes. Useful when the categories themselves matter — urgent vs important, safe vs unsafe, compliant vs non-compliant. Don't use it as a fancy MCQ; that's just expensive ceremony.
+      </p>
+
+      <h3 class="essay-section-heading">Scenario-based decision questions</h3>
+      <p>
+        <strong>Tests judgement under realistic conditions.</strong> A short scenario followed by "what would you do?" with options that represent different reasonable responses. The best assessment format for soft skills — leadership, customer service, ethical decision-making — because abstract questions about these topics test vocabulary rather than judgement.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <!-- ============ Part 2: how to write any question well ============ -->
+      <span class="section-kicker">Part two</span>
+      <h2 class="display display-md essay-title">Write questions that test understanding, not test-wisdom.</h2>
+
+      <p class="essay-intro">
+        Most badly-written questions have the same flaws. These are the patterns to look for in your own drafts, and the principles that fix them.
+      </p>
+
+      <h3 class="essay-section-heading">Write the question, then the right answer, then the distractors.</h3>
+      <p>
+        Distractors — the wrong answers — are where questions live or die. A good distractor is a plausible misconception: something a learner who has half-grasped the material would pick. A bad distractor is filler or, worse, obviously silly. If three of your four options are throwaways, the question doesn't really test anything; learners can answer correctly by elimination without knowing the content.
+      </p>
+      <p>
+        The fix: for each correct answer, ask "what would a learner who got this wrong actually believe?" Use those beliefs as your distractors. The richer the misconceptions you've captured, the better the question.
+      </p>
+
+      <h3 class="essay-section-heading">Keep options parallel in length and structure.</h3>
+      <p>
+        Three short options and one long, qualified option give the long answer away — learners assume the most detailed option is correct because it "looks like" the answer with the most thought behind it. Equally, four options that all start "To ensure that…" and one that starts "Ensuring that…" gives the grammar away.
+      </p>
+      <p>
+        The fix: write all options to similar length, similar structure, similar grammar. Re-read your distractors after writing the answer — if they're noticeably shorter or less polished, rewrite them up to match.
+      </p>
+
+      <h3 class="essay-section-heading">Don't reuse the language of the source material.</h3>
+      <p>
+        If the question copies a phrase from the slide that introduced the concept, you're testing whether learners noticed that phrase, not whether they understood the concept. Learners who scan-read still get it right; learners who think hard about an unfamiliar phrasing might miss it. Either way, you've measured the wrong thing.
+      </p>
+      <p>
+        The fix: write the question and options in different language to the teaching material. If a learner has understood the concept, they should recognise it described in fresh words.
+      </p>
+
+      <h3 class="essay-section-heading">Avoid negatives unless you really mean them.</h3>
+      <p>
+        "Which of these is <em>not</em> a requirement?" trips up everyone reading quickly. The same question phrased positively tests the same knowledge with less cognitive friction. If you must use a negative, bold the negative word so it can't be missed: "Which of these is <strong>not</strong> a requirement?"
+      </p>
+      <p>
+        The fix: rewrite negative questions as positives when possible. "Which of these is a requirement?" with the same options works better in almost every case.
+      </p>
+
+      <h3 class="essay-section-heading">3 to 5 options is the sweet spot.</h3>
+      <p>
+        Two options is a true/false question with extra steps. Six or more options stretches the learner's working memory and makes the question harder for the wrong reason — they're not failing to know the content, they're failing to compare seven things at once. Three to five plausible options is the right balance: enough to make guessing unreliable, few enough to compare comfortably.
+      </p>
+
+      <h3 class="essay-section-heading">Decide whether feedback teaches or judges.</h3>
+      <p>
+        Generic "Correct!" / "Incorrect!" feedback is a missed opportunity. Per-question feedback that explains <em>why</em> an answer is right (and why each distractor is wrong) turns assessment into teaching. End-of-quiz feedback that just shows a score teaches nothing.
+      </p>
+      <p>
+        The choice depends on what you want from the assessment. Formative quizzes — where the goal is learning — should explain. Summative quizzes — where the goal is to test — can withhold feedback until later, but rarely benefit from "Correct! ✓" alone. If you're going to write feedback, write something that helps.
+      </p>
+
+      <h3 class="essay-section-heading">"All of the above" and "none of the above" usually don't work.</h3>
+      <p>
+        "All of the above" gives partial-knowledge learners an easy out — if they recognise any two options as correct, they can guess "all of the above" without knowing the third. "None of the above" rarely tests anything useful, and learners who don't know the material often default to it as a safe-feeling choice. Both options also short-circuit the design discipline of writing four plausible distractors.
+      </p>
+      <p>
+        The fix: write better distractors instead.
+      </p>
+
+      <h3 class="essay-section-heading">Randomise option order — but not always.</h3>
+      <p>
+        Most authoring tools support randomising option order on each attempt. Randomising stops learners from memorising "the answer is C" — useful when courses are re-attempted. Don't randomise when options have a natural order (smallest to largest, earliest to latest, simple to complex), and don't randomise when one option's correctness depends on what came before it.
+      </p>
+
+      <h3 class="essay-section-heading">Test the question with people who haven't seen the content.</h3>
+      <p>
+        The fastest way to find broken questions: show the question and options to someone who hasn't read the source material. If they can pick the right answer by reasoning from the options alone, the question doesn't test the content — it tests the wording. The same person trying a well-written question should struggle.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <!-- ============ Part 3: how to use questions in a course ============ -->
+      <span class="section-kicker">Part three</span>
+      <h2 class="display display-md essay-title">Use questions for the right purpose, in the right place.</h2>
+
+      <p class="essay-intro">
+        Assessment isn't just the "quiz at the end." Questions serve different roles depending on where they sit in the learning experience.
+      </p>
+
+      <h3 class="essay-section-heading">Knowledge checks during the course</h3>
+      <p>
+        Quick, low-stakes questions inserted into the content. The purpose is to retrieve and reinforce what was just taught — retrieval practice is one of the most robust findings in learning science. Knowledge checks should be easier than your assessment questions, and the feedback should explain rather than score. Two or three questions per major topic, not one giant quiz at the end of the module.
+      </p>
+
+      <h3 class="essay-section-heading">End-of-module assessment</h3>
+      <p>
+        Higher-stakes questions designed to confirm whether the module's objectives were achieved. These can be harder, can withhold per-question feedback until the end, and can include a pass mark. But the questions still have to be about the objectives — not trivia, not edge cases, not the things you found interesting while writing the content.
+      </p>
+
+      <h3 class="essay-section-heading">Pre-course self-assessment</h3>
+      <p>
+        Questions at the start of a course that gauge what the learner already knows. Used well, they let you skip content the learner already understands, or adapt the path through the course. Used poorly, they're a graded gateway that gives high-knowledge learners a bad first impression. Pre-course questions should never be graded against the learner.
+      </p>
+
+      <h3 class="essay-section-heading">Reflection questions</h3>
+      <p>
+        Open questions with no right answer — "what would you do here?", "how confident are you with this?" Useful for promoting metacognition and giving the course personality. Don't grade them. The format is the value.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <p class="essay-conclusion">
+        Choose the question type that fits the thing you're testing. Write each question so it tests understanding rather than test-wisdom. Place questions where they serve the learner's progress, not just the course's box-ticking. Those three decisions — type, craft, placement — separate assessments that measure learning from assessments that don't.
+      </p>
+
+      <p class="essay-related">
+        Related guides:
+        <a href="/resources/design-kit/radio-buttons">Radio buttons</a> ·
+        <a href="/resources/design-kit/checkboxes">Checkboxes</a> ·
+        <a href="/resources/design-kit/drag-and-drop">Drag and drop</a> ·
+        <a href="/resources/design-kit/hotspots">Hotspots</a>
+      </p>
+    </div>
+  </article>
+
+  <!-- Final CTA -->
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Need an assessment<br />
+          <span class="accent-blue">that actually measures?</span>
+        </h2>
+        <p class="lede cta-text">
+          We design assessments that test understanding, not test-wisdom. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+

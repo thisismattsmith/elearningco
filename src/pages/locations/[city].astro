@@ -70,6 +70,95 @@ export async function getStaticPaths() {
 }
 
 const { city } = Astro.props;
+
+// Industry → training-category mapping. Each industry gets 2-3 of the
+// most relevant training categories from /training/*. The mapping is
+// deliberately specific — generic categories like "leadership" are only
+// listed where there's a genuine fit (e.g. Professional Services).
+// Keys must match the strings used in each city's `industries` array above.
+type TrainingLink = { slug: string; title: string };
+const industryTraining: Record<string, TrainingLink[]> = {
+  Agriculture: [
+    { slug: 'workplace-health-safety',         title: 'Workplace Health & Safety' },
+    { slug: 'emergency-response',              title: 'Emergency Response' },
+    { slug: 'process-procedure',               title: 'Process & Procedure' },
+  ],
+  Construction: [
+    { slug: 'workplace-health-safety',         title: 'Workplace Health & Safety' },
+    { slug: 'emergency-response',              title: 'Emergency Response' },
+    { slug: 'code-of-conduct',                 title: 'Code of Conduct' },
+  ],
+  Defence: [
+    { slug: 'code-of-conduct',                 title: 'Code of Conduct' },
+    { slug: 'cyber-security-awareness',        title: 'Cyber Security Awareness' },
+    { slug: 'privacy-data-protection',         title: 'Privacy & Data Protection' },
+  ],
+  Education: [
+    { slug: 'mental-health-awareness',         title: 'Mental Health Awareness' },
+    { slug: 'sexual-harassment-prevention',    title: 'Sexual Harassment Prevention' },
+    { slug: 'diversity-inclusion',             title: 'Diversity & Inclusion' },
+  ],
+  Energy: [
+    { slug: 'workplace-health-safety',         title: 'Workplace Health & Safety' },
+    { slug: 'emergency-response',              title: 'Emergency Response' },
+    { slug: 'anti-bribery-corruption',         title: 'Anti-Bribery & Corruption' },
+  ],
+  Finance: [
+    { slug: 'cyber-security-awareness',        title: 'Cyber Security Awareness' },
+    { slug: 'privacy-data-protection',         title: 'Privacy & Data Protection' },
+    { slug: 'anti-bribery-corruption',         title: 'Anti-Bribery & Corruption' },
+  ],
+  Government: [
+    { slug: 'code-of-conduct',                 title: 'Code of Conduct' },
+    { slug: 'privacy-data-protection',         title: 'Privacy & Data Protection' },
+    { slug: 'cyber-security-awareness',        title: 'Cyber Security Awareness' },
+  ],
+  Healthcare: [
+    { slug: 'privacy-data-protection',         title: 'Privacy & Data Protection' },
+    { slug: 'workplace-health-safety',         title: 'Workplace Health & Safety' },
+    { slug: 'mental-health-awareness',         title: 'Mental Health Awareness' },
+  ],
+  Manufacturing: [
+    { slug: 'workplace-health-safety',         title: 'Workplace Health & Safety' },
+    { slug: 'quality-management',              title: 'Quality Management' },
+    { slug: 'process-procedure',               title: 'Process & Procedure' },
+  ],
+  Mining: [
+    { slug: 'workplace-health-safety',         title: 'Workplace Health & Safety' },
+    { slug: 'emergency-response',              title: 'Emergency Response' },
+    { slug: 'code-of-conduct',                 title: 'Code of Conduct' },
+  ],
+  'Professional Services': [
+    { slug: 'sexual-harassment-prevention',    title: 'Sexual Harassment Prevention' },
+    { slug: 'cyber-security-awareness',        title: 'Cyber Security Awareness' },
+    { slug: 'leadership-development',          title: 'Leadership Development' },
+  ],
+  Resources: [
+    { slug: 'workplace-health-safety',         title: 'Workplace Health & Safety' },
+    { slug: 'emergency-response',              title: 'Emergency Response' },
+    { slug: 'anti-bribery-corruption',         title: 'Anti-Bribery & Corruption' },
+  ],
+  Retail: [
+    { slug: 'customer-service',                title: 'Customer Service' },
+    { slug: 'sexual-harassment-prevention',    title: 'Sexual Harassment Prevention' },
+    { slug: 'workplace-health-safety',         title: 'Workplace Health & Safety' },
+  ],
+  Tech: [
+    { slug: 'cyber-security-awareness',        title: 'Cyber Security Awareness' },
+    { slug: 'privacy-data-protection',         title: 'Privacy & Data Protection' },
+    { slug: 'remote-work',                     title: 'Remote Work' },
+  ],
+  Technology: [
+    { slug: 'cyber-security-awareness',        title: 'Cyber Security Awareness' },
+    { slug: 'privacy-data-protection',         title: 'Privacy & Data Protection' },
+    { slug: 'remote-work',                     title: 'Remote Work' },
+  ],
+  Tourism: [
+    { slug: 'customer-service',                title: 'Customer Service' },
+    { slug: 'workplace-health-safety',         title: 'Workplace Health & Safety' },
+    { slug: 'sexual-harassment-prevention',    title: 'Sexual Harassment Prevention' },
+  ],
+};
 ---
 
 <Layout
@@ -160,21 +249,36 @@ const { city } = Astro.props;
     <div class="container">
       <span class="section-kicker">Industries</span>
       <h2 class="display display-md section-title">
-        Industries we serve<br />
+        Some industries we serve<br />
         in {city.name}.
       </h2>
       <p class="lede section-subtitle">{city.businessHub}</p>
 
       <ul class="industries-grid">
-        {city.industries.map((industry) => (
-          <li class="industry-item">
-            <span class="industry-marker" aria-hidden="true">→</span>
-            <div>
-              <h3 class="heading-sm industry-name">{industry}</h3>
-              <p class="industry-desc">Custom training for {city.name}'s {industry.toLowerCase()} sector.</p>
-            </div>
-          </li>
-        ))}
+        {city.industries.map((industry) => {
+          const links = industryTraining[industry] || [];
+          return (
+            <li class="industry-item">
+              <span class="industry-marker" aria-hidden="true">→</span>
+              <div class="industry-body">
+                <h3 class="heading-sm industry-name">{industry}</h3>
+                <p class="industry-desc">Custom training for {city.name}'s {industry.toLowerCase()} sector.</p>
+                {links.length > 0 && (
+                  <div class="industry-training-links">
+                    <span class="meta industry-training-label">Common training needs</span>
+                    <ul class="industry-training-list">
+                      {links.map((link) => (
+                        <li>
+                          <a href={`/training/${link.slug}`} class="industry-training-link">{link.title}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </li>
+          );
+        })}
       </ul>
 
       <div class="all-industries-note">
@@ -559,6 +663,38 @@ const { city } = Astro.props;
     color: var(--c-ink-soft);
     font-size: 14px;
     line-height: 1.55;
+  }
+  .industry-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .industry-training-links {
+    margin-top: 10px;
+  }
+  .industry-training-label {
+    display: block;
+    color: var(--c-ink-muted);
+    margin-bottom: 6px;
+  }
+  .industry-training-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+  .industry-training-link {
+    font-size: 13px;
+    color: var(--c-blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(30, 58, 138, 0.25);
+    padding-bottom: 1px;
+    transition: color 0.15s ease, border-bottom-color 0.15s ease;
+  }
+  .industry-training-link:hover {
+    color: var(--c-ink);
+    border-bottom-color: var(--c-ink);
   }
 
   .all-industries-note {

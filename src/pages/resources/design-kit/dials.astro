@@ -1,0 +1,550 @@
+---
+// src/pages/resources/design-kit/dials.astro
+import Layout from '../../../components/layout/Layout.astro';
+---
+
+<Layout
+  title="Dials in eLearning | Design Kit | The eLearning Company"
+  description="When to use a dial instead of a slider. Includes a working draggable confidence dial."
+>
+  <!-- ============================================================
+       1. Hero — lilac (Components)
+       ============================================================ -->
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Dials</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Component</span>
+      <h1 class="display display-xl page-title">
+        <span class="accent-blue">Dials.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        A dial is a circular alternative to a slider — drag the handle around an arc to set a value. They look great, feel novel, and are surprisingly rarely the right choice.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. What it's for / What it isn't for — paper
+       ============================================================ -->
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Analogue-feeling, bounded inputs.</h2>
+          <p class="purpose-lede">
+            Dials work when the metaphor of "turning something up" is honest — temperature, volume, intensity, dosage. They also work when you want a self-rating to feel weightier than a straight slider.
+          </p>
+          <ul class="purpose-list">
+            <li>Confidence and self-rating where you want the input to feel considered.</li>
+            <li>Bounded ranges where the visual circle reinforces the limit.</li>
+            <li>Simulations of real-world dials (thermostat, volume knob).</li>
+            <li>Pulse surveys where the dial replaces a flat slider for visual variety.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Anything you could do with a slider.</h2>
+          <p class="purpose-lede">
+            For most ranged inputs, a horizontal slider is clearer, easier on touchscreens, and accessible by default. Reach for a dial when the <strong>shape</strong> tells a story the slider can't.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Linear ranges where left-to-right reads as "low to high."</li>
+            <li>Inputs that need precision — dials are hard to land on exact values.</li>
+            <li>Touch interfaces where the dial is too small to twist accurately.</li>
+            <li>Anywhere the dial is decoration, not data.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. Interactive example — paper-deep · draggable dial
+       ============================================================ -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working example</span>
+      <h2 class="display display-md section-title">Try it.</h2>
+      <p class="lede section-subtitle">
+        Drag the handle around the dial, or tap a position on the arc. The label updates with what the value represents — a common pattern in pre-course confidence checks.
+      </p>
+
+      <div class="example-card">
+        <div class="dial-wrapper">
+          <div class="dial" data-dial>
+            <svg viewBox="0 0 200 200" width="200" height="200" aria-hidden="true">
+              <!-- Background track arc (270°: from 135° to 45° via 270°) -->
+              <path
+                d="M 38 142 A 80 80 0 1 1 162 142"
+                stroke="rgba(21,25,46,0.12)"
+                stroke-width="10"
+                stroke-linecap="round"
+                fill="none"
+              />
+              <!-- Filled arc — drawn dynamically -->
+              <path
+                d="M 38 142 A 80 80 0 1 1 162 142"
+                stroke="var(--c-ink)"
+                stroke-width="10"
+                stroke-linecap="round"
+                fill="none"
+                stroke-dasharray="377"
+                stroke-dashoffset="377"
+                data-dial-fill
+              />
+              <!-- Handle dot -->
+              <circle
+                cx="38" cy="142" r="14"
+                fill="var(--c-ink)"
+                stroke="var(--c-paper)"
+                stroke-width="4"
+                data-dial-handle
+              />
+            </svg>
+            <div class="dial-readout">
+              <div class="dial-value" data-dial-value>0</div>
+              <div class="dial-label" data-dial-label>Not confident</div>
+            </div>
+          </div>
+
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            step="1"
+            class="dial-input"
+            aria-label="Confidence rating"
+            data-dial-input
+          />
+        </div>
+
+        <p class="dial-prompt">
+          <strong>How confident are you with this topic right now?</strong> Drag the handle to set your answer.
+        </p>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        Under the hood, the dial is a styled <code>&lt;input type="range"&gt;</code> — same keyboard accessibility as a slider. The SVG is purely visual. This is the cleanest way to build a dial that doesn't break for screen reader users.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. Design considerations — paper
+       ============================================================ -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the visuals right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">Show the current value clearly</h3>
+          <p>The handle on the arc shows the position, but a number or word in the centre confirms what the position means. A dial without a readout is decoration, not an input.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Generous handle size</h3>
+          <p>Dials get used on touch devices more than developers expect. The drag handle should be at least 28px on touch targets. Smaller handles are fiddly on mouse and unusable on touch.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Label the arc, not the angles</h3>
+          <p>Endpoint labels matter more on a dial than a slider — there's no inherent "left is low" intuition with a circle. Label both ends ("Not confident" / "Very confident") and consider a mid-point label for clarity.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Accessibility — build on top of a range input</h3>
+          <p>Don't reinvent the input. Use a hidden <code>&lt;input type="range"&gt;</code> as the source of truth, and let the SVG visualise its state. You inherit keyboard handling, screen reader announcements, and form integration for free.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility — keyboard parity</h3>
+          <p>The dial must respond to arrow keys, page up/down, home, end. If you've based it on a range input, this works automatically. If you've built it from scratch with click-and-drag handlers, you have to add it explicitly — and most don't.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Hover and focus feedback</h3>
+          <p>The handle should grow or change colour on hover, and show a visible focus ring on keyboard focus. Without it, users have no signal that the dial is interactive at all — a frequent failure when dials are styled to look pretty rather than usable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. UX best practice — navy
+       ============================================================ -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to use dials <span class="mark--lilac">that work</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">Most of the time, just use a slider.</h3>
+          <p>It's the unfashionable truth. Sliders are easier to operate, more accessible by default, and more compact. A dial is the right call when the <em>shape</em> contributes meaning — a thermostat, a dosage scale, a confidence gauge that benefits from feeling weightier than a flat slider. If the dial is just for variety, the slider wins.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Decide whether you need precise values.</h3>
+          <p>Dials are bad at precision. Asking learners to land on exactly "73" is frustrating. If precise values matter, pair the dial with a number input or quick-select buttons (0, 25, 50, 75, 100). If precise values don't matter, you probably don't need them — and you can simplify the readout to a category ("low / medium / high") instead of a number.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Use step values to make picking easier.</h3>
+          <p>A dial with step=1 lets the learner sit on any of 101 positions. A dial with step=5 lets them sit on 21. Fewer positions means easier landing on a "round" answer. For pulse surveys and confidence checks, steps of 5 or 10 are usually right.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">The readout has to do work.</h3>
+          <p>"0" doesn't tell the learner anything. "Not confident at all" does. Map the numeric value to a label that explains what they've selected. Update both the number and the label as they drag — the dial becomes a tool for finding the right answer, not just inputting one.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Don't start at zero by default.</h3>
+          <p>If the dial starts at the minimum, learners may walk away without engaging — the position is already "set." A midpoint default ("neither agree nor disagree", "moderately confident") invites movement in either direction. Pick the starting position deliberately, not by accident.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Touchscreens need extra care.</h3>
+          <p>Dragging a small handle around an arc on a phone is hard. Allow tapping anywhere on the arc to jump the handle there, not just dragging. Test on a real device — desktop trackpad testing flatters a dial in ways a phone won't.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">If the dial is novel, brief the learner.</h3>
+          <p>Most people have used a slider before; most have not used a web dial. A one-line instruction ("Drag the handle to set your answer") removes ambiguity. Don't assume the affordance is self-evident.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. Scenarios — paper
+       ============================================================ -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for a dial.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Pre-course confidence ratings</h3>
+          <p>"How confident are you with this topic?" A dial reads as more considered than a slider — and the rating tends to be slightly more honest.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Real-world dial simulations</h3>
+          <p>Training someone to operate a piece of equipment — a thermostat, a valve, a control panel. The interface should match the real thing.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Pulse surveys at the end of a course</h3>
+          <p>"How useful did you find this?" A dial breaks up a survey full of flat scales and gives the question visual weight.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Comfort or wellbeing self-checks</h3>
+          <p>"How comfortable are you right now, on a scale of 0 to 10?" A dial feels reflective in a way a slider doesn't — appropriate for the topic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. Final CTA — lilac
+       ============================================================ -->
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course<br />
+          <span class="accent-blue">built well?</span>
+        </h2>
+        <p class="lede cta-text">
+          We apply these principles on every course we build. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Dial interaction: the hidden range input is the source of truth.
+  // The visible SVG reflects its state. Dragging on the SVG, tapping
+  // on the arc, and arrow keys on the range input all update the value.
+  const dial = document.querySelector<HTMLElement>('[data-dial]');
+  const input = document.querySelector<HTMLInputElement>('[data-dial-input]');
+  const fill = document.querySelector<SVGPathElement>('[data-dial-fill]');
+  const handle = document.querySelector<SVGCircleElement>('[data-dial-handle]');
+  const valueEl = document.querySelector<HTMLElement>('[data-dial-value]');
+  const labelEl = document.querySelector<HTMLElement>('[data-dial-label]');
+
+  if (dial && input && fill && handle && valueEl && labelEl) {
+    // Arc geometry: center (100,100), radius 80, sweeps 270° from
+    // 135° (bottom-left, x=38,y=142) clockwise to 45° (bottom-right, x=162,y=142)
+    const cx = 100, cy = 100, r = 80;
+    const startAngle = 135;
+    const sweep = 270;
+    const totalArcLength = (sweep / 360) * 2 * Math.PI * r; // ≈ 377
+
+    const labelFor = (v: number) => {
+      if (v < 20)  return 'Not confident';
+      if (v < 40)  return 'Slightly confident';
+      if (v < 60)  return 'Moderately confident';
+      if (v < 80)  return 'Confident';
+      return 'Very confident';
+    };
+
+    const render = () => {
+      const v = Number(input.value);
+      const progress = v / 100;
+
+      // Update filled arc length
+      const filledLength = totalArcLength * progress;
+      fill.setAttribute('stroke-dashoffset', String(totalArcLength - filledLength));
+
+      // Position handle along the arc
+      const angleDeg = startAngle + sweep * progress;
+      const angleRad = (angleDeg * Math.PI) / 180;
+      const hx = cx + r * Math.cos(angleRad);
+      const hy = cy + r * Math.sin(angleRad);
+      handle.setAttribute('cx', String(hx));
+      handle.setAttribute('cy', String(hy));
+
+      valueEl.textContent = String(v);
+      labelEl.textContent = labelFor(v);
+    };
+
+    input.addEventListener('input', render);
+
+    // Tap or drag on the SVG to update the value
+    const svg = dial.querySelector('svg');
+    let isDragging = false;
+    const valueFromPointer = (clientX: number, clientY: number) => {
+      if (!svg) return;
+      const rect = svg.getBoundingClientRect();
+      // Map client coords to SVG viewBox coords (200x200)
+      const x = ((clientX - rect.left) / rect.width) * 200;
+      const y = ((clientY - rect.top) / rect.height) * 200;
+      const dx = x - cx;
+      const dy = y - cy;
+      // Angle in degrees, [0, 360)
+      let theta = Math.atan2(dy, dx) * 180 / Math.PI;
+      if (theta < 0) theta += 360;
+      // Map theta (135° → 405°/45°) to progress 0–1
+      let rel = theta - startAngle;
+      if (rel < 0) rel += 360;
+      if (rel > sweep) {
+        // outside the arc — clamp to nearest end
+        rel = rel < sweep + (360 - sweep) / 2 ? sweep : 0;
+      }
+      const v = Math.round((rel / sweep) * 100);
+      input.value = String(Math.max(0, Math.min(100, v)));
+      render();
+    };
+
+    svg?.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      svg.setPointerCapture(e.pointerId);
+      valueFromPointer(e.clientX, e.clientY);
+    });
+    svg?.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      valueFromPointer(e.clientX, e.clientY);
+    });
+    svg?.addEventListener('pointerup', (e) => {
+      isDragging = false;
+      svg.releasePointerCapture(e.pointerId);
+    });
+
+    render();
+  }
+</script>
+
+<style>
+  /* Hero, breadcrumb, purpose grid, design grid, ux list, scenarios — same shared pattern */
+  .component-hero { padding-top: clamp(56px, 7vw, 80px); padding-bottom: clamp(80px, 10vw, 120px); }
+  .breadcrumb {
+    font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--c-ink); opacity: 0.7; margin-bottom: 40px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  }
+  .breadcrumb a { color: var(--c-ink); text-decoration: none; transition: opacity 0.15s ease; }
+  .breadcrumb a:hover { opacity: 0.5; }
+  .breadcrumb-sep { opacity: 0.5; }
+  .breadcrumb-current { opacity: 0.6; }
+  .hero-pill { margin-bottom: 24px; }
+  .page-title { margin-bottom: 32px; max-width: 800px; }
+  .page-subtitle { max-width: 720px; }
+
+  .purpose-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 5vw, 80px); }
+  .purpose-col .section-kicker { margin-bottom: 12px; }
+  .purpose-col .section-title { margin-bottom: 24px; font-size: clamp(24px, 2.6vw, 32px); }
+  .purpose-lede { color: var(--c-ink-soft); font-size: 17px; line-height: 1.6; margin-bottom: 24px; }
+  .purpose-lede strong { color: var(--c-ink); font-weight: 600; }
+  .purpose-list { list-style: none; padding: 0; margin: 0; }
+  .purpose-list li {
+    padding: 10px 0 10px 26px; position: relative;
+    color: var(--c-ink); font-size: 16px; line-height: 1.5;
+    border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+  }
+  .purpose-list li:last-child { border-bottom: none; }
+  .purpose-list li::before { content: "→"; position: absolute; left: 0; top: 10px; color: var(--c-ink-muted); font-family: var(--font-mono); }
+  .purpose-list--neg li::before { content: "×"; color: var(--c-ink); opacity: 0.6; font-weight: 600; }
+
+  /* Example */
+  .example-section .section-title { margin-bottom: 16px; }
+  .example-section .section-subtitle { margin-bottom: 48px; max-width: 720px; }
+  .example-card {
+    background: var(--c-paper);
+    border: 1px solid rgba(21, 25, 46, 0.1);
+    border-radius: var(--r-lg);
+    padding: clamp(32px, 4vw, 48px);
+    max-width: 720px;
+    text-align: center;
+  }
+
+  /* Dial */
+  .dial-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+  .dial {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+  .dial svg {
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    touch-action: none;
+  }
+  .dial svg:active { cursor: grabbing; }
+  .dial-readout {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .dial-value {
+    font-family: var(--font-sans);
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--c-ink);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .dial-label {
+    margin-top: 6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--c-ink-muted);
+  }
+  /* Hidden range input — keyboard accessibility lives here */
+  .dial-input {
+    position: absolute;
+    opacity: 0;
+    width: 200px;
+    height: 200px;
+    pointer-events: none;
+  }
+  .dial-input:focus-visible + .dial-prompt,
+  .dial:focus-within {
+    /* Show a focus ring on the dial when the input is focused */
+  }
+  .dial:has(.dial-input:focus-visible) svg [data-dial-handle] {
+    stroke: var(--c-lilac);
+    stroke-width: 5;
+  }
+  .dial-prompt {
+    margin: 0;
+    color: var(--c-ink-soft);
+    font-size: 16px;
+    line-height: 1.55;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .dial-prompt strong { color: var(--c-ink); font-weight: 600; }
+
+  .example-note {
+    margin-top: 24px;
+    color: var(--c-ink-soft);
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 720px;
+  }
+  .example-note .meta { color: var(--c-ink-muted); margin-right: 4px; }
+  .example-note code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: var(--c-paper-deep);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--c-ink);
+  }
+
+  /* Shared design/ux/scenarios — identical to other detail pages */
+  .design-section .section-title { margin-bottom: 56px; }
+  .design-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 40px; }
+  .design-num { display: block; color: var(--c-ink-muted); margin-bottom: 12px; }
+  .design-item h3 { margin-bottom: 8px; }
+  .design-item p { color: var(--c-ink-soft); line-height: 1.65; font-size: 15px; }
+  .design-item code { font-family: var(--font-mono); font-size: 12px; background: var(--c-paper-deep); padding: 1px 6px; border-radius: 4px; color: var(--c-ink); }
+
+  .ux-section .section-title { margin-bottom: 56px; max-width: 900px; }
+  .ux-list { display: flex; flex-direction: column; max-width: 880px; }
+  .ux-item { padding: 28px 0; border-bottom: 1px solid rgba(250, 248, 243, 0.12); }
+  .ux-item:first-child { padding-top: 0; }
+  .ux-item:last-child { border-bottom: none; }
+  .ux-item h3 { margin-bottom: 10px; color: var(--c-paper); }
+  .ux-item p { color: rgba(250, 248, 243, 0.78); line-height: 1.7; font-size: 16px; }
+  .ux-item p strong { color: var(--c-paper); font-weight: 600; }
+  .ux-item p em { font-style: italic; }
+
+  .scenarios-section .section-title { margin-bottom: 56px; }
+  .scenarios-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 40px; }
+  .scenario-num { display: block; color: var(--c-ink-muted); margin-bottom: 12px; }
+  .scenario-card h3 { margin-bottom: 8px; }
+  .scenario-card p { color: var(--c-ink-soft); line-height: 1.65; font-size: 15px; }
+
+  .cta-content { max-width: 800px; }
+  .cta-title { margin-bottom: 24px; }
+  .cta-text { margin-bottom: 40px; max-width: 580px; }
+  .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  @media (max-width: 900px) {
+    .purpose-grid, .design-grid, .scenarios-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .cta-buttons .btn { width: 100%; }
+  }
+</style>

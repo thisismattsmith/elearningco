@@ -1,0 +1,565 @@
+---
+// src/pages/resources/design-kit/drag-and-drop.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+---
+
+<Layout
+  title="Drag and drop in eLearning | Design Kit | The eLearning Company"
+  description="When to use drag-and-drop activities. Includes a working sort-into-buckets example you can play through."
+>
+  <!-- Hero -->
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Drag and drop</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Interaction</span>
+      <h1 class="display display-xl page-title">
+        Drag<br />
+        <span class="accent-blue">and drop.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Drag-and-drop activities ask the learner to sort, match, or sequence items by moving them into place. When the topic genuinely involves categorisation, they're powerful. When it doesn't, they're an over-engineered checkbox list.
+      </p>
+    </div>
+  </section>
+
+  <!-- For / not for -->
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Sorting, matching, sequencing.</h2>
+          <p class="purpose-lede">
+            Drag and drop teaches by getting the learner to do something physical with content — group it, pair it, order it. The act of moving items is what makes the learning stick.
+          </p>
+          <ul class="purpose-list">
+            <li>Sorting items into categories (urgent vs important, do vs don't).</li>
+            <li>Matching pairs (term to definition, before to after).</li>
+            <li>Sequencing steps (put this process in the right order).</li>
+            <li>Building or arranging — assemble a checklist, organise a workspace.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Anything that's really a quiz.</h2>
+          <p class="purpose-lede">
+            Drag-and-drop is more complex to use than checkboxes or radio buttons. If the underlying task is "pick the right answer", just use the simpler component. Don't punish learners with extra mouse work for no learning benefit.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Single-answer multiple choice (use radio buttons).</li>
+            <li>"Select all that apply" (use checkboxes).</li>
+            <li>Free input (use a text field).</li>
+            <li>Tasks where the drag adds nothing but ceremony.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Working sort-into-buckets demo -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working example</span>
+      <h2 class="display display-md section-title">Try it.</h2>
+      <p class="lede section-subtitle">
+        A common pattern: sort items into the right bucket. Drag each situation into Urgent, Important, or Neither. Or use the keyboard — tab to an item, press Enter, then tab to a bucket and press Enter again to drop. No "correct/incorrect" feedback — see the UX section.
+      </p>
+
+      <div class="example-card dnd-card">
+        <p class="dnd-prompt">
+          <strong>Sort these workplace situations.</strong> Where does each belong?
+        </p>
+
+        <!-- Items pool -->
+        <div class="dnd-items" data-dnd-items aria-label="Draggable items">
+          <button class="dnd-item" type="button" draggable="true" data-dnd-item="1">
+            <span class="dnd-item-handle" aria-hidden="true">⋮⋮</span>
+            <span class="dnd-item-text">Server is down and customers can't log in</span>
+          </button>
+          <button class="dnd-item" type="button" draggable="true" data-dnd-item="2">
+            <span class="dnd-item-handle" aria-hidden="true">⋮⋮</span>
+            <span class="dnd-item-text">Strategic planning for next quarter</span>
+          </button>
+          <button class="dnd-item" type="button" draggable="true" data-dnd-item="3">
+            <span class="dnd-item-handle" aria-hidden="true">⋮⋮</span>
+            <span class="dnd-item-text">Reading every notification in your inbox</span>
+          </button>
+          <button class="dnd-item" type="button" draggable="true" data-dnd-item="4">
+            <span class="dnd-item-handle" aria-hidden="true">⋮⋮</span>
+            <span class="dnd-item-text">A board paper due by tomorrow morning</span>
+          </button>
+          <button class="dnd-item" type="button" draggable="true" data-dnd-item="5">
+            <span class="dnd-item-handle" aria-hidden="true">⋮⋮</span>
+            <span class="dnd-item-text">Refactoring code that already works fine</span>
+          </button>
+          <button class="dnd-item" type="button" draggable="true" data-dnd-item="6">
+            <span class="dnd-item-handle" aria-hidden="true">⋮⋮</span>
+            <span class="dnd-item-text">A 1:1 with your direct report</span>
+          </button>
+        </div>
+
+        <!-- Buckets -->
+        <div class="dnd-buckets">
+          <div class="dnd-bucket" data-dnd-bucket="urgent" aria-label="Urgent bucket">
+            <div class="dnd-bucket-header">
+              <span class="dnd-bucket-name">Urgent</span>
+              <span class="dnd-bucket-count" data-bucket-count>0</span>
+            </div>
+            <div class="dnd-bucket-drop" data-dnd-drop="urgent">
+              <p class="dnd-bucket-hint">Drop items needing attention now.</p>
+            </div>
+          </div>
+          <div class="dnd-bucket" data-dnd-bucket="important" aria-label="Important bucket">
+            <div class="dnd-bucket-header">
+              <span class="dnd-bucket-name">Important</span>
+              <span class="dnd-bucket-count" data-bucket-count>0</span>
+            </div>
+            <div class="dnd-bucket-drop" data-dnd-drop="important">
+              <p class="dnd-bucket-hint">Drop items worth doing well.</p>
+            </div>
+          </div>
+          <div class="dnd-bucket" data-dnd-bucket="neither" aria-label="Neither bucket">
+            <div class="dnd-bucket-header">
+              <span class="dnd-bucket-name">Neither</span>
+              <span class="dnd-bucket-count" data-bucket-count>0</span>
+            </div>
+            <div class="dnd-bucket-drop" data-dnd-drop="neither">
+              <p class="dnd-bucket-hint">Drop items that don't really need your attention.</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="dnd-reset" type="button" data-dnd-reset>Reset</button>
+
+        <!-- Keyboard helper text -->
+        <p class="dnd-keyboard-hint">
+          <span class="meta">Keyboard ·</span>
+          Tab to an item, press <kbd>Enter</kbd> to pick it up, tab to a bucket, press <kbd>Enter</kbd> again to drop.
+        </p>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        There's no "correct" sort here. People genuinely disagree about whether reading every notification is "neither" (it doesn't help) or "urgent" (it feels urgent). The activity is about reflection, not assessment.
+      </p>
+    </div>
+  </section>
+
+  <!-- Design considerations -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the visuals right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">Make items look draggable</h3>
+          <p>Drag handles (two dots, six dots, a grip pattern) tell the learner the item is movable. A subtle shadow or hover-lift reinforces it. Without an affordance, learners may not realise the item is interactive at all.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Drop zones need a state</h3>
+          <p>Drop zones should change appearance when an item is being dragged over them — a colour fill, a brighter outline, an arrow. Without that, the learner doesn't know when they've hit the target.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Item count or progress</h3>
+          <p>If the activity has a definite end ("place all 6 items"), show progress. A simple count ("4 of 6 placed") prevents the "have I finished?" question and gives a sense of momentum.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Accessibility — keyboard interaction</h3>
+          <p>HTML5 drag-and-drop is notoriously inaccessible. Pair it with a keyboard-friendly alternative: tab to the item, press Enter to "pick up", tab to the destination, press Enter to "drop". Test by unplugging your mouse.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility — screen reader announcements</h3>
+          <p>Use ARIA live regions to announce drag state: "Item picked up", "Hovering over Urgent", "Dropped in Important". Without these, screen reader users have no audible signal that the drag is happening.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Touch — explicit handle, not the whole item</h3>
+          <p>On touch devices, drag conflicts with scroll. The user wants to scroll the page; the drag interaction wants to pick up the item. Resolve by limiting drag to an explicit handle on touch, or by using a "tap to select, tap to place" alternative.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UX best practice -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to use drag-and-drop <span class="mark--lilac">well</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">The dragging has to add learning.</h3>
+          <p>The cost of drag-and-drop — accessibility, touch behaviour, visual complexity, dev time — only earns its place if the act of moving items teaches something. Sorting, matching, sequencing all qualify. "Pick the answer by dragging it to the right" does not — that's a multiple choice question with extra steps.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Decide whether there's a "correct" sort.</h3>
+          <p>For some content, there's a clear right answer (steps in CPR, days of the week). For other content, the sort is genuinely a reflection (urgent vs important is subjective). Both work — but design differently. Right-answer sorts need feedback. Reflection sorts need a debrief, not a score.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Keep items and buckets in view.</h3>
+          <p>If the learner has to scroll between picking up an item and finding the drop zone, the activity becomes painful. Lay out items and buckets together — ideally on one screen. Limit the number of items if necessary.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">5 to 8 items, 2 to 4 buckets.</h3>
+          <p>Fewer items and the activity feels trivial. More and it gets exhausting. Three or four buckets gives meaningful sorting; two often collapses to a yes/no decision. Test the activity with someone unfamiliar — if they sigh halfway through, trim it.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Allow the learner to change their mind.</h3>
+          <p>An item placed in the wrong bucket should be moveable to another bucket. A "locked in" drag-and-drop where the first drop is final feels unfair, especially for reflective activities where the right answer isn't obvious.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Don't grade reflection activities.</h3>
+          <p>If the question is "which of these matter most to you?" or "how would you sort these?", the answer is whatever the learner thinks. Showing "you got 4 out of 6 right" on a subjective sort flattens the whole point. Use a debrief that explores why people sort differently instead.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Provide a non-drag fallback.</h3>
+          <p>For learners who can't or don't want to drag — touch users, keyboard-only users, anyone with a motor impairment — provide a tap-to-pick / tap-to-place mode. Often the same code can support both; sometimes you need a separate "list" view of the same content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for drag-and-drop.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Sorting in compliance training</h3>
+          <p>"Sort these into 'safe' and 'unsafe' practices." Strong fit when the sorting itself is the lesson — drag-and-drop forces engagement with each item.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Matching pairs</h3>
+          <p>"Match each term to its definition." Particularly useful for vocabulary, abbreviations, or pairing scenarios with the right response.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Sequencing steps</h3>
+          <p>"Put these steps of the process in order." Where sequence matters — incident response, recipes, customer interactions — drag-and-drop is the clearest way to test understanding.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Personal reflection sorts</h3>
+          <p>"What's urgent vs important to you right now?" No correct answer — the sorting prompts the conversation. Great for leadership, time management, and prioritisation training.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          We build drag-and-drop<br />
+          <span class="accent-blue">that earns its place.</span>
+        </h2>
+        <p class="lede cta-text">
+          Drag-and-drop is great when the topic warrants it. We help you decide. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Drag-and-drop interaction with HTML5 DnD + keyboard fallback.
+  // Each draggable item is a <button> so it's natively keyboard-focusable.
+  // Pressing Enter on an item "picks it up"; Enter on a bucket drops it there.
+
+  const items = document.querySelectorAll<HTMLButtonElement>('.dnd-item');
+  const drops = document.querySelectorAll<HTMLElement>('[data-dnd-drop]');
+  const buckets = document.querySelectorAll<HTMLElement>('[data-dnd-bucket]');
+  const resetBtn = document.querySelector<HTMLButtonElement>('[data-dnd-reset]');
+  const itemsPool = document.querySelector<HTMLElement>('[data-dnd-items]');
+
+  // Track which item is "picked up" via keyboard
+  let pickedItem: HTMLButtonElement | null = null;
+
+  function updateCounts() {
+    buckets.forEach((bucket) => {
+      const drop = bucket.querySelector('[data-dnd-drop]') as HTMLElement;
+      const count = drop.querySelectorAll('.dnd-item').length;
+      const countEl = bucket.querySelector('[data-bucket-count]');
+      if (countEl) countEl.textContent = String(count);
+      // Hide hint if there are items in this bucket
+      const hint = drop.querySelector('.dnd-bucket-hint');
+      if (hint) (hint as HTMLElement).style.display = count > 0 ? 'none' : 'block';
+    });
+  }
+
+  // ===== HTML5 drag and drop =====
+  items.forEach((item) => {
+    item.addEventListener('dragstart', (e) => {
+      item.classList.add('dragging');
+      e.dataTransfer?.setData('text/plain', item.dataset.dndItem || '');
+    });
+    item.addEventListener('dragend', () => {
+      item.classList.remove('dragging');
+    });
+
+    // Keyboard pickup/drop
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (pickedItem === item) {
+          pickedItem = null;
+          item.classList.remove('picked');
+        } else {
+          pickedItem?.classList.remove('picked');
+          pickedItem = item;
+          item.classList.add('picked');
+        }
+      } else if (e.key === 'Escape' && pickedItem) {
+        pickedItem.classList.remove('picked');
+        pickedItem = null;
+      }
+    });
+  });
+
+  drops.forEach((drop) => {
+    drop.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      drop.classList.add('over');
+    });
+    drop.addEventListener('dragleave', () => {
+      drop.classList.remove('over');
+    });
+    drop.addEventListener('drop', (e) => {
+      e.preventDefault();
+      drop.classList.remove('over');
+      const id = e.dataTransfer?.getData('text/plain');
+      if (!id) return;
+      const item = document.querySelector<HTMLElement>(`[data-dnd-item="${id}"]`);
+      if (item) {
+        // Hint paragraph should stay; insert item before it works fine
+        drop.appendChild(item);
+        updateCounts();
+      }
+    });
+  });
+
+  // Keyboard: clicking on a bucket while an item is picked up drops it there
+  buckets.forEach((bucket) => {
+    bucket.setAttribute('tabindex', '0');
+    bucket.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && pickedItem) {
+        e.preventDefault();
+        const drop = bucket.querySelector('[data-dnd-drop]') as HTMLElement;
+        drop.appendChild(pickedItem);
+        pickedItem.classList.remove('picked');
+        pickedItem.focus();
+        pickedItem = null;
+        updateCounts();
+      }
+    });
+  });
+
+  // Reset — move all items back to the pool
+  resetBtn?.addEventListener('click', () => {
+    items.forEach((item) => {
+      if (itemsPool) itemsPool.appendChild(item);
+      item.classList.remove('picked');
+    });
+    pickedItem = null;
+    updateCounts();
+  });
+
+  updateCounts();
+</script>
+
+<style>
+  /* Page-specific styles for the drag-and-drop demo */
+
+  .dnd-card { max-width: 880px; }
+  .dnd-prompt {
+    margin: 0 0 24px 0;
+    color: var(--c-ink);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .dnd-prompt strong { font-weight: 600; }
+
+  /* Items pool */
+  .dnd-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px;
+    background: var(--c-paper-deep);
+    border-radius: var(--r-md);
+    margin-bottom: 24px;
+    min-height: 80px;
+  }
+  .dnd-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--c-paper);
+    border: 1px solid rgba(21, 25, 46, 0.15);
+    border-radius: var(--r-md);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--c-ink);
+    cursor: grab;
+    transition: border-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+    text-align: left;
+  }
+  .dnd-item:hover {
+    border-color: var(--c-ink);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(21, 25, 46, 0.08);
+  }
+  .dnd-item:active { cursor: grabbing; }
+  .dnd-item:focus-visible {
+    outline: 2px solid var(--c-blue);
+    outline-offset: 2px;
+  }
+  .dnd-item.dragging { opacity: 0.4; }
+  .dnd-item.picked {
+    border-color: var(--c-blue);
+    background: var(--c-blue-light);
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
+  }
+  .dnd-item-handle {
+    font-family: var(--font-mono);
+    color: var(--c-ink-muted);
+    font-size: 14px;
+    line-height: 1;
+  }
+  .dnd-item-text { line-height: 1.4; }
+
+  /* Buckets */
+  .dnd-buckets {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .dnd-bucket {
+    background: var(--c-paper-deep);
+    border-radius: var(--r-md);
+    border: 1px solid rgba(21, 25, 46, 0.06);
+    display: flex;
+    flex-direction: column;
+    outline: none;
+  }
+  .dnd-bucket:focus-visible {
+    box-shadow: 0 0 0 2px var(--c-blue);
+  }
+  .dnd-bucket-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(21, 25, 46, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dnd-bucket-name {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--c-ink);
+  }
+  .dnd-bucket-count {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: var(--c-paper);
+    color: var(--c-ink);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .dnd-bucket-drop {
+    padding: 12px;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: background 0.15s ease;
+  }
+  .dnd-bucket-drop.over {
+    background: var(--c-blue-light);
+  }
+  .dnd-bucket-hint {
+    color: var(--c-ink-muted);
+    font-size: 12px;
+    text-align: center;
+    margin: auto;
+    line-height: 1.4;
+    max-width: 140px;
+  }
+  /* Items inside a bucket — stack full-width */
+  .dnd-bucket-drop .dnd-item {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .dnd-reset {
+    background: transparent;
+    color: var(--c-ink);
+    border: 1px solid rgba(21, 25, 46, 0.2);
+    padding: 8px 16px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+  }
+  .dnd-reset:hover { border-color: var(--c-ink); }
+
+  .dnd-keyboard-hint {
+    margin-top: 16px;
+    color: var(--c-ink-soft);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .dnd-keyboard-hint .meta {
+    color: var(--c-ink-muted);
+    margin-right: 4px;
+  }
+  .dnd-keyboard-hint kbd {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    background: var(--c-paper-deep);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--c-ink);
+    border: 1px solid rgba(21, 25, 46, 0.1);
+  }
+
+  @media (max-width: 700px) {
+    .dnd-buckets { grid-template-columns: 1fr; }
+  }
+</style>

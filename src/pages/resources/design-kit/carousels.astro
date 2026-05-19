@@ -1,0 +1,449 @@
+---
+// src/pages/resources/design-kit/carousels.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+---
+
+<Layout
+  title="Carousels in eLearning | Design Kit | The eLearning Company"
+  description="When carousels work, when they don't, and how to design one that earns its place. Includes a working four-slide carousel example."
+>
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Carousels</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Component</span>
+      <h1 class="display display-xl page-title">
+        <span class="accent-blue">Carousels.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Carousels let learners page through a sequence of content cards. They're one of the most-debated components in web design — beloved by marketers, distrusted by usability researchers. In eLearning, they earn their place when used deliberately and break the experience when used by default.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Sequential content that benefits from paging.</h2>
+          <p class="purpose-lede">
+            A carousel works when each card is a distinct chunk and the learner benefits from controlled pacing — one idea at a time, processed deliberately. It's a chunking pattern, not a layout shortcut.
+          </p>
+          <ul class="purpose-list">
+            <li>Step-by-step content where each step is its own card.</li>
+            <li>"Meet the team" or "Our values" pages with one item per card.</li>
+            <li>Showcasing examples — case studies, project samples, before/after.</li>
+            <li>Quick wins or tips presented one per card for emphasis.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Hiding important content from learners.</h2>
+          <p class="purpose-lede">
+            Research is consistent: <strong>most learners click through at most one or two carousel slides</strong>. Anything past slide 2 might as well not exist. Don't put critical content there — use <a href="/resources/design-kit/click-to-reveal">click-to-reveal</a> patterns or just stack the content on the page.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Compliance content that must be acknowledged.</li>
+            <li>Anything assessable — learners may miss it.</li>
+            <li>Auto-playing carousels — they take agency away from the learner.</li>
+            <li>Heavy content blocks that should just be a stacked page.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Working four-slide carousel -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working example</span>
+      <h2 class="display display-md section-title">Try it.</h2>
+      <p class="lede section-subtitle">
+        A four-slide carousel — "principles of good carousel design". Use the arrows, click the dots, or focus the carousel and use left/right arrow keys. Notice it doesn't auto-play, and the dots tell you which slides you've already seen.
+      </p>
+
+      <div class="example-card carousel-card">
+        <div class="carousel" data-carousel tabindex="0" aria-roledescription="carousel" aria-label="Principles of good carousel design">
+          <div class="carousel-track" data-carousel-track>
+            <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+              <span class="carousel-num">01</span>
+              <h4 class="carousel-slide-title">Each card should stand alone</h4>
+              <p class="carousel-slide-body">A carousel works when each slide makes sense without the others. If the learner needs to read slide 1 to understand slide 2, you've made a slideshow — not a carousel.</p>
+            </div>
+            <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+              <span class="carousel-num">02</span>
+              <h4 class="carousel-slide-title">Show progress clearly</h4>
+              <p class="carousel-slide-body">Dots, a counter, or a progress bar — the learner should always know how many slides exist and which one they're on. Carousels that hide their length feel like a maze.</p>
+            </div>
+            <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+              <span class="carousel-num">03</span>
+              <h4 class="carousel-slide-title">Never auto-advance</h4>
+              <p class="carousel-slide-body">Auto-playing carousels are a design pattern from a previous era. They punish slow readers, distract from primary content, and make focus management nearly impossible. Let the learner control the pace.</p>
+            </div>
+            <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+              <span class="carousel-num">04</span>
+              <h4 class="carousel-slide-title">Keep it short — three to six slides</h4>
+              <p class="carousel-slide-body">Beyond six slides, the carousel stops being a chunking pattern and becomes a hiding pattern. Most learners won't reach slide 7. If you have more content, restructure the page.</p>
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <button class="carousel-arrow carousel-arrow--prev" type="button" data-carousel-prev aria-label="Previous slide" disabled>
+              <span aria-hidden="true">←</span>
+            </button>
+
+            <div class="carousel-dots" role="tablist" aria-label="Slide selection">
+              <button class="carousel-dot" type="button" data-carousel-dot="0" aria-label="Slide 1" aria-selected="true"></button>
+              <button class="carousel-dot" type="button" data-carousel-dot="1" aria-label="Slide 2" aria-selected="false"></button>
+              <button class="carousel-dot" type="button" data-carousel-dot="2" aria-label="Slide 3" aria-selected="false"></button>
+              <button class="carousel-dot" type="button" data-carousel-dot="3" aria-label="Slide 4" aria-selected="false"></button>
+            </div>
+
+            <button class="carousel-arrow carousel-arrow--next" type="button" data-carousel-next aria-label="Next slide">
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+
+          <p class="carousel-counter" data-carousel-counter aria-live="polite">Slide 1 of 4</p>
+        </div>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        Visited dots fill in solid as a subtle progress signal. The learner can see at a glance which slides they've already seen — a small touch that helps completion-minded learners feel they're making progress.
+      </p>
+    </div>
+  </section>
+
+  <!-- Design considerations -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the visuals right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">Both arrows and dots</h3>
+          <p>Arrows for sequential paging, dots for jumping to specific slides. Some carousels offer only one or the other — that limits both the learner who wants to scan ahead and the learner who wants to step through. Use both.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Show progress visually</h3>
+          <p>Visited dots should look different from unvisited ones — filled vs hollow, dark vs light. This single feature helps learners track what they've seen and reduces the "did I see this slide?" friction.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Generous tap targets on dots</h3>
+          <p>The visible dot can be 8 to 12 pixels. The clickable target around it should be at least 32 pixels. Tiny dots that miss the tap are infuriating on touch screens.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Accessibility — keyboard navigation</h3>
+          <p>Left and right arrow keys should move slides when the carousel is focused. Tab should reach the controls in order. Each slide should be reachable by keyboard, not just mouse or touch.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility — ARIA roles</h3>
+          <p>Use <code>aria-roledescription="carousel"</code> on the container, <code>role="group" aria-roledescription="slide"</code> on each slide, and a polite <code>aria-live</code> region for slide-change announcements. Screen readers need explicit signals — carousels look the same as static content to them otherwise.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">No auto-play. If you must, allow pausing.</h3>
+          <p>Auto-advancing carousels fail accessibility, fail slow readers, and fail learners with cognitive disabilities. If a stakeholder demands auto-play, build a pause button that's always visible, and pause on any user interaction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UX best practice -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to use carousels <span class="mark--lilac">that earn their place</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">Test if a carousel is the right pattern at all.</h3>
+          <p>Before you build a carousel, ask: would this content be better as a stacked list? A <a href="/resources/design-kit/click-to-reveal">click-to-reveal</a> accordion? A grid of cards? Carousels hide content behind clicks; most other patterns don't. The strongest argument for a carousel is "the learner benefits from pacing themselves through this content one card at a time" — if that's not the case, pick something else.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Three to six slides — no more.</h3>
+          <p>Two slides is barely a carousel — make it two side-by-side cards. Seven or more and the engagement curve falls off a cliff. The middle slides (4, 5, 6) get the least attention; beyond that, most learners stop paging. If you have more content, group into chapters or sections, each with its own short carousel.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Lead with the most important content.</h3>
+          <p>Slide 1 will get the most eyes. Don't save the punchline for slide 4 — most learners won't see it. If there's an order the content must go in (steps, sequences), of course follow it. If the order is flexible, sort by importance.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Never use them for required content.</h3>
+          <p>Anything the learner must read shouldn't be in a carousel. The whole pattern of "click to see more" creates an option to skip — and many will. Put required content in stacked blocks where it can't be missed. Save carousels for enriching, optional, or example content.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Mobile: full-width slides, generous swipe gestures.</h3>
+          <p>On mobile, carousels are particularly tricky — swipe gestures conflict with scroll, dots become hard to tap, and slide content gets cramped. Either redesign the carousel for mobile (single-card full-width, large swipe areas, hide dots in favour of a counter), or fall back to a vertical stack below a certain breakpoint.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Visited state on dots matters.</h3>
+          <p>Filled dots for "you've been here", hollow for "you haven't" — a single visual treatment that quietly does a lot. Completion-minded learners use it to track progress. Casual learners use it to decide whether they've seen enough.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Don't loop infinitely.</h3>
+          <p>When the learner reaches the last slide, the Next button should disable — not loop back to the start. Looping creates the disorienting experience of "wait, have I seen this one before?" Disable Next at the end, and let the carousel feel finished.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for a carousel.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">"Meet your team" introductions</h3>
+          <p>Onboarding modules where the learner meets key colleagues — one person per card. Optional content, well-suited to paging.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Quick tips or principles</h3>
+          <p>"Five things to remember about customer service." One principle per card, with the option to dwell or move on. Better than a wall of text.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Case study showcases</h3>
+          <p>A handful of examples — past projects, scenarios, success stories — each as a card. Learners can browse without being forced to read every one.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Step-by-step processes</h3>
+          <p>Where order matters and each step is its own moment — a recipe, a routine, an incident response. Pair with <a href="/resources/design-kit/navigation-buttons">navigation buttons</a> if the scope is bigger than a small carousel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course<br />
+          <span class="accent-blue">built well?</span>
+        </h2>
+        <p class="lede cta-text">
+          We apply these principles on every course we build. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const carousel = document.querySelector<HTMLElement>('[data-carousel]');
+  const track    = document.querySelector<HTMLElement>('[data-carousel-track]');
+  const prevBtn  = document.querySelector<HTMLButtonElement>('[data-carousel-prev]');
+  const nextBtn  = document.querySelector<HTMLButtonElement>('[data-carousel-next]');
+  const dots     = document.querySelectorAll<HTMLButtonElement>('[data-carousel-dot]');
+  const counter  = document.querySelector<HTMLElement>('[data-carousel-counter]');
+
+  let idx = 0;
+  const visited = new Set<number>([0]);
+  const total = dots.length;
+
+  function render() {
+    if (track) track.style.transform = `translateX(-${idx * 100}%)`;
+    if (prevBtn) prevBtn.disabled = idx === 0;
+    if (nextBtn) nextBtn.disabled = idx === total - 1;
+    dots.forEach((dot, i) => {
+      dot.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+      dot.classList.toggle('current', i === idx);
+      dot.classList.toggle('visited', visited.has(i));
+    });
+    if (counter) counter.textContent = `Slide ${idx + 1} of ${total}`;
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    if (idx > 0) { idx--; visited.add(idx); render(); }
+  });
+  nextBtn?.addEventListener('click', () => {
+    if (idx < total - 1) { idx++; visited.add(idx); render(); }
+  });
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const target = Number(dot.dataset.carouselDot);
+      if (!isNaN(target)) {
+        idx = target;
+        visited.add(idx);
+        render();
+      }
+    });
+  });
+
+  carousel?.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' && idx < total - 1) {
+      e.preventDefault();
+      idx++; visited.add(idx); render();
+    } else if (e.key === 'ArrowLeft' && idx > 0) {
+      e.preventDefault();
+      idx--; visited.add(idx); render();
+    }
+  });
+
+  render();
+</script>
+
+<style>
+  .carousel-card { max-width: 720px; }
+
+  .carousel {
+    outline: none;
+  }
+  .carousel:focus-visible { box-shadow: 0 0 0 3px var(--c-lilac); border-radius: var(--r-md); }
+
+  /* Sliding track */
+  .carousel-track {
+    display: flex;
+    transition: transform 0.35s ease;
+    overflow: hidden;
+    /* The hidden overflow comes from the wrapper, see next rule */
+  }
+  .carousel {
+    overflow: hidden;
+    border-radius: var(--r-md);
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    padding: 36px clamp(20px, 4vw, 40px);
+    background: var(--c-paper);
+    min-height: 240px;
+  }
+  .carousel-num {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--c-ink-muted);
+    margin-bottom: 12px;
+  }
+  .carousel-slide-title {
+    font-family: var(--font-sans);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--c-ink);
+    letter-spacing: -0.01em;
+    margin: 0 0 14px 0;
+  }
+  .carousel-slide-body {
+    margin: 0;
+    color: var(--c-ink-soft);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* Controls */
+  .carousel-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0 4px;
+  }
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(21, 25, 46, 0.18);
+    background: var(--c-paper);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--c-ink);
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .carousel-arrow:hover:not(:disabled) {
+    border-color: var(--c-ink);
+    background: var(--c-paper-deep);
+  }
+  .carousel-arrow:focus-visible {
+    outline: 2px solid var(--c-blue);
+    outline-offset: 2px;
+  }
+  .carousel-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: 4px;
+  }
+  .carousel-dot {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .carousel-dot::before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(21, 25, 46, 0.2);
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .carousel-dot:hover::before { background: rgba(21, 25, 46, 0.4); }
+  .carousel-dot.visited::before { background: rgba(21, 25, 46, 0.55); }
+  .carousel-dot.current::before {
+    background: var(--c-ink);
+    transform: scale(1.3);
+  }
+  .carousel-dot:focus-visible::before {
+    box-shadow: 0 0 0 3px var(--c-lilac);
+  }
+
+  .carousel-counter {
+    margin: 12px 0 0 0;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--c-ink-muted);
+  }
+</style>

@@ -1,0 +1,581 @@
+---
+// src/pages/resources/design-kit/radio-buttons.astro
+import Layout from '../../../components/layout/Layout.astro';
+---
+
+<Layout
+  title="Radio buttons in eLearning | Design Kit | The eLearning Company"
+  description="When to use radio buttons in eLearning, when not to, and how to write good options. Includes a working example."
+>
+  <!-- ============================================================
+       1. Hero — lilac (Components category colour)
+       ============================================================ -->
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Radio buttons</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Component</span>
+      <h1 class="display display-xl page-title">
+        Radio<br />
+        <span class="accent-blue">buttons.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Use radio buttons when learners need to pick exactly one option from a small, mutually exclusive set. They're the workhorse of eLearning questions — and the most commonly misused.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. What it's for — paper
+       ============================================================ -->
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Single-choice, mutually exclusive options.</h2>
+          <p class="purpose-lede">
+            If only one answer can be correct — or if only one answer makes sense — radio buttons are the right call. Selecting one option automatically deselects the others.
+          </p>
+          <ul class="purpose-list">
+            <li>Knowledge-check questions with one correct answer.</li>
+            <li>Scenario branching: which path do you take?</li>
+            <li>Demographic or preference questions where one selection is required.</li>
+            <li>Yes/no decisions (though a binary toggle is often better).</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Anything with multiple correct answers.</h2>
+          <p class="purpose-lede">
+            If a learner could reasonably pick more than one, you need <strong>checkboxes</strong>, not radio buttons. Forcing a single selection on a multi-answer question feels broken, because it is.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>"Select all that apply" questions — use checkboxes.</li>
+            <li>Options that aren't actually mutually exclusive.</li>
+            <li>Lists of more than 7 options — use a dropdown instead.</li>
+            <li>Long open-ended answers — use a text input.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. Interactive example — paper-deep
+       ============================================================ -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working example</span>
+      <h2 class="display display-md section-title">Try it.</h2>
+      <p class="lede section-subtitle">
+        A typical eLearning knowledge check. Click an option to select it. Selecting a different option deselects the previous one — that's the defining behaviour of radio buttons.
+      </p>
+
+      <div class="example-card">
+        <div class="example-card-meta">
+          <span class="meta">Question 2 of 5</span>
+          <span class="meta">Knowledge check</span>
+        </div>
+
+        <h3 class="example-question">Which of these requires immediate first aid?</h3>
+        <p class="example-prompt">Pick the option that needs the fastest response.</p>
+
+        <div class="radio-group" role="radiogroup" aria-labelledby="example-question-label">
+          <label class="radio-option">
+            <input type="radio" name="example-q" value="1" />
+            <span class="radio-circle" aria-hidden="true"></span>
+            <span class="radio-label">A colleague has a small paper cut.</span>
+          </label>
+
+          <label class="radio-option">
+            <input type="radio" name="example-q" value="2" />
+            <span class="radio-circle" aria-hidden="true"></span>
+            <span class="radio-label">Someone has slipped and is conscious but in pain.</span>
+          </label>
+
+          <label class="radio-option">
+            <input type="radio" name="example-q" value="3" />
+            <span class="radio-circle" aria-hidden="true"></span>
+            <span class="radio-label">A coworker is unresponsive and not breathing.</span>
+          </label>
+
+          <label class="radio-option">
+            <input type="radio" name="example-q" value="4" />
+            <span class="radio-circle" aria-hidden="true"></span>
+            <span class="radio-label">Someone has a headache from staring at a screen.</span>
+          </label>
+        </div>
+
+        <div class="example-feedback" data-feedback hidden>
+          <p>Selected. In a real course, this is where you'd advance to the next question or show feedback.</p>
+        </div>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        We've deliberately not shown a "correct/incorrect" state. That's a design choice — see the UX section below for when to give feedback and when not to.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. Design considerations — paper
+       ============================================================ -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the visuals right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">Target size</h3>
+          <p>The radio circle itself should be at least 18px, and the full row (circle + label) should be clickable. A 4px circle in a sea of whitespace looks elegant and frustrates everyone with a touchscreen or imperfect motor control.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Visible selected state</h3>
+          <p>The selected state has to be obviously different from the unselected state — colour change alone isn't enough. Use a filled inner dot, a tick, or an outline border. Don't rely on colour to communicate state to colourblind users.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Vertical, not horizontal</h3>
+          <p>Stack radio buttons vertically by default. Horizontal layouts make it harder to scan options and break entirely on narrow screens. Reserve horizontal for binary choices where the labels are very short ("Yes / No").</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Accessibility &mdash; semantics</h3>
+          <p>Use real <code>&lt;input type="radio"&gt;</code> elements wrapped in <code>&lt;label&gt;</code> tags, grouped by a shared <code>name</code> attribute. The whole group should sit inside a <code>role="radiogroup"</code> container with a label. Screen readers announce the group, the selected state, and the total count automatically — but only if you use the right elements.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility &mdash; keyboard</h3>
+          <p>Native radio buttons handle this for free: tab focuses the group, arrow keys move between options, space selects. If you build a custom-styled radio button, you need to replicate this behaviour exactly. Most "custom" radio buttons get this wrong.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Focus indicator</h3>
+          <p>A keyboard-only user needs to see which option is currently focused. A 2px outline on the radio circle or the whole row, with at least 3:1 contrast against the background, is the minimum. Don't suppress the browser default unless you've replaced it with something better.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. UX best practice — navy
+       ============================================================ -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to write questions <span class="mark--lilac">that work</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">Aim for 3 to 5 options.</h3>
+          <p>Two options is usually a binary toggle, not radio buttons. Six or more starts overwhelming the learner and signals the question itself isn't focused enough. If you have 7+ options, break the question into two stages, or use a dropdown.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Avoid "all of the above" and "none of the above".</h3>
+          <p>"All of the above" usually means you should've used checkboxes. "None of the above" is rarely a satisfying answer — and learners who don't know the material often pick it as a guess. Both options tend to short-circuit thinking rather than promote it.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Phrase options consistently.</h3>
+          <p>All options should be parallel in structure and length. If one option is "Call your manager" (two words) and another is "Document the incident in detail and submit it to HR for review within 24 hours" (sixteen words), the long one stands out — and learners often pick it because it <em>looks</em> like the answer with the most thought behind it. Equal weight, equal length.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Write the question, then the right answer, then the distractors.</h3>
+          <p>Distractors are the wrong answers. Good distractors are plausible misunderstandings — common misconceptions, half-truths, things a learner who's almost got it might pick. Bad distractors are obvious throwaways. If your question only works because three of the options are silly, the question doesn't really test anything.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Be careful with negatives.</h3>
+          <p>"Which of these is <strong>not</strong>..." questions are confusing under cognitive load. If you must use one, bold or underline the "not" so it's obvious. Better: rephrase as a positive question.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Randomise option order — sometimes.</h3>
+          <p>Many authoring tools let you randomise the order of options on each attempt. Randomising prevents learners from memorising "the answer is C." But if options have a natural order (smallest to largest, earliest to latest, simple to complex), keep the order. Random isn't always better.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Don't give the answer away.</h3>
+          <p>Watch for grammatical clues: if three options start with "to" and the right one starts with "for", the giveaway is the grammar, not the knowledge. Watch for length too — instinct says the longest, most-qualified option is correct. Mix it up.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Feedback: timing matters.</h3>
+          <p>Immediate per-question feedback works for low-stakes practice. End-of-quiz feedback works for summative assessment. What rarely works: showing the right answer immediately after a wrong guess in a high-stakes context. Learners stop reading rationales the moment they see "correct" or "incorrect."</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Go deeper on question design.</h3>
+          <p>The principles above apply specifically to radio-button (single-answer) questions. For a fuller treatment that covers all the question types — true/false, matching, ranking, hotspot, drag-and-drop — and how to choose between them, see <a href="/resources/design-kit/writing-assessment-questions">Writing good assessment questions</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. Scenarios — paper
+       ============================================================ -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for radio buttons.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Knowledge check in compliance training</h3>
+          <p>"Which of these would you do first if you spot a hazard?" — one right first action, four plausible options. Classic radio button question.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Branching scenario decisions</h3>
+          <p>"How do you respond to this customer's complaint?" — three responses, each leading to a different next scene. Radio buttons drive the branch.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Pre-course self-assessment</h3>
+          <p>"How confident do you feel with this topic? Not at all / A little / Confident / Very confident." Mutually exclusive levels — radio buttons, not checkboxes.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">End-of-course feedback ratings</h3>
+          <p>"How would you rate this course?" — a 5-point Likert scale. Each rating is one selection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. Final CTA — lilac
+       ============================================================ -->
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course<br />
+          <span class="accent-blue">built well?</span>
+        </h2>
+        <p class="lede cta-text">
+          We apply these principles on every course we build. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Interactive example — show feedback when an option is selected.
+  // Purely cosmetic; demonstrates the selection behaviour itself.
+  const radios = document.querySelectorAll<HTMLInputElement>('input[name="example-q"]');
+  const feedback = document.querySelector<HTMLElement>('[data-feedback]');
+  radios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      if (feedback) feedback.hidden = false;
+    });
+  });
+</script>
+
+<style>
+  /* ============================================================
+     Page-specific styles only.
+     ============================================================ */
+
+  /* ---- Hero ---- */
+  .component-hero {
+    padding-top: clamp(56px, 7vw, 80px);
+    padding-bottom: clamp(80px, 10vw, 120px);
+  }
+  .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-ink);
+    opacity: 0.7;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+  .breadcrumb a { color: var(--c-ink); text-decoration: none; transition: opacity 0.15s ease; }
+  .breadcrumb a:hover { opacity: 0.5; }
+  .breadcrumb-sep { opacity: 0.5; }
+  .breadcrumb-current { opacity: 0.6; }
+  .hero-pill { margin-bottom: 24px; }
+  .page-title { margin-bottom: 32px; max-width: 800px; }
+  .page-subtitle { max-width: 720px; }
+
+  /* ---- 2. Purpose (two columns: for / not for) ---- */
+  .purpose-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
+  }
+  .purpose-col .section-kicker { margin-bottom: 12px; }
+  .purpose-col .section-title {
+    margin-bottom: 24px;
+    font-size: clamp(24px, 2.6vw, 32px);
+  }
+  .purpose-lede {
+    color: var(--c-ink-soft);
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .purpose-lede strong { color: var(--c-ink); font-weight: 600; }
+  .purpose-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .purpose-list li {
+    padding: 10px 0 10px 26px;
+    position: relative;
+    color: var(--c-ink);
+    font-size: 16px;
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+  }
+  .purpose-list li:last-child { border-bottom: none; }
+  .purpose-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: var(--c-ink-muted);
+    font-family: var(--font-mono);
+  }
+  .purpose-list--neg li::before {
+    content: "×";
+    color: var(--c-ink);
+    opacity: 0.6;
+    font-weight: 600;
+  }
+
+  /* ---- 3. Interactive example ---- */
+  .example-section .section-title { margin-bottom: 16px; }
+  .example-section .section-subtitle { margin-bottom: 48px; max-width: 720px; }
+
+  .example-card {
+    background: var(--c-paper);
+    border: 1px solid rgba(21, 25, 46, 0.1);
+    border-radius: var(--r-lg);
+    padding: clamp(28px, 4vw, 40px);
+    max-width: 720px;
+  }
+  .example-card-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+    margin-bottom: 24px;
+    color: var(--c-ink-muted);
+  }
+  .example-question {
+    font-family: var(--font-sans);
+    font-size: clamp(20px, 2vw, 24px);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--c-ink);
+    margin-bottom: 8px;
+  }
+  .example-prompt {
+    color: var(--c-ink-soft);
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+
+  /* The radio group — semantic native radios with custom visual */
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .radio-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    border: 1px solid rgba(21, 25, 46, 0.12);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .radio-option:hover { border-color: var(--c-ink); background: rgba(21, 25, 46, 0.02); }
+  .radio-option:has(input:checked) {
+    border-color: var(--c-ink);
+    background: rgba(21, 25, 46, 0.04);
+  }
+  /* Hide the native input visually but keep it accessible */
+  .radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .radio-circle {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(21, 25, 46, 0.35);
+    border-radius: 50%;
+    position: relative;
+    transition: border-color 0.15s ease;
+    margin-top: 1px;
+  }
+  .radio-option input:checked + .radio-circle {
+    border-color: var(--c-ink);
+  }
+  .radio-option input:checked + .radio-circle::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    background: var(--c-ink);
+    border-radius: 50%;
+  }
+  /* Focus state — outline the whole row */
+  .radio-option input:focus-visible + .radio-circle {
+    box-shadow: 0 0 0 3px var(--c-lilac);
+  }
+  .radio-label {
+    color: var(--c-ink);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .example-feedback {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: var(--c-lilac-tint);
+    border-radius: var(--r-md);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--c-ink);
+  }
+  .example-feedback p { margin: 0; }
+
+  .example-note {
+    margin-top: 24px;
+    color: var(--c-ink-soft);
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 720px;
+  }
+  .example-note .meta {
+    color: var(--c-ink-muted);
+    margin-right: 4px;
+  }
+
+  /* ---- 4. Design considerations ---- */
+  .design-section .section-title { margin-bottom: 56px; }
+  .design-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 40px;
+  }
+  .design-num {
+    display: block;
+    color: var(--c-ink-muted);
+    margin-bottom: 12px;
+  }
+  .design-item h3 { margin-bottom: 8px; }
+  .design-item p {
+    color: var(--c-ink-soft);
+    line-height: 1.65;
+    font-size: 15px;
+  }
+  .design-item code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: var(--c-paper-deep);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--c-ink);
+  }
+
+  /* ---- 5. UX best practice ---- */
+  .ux-section .section-title { margin-bottom: 56px; max-width: 900px; }
+  .ux-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 880px;
+  }
+  .ux-item {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(250, 248, 243, 0.12);
+  }
+  .ux-item:first-child { padding-top: 0; }
+  .ux-item:last-child { border-bottom: none; }
+  .ux-item h3 {
+    margin-bottom: 10px;
+    color: var(--c-paper);
+  }
+  .ux-item p {
+    color: rgba(250, 248, 243, 0.78);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  .ux-item p strong { color: var(--c-paper); font-weight: 600; }
+  .ux-item p em { font-style: italic; }
+
+  /* ---- 6. Scenarios ---- */
+  .scenarios-section .section-title { margin-bottom: 56px; }
+  .scenarios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 40px;
+  }
+  .scenario-num {
+    display: block;
+    color: var(--c-ink-muted);
+    margin-bottom: 12px;
+  }
+  .scenario-card h3 { margin-bottom: 8px; }
+  .scenario-card p {
+    color: var(--c-ink-soft);
+    line-height: 1.65;
+    font-size: 15px;
+  }
+
+  /* ---- 7. Final CTA ---- */
+  .cta-content { max-width: 800px; }
+  .cta-title { margin-bottom: 24px; }
+  .cta-text { margin-bottom: 40px; max-width: 580px; }
+  .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 900px) {
+    .purpose-grid,
+    .design-grid,
+    .scenarios-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .cta-buttons .btn { width: 100%; }
+  }
+</style>

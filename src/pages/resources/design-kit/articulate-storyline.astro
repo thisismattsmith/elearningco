@@ -1,0 +1,201 @@
+---
+// src/pages/resources/design-kit/articulate-storyline.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+import '../../../styles/design-kit-tool.css';
+---
+
+<Layout
+  title="Articulate Storyline | Design Kit | The eLearning Company"
+  description="An honest look at Articulate Storyline — what it does well, where it struggles, and when it's the right tool for the job."
+>
+  <!-- Hero — yellow (eLearning tools) -->
+  <section class="section section--yellow component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Articulate Storyline</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">eLearning tool</span>
+      <h1 class="display display-xl page-title">
+        Articulate<br />
+        <span class="accent-blue">Storyline.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Storyline is Articulate's slide-based authoring tool — heavy, capable, and the standard for complex eLearning interactions. If Rise is the workhorse, Storyline is the workshop.
+      </p>
+    </div>
+  </section>
+
+  <!-- Tool overview — paper -->
+  <section class="section section--paper tool-section">
+    <div class="container">
+      <div class="tool-meta">
+        <div class="tool-meta-item">
+          <span class="meta tool-meta-label">Type</span>
+          <p class="tool-meta-value">Slide-based authoring tool (desktop, Windows-only)</p>
+        </div>
+        <div class="tool-meta-item">
+          <span class="meta tool-meta-label">Output</span>
+          <p class="tool-meta-value">SCORM 1.2 / 2004, xAPI, HTML5, Web, Articulate Review</p>
+        </div>
+        <div class="tool-meta-item">
+          <span class="meta tool-meta-label">Pricing</span>
+          <p class="tool-meta-value">Part of Articulate 360, around $US1,400/year</p>
+        </div>
+        <div class="tool-meta-item">
+          <span class="meta tool-meta-label">Best for</span>
+          <p class="tool-meta-value">Complex interactions, branching scenarios, simulations, custom layouts</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What it's great at -->
+  <section class="section section--paper-deep tool-strengths-section">
+    <div class="container">
+      <span class="section-kicker">Strengths</span>
+      <h2 class="display display-md section-title">What it's great at.</h2>
+
+      <div class="tool-points">
+        <div class="tool-point">
+          <h3 class="heading-sm">Custom interactions</h3>
+          <p>Storyline gives you a state machine on every object. Buttons can have hover, visited, disabled, and custom states. Triggers let you wire up conditional logic without code. There's no easier authoring tool for building scenario-based learning, decision trees, or interactive simulations.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Branching with real consequences</h3>
+          <p>Variables let you track what a learner has done and respond to it. You can branch on cumulative state, not just the last choice — the kind of "your previous decisions led you here" experience that flat MCQs can't deliver.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Drag-and-drop, sliders, and dials built in</h3>
+          <p>Out of the box, Storyline supports drag-and-drop activities with feedback, sliders that drive variables, and dial-style inputs. Building these from scratch in HTML would take days. In Storyline, they're hours.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Mature ecosystem</h3>
+          <p>Templates, community resources, ID examples, character libraries. Whatever you're trying to build, someone has probably built something similar and shared it. The Articulate community is one of the tool's quiet advantages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where it struggles -->
+  <section class="section section--paper tool-weaknesses-section">
+    <div class="container">
+      <span class="section-kicker">Weaknesses</span>
+      <h2 class="display display-md section-title">Where it struggles.</h2>
+
+      <div class="tool-points">
+        <div class="tool-point">
+          <h3 class="heading-sm">Responsive design is hard</h3>
+          <p>Storyline is fundamentally a fixed-canvas tool. The "Modern Player" and responsive playback help, but content that looks great on desktop often feels cramped on phones. If mobile is a primary use case, this is the single biggest reason teams pick Rise instead.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Windows-only authoring</h3>
+          <p>The authoring tool runs on Windows only. Mac users need a VM, Parallels, or a Windows machine. For Mac-first teams this is a real friction point — although the published output runs anywhere.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Easy to over-design</h3>
+          <p>The flexibility cuts both ways. Storyline lets you build elaborate, animation-heavy slides — and many teams do, then watch their learners skip past them. The tool encourages "what can we add" rather than "what does this need."</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Production time</h3>
+          <p>Storyline takes longer to author in than Rise. Layouts must be designed deliberately, slides arranged carefully, and triggers wired manually. For straightforward linear content this is overhead with no return.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Accessibility takes effort</h3>
+          <p>Storyline's accessibility has improved significantly, but the tool gives you many ways to break it. Custom interactions, layered timing, and animated reveals are particular risks. Accessibility audits on complex Storyline courses are rarely clean on the first pass.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When to choose Storyline -->
+  <section class="section section--navy tool-decision-section">
+    <div class="container">
+      <span class="section-kicker">Decision</span>
+      <h2 class="display display-md section-title">
+        When Storyline is <span class="mark--lilac">the right call</span>.
+      </h2>
+
+      <div class="decision-grid">
+        <div class="decision-col">
+          <h3 class="heading-md decision-heading">Pick Storyline when</h3>
+          <ul class="decision-list">
+            <li>The interaction is the point — branching, drag-and-drop, simulations.</li>
+            <li>You need variables to track learner state across the course.</li>
+            <li>Desktop is the primary delivery context.</li>
+            <li>The course will be reused for years, so authoring time pays back.</li>
+            <li>You're building a custom-feeling experience that templates can't deliver.</li>
+          </ul>
+        </div>
+        <div class="decision-col decision-col--alt">
+          <h3 class="heading-md decision-heading">Pick something else when</h3>
+          <ul class="decision-list">
+            <li>The course is content-driven and linear — <strong>Rise</strong> is faster.</li>
+            <li>Mobile-first is the brief — <strong>Rise</strong> or <strong>HowToo</strong>.</li>
+            <li>You need quick collaboration with non-technical authors — <strong>Mindsmith</strong> or <strong>Rise</strong>.</li>
+            <li>The team is small and Mac-based — <strong>Chameleon Creator</strong>, <strong>HowToo</strong>, or web-based alternatives.</li>
+            <li>You only need a single interaction — embed a Storyline file <em>inside</em> a Rise course instead of building the whole thing in Storyline.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real-world scenarios -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">When we reach for Storyline</span>
+      <h2 class="display display-md section-title">In practice.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Branching customer service scenarios</h3>
+          <p>Multi-decision conversations with cumulative state — "the customer's mood has shifted because of what you said earlier." Storyline's variables handle this naturally.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Software simulations</h3>
+          <p>Click-through training for a piece of software. Storyline's screen-recording and click-target features make this faster than building from scratch.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Custom assessments and games</h3>
+          <p>Anything with timing, scoring, conditional feedback, or branched results. Storyline can do all of this; most other tools can't without significant custom work.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Embedded in a Rise course</h3>
+          <p>Our most common pattern. The Rise course handles the structure and responsive layout. A single Storyline file embedded in one block handles the one interaction that needs it. Best of both tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Need a complex<br />
+          <span class="accent-blue">interaction built?</span>
+        </h2>
+        <p class="lede cta-text">
+          We build in Storyline weekly. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+

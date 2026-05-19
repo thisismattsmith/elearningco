@@ -1,0 +1,571 @@
+---
+// src/pages/resources/design-kit/branching-scenarios.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+---
+
+<Layout
+  title="Branching scenarios in eLearning | Design Kit | The eLearning Company"
+  description="When branching scenarios work, when they don't, and how to design them well. Includes a working three-step scenario you can play through."
+>
+  <!-- Hero — blue (Interactions) -->
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Branching scenarios</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Interaction</span>
+      <h1 class="display display-xl page-title">
+        Branching<br />
+        <span class="accent-blue">scenarios.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        A branching scenario is a decision-driven story. The learner makes a choice, sees the consequence, and makes another. Done well, it teaches better than any knowledge check. Done badly, it's an expensive multiple choice question.
+      </p>
+    </div>
+  </section>
+
+  <!-- What it's for / What it isn't -->
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Teaching judgement under pressure.</h2>
+          <p class="purpose-lede">
+            Branching works when there's a real decision to teach — one with consequences, no perfect answer, and where seeing the outcome is the point. Compliance scenarios, customer service, leadership conversations.
+          </p>
+          <ul class="purpose-list">
+            <li>Teaching judgement, not facts.</li>
+            <li>Situations where the consequence matters as much as the choice.</li>
+            <li>Scenarios with no single "right" answer.</li>
+            <li>Practice for high-stakes conversations or decisions.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Anything that's really a quiz.</h2>
+          <p class="purpose-lede">
+            If your "scenario" has one right answer and two wrong ones, it's a knowledge check dressed up. Use the real thing — it's <strong>cheaper to build</strong> and learners won't feel patronised.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Single-correct-answer compliance questions (use radio buttons).</li>
+            <li>Information delivery — branching doesn't teach facts efficiently.</li>
+            <li>Short modules where a five-decision tree is too much overhead.</li>
+            <li>Topics where you can't show meaningful consequences.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive working scenario -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working example</span>
+      <h2 class="display display-md section-title">Play through it.</h2>
+      <p class="lede section-subtitle">
+        A short customer service scenario. Three decisions, each with a brief consequence before the next. No "correct" answer — different paths land in different places. Reset and try again to see the alternatives.
+      </p>
+
+      <div class="example-card scenario-card-wrap">
+        <!-- Progress indicator -->
+        <div class="scenario-progress" aria-hidden="true">
+          <span class="scenario-progress-step active" data-step-indicator="1"></span>
+          <span class="scenario-progress-step" data-step-indicator="2"></span>
+          <span class="scenario-progress-step" data-step-indicator="3"></span>
+          <span class="scenario-progress-step" data-step-indicator="end"></span>
+        </div>
+
+        <!-- Scene description swaps as the user progresses -->
+        <div class="scenario-scene" data-scenario-scene>
+          <p class="scenario-context" data-scenario-context>
+            <span class="meta">Scene 1 of 3</span>
+          </p>
+          <p class="scenario-narrative" data-scenario-narrative>
+            A customer is on the line. They're frustrated — the order they were expecting today hasn't arrived, and they need it for a meeting tomorrow. They've already spoken to two other people. What do you say first?
+          </p>
+          <div class="scenario-choices" data-scenario-choices>
+            <button class="scenario-choice" type="button" data-choice="a">
+              <span class="scenario-choice-label">A</span>
+              <span class="scenario-choice-text">"I'm sorry about that. Let me pull up your order and see exactly what's happened."</span>
+            </button>
+            <button class="scenario-choice" type="button" data-choice="b">
+              <span class="scenario-choice-label">B</span>
+              <span class="scenario-choice-text">"I hear you — let me look into it. Are you free tomorrow morning if we can't fix it today?"</span>
+            </button>
+            <button class="scenario-choice" type="button" data-choice="c">
+              <span class="scenario-choice-label">C</span>
+              <span class="scenario-choice-text">"Let me transfer you to the team that handles deliveries — they'll be able to help."</span>
+            </button>
+          </div>
+
+          <!-- End screen -->
+          <div class="scenario-end" data-scenario-end hidden>
+            <h4 class="scenario-end-heading" data-end-heading>Scenario complete</h4>
+            <p class="scenario-end-body" data-end-body></p>
+            <button class="btn btn--secondary scenario-reset" type="button" data-scenario-reset>
+              Try again <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        Three decisions × three choices = up to 27 possible paths. In a real course, you'd typically converge after each branch (so it's nine, not 27, scenes to write). Branching that doesn't converge gets expensive fast.
+      </p>
+    </div>
+  </section>
+
+  <!-- Design considerations -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the structure right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">Converge between branches</h3>
+          <p>A "full" branching scenario with 3 choices at every step explodes combinatorially — 3 decisions gives 27 endings. Most well-designed scenarios converge after each decision so different paths reach the same next scene, with a "your last choice means..." callback. Far cheaper to build, just as effective.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">3 choices per decision is the sweet spot</h3>
+          <p>Two choices feels binary, like a forced "good vs bad" framing. Four or more makes each scene heavy and increases authoring cost. Three feels like a genuine choice with trade-offs.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Visible progress</h3>
+          <p>Learners need to know how long they're in for. A subtle progress indicator (3 dots, "Scene 2 of 4", or similar) reduces drop-off and lets them commit to the experience. Hidden progress feels like a maze.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Allow restart</h3>
+          <p>A branching scenario that doesn't let the learner try a different path is just a particularly slow multiple choice. Surface a "try again" or "explore other options" CTA at the end — and make the alternative paths feel worth exploring.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility — semantic structure</h3>
+          <p>Each scene should be a self-contained block of content, with the question and choices clearly associated. Choices should be real <code>&lt;button&gt;</code> elements, focusable and keyboard-activatable. The progression should be announced to screen readers — visible progress isn't enough.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Accessibility — pacing</h3>
+          <p>Avoid time pressure that forces learners to respond in seconds. The point of a branching scenario is reflection. Time-pressured scenarios exclude learners who need longer to read or process text, and they reward speed over judgement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UX best practice -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to design a scenario <span class="mark--lilac">that teaches</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">Write the choices first, the scenes second.</h3>
+          <p>The decisions are where the learning happens. If your three choices feel like "correct / wrong / silly", you don't have a scenario — you have a quiz with characters. Good choices are all <em>plausible</em>. They reflect real trade-offs. They each have something going for them.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Show consequences, not corrections.</h3>
+          <p>The point of branching is that the learner sees what happens. "Correct! ✓" or "Wrong! ✗" wastes the format. Instead: "The customer goes quiet. They expected acknowledgement first." Let the consequence teach the lesson without grading it.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Make every path land somewhere meaningful.</h3>
+          <p>If two choices end with the same generic "course over" screen, the learner learns that their choices don't matter. Different paths should lead to different end states — different lessons, different outcomes, different next steps. The variety is the value.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Keep scenes short.</h3>
+          <p>Each scene should be readable in 15 seconds. A paragraph of context, the dilemma, three choices. Anything longer turns the scenario into homework. The momentum of "what happens next" is what keeps learners engaged — long scenes break that.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Give context, then complication.</h3>
+          <p>Open each scene with a sentence of context (who, where, what's happening) then the complication (what makes this hard). Don't make the learner read three paragraphs to find the actual decision point. Front-load the situation.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Use real language, not training language.</h3>
+          <p>"The stakeholder is exhibiting non-constructive communication patterns" is training language. "She's snapping at the team" is real language. Branching scenarios live or die on whether the dialogue feels real. Read it aloud — if it sounds like a manual, rewrite.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">End with reflection, not a score.</h3>
+          <p>"You took the cautious path — here's what that gets you, and here's what the other paths might have taught." Reflection-based endings respect the learner's choices. Scored endings ("you got 2 out of 3 right") flatten the whole thing back to a quiz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for branching.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Difficult customer conversations</h3>
+          <p>Service training where the goal is judgement, tone, and recovery. Branching shows the cost of different openings without graded "correct" feedback.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Leadership and feedback conversations</h3>
+          <p>Performance discussions, behaviour conversations, holding the bar. Branching lets new managers practice the conversation before having it for real.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Compliance edge cases</h3>
+          <p>Not "is this a hazard yes/no" — but "you've spotted something ambiguous, what do you do next, and what happens when you do." Where judgement matters, branching teaches it.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Sales discovery and objection handling</h3>
+          <p>How you respond to "we're just exploring options" or "your price is high" — there's no perfect answer. Branching lets reps see the consequences of each approach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          We build branching<br />
+          <span class="accent-blue">that teaches.</span>
+        </h2>
+        <p class="lede cta-text">
+          Branching scenarios are some of our favourite work. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Branching scenario state machine.
+  // Scenes converge — choice at scene 1 affects context shown in scene 2,
+  // but every path reaches scenes 2 and 3, then a path-specific end.
+
+  type Choice = 'a' | 'b' | 'c';
+  type Step = 1 | 2 | 3 | 'end';
+
+  // Path so far — appended as the learner picks
+  let path: Choice[] = [];
+  let currentStep: Step = 1;
+
+  type Scene = {
+    context: string;
+    narrative: string;
+    choices: { id: Choice; text: string }[];
+  };
+
+  // Scene content per step. The context line references the previous choice.
+  const scenes: Record<number, (prev?: Choice) => Scene> = {
+    1: () => ({
+      context: 'Scene 1 of 3',
+      narrative: "A customer is on the line. They're frustrated — the order they were expecting today hasn't arrived, and they need it for a meeting tomorrow. They've already spoken to two other people. What do you say first?",
+      choices: [
+        { id: 'a', text: '"I\'m sorry about that. Let me pull up your order and see exactly what\'s happened."' },
+        { id: 'b', text: '"I hear you — let me look into it. Are you free tomorrow morning if we can\'t fix it today?"' },
+        { id: 'c', text: '"Let me transfer you to the team that handles deliveries — they\'ll be able to help."' },
+      ],
+    }),
+    2: (prev) => {
+      const lookup: Record<Choice, string> = {
+        a: "The customer takes a breath. They sound calmer. You pull up the order — it's been delayed by a courier issue, expected late tomorrow morning. The customer needs it by 9am for the meeting.",
+        b: "The customer is quiet for a second. \"That's actually helpful. Yes — I can be free tomorrow morning.\" You pull up the order. It's expected late tomorrow morning. The customer needs it by 9am.",
+        c: "The customer's voice tightens. \"That's exactly what the last person said.\" There's a pause. \"Can you just help me?\" You start looking at the order — delayed, expected late tomorrow. They need it by 9am.",
+      };
+      return {
+        context: 'Scene 2 of 3',
+        narrative: lookup[prev || 'a'] + ' What do you do?',
+        choices: [
+          { id: 'a', text: "Promise to expedite it — you'll call the courier and push for an early morning delivery." },
+          { id: 'b', text: "Offer to courier a replacement from your warehouse to arrive before 9am, even if it means using a paid express service." },
+          { id: 'c', text: "Be honest: you can't guarantee 9am, but you can offer a 50% credit and try the courier route." },
+        ],
+      };
+    },
+    3: (prev) => {
+      const lookup: Record<Choice, string> = {
+        a: 'You call the courier. They commit to first-stop delivery, expected 8:30am. You let the customer know. They\'re relieved.',
+        b: 'You arrange the express replacement. It costs a chunk of margin but you can see the meeting timing matters. The customer hesitates, then accepts.',
+        c: "You're honest. The customer pauses, then says \"thanks for being straight with me\" and accepts the credit and the courier attempt.",
+      };
+      return {
+        context: 'Scene 3 of 3',
+        narrative: lookup[prev || 'a'] + " Before you end the call, what do you say last?",
+        choices: [
+          { id: 'a', text: '"I\'ll send you the tracking info now. Let me give you my direct line if anything goes wrong."' },
+          { id: 'b', text: '"Thanks for being patient. I\'m sorry we didn\'t handle this better the first two times."' },
+          { id: 'c', text: '"You\'re all set. Let me know how the meeting goes."' },
+        ],
+      };
+    },
+  };
+
+  // End screen content varies by full path
+  const endings: Record<string, { heading: string; body: string }> = {
+    // Just a handful — could be expanded
+    default: {
+      heading: 'Scenario complete',
+      body: "You handled it. The customer ended the call calmer than they started — which, given they'd already spoken to two other people, is what mattered. Different choices would have led to different outcomes: some quicker, some more expensive, some more reassuring. None of them is the \"right\" answer.",
+    },
+    'a,a,a': {
+      heading: 'Calm and competent',
+      body: 'You acknowledged first, took ownership, and followed up directly. The customer felt heard and informed. Worth noting: you committed to a courier promise you don\'t fully control. Most paths through this scenario would have asked you to think about what happens if that commitment falls through.',
+    },
+    'c,c,c': {
+      heading: 'Honest, even when it cost you',
+      body: 'Transferring at the start, then being honest about uncertainty, then keeping the closing light — your path is unusual. It costs the customer some initial frustration, but they leave the call trusting you. Sometimes that\'s the right trade.',
+    },
+  };
+
+  // ===== Wire up DOM =====
+  const contextEl = document.querySelector<HTMLElement>('[data-scenario-context]');
+  const narrativeEl = document.querySelector<HTMLElement>('[data-scenario-narrative]');
+  const choicesEl = document.querySelector<HTMLElement>('[data-scenario-choices]');
+  const endEl = document.querySelector<HTMLElement>('[data-scenario-end]');
+  const endHeadingEl = document.querySelector<HTMLElement>('[data-end-heading]');
+  const endBodyEl = document.querySelector<HTMLElement>('[data-end-body]');
+  const resetBtn = document.querySelector<HTMLButtonElement>('[data-scenario-reset]');
+  const indicators = document.querySelectorAll<HTMLElement>('[data-step-indicator]');
+
+  // Snapshot the first server-rendered choice button as a template. We clone
+  // this for subsequent scenes instead of building HTML strings, which
+  // preserves Astro's scoped-CSS data-* attributes. Strings via innerHTML
+  // lose those attributes and lose all the styling with them.
+  const choiceTemplate = choicesEl?.querySelector<HTMLButtonElement>('.scenario-choice')?.cloneNode(true) as HTMLButtonElement | undefined;
+
+  function renderScene(step: number) {
+    if (!contextEl || !narrativeEl || !choicesEl || !endEl) return;
+    const prev = path[path.length - 1];
+    const scene = scenes[step](prev);
+
+    contextEl.innerHTML = `<span class="meta">${scene.context}</span>`;
+    narrativeEl.textContent = scene.narrative;
+
+    // Clone the template for each choice and set its label/text/data-choice.
+    if (choiceTemplate) {
+      choicesEl.replaceChildren();
+      scene.choices.forEach((c) => {
+        const btn = choiceTemplate.cloneNode(true) as HTMLButtonElement;
+        btn.dataset.choice = c.id;
+        const labelEl = btn.querySelector<HTMLElement>('.scenario-choice-label');
+        const textEl = btn.querySelector<HTMLElement>('.scenario-choice-text');
+        if (labelEl) labelEl.textContent = c.id.toUpperCase();
+        if (textEl) textEl.textContent = c.text;
+        choicesEl.appendChild(btn);
+      });
+    }
+
+    choicesEl.hidden = false;
+    endEl.hidden = true;
+    attachChoiceHandlers();
+    updateIndicators();
+  }
+
+  function showEnding() {
+    if (!contextEl || !narrativeEl || !choicesEl || !endEl || !endHeadingEl || !endBodyEl) return;
+    const key = path.join(',');
+    const ending = endings[key] || endings.default;
+
+    contextEl.innerHTML = '<span class="meta">Outcome</span>';
+    narrativeEl.textContent = '';
+    choicesEl.hidden = true;
+    endHeadingEl.textContent = ending.heading;
+    endBodyEl.textContent = ending.body;
+    endEl.hidden = false;
+    currentStep = 'end';
+    updateIndicators();
+  }
+
+  function attachChoiceHandlers() {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.scenario-choice');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const choice = btn.dataset.choice as Choice;
+        path.push(choice);
+        if (path.length >= 3) {
+          showEnding();
+        } else {
+          currentStep = (path.length + 1) as Step;
+          renderScene(currentStep as number);
+        }
+      });
+    });
+  }
+
+  function updateIndicators() {
+    indicators.forEach((ind) => {
+      const step = ind.dataset.stepIndicator;
+      ind.classList.remove('active', 'done');
+      if (currentStep === 'end' && step === 'end') ind.classList.add('active');
+      else if (currentStep === 'end') ind.classList.add('done');
+      else {
+        const stepNum = step === 'end' ? 999 : parseInt(step || '0', 10);
+        if (stepNum < (currentStep as number)) ind.classList.add('done');
+        if (stepNum === (currentStep as number)) ind.classList.add('active');
+      }
+    });
+  }
+
+  resetBtn?.addEventListener('click', () => {
+    path = [];
+    currentStep = 1;
+    renderScene(1);
+  });
+
+  // Initial wire-up
+  attachChoiceHandlers();
+  updateIndicators();
+</script>
+
+<style>
+  /* ---- Page-specific styles for the branching scenario demo ---- */
+
+  .scenario-card-wrap {
+    max-width: 760px;
+    padding-top: 32px;
+  }
+
+  /* Progress dots */
+  .scenario-progress {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    justify-content: center;
+  }
+  .scenario-progress-step {
+    width: 32px;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(21, 25, 46, 0.12);
+    transition: background 0.2s ease;
+  }
+  .scenario-progress-step.active {
+    background: var(--c-ink);
+  }
+  .scenario-progress-step.done {
+    background: rgba(21, 25, 46, 0.45);
+  }
+
+  /* Scene context + narrative */
+  .scenario-context {
+    margin: 0 0 8px 0;
+  }
+  .scenario-narrative {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--c-ink);
+    margin: 0 0 24px 0;
+  }
+
+  /* Choice buttons */
+  .scenario-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .scenario-choice {
+    background: var(--c-paper-deep);
+    border: 1px solid rgba(21, 25, 46, 0.08);
+    border-radius: var(--r-md);
+    padding: 16px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-sans);
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.05s ease;
+  }
+  .scenario-choice:hover {
+    border-color: var(--c-ink);
+    background: var(--c-paper);
+  }
+  .scenario-choice:active {
+    transform: translateY(1px);
+  }
+  .scenario-choice:focus-visible {
+    outline: 2px solid var(--c-blue);
+    outline-offset: 2px;
+  }
+  .scenario-choice-label {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--c-ink);
+    color: var(--c-paper);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .scenario-choice-text {
+    color: var(--c-ink);
+    font-size: 15px;
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  /* Ending */
+  .scenario-end { text-align: left; }
+  .scenario-end-heading {
+    font-family: var(--font-sans);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--c-ink);
+    margin: 0 0 16px 0;
+    letter-spacing: -0.01em;
+  }
+  .scenario-end-body {
+    color: var(--c-ink-soft);
+    line-height: 1.65;
+    font-size: 16px;
+    margin: 0 0 24px 0;
+  }
+  .scenario-reset {
+    background: transparent;
+    color: var(--c-ink);
+    border: 1px solid var(--c-ink);
+    padding: 10px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: var(--r-md);
+    font-family: var(--font-sans);
+    font-weight: 500;
+  }
+  .scenario-reset:hover {
+    background: var(--c-ink);
+    color: var(--c-paper);
+  }
+</style>

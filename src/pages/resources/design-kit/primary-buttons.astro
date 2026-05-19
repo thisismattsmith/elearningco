@@ -1,0 +1,359 @@
+---
+// src/pages/resources/design-kit/primary-buttons.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+---
+
+<Layout
+  title="Primary buttons in eLearning | Design Kit | The eLearning Company"
+  description="When to use a primary button, how to label it, and how to design visual hierarchy with secondary and disabled states."
+>
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Primary buttons</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Component</span>
+      <h1 class="display display-xl page-title">
+        Primary<br />
+        <span class="accent-blue">buttons.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        The button on the page that the learner is meant to click. Submit. Continue. Get started. Done well, it's the clearest part of the interface. Done badly, learners stall — or click the wrong thing.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">The single most important action on the screen.</h2>
+          <p class="purpose-lede">
+            Every screen with an action should have exactly one primary button. It's the visual answer to "what does the learner do next?" — and it earns its weight by being the only one of its kind on the page.
+          </p>
+          <ul class="purpose-list">
+            <li>Submitting a quiz, form, or response.</li>
+            <li>Continuing to the next module or scene.</li>
+            <li>Confirming a decision in a <a href="/resources/design-kit/branching-scenarios">scenario</a>.</li>
+            <li>Starting a course or beginning a section.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Every action on the page.</h2>
+          <p class="purpose-lede">
+            If everything looks important, nothing does. Multiple primary buttons on one screen split the learner's attention and slow the decision. For lower-priority actions, use a secondary or text-only style — see also <a href="/resources/design-kit/navigation-buttons">navigation buttons</a> and <a href="/resources/design-kit/toggle-buttons">toggle buttons</a>.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Multiple competing CTAs on the same screen.</li>
+            <li>Navigation between scenes — use <a href="/resources/design-kit/navigation-buttons">navigation buttons</a> instead.</li>
+            <li>State changes like filter toggles — use <a href="/resources/design-kit/toggle-buttons">toggle buttons</a>.</li>
+            <li>Inline references inside text — use <a href="/resources/design-kit/links">links</a>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive example: three button states + a click counter -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working example</span>
+      <h2 class="display display-md section-title">Three states, one purpose.</h2>
+      <p class="lede section-subtitle">
+        A primary button, a secondary button, and a disabled state — the three pieces that make hierarchy work. Click "Submit" to see the disabled-on-success pattern; click "Reset" to start over.
+      </p>
+
+      <div class="example-card pbtn-card">
+        <div class="pbtn-mock-form">
+          <label class="pbtn-mock-label" for="pbtn-mock-input">Your answer</label>
+          <input id="pbtn-mock-input" class="pbtn-mock-input" type="text" placeholder="Type something to enable Submit…" />
+
+          <div class="pbtn-row">
+            <button class="pbtn pbtn--primary" data-pbtn-submit type="button" disabled>Submit</button>
+            <button class="pbtn pbtn--secondary" data-pbtn-reset type="button">Reset</button>
+          </div>
+
+          <p class="pbtn-status" data-pbtn-status>
+            <span class="meta">Status ·</span> Awaiting input.
+          </p>
+        </div>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        The Submit button is disabled until the input has content — this is the cleanest way to signal "you can't progress yet" without surprising the learner with an error after they click.
+      </p>
+    </div>
+  </section>
+
+  <!-- Design considerations -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the visuals right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">Hierarchy through contrast, not size</h3>
+          <p>The primary button doesn't need to be physically bigger than the secondary — it needs to be visually heavier. Solid fill versus outlined, dark versus mid-tone, brand colour versus neutral. Same size, different weight.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Generous padding and tap targets</h3>
+          <p>Aim for at least 44×44 pixels of clickable area, with horizontal padding around 1.5× the vertical. Cramped buttons feel cheap and miss on touch — the cost is real.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Visible hover, focus, active states</h3>
+          <p>Buttons need four states: default, hover, focus (keyboard), and active (mid-click). A button without distinct states feels broken — even when it's working perfectly. The focus state especially: a visible ring or outline that keyboard users can see.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">A clear disabled state</h3>
+          <p>The disabled state should look unavailable, not just inactive. Reduce opacity, mute the colour, change the cursor to <code>not-allowed</code>. Best practice: pair the disabled state with a tooltip or inline text explaining <em>why</em> it's disabled.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility — keyboard activation</h3>
+          <p>Use <code>&lt;button&gt;</code> elements, not styled divs. Native buttons handle Tab, Enter, and Space activation for free. Custom buttons built on <code>&lt;div&gt;</code>s almost always miss one or more of these — frustrating for keyboard users and disqualifying for accessibility audits.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Accessibility — meaningful labels</h3>
+          <p>Screen readers announce the button text. "Submit" is fine when the context is clear; "Click here" is not. If the button is icon-only, use an <code>aria-label</code> that describes the action, not the icon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UX best practice -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to use primary buttons <span class="mark--lilac">well</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">One primary button per screen.</h3>
+          <p>This is the rule. If you have two equally important actions, redesign — split into two screens, demote one to secondary, or merge them into a single action. Two primary buttons competing for attention forces the learner to decide which one is "the" action, and that decision shouldn't be theirs to make.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Label the outcome, not the mechanism.</h3>
+          <p>"Submit my answer" beats "Submit". "Continue to next scene" beats "Next". "Save and exit" beats "Save". The label should describe what happens when the learner clicks, in their language. Generic labels work when the context makes the outcome obvious; specific labels work when it doesn't.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Verbs at the start.</h3>
+          <p>"Start course", not "Course start". "Get a quote", not "Quote request". Verb-first labels read as commands the learner is about to issue, which is exactly the cognitive frame you want. The exception is single nouns that read fluently as actions: "Done", "Next", "Continue".</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Disable, don't hide.</h3>
+          <p>If the primary action isn't yet available — form not filled, quiz not answered — show the button in its disabled state, not absent. Hiding it makes the learner wonder where the action went; disabling it tells them <em>what they need to do</em> to unlock it. Pair with an inline message if the reason isn't obvious.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Loading states matter on slow actions.</h3>
+          <p>Anything that takes more than 300ms — quiz submission, API call, file upload — needs a loading state. The button should change to indicate "thinking" (a spinner, "Submitting…", disabled). Without it, learners click twice, three times, more — and double-submissions are real problems.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Consistent position across the course.</h3>
+          <p>Primary actions belong in the same place every time — usually bottom-right (for left-to-right languages) or centred near the bottom of the active content. Moving the primary button around the screen breaks muscle memory and slows progression.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Destructive actions need extra caution.</h3>
+          <p>"Reset progress", "Delete answers", "Exit without saving" are all destructive. They should never be the primary button by default — and if they must be, pair them with a confirmation step. A primary button that loses the learner's work is a punishment for clicking the most prominent option.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for a primary button.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Quiz submission</h3>
+          <p>"Submit my answers" at the end of a <a href="/resources/design-kit/quizzes">quiz</a>. Disabled until all questions answered, with a small message indicating how many remain.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Course start screen</h3>
+          <p>"Start course" or "Begin module" on the landing screen. Often paired with a secondary "View syllabus" or "Read intro" button.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Decision in a branching scenario</h3>
+          <p>The chosen response in a <a href="/resources/design-kit/branching-scenarios">branching scenario</a> becomes the primary button once selected, with secondary options demoted visually.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Form submission</h3>
+          <p>"Get a quote", "Submit application", "Send my feedback" — any form's final action. Disabled until valid input; loading state on submit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course<br />
+          <span class="accent-blue">built well?</span>
+        </h2>
+        <p class="lede cta-text">
+          We apply these principles on every course we build. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Mock form behaviour: enable submit when input has content,
+  // show success state on submit, allow reset.
+  const input  = document.querySelector<HTMLInputElement>('#pbtn-mock-input');
+  const submit = document.querySelector<HTMLButtonElement>('[data-pbtn-submit]');
+  const reset  = document.querySelector<HTMLButtonElement>('[data-pbtn-reset]');
+  const status = document.querySelector<HTMLElement>('[data-pbtn-status]');
+
+  const setStatus = (label: string, message: string) => {
+    if (status) status.innerHTML = `<span class="meta">${label} ·</span> ${message}`;
+  };
+
+  input?.addEventListener('input', () => {
+    if (submit) submit.disabled = (input.value.trim().length === 0);
+  });
+
+  submit?.addEventListener('click', () => {
+    if (!input || !submit) return;
+    submit.disabled = true;
+    submit.textContent = 'Submitting…';
+    setStatus('Status', 'Working…');
+    setTimeout(() => {
+      submit.textContent = 'Submitted ✓';
+      setStatus('Status', `Received: "${input.value}".`);
+    }, 600);
+  });
+
+  reset?.addEventListener('click', () => {
+    if (!input || !submit) return;
+    input.value = '';
+    submit.disabled = true;
+    submit.textContent = 'Submit';
+    setStatus('Status', 'Awaiting input.');
+    input.focus();
+  });
+</script>
+
+<style>
+  /* Mock form for the working example */
+  .pbtn-card { max-width: 560px; }
+  .pbtn-mock-form { display: flex; flex-direction: column; gap: 12px; }
+  .pbtn-mock-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--c-ink-muted);
+  }
+  .pbtn-mock-input {
+    padding: 12px 14px;
+    border: 1px solid rgba(21, 25, 46, 0.18);
+    border-radius: var(--r-md);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    background: var(--c-paper);
+  }
+  .pbtn-mock-input:focus {
+    outline: none;
+    border-color: var(--c-ink);
+    box-shadow: 0 0 0 3px var(--c-lilac);
+  }
+
+  .pbtn-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+
+  /* Button styles — these match the brand .btn but live separately
+     so the example can illustrate primary vs secondary clearly. */
+  .pbtn {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 22px;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+    min-width: 120px;
+  }
+  .pbtn--primary {
+    background: var(--c-ink);
+    color: var(--c-paper);
+    border-color: var(--c-ink);
+  }
+  .pbtn--primary:hover:not(:disabled) { background: var(--c-blue); border-color: var(--c-blue); }
+  .pbtn--primary:active:not(:disabled) { transform: translateY(1px); }
+  .pbtn--primary:focus-visible {
+    outline: 2px solid var(--c-lilac);
+    outline-offset: 2px;
+  }
+  .pbtn--primary:disabled {
+    background: rgba(21, 25, 46, 0.15);
+    color: rgba(21, 25, 46, 0.45);
+    border-color: rgba(21, 25, 46, 0.15);
+    cursor: not-allowed;
+  }
+
+  .pbtn--secondary {
+    background: transparent;
+    color: var(--c-ink);
+    border-color: var(--c-ink);
+  }
+  .pbtn--secondary:hover { background: var(--c-ink); color: var(--c-paper); }
+  .pbtn--secondary:focus-visible {
+    outline: 2px solid var(--c-lilac);
+    outline-offset: 2px;
+  }
+
+  .pbtn-status {
+    margin: 8px 0 0 0;
+    color: var(--c-ink-soft);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .pbtn-status .meta {
+    color: var(--c-ink-muted);
+    margin-right: 4px;
+  }
+</style>

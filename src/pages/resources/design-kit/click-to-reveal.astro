@@ -1,0 +1,572 @@
+---
+// src/pages/resources/design-kit/click-to-reveal.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+---
+
+<Layout
+  title="Click to reveal in eLearning | Design Kit | The eLearning Company"
+  description="Tabs, accordions, and flip cards — when each one fits, when to use a different pattern, and a working example of all three."
+>
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Click to reveal</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Interaction</span>
+      <h1 class="display display-xl page-title">
+        Click<br />
+        <span class="accent-blue">to reveal.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Tabs, accordions, flip cards — the family of patterns that hide content behind a click. They make a page feel interactive without forcing the learner to read everything. Used right, they chunk content well. Used wrong, they hide important information learners never come back to.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Chunking optional or supplementary content.</h2>
+          <p class="purpose-lede">
+            Click-to-reveal patterns are best for content that's relevant but not essential — depth, examples, supplementary detail. The click is the learner's choice to engage. If they don't click, they don't miss anything they had to know.
+          </p>
+          <ul class="purpose-list">
+            <li>FAQs grouped under a single page.</li>
+            <li>Examples that illustrate a principle but aren't required.</li>
+            <li>Long-form content broken into navigable sections.</li>
+            <li>Term-to-definition pairs in glossaries or vocabulary checks.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Hiding required content from learners.</h2>
+          <p class="purpose-lede">
+            If learners must read it, don't hide it behind a click. The same warning that applies to <a href="/resources/design-kit/carousels">carousels</a> applies here: most learners won't open every accordion, won't flip every card, won't visit every tab. Reserve the format for content that genuinely is optional.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Compliance content that must be acknowledged.</li>
+            <li>Information needed for an upcoming quiz.</li>
+            <li>Content that should sit in the flow of reading.</li>
+            <li>Mobile pages where stacking would be just as good.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Working example: three patterns side by side -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working examples</span>
+      <h2 class="display display-md section-title">Three patterns.</h2>
+      <p class="lede section-subtitle">
+        The three most-used click-to-reveal patterns in eLearning. Tabs for related parallel content. Accordions for sequential or FAQ-style content. Flip cards for term-and-definition pairs.
+      </p>
+
+      <div class="example-card ctr-card">
+        <!-- TABS -->
+        <div class="ctr-group">
+          <span class="meta ctr-meta">1 — Tabs</span>
+          <p class="ctr-body">For three or four parallel options where the learner is likely to pick one or compare across them. The first tab is open by default.</p>
+
+          <div class="ctr-tabs" data-ctr-tabs>
+            <div class="ctr-tabs-list" role="tablist" aria-label="Quick reference">
+              <button class="ctr-tab" role="tab" aria-selected="true" aria-controls="ctr-panel-1" id="ctr-tab-1" type="button">Definitions</button>
+              <button class="ctr-tab" role="tab" aria-selected="false" aria-controls="ctr-panel-2" id="ctr-tab-2" type="button" tabindex="-1">Examples</button>
+              <button class="ctr-tab" role="tab" aria-selected="false" aria-controls="ctr-panel-3" id="ctr-tab-3" type="button" tabindex="-1">Anti-patterns</button>
+            </div>
+
+            <div class="ctr-tab-panel" role="tabpanel" id="ctr-panel-1" aria-labelledby="ctr-tab-1">
+              <p>A tab is a horizontal selector for one of several parallel content panels. The selected tab is visually distinct and its panel is the only one visible.</p>
+            </div>
+            <div class="ctr-tab-panel" role="tabpanel" id="ctr-panel-2" aria-labelledby="ctr-tab-2" hidden>
+              <p>Browser tabs are the obvious example. Settings panels with categories ("General / Appearance / Privacy") are another. Documentation pages with language toggles ("JavaScript / Python / Ruby") use them well.</p>
+            </div>
+            <div class="ctr-tab-panel" role="tabpanel" id="ctr-panel-3" aria-labelledby="ctr-tab-3" hidden>
+              <p>Tabs for content that should be read sequentially. Tabs with five or more options on mobile (they wrap or scroll horizontally and become unusable). Tabs where the label doesn't tell you what's inside.</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="ctr-divider" />
+
+        <!-- ACCORDION -->
+        <div class="ctr-group">
+          <span class="meta ctr-meta">2 — Accordion</span>
+          <p class="ctr-body">For lists of items where the learner may want to expand some but not all — typically FAQs, definitions, or grouped explanations. All collapsed by default.</p>
+
+          <div class="ctr-accordion" data-ctr-accordion>
+            <details class="ctr-accordion-item">
+              <summary class="ctr-accordion-summary">
+                <span>When are accordions the right choice?</span>
+                <span class="ctr-accordion-chevron" aria-hidden="true">›</span>
+              </summary>
+              <div class="ctr-accordion-content">
+                <p>When the items are independent of each other, the learner doesn't need to read all of them, and the content under each item is substantial enough to warrant being hidden.</p>
+              </div>
+            </details>
+            <details class="ctr-accordion-item">
+              <summary class="ctr-accordion-summary">
+                <span>Should multiple accordion items be open at once?</span>
+                <span class="ctr-accordion-chevron" aria-hidden="true">›</span>
+              </summary>
+              <div class="ctr-accordion-content">
+                <p>Almost always yes. Single-open accordions ("opening B closes A") are frustrating when the learner wants to compare two items. The native HTML <code>&lt;details&gt;</code> element allows multiple open by default, which is usually the right behaviour.</p>
+              </div>
+            </details>
+            <details class="ctr-accordion-item">
+              <summary class="ctr-accordion-summary">
+                <span>How many items is too many?</span>
+                <span class="ctr-accordion-chevron" aria-hidden="true">›</span>
+              </summary>
+              <div class="ctr-accordion-content">
+                <p>Beyond 10-15 items, the wall of collapsed summaries becomes overwhelming. Group into sections, add a search input, or split across multiple pages. An accordion of 50 items is just a list pretending to be interactive.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <hr class="ctr-divider" />
+
+        <!-- FLIP CARDS -->
+        <div class="ctr-group">
+          <span class="meta ctr-meta">3 — Flip cards</span>
+          <p class="ctr-body">For paired content where the back of the card is short — term-and-definition, question-and-answer, before-and-after. Click any card to flip it.</p>
+
+          <div class="ctr-flip-grid">
+            <button class="ctr-flip" type="button" aria-label="Flip card: Tab">
+              <div class="ctr-flip-inner">
+                <div class="ctr-flip-face ctr-flip-front">
+                  <span class="ctr-flip-num">Term</span>
+                  <p>Tab</p>
+                </div>
+                <div class="ctr-flip-face ctr-flip-back">
+                  <span class="ctr-flip-num">Definition</span>
+                  <p>A horizontal selector for one of several parallel content panels.</p>
+                </div>
+              </div>
+            </button>
+            <button class="ctr-flip" type="button" aria-label="Flip card: Accordion">
+              <div class="ctr-flip-inner">
+                <div class="ctr-flip-face ctr-flip-front">
+                  <span class="ctr-flip-num">Term</span>
+                  <p>Accordion</p>
+                </div>
+                <div class="ctr-flip-face ctr-flip-back">
+                  <span class="ctr-flip-num">Definition</span>
+                  <p>A vertical list of expandable items — the learner opens the ones they want.</p>
+                </div>
+              </div>
+            </button>
+            <button class="ctr-flip" type="button" aria-label="Flip card: Flip card">
+              <div class="ctr-flip-inner">
+                <div class="ctr-flip-face ctr-flip-front">
+                  <span class="ctr-flip-num">Term</span>
+                  <p>Flip card</p>
+                </div>
+                <div class="ctr-flip-face ctr-flip-back">
+                  <span class="ctr-flip-num">Definition</span>
+                  <p>A card with a front and back face — click to flip and reveal paired content.</p>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        Three patterns, three jobs. Tabs are for picking one. Accordion is for expanding some. Flip cards are for paired content. Don't mix them on the same screen — the learner has to relearn the interaction every time.
+      </p>
+    </div>
+  </section>
+
+  <!-- Design considerations -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the visuals right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">Affordance is everything</h3>
+          <p>The learner has to know that something will happen when they click. Tabs need a clear "this one is active" state. Accordion items need a chevron or "+" icon. Flip cards need a hover-lift or shadow that says "this is interactive." Without an affordance, the pattern becomes invisible.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Default state matters</h3>
+          <p>Tabs: the first tab is open. Accordions: all collapsed (unless the first item is essential). Flip cards: all showing the front. The default should match what's most useful at a glance, and what behaves consistently with what learners expect from the pattern.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Animate the transitions, gently</h3>
+          <p>Tabs cross-fade. Accordion items slide open. Flip cards rotate. The animation should be quick (150-300ms) and communicate the change without forcing a wait. Snappy beats elaborate.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Accessibility — semantic structure</h3>
+          <p>Tabs need <code>role="tablist"</code>, <code>role="tab"</code>, and <code>role="tabpanel"</code> with proper <code>aria-controls</code> wiring. Accordions are best built with the native <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements. Flip cards should be <code>&lt;button&gt;</code> elements with a clear <code>aria-label</code>.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility — keyboard</h3>
+          <p>Tabs: arrow keys move between tabs, Tab focuses the active panel. Accordions: native <code>&lt;details&gt;</code> handles Enter and Space natively. Flip cards: focusable, Enter or Space flips, focus stays on the card.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Mobile: prefer accordion over tabs</h3>
+          <p>Tabs collapse poorly on narrow screens. Accordions stack naturally. If your tabs have more than 3 short labels, consider switching to accordion on mobile breakpoints. Tab strips that wrap to two lines, or scroll horizontally, are usability failures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UX best practice -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to use click-to-reveal <span class="mark--lilac">well</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">Match the pattern to the content shape.</h3>
+          <p>Three or four parallel sections that the learner might pick between = tabs. A list of independent items that learners may dip into = accordion. Paired short content (term and definition, question and answer) = flip cards. Picking the wrong pattern for the content makes everything harder than it needs to be.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Don't bury the most important content.</h3>
+          <p>If the second tab contains the critical example and most learners only see the first tab, you've hidden the lesson. Lead with the highest-value content. If the order is fixed (steps, sequences), think about whether tabs are the right pattern at all — sequential content often wants <a href="/resources/design-kit/navigation-buttons">navigation buttons</a> or a stacked layout.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Write labels that tell the learner what's inside.</h3>
+          <p>"Tab 1 / Tab 2 / Tab 3" tells nobody anything. "Definitions / Examples / Anti-patterns" tells learners which one to click for what they need. Accordion summaries follow the same rule — write the summary so the learner can decide whether to open it without opening it.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Keep accordion content short.</h3>
+          <p>If each accordion item contains three paragraphs of essential content, the accordion is hiding too much. The pattern works when the content under each summary is brief — a paragraph, a list, a short explanation. Long content inside accordions invites learners to skim or skip.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Flip cards: only when the back is short.</h3>
+          <p>If the back of the card needs scrolling, it shouldn't be a flip card. The pattern is for paired short content — a term and its definition, a question and a one-line answer. Flip cards with long content on the back fail because the learner can't see both faces at once.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Don't gate progress on every click.</h3>
+          <p>Some courses lock the Next button until every tab has been opened, every accordion expanded, every card flipped. This is a sign that the content shouldn't be hidden in the first place — if it's required, show it directly. Click-gating frustrates learners and turns the course into a click-hunt.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Decide whether state persists.</h3>
+          <p>If the learner expands three accordion items, navigates to the next scene, and comes back — should the accordions still be open? Usually yes, for orientation. Definitely yes if you've bookmarked the course mid-progress. Resetting state every visit feels punishing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for click-to-reveal.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Glossaries and vocabulary checks</h3>
+          <p>Flip cards: term on the front, definition on the back. Self-paced review of vocabulary. Easy, well-suited to the format, and one of the few cases where flip cards genuinely beat other patterns.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">FAQ-style support content</h3>
+          <p>Accordion of common questions and answers. Each item independent, learners pick the ones relevant to them. Standard pattern on knowledge-base pages and support modules.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Comparing approaches or options</h3>
+          <p>Tabs: "Approach A / Approach B / Approach C", each with a short description. The learner picks one to consider in depth, or switches between them to compare.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Optional examples or case studies</h3>
+          <p>Accordion or tabs for "Want a deeper example? Click here." Lets confident learners skip ahead while giving those who want detail a way in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course<br />
+          <span class="accent-blue">built well?</span>
+        </h2>
+        <p class="lede cta-text">
+          We apply these principles on every course we build. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Tabs — ARIA-compliant tab pattern with keyboard support
+  const tabsContainer = document.querySelector<HTMLElement>('[data-ctr-tabs]');
+  if (tabsContainer) {
+    const tabs = tabsContainer.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+    const panels = tabsContainer.querySelectorAll<HTMLElement>('[role="tabpanel"]');
+
+    const activateTab = (idx: number) => {
+      tabs.forEach((t, i) => {
+        const active = i === idx;
+        t.setAttribute('aria-selected', active ? 'true' : 'false');
+        t.tabIndex = active ? 0 : -1;
+        if (active) t.focus();
+      });
+      panels.forEach((p, i) => {
+        p.hidden = i !== idx;
+      });
+    };
+
+    tabs.forEach((tab, idx) => {
+      tab.addEventListener('click', () => activateTab(idx));
+      tab.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          activateTab((idx + 1) % tabs.length);
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          activateTab((idx - 1 + tabs.length) % tabs.length);
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          activateTab(0);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          activateTab(tabs.length - 1);
+        }
+      });
+    });
+  }
+
+  // Flip cards — toggle the flipped class on click or Enter/Space
+  document.querySelectorAll<HTMLButtonElement>('.ctr-flip').forEach((card) => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('ctr-flip--flipped');
+      const flipped = card.classList.contains('ctr-flip--flipped');
+      card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+    });
+  });
+</script>
+
+<style>
+  .ctr-card { max-width: 760px; }
+  .ctr-group { padding: 12px 0; }
+  .ctr-meta { display: block; margin-bottom: 8px; }
+  .ctr-body {
+    margin: 0 0 16px 0;
+    color: var(--c-ink-soft);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  /* === TABS === */
+  .ctr-tabs {
+    border: 1px solid rgba(21, 25, 46, 0.1);
+    border-radius: var(--r-md);
+    background: var(--c-paper);
+    overflow: hidden;
+  }
+  .ctr-tabs-list {
+    display: flex;
+    border-bottom: 1px solid rgba(21, 25, 46, 0.1);
+    background: var(--c-paper-deep);
+  }
+  .ctr-tab {
+    flex: 1;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--c-ink-soft);
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  }
+  .ctr-tab:hover { color: var(--c-ink); }
+  .ctr-tab[aria-selected="true"] {
+    color: var(--c-ink);
+    border-bottom-color: var(--c-ink);
+    background: var(--c-paper);
+  }
+  .ctr-tab:focus-visible {
+    outline: 2px solid var(--c-blue);
+    outline-offset: -2px;
+  }
+  .ctr-tab-panel {
+    padding: 20px;
+  }
+  .ctr-tab-panel p {
+    margin: 0;
+    color: var(--c-ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* === ACCORDION === */
+  .ctr-accordion {
+    border: 1px solid rgba(21, 25, 46, 0.1);
+    border-radius: var(--r-md);
+    background: var(--c-paper);
+    overflow: hidden;
+  }
+  .ctr-accordion-item {
+    border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+  }
+  .ctr-accordion-item:last-child { border-bottom: none; }
+  .ctr-accordion-summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--c-ink);
+    transition: background 0.15s ease;
+  }
+  .ctr-accordion-summary::-webkit-details-marker { display: none; }
+  .ctr-accordion-summary:hover { background: var(--c-paper-deep); }
+  .ctr-accordion-summary:focus-visible {
+    outline: 2px solid var(--c-blue);
+    outline-offset: -2px;
+  }
+  .ctr-accordion-chevron {
+    flex-shrink: 0;
+    font-size: 18px;
+    color: var(--c-ink-muted);
+    transition: transform 0.2s ease;
+  }
+  .ctr-accordion-item[open] .ctr-accordion-chevron {
+    transform: rotate(90deg);
+  }
+  .ctr-accordion-content {
+    padding: 0 18px 16px 18px;
+  }
+  .ctr-accordion-content p {
+    margin: 0;
+    color: var(--c-ink-soft);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .ctr-accordion-content code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: var(--c-paper-deep);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--c-ink);
+  }
+
+  /* === FLIP CARDS === */
+  .ctr-flip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .ctr-flip {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    perspective: 800px;
+    aspect-ratio: 1.2 / 1;
+    min-height: 140px;
+  }
+  .ctr-flip:focus-visible {
+    outline: 2px solid var(--c-blue);
+    outline-offset: 4px;
+    border-radius: var(--r-md);
+  }
+  .ctr-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+  }
+  .ctr-flip--flipped .ctr-flip-inner {
+    transform: rotateY(180deg);
+  }
+  .ctr-flip-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: var(--c-paper);
+    border: 1px solid rgba(21, 25, 46, 0.12);
+    border-radius: var(--r-md);
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .ctr-flip-back {
+    transform: rotateY(180deg);
+    background: var(--c-paper-deep);
+  }
+  .ctr-flip-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-ink-muted);
+    margin-bottom: 8px;
+  }
+  .ctr-flip p {
+    margin: 0;
+    color: var(--c-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .ctr-flip-back p { font-weight: 400; }
+
+  .ctr-divider {
+    margin: 32px 0;
+    border: none;
+    border-top: 1px solid rgba(21, 25, 46, 0.08);
+  }
+
+  @media (max-width: 600px) {
+    .ctr-flip-grid { grid-template-columns: 1fr; }
+  }
+</style>

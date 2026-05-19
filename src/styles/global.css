@@ -221,9 +221,18 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 15px;
   font-weight: 500;
   transition: opacity 0.15s ease;
+  position: relative;
+  padding-bottom: 2px; /* leaves room for the active underline */
 }
 
 .nav-links a:hover { opacity: 0.6; }
+
+/* Active state — the current section. Subtle underline rather than
+   a colour shift, so it doesn't fight the brand palette. Excludes
+   the CTA button since it has its own visual treatment. */
+.nav-links a.active:not(.nav-cta) {
+  border-bottom: 2px solid var(--c-ink);
+}
 
 .nav-links a.nav-cta {
   background: var(--c-ink);

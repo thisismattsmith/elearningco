@@ -1,0 +1,547 @@
+---
+// src/pages/resources/design-kit/software-simulations.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+---
+
+<Layout
+  title="Software simulations in eLearning | Design Kit | The eLearning Company"
+  description="Click-through training that teaches software step by step. When to build a simulation, when to record a video, and how to make either one work."
+>
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Software simulations</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Interaction</span>
+      <h1 class="display display-xl page-title">
+        Software<br />
+        <span class="accent-blue">simulations.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        A simulation puts the learner inside a fake version of the software they're learning. They click the right menu, fill in the right field, hit the right button — and the simulation responds. It's the difference between watching a tutorial and doing the tutorial.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Active practice of software tasks.</h2>
+          <p class="purpose-lede">
+            Simulations work when the goal is for the learner to <em>do</em> the task, not just understand it. Software training, system rollouts, compliance procedures inside line-of-business tools — anywhere the learner will be doing this work tomorrow.
+          </p>
+          <ul class="purpose-list">
+            <li>New software rollouts where everyone must learn the same workflow.</li>
+            <li>Compliance procedures inside accounting, HR, or operational systems.</li>
+            <li>"Show me, then let me try" patterns where active practice matters.</li>
+            <li>Refresher training before a hands-on session or assessment.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Conceptual or strategic content.</h2>
+          <p class="purpose-lede">
+            Simulations are expensive to build. Reserve them for content where the value is "did the learner actually do the task". For background, theory, or "why we do this" content, use other patterns — video, prose, or a <a href="/resources/design-kit/branching-scenarios">scenario</a>.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Conceptual learning where doing isn't the point.</li>
+            <li>Tasks that change frequently — the sim will be out of date in months.</li>
+            <li>Single-step interactions — a screenshot with a callout is cheaper.</li>
+            <li>Software that the learner won't actually use for months — they'll have forgotten.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Working example: spreadsheet sim -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working example</span>
+      <h2 class="display display-md section-title">Try the simulation.</h2>
+      <p class="lede section-subtitle">
+        A simplified spreadsheet interaction. Your task: calculate the total for the column. Click the right cell, then click Sum — the simulation guides you and tells you if you go wrong.
+      </p>
+
+      <div class="example-card sim-card">
+        <!-- Task description -->
+        <div class="sim-task">
+          <span class="meta">Task</span>
+          <p class="sim-task-text" data-sim-task>
+            Calculate the total of column B (cells B2 through B5). <strong>Step 1:</strong> click the empty cell B6 to select it.
+          </p>
+        </div>
+
+        <!-- Fake spreadsheet -->
+        <div class="sim-spreadsheet">
+          <!-- Toolbar -->
+          <div class="sim-toolbar">
+            <button class="sim-tool" type="button" data-sim-tool="sum" disabled>
+              <span aria-hidden="true">Σ</span> Sum
+            </button>
+            <button class="sim-tool" type="button">
+              <span aria-hidden="true">×</span> Cut
+            </button>
+            <button class="sim-tool" type="button">
+              <span aria-hidden="true">¶</span> Format
+            </button>
+            <button class="sim-tool" type="button">
+              <span aria-hidden="true">?</span> Help
+            </button>
+          </div>
+
+          <!-- Grid -->
+          <div class="sim-grid" role="grid" aria-label="Spreadsheet">
+            <div class="sim-cell sim-cell--header"></div>
+            <div class="sim-cell sim-cell--header">A</div>
+            <div class="sim-cell sim-cell--header">B</div>
+            <div class="sim-cell sim-cell--header">C</div>
+
+            <div class="sim-cell sim-cell--header">1</div>
+            <div class="sim-cell sim-cell--locked">Month</div>
+            <div class="sim-cell sim-cell--locked">Revenue</div>
+            <div class="sim-cell sim-cell--locked">Notes</div>
+
+            <div class="sim-cell sim-cell--header">2</div>
+            <div class="sim-cell sim-cell--locked">January</div>
+            <div class="sim-cell sim-cell--locked">12,450</div>
+            <div class="sim-cell sim-cell--locked">—</div>
+
+            <div class="sim-cell sim-cell--header">3</div>
+            <div class="sim-cell sim-cell--locked">February</div>
+            <div class="sim-cell sim-cell--locked">14,200</div>
+            <div class="sim-cell sim-cell--locked">—</div>
+
+            <div class="sim-cell sim-cell--header">4</div>
+            <div class="sim-cell sim-cell--locked">March</div>
+            <div class="sim-cell sim-cell--locked">15,800</div>
+            <div class="sim-cell sim-cell--locked">—</div>
+
+            <div class="sim-cell sim-cell--header">5</div>
+            <div class="sim-cell sim-cell--locked">April</div>
+            <div class="sim-cell sim-cell--locked">11,950</div>
+            <div class="sim-cell sim-cell--locked">—</div>
+
+            <div class="sim-cell sim-cell--header">6</div>
+            <div class="sim-cell sim-cell--locked">Total</div>
+            <button class="sim-cell sim-cell--target" type="button" data-sim-cell="B6" aria-label="Cell B6, empty">
+              <span class="sim-cell-hint" aria-hidden="true">⊕</span>
+            </button>
+            <div class="sim-cell sim-cell--locked">—</div>
+          </div>
+        </div>
+
+        <!-- Feedback -->
+        <div class="sim-feedback" data-sim-feedback hidden></div>
+
+        <button class="pbtn pbtn--secondary sim-reset" type="button" data-sim-reset hidden>Reset simulation</button>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        Real simulations look like the real software, not this simplified version. The principles are the same: lock everything except the next correct action, guide the learner through the steps, and let them recover from mistakes without restarting.
+      </p>
+    </div>
+  </section>
+
+  <!-- Design considerations -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the structure right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">Match the real software visually</h3>
+          <p>The simulation should look as close to the real software as legal/technical constraints allow. The same colours, the same layout, the same labels. Learners who train on a simulation that looks different from production will hesitate when they switch — undermining the whole point.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Limit the surface area</h3>
+          <p>Don't try to simulate the whole application. Build just the part of the screen the task needs. Everything outside that scope should be visible (for realism) but disabled (to keep the path clear). Big simulations are exhausting to build and noisy to learn from.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Guide, don't punish</h3>
+          <p>Show the next correct action visibly — a subtle highlight, a "next click here" arrow, a pulsing dot. Some simulations hide the cue entirely and let learners hunt; that's almost always frustrating. Reveal the cue immediately if the learner clicks the wrong place once.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Accessibility — keyboard and screen reader</h3>
+          <p>Software simulations are some of the hardest interactions to make accessible. Every clickable cell needs to be a button or focusable element with a meaningful <code>aria-label</code>. The "next correct step" should be announced as instructions move. Without this, the simulation excludes screen reader users entirely.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Three modes: Show, Try, Test</h3>
+          <p>Classic simulation pedagogy: first the learner watches the steps (Show), then they do it with prompts (Try), then they do it without prompts (Test). Some simulations skip the Show step; others skip the Test. Pick deliberately based on what the learner needs.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Recoverable mistakes</h3>
+          <p>Letting a wrong click restart the entire simulation is a punishment. Better: show feedback ("That's the format menu — for this task, we want the Sum button"), let the learner try again, and continue. The simulation is meant to train, not test endurance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UX best practice -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to build simulations <span class="mark--lilac">that teach</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">Decide whether a simulation is even the right call.</h3>
+          <p>Simulations are expensive — usually <a href="/resources/design-kit/articulate-storyline">Storyline</a>-level work. Before you commit, ask: would a video walkthrough do the job? A screenshot with hotspots? A printed quick-reference card? Simulations beat all of these when the value is in active practice. If the learner just needs to recognise the screen, a simulation is overkill.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Lock everything but the right next step.</h3>
+          <p>Most software has dozens of clickable elements at any moment. In the simulation, only the next correct action should be live. Everything else should be visible but disabled. This both keeps the learner on track and dramatically reduces the simulation's complexity.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Write task instructions in the learner's voice.</h3>
+          <p>"Click cell B6 to select it." beats "The user navigates to cell B6." Speak directly to the learner, in their language, in present tense. Training videos with narrator voiceovers fall into corporate distance — simulations don't have to.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Handle wrong clicks with context.</h3>
+          <p>If the learner clicks the wrong cell, don't just buzz. Explain what they clicked, why it's not the right next step, and what to try instead. "You clicked cell A6, which is the label. We want B6, the empty cell to its right." Recovery feedback is where simulations earn their value.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Decide whether errors count.</h3>
+          <p>In a Try mode, mistakes are learning moments — log them, but don't grade them. In a Test mode, mistakes might count toward a score. Be explicit with the learner about which mode they're in. Mixing the two creates the "wait, was that for real?" moment that erodes trust.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Keep simulations short.</h3>
+          <p>Five to fifteen steps maximum. A 40-step simulation is exhausting and a maintenance nightmare. If the workflow has more steps, break it into multiple simulations, each focused on one task. Learners can pause between them; one long simulation forces them to do it all in one go.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Plan for the software changing.</h3>
+          <p>If the real software updates next quarter, the simulation might be out of date. Build with that in mind: separate the content (task instructions, feedback) from the visual (screenshots, layout) so updates don't require rebuilding from scratch. Some teams find video easier to update; some find simulation easier. Decide deliberately, not by default.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for a software simulation.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">New ERP or HRIS rollout</h3>
+          <p>The whole company is moving to a new system. Active practice of common workflows — submitting an expense, requesting leave, posting a journal — beats reading the documentation.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Compliance procedures in line-of-business tools</h3>
+          <p>How to enter a high-risk transaction in the trading system. How to flag a safety incident in the reporting tool. Where the procedure matters and the workflow has to be exactly right.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Software training for new hires</h3>
+          <p>Common workflows in the CRM, the support tool, the project management software. Onboarding modules where the simulation replaces a "shadow a colleague" session that's expensive to scale.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Refresher before a high-stakes task</h3>
+          <p>Annual recertification for safety systems. Pre-flight checks for equipment operators. Where the learner does the task rarely but has to do it correctly when they do.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Need a working<br />
+          <span class="accent-blue">software simulation?</span>
+        </h2>
+        <p class="lede cta-text">
+          We build software simulations in Storyline and Rise, depending on the depth. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Simulation state machine: 2 steps
+  // Step 1: click B6 → Step 2: click Sum → done.
+  // Wrong clicks: feedback, recoverable, no restart.
+
+  type Step = 1 | 2 | 'done';
+  let step: Step = 1;
+
+  const taskEl     = document.querySelector<HTMLElement>('[data-sim-task]');
+  const cellB6     = document.querySelector<HTMLButtonElement>('[data-sim-cell="B6"]');
+  const sumBtn     = document.querySelector<HTMLButtonElement>('[data-sim-tool="sum"]');
+  const allTools   = document.querySelectorAll<HTMLButtonElement>('.sim-tool');
+  const feedback   = document.querySelector<HTMLElement>('[data-sim-feedback]');
+  const resetBtn   = document.querySelector<HTMLButtonElement>('[data-sim-reset]');
+
+  function setFeedback(kind: 'help' | 'error' | 'success', html: string) {
+    if (!feedback) return;
+    feedback.hidden = false;
+    feedback.className = `sim-feedback sim-feedback--${kind}`;
+    feedback.innerHTML = html;
+  }
+
+  function clearFeedback() {
+    if (!feedback) return;
+    feedback.hidden = true;
+    feedback.innerHTML = '';
+  }
+
+  // Step 1: B6 click
+  cellB6?.addEventListener('click', () => {
+    if (step !== 1) return;
+    cellB6.classList.add('sim-cell--selected');
+    if (sumBtn) sumBtn.disabled = false;
+    step = 2;
+    if (taskEl) taskEl.innerHTML = 'B6 selected. <strong>Step 2:</strong> click the Sum button (Σ) in the toolbar to add the values above.';
+    setFeedback('help', 'Good. The cell is selected — you can see it highlighted. Now look for the Sum button in the toolbar.');
+  });
+
+  // Sum button click
+  sumBtn?.addEventListener('click', () => {
+    if (step !== 2) return;
+    if (cellB6) {
+      cellB6.innerHTML = '<span class="sim-cell-result">54,400</span>';
+      cellB6.classList.remove('sim-cell--selected');
+      cellB6.classList.add('sim-cell--complete');
+    }
+    step = 'done';
+    if (taskEl) taskEl.innerHTML = '<strong>Done.</strong> The total of column B is 54,400. In a real course this is where the simulation would advance to the next task or scene.';
+    setFeedback('success', 'Excellent. The Sum function added the four values in B2:B5 and put the result in B6. That\'s the workflow.');
+    if (resetBtn) resetBtn.hidden = false;
+  });
+
+  // Wrong clicks on toolbar (other than Sum)
+  allTools.forEach((tool) => {
+    if (tool === sumBtn) return;
+    tool.addEventListener('click', () => {
+      if (step === 1) {
+        setFeedback('error', 'That\'s a toolbar button, but for this task you first need to <strong>select the cell</strong> where the total will go (B6).');
+      } else if (step === 2) {
+        const label = tool.textContent?.trim();
+        setFeedback('error', `That's the <strong>${label}</strong> button — useful, but for this task we want the <strong>Sum</strong> button (Σ).`);
+      }
+    });
+  });
+
+  // Reset
+  resetBtn?.addEventListener('click', () => {
+    step = 1;
+    if (cellB6) {
+      cellB6.innerHTML = '<span class="sim-cell-hint" aria-hidden="true">⊕</span>';
+      cellB6.classList.remove('sim-cell--selected', 'sim-cell--complete');
+    }
+    if (sumBtn) sumBtn.disabled = true;
+    if (taskEl) taskEl.innerHTML = 'Calculate the total of column B (cells B2 through B5). <strong>Step 1:</strong> click the empty cell B6 to select it.';
+    clearFeedback();
+    if (resetBtn) resetBtn.hidden = true;
+  });
+</script>
+
+<style is:global>
+  /* NOTE: is:global is required because the simulation injects
+     <span class="sim-cell-result"> and <span class="sim-cell-hint">
+     via innerHTML in response to user actions. Without is:global, those
+     dynamic elements would lose styling. */
+  .sim-card { max-width: 760px; }
+
+  /* Task description */
+  .sim-task {
+    padding: 16px;
+    background: var(--c-yellow-tint);
+    border-radius: var(--r-md);
+    border-left: 3px solid var(--c-yellow);
+    margin-bottom: 20px;
+  }
+  .sim-task .meta { display: block; margin-bottom: 4px; }
+  .sim-task-text {
+    margin: 0;
+    color: var(--c-ink);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .sim-task-text strong { font-weight: 600; }
+
+  /* Spreadsheet container */
+  .sim-spreadsheet {
+    border: 1px solid rgba(21, 25, 46, 0.18);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    background: var(--c-paper);
+  }
+
+  /* Toolbar */
+  .sim-toolbar {
+    display: flex;
+    gap: 4px;
+    padding: 8px;
+    background: var(--c-paper-deep);
+    border-bottom: 1px solid rgba(21, 25, 46, 0.1);
+  }
+  .sim-tool {
+    padding: 8px 14px;
+    background: var(--c-paper);
+    border: 1px solid rgba(21, 25, 46, 0.1);
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--c-ink);
+    cursor: pointer;
+    transition: background 0.1s ease, border-color 0.1s ease;
+  }
+  .sim-tool:hover:not(:disabled) {
+    background: var(--c-paper-deep);
+    border-color: var(--c-ink);
+  }
+  .sim-tool:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .sim-tool span[aria-hidden] {
+    margin-right: 6px;
+    font-weight: 600;
+  }
+
+  /* Grid */
+  .sim-grid {
+    display: grid;
+    grid-template-columns: 40px repeat(3, 1fr);
+    background: rgba(21, 25, 46, 0.08); /* gap colour */
+    gap: 1px;
+  }
+  .sim-cell {
+    background: var(--c-paper);
+    padding: 10px 12px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--c-ink);
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+  }
+  .sim-cell--header {
+    background: var(--c-paper-deep);
+    color: var(--c-ink-muted);
+    font-size: 11px;
+    font-weight: 600;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+  .sim-cell--locked {
+    color: var(--c-ink);
+  }
+  /* Interactive target cell */
+  .sim-cell--target {
+    background: var(--c-paper);
+    border: 2px dashed var(--c-blue);
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+    justify-content: center;
+    font-family: var(--font-mono);
+  }
+  .sim-cell--target:hover {
+    background: var(--c-blue-light);
+  }
+  .sim-cell--target:focus-visible {
+    outline: 2px solid var(--c-ink);
+    outline-offset: -4px;
+  }
+  .sim-cell-hint {
+    color: var(--c-blue);
+    font-size: 16px;
+  }
+  .sim-cell--selected {
+    background: var(--c-blue-light);
+    border: 2px solid var(--c-blue);
+    border-style: solid;
+  }
+  .sim-cell--complete {
+    background: rgba(34, 139, 34, 0.08);
+    border: 2px solid rgba(34, 139, 34, 0.5);
+    border-style: solid;
+    cursor: default;
+  }
+  .sim-cell-result {
+    color: var(--c-ink);
+    font-weight: 600;
+  }
+
+  /* Feedback */
+  .sim-feedback {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: var(--r-md);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .sim-feedback--help {
+    background: var(--c-paper-deep);
+    color: var(--c-ink);
+    border-left: 3px solid var(--c-blue);
+  }
+  .sim-feedback--error {
+    background: rgba(220, 38, 38, 0.05);
+    color: var(--c-ink);
+    border-left: 3px solid rgba(220, 38, 38, 0.5);
+  }
+  .sim-feedback--success {
+    background: rgba(34, 139, 34, 0.06);
+    color: var(--c-ink);
+    border-left: 3px solid rgba(34, 139, 34, 0.6);
+  }
+  .sim-feedback strong { font-weight: 600; }
+
+  .sim-reset {
+    margin-top: 12px;
+  }
+  /* pbtn styles for reset */
+  .pbtn {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .pbtn--secondary {
+    background: transparent;
+    color: var(--c-ink);
+    border-color: rgba(21, 25, 46, 0.2);
+  }
+  .pbtn--secondary:hover { border-color: var(--c-ink); }
+</style>

@@ -1,0 +1,841 @@
+---
+// src/pages/resources/design-kit/sliders.astro
+import Layout from '../../../components/layout/Layout.astro';
+---
+
+<Layout
+  title="Sliders in eLearning | Design Kit | The eLearning Company"
+  description="When to use sliders in eLearning, when not to, and how to build them well. Includes a working zoom-into-office example."
+>
+  <!-- ============================================================
+       1. Hero — lilac (Components category colour)
+       ============================================================ -->
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Sliders</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Component</span>
+      <h1 class="display display-xl page-title">
+        <span class="accent-blue">Sliders.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Sliders let learners adjust a value along a range. Used well, they're an intuitive way to explore relationships — turn a dial, see what changes. Used badly, they're a fiddly way to enter a number.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. What it's for — paper
+       ============================================================ -->
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Adjusting a value along a range.</h2>
+          <p class="purpose-lede">
+            Sliders work when the relationship between the input and the output is something the learner can see or feel. Move the handle, watch the result change.
+          </p>
+          <ul class="purpose-list">
+            <li>Zooming in or out — into a diagram, a workplace, a process map.</li>
+            <li>Adjusting a setting where the result is immediately visible.</li>
+            <li>Self-rating: how confident are you on a scale of 0 to 10?</li>
+            <li>Exploring "what if" — change one variable, see the others respond.</li>
+            <li>Volume, opacity, speed, intensity — anything continuous.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Anything that needs precision.</h2>
+          <p class="purpose-lede">
+            If the exact value matters, use a number input or a select. Asking someone to slide to "37" on a 0–100 range is needlessly fiddly.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Entering specific numbers (use a number input).</li>
+            <li>Yes/no or on/off choices (use a toggle).</li>
+            <li>Picking from a short list of options (use radio buttons).</li>
+            <li>Anything where the learner can't see what their selection means.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. Interactive example — paper-deep
+       Working zoom-into-office demonstration.
+       ============================================================ -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working example</span>
+      <h2 class="display display-md section-title">Try it.</h2>
+      <p class="lede section-subtitle">
+        A common eLearning pattern: zooming into a workplace to introduce someone to their new environment. Move the slider to zoom in. Notice that the slider isn't really about picking a number — it's about exploring the scene.
+      </p>
+
+      <div class="example-card">
+        <div class="zoom-viewport" aria-hidden="true">
+          <svg
+            class="office-scene"
+            viewBox="0 0 800 500"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice"
+          >
+            <!-- ===== Backdrop ===== -->
+            <!-- Far wall (a hint of depth) -->
+            <rect x="0" y="0" width="800" height="120" fill="#EEE6D4" />
+            <!-- Floor -->
+            <rect x="0" y="120" width="800" height="380" fill="#F1EDE2" />
+            <!-- Floor seam shadow -->
+            <rect x="0" y="120" width="800" height="2" fill="rgba(21,25,46,0.08)" />
+
+            <!-- ===== Wall fixtures ===== -->
+            <!-- Window — daylight through it -->
+            <g>
+              <rect x="60" y="32" width="180" height="68" fill="#BFDBFE" stroke="#15192E" stroke-width="1.5" />
+              <line x1="150" y1="32" x2="150" y2="100" stroke="#15192E" stroke-width="1.5" />
+              <line x1="60" y1="66" x2="240" y2="66" stroke="#15192E" stroke-width="1.5" />
+              <!-- subtle cloud -->
+              <ellipse cx="100" cy="55" rx="20" ry="6" fill="#FAF8F3" opacity="0.7" />
+              <ellipse cx="195" cy="80" rx="14" ry="5" fill="#FAF8F3" opacity="0.6" />
+            </g>
+
+            <!-- Logo / wall art -->
+            <g>
+              <rect x="340" y="40" width="120" height="60" fill="#FAF8F3" stroke="#15192E" stroke-width="1.5" />
+              <text x="400" y="76" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="14" fill="#15192E" letter-spacing="1.5">ACME</text>
+            </g>
+
+            <!-- Wall clock -->
+            <g>
+              <circle cx="600" cy="68" r="22" fill="#FAF8F3" stroke="#15192E" stroke-width="1.5" />
+              <line x1="600" y1="68" x2="600" y2="54" stroke="#15192E" stroke-width="2" stroke-linecap="round" />
+              <line x1="600" y1="68" x2="610" y2="72" stroke="#15192E" stroke-width="2" stroke-linecap="round" />
+              <circle cx="600" cy="68" r="2" fill="#15192E" />
+            </g>
+
+            <!-- Pendant lights hanging from ceiling -->
+            <g stroke="#15192E" stroke-width="1" fill="#F5D547">
+              <line x1="150" y1="0" x2="150" y2="14" stroke-width="1" />
+              <circle cx="150" cy="20" r="6" />
+              <line x1="400" y1="0" x2="400" y2="22" stroke-width="1" />
+              <circle cx="400" cy="28" r="7" />
+              <line x1="650" y1="0" x2="650" y2="14" stroke-width="1" />
+              <circle cx="650" cy="20" r="6" />
+            </g>
+
+            <!-- ===== Reception / front desk ===== -->
+            <g>
+              <!-- Counter -->
+              <rect x="80" y="180" width="200" height="40" fill="#C8B6FF" stroke="#15192E" stroke-width="1.5" />
+              <rect x="80" y="180" width="200" height="8" fill="rgba(21,25,46,0.15)" />
+              <text x="180" y="207" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#15192E" letter-spacing="0.5">RECEPTION</text>
+              <!-- Receptionist behind it -->
+              <g transform="translate(180, 158)">
+                <circle cx="0" cy="0" r="11" fill="#E8C9A0" />
+                <rect x="-9" y="10" width="18" height="14" rx="3" fill="#15192E" />
+                <path d="M -10 -8 Q 0 -16 10 -8" fill="#15192E" />
+              </g>
+              <!-- Visitor signing in -->
+              <g transform="translate(140, 232)">
+                <circle cx="0" cy="0" r="10" fill="#E8C9A0" />
+                <rect x="-8" y="9" width="16" height="20" rx="3" fill="#7EE8DA" />
+                <line x1="-2" y1="14" x2="5" y2="18" stroke="#15192E" stroke-width="1.5" stroke-linecap="round" />
+              </g>
+            </g>
+
+            <!-- ===== Plants by reception ===== -->
+            <g>
+              <!-- pot -->
+              <path d="M 38 218 L 42 250 L 70 250 L 74 218 Z" fill="#15192E" />
+              <!-- leaves -->
+              <ellipse cx="42" cy="208" rx="9" ry="18" fill="#0F4C5C" transform="rotate(-20 42 208)" />
+              <ellipse cx="56" cy="198" rx="10" ry="22" fill="#0F4C5C" />
+              <ellipse cx="70" cy="208" rx="9" ry="18" fill="#0F4C5C" transform="rotate(20 70 208)" />
+            </g>
+
+            <!-- ===== Open work area — middle-left desks ===== -->
+            <!-- Desk 1 with worker -->
+            <g>
+              <!-- desk surface with side -->
+              <path d="M 320 230 L 320 260 L 410 260 L 410 230 Z" fill="#FAF8F3" stroke="#15192E" stroke-width="1.5" />
+              <path d="M 320 260 L 320 268 L 410 268 L 410 260 Z" fill="#D4CFC2" stroke="#15192E" stroke-width="1.5" />
+              <!-- monitor -->
+              <rect x="345" y="208" width="40" height="24" rx="2" fill="#15192E" />
+              <rect x="350" y="212" width="30" height="16" fill="#7EE8DA" />
+              <rect x="360" y="232" width="10" height="3" fill="#15192E" />
+              <!-- person -->
+              <g transform="translate(365, 195)">
+                <circle cx="0" cy="0" r="9" fill="#C68B58" />
+                <rect x="-7" y="8" width="14" height="22" rx="2" fill="#F5D547" />
+              </g>
+              <!-- chair -->
+              <rect x="358" y="270" width="14" height="14" rx="2" fill="#15192E" />
+              <line x1="365" y1="284" x2="365" y2="296" stroke="#15192E" stroke-width="1.5" />
+            </g>
+
+            <!-- Desk 2 with worker -->
+            <g>
+              <path d="M 440 230 L 440 260 L 530 260 L 530 230 Z" fill="#FAF8F3" stroke="#15192E" stroke-width="1.5" />
+              <path d="M 440 260 L 440 268 L 530 268 L 530 260 Z" fill="#D4CFC2" stroke="#15192E" stroke-width="1.5" />
+              <rect x="465" y="208" width="40" height="24" rx="2" fill="#15192E" />
+              <rect x="470" y="212" width="30" height="16" fill="#C8B6FF" />
+              <rect x="480" y="232" width="10" height="3" fill="#15192E" />
+              <!-- person (different) -->
+              <g transform="translate(485, 195)">
+                <circle cx="0" cy="0" r="9" fill="#E8C9A0" />
+                <rect x="-7" y="8" width="14" height="22" rx="2" fill="#15192E" />
+                <!-- coffee cup -->
+                <rect x="-2" y="14" width="4" height="4" fill="#FAF8F3" />
+              </g>
+              <rect x="478" y="270" width="14" height="14" rx="2" fill="#15192E" />
+              <line x1="485" y1="284" x2="485" y2="296" stroke="#15192E" stroke-width="1.5" />
+            </g>
+
+            <!-- Desk 3 — empty -->
+            <g>
+              <path d="M 560 230 L 560 260 L 650 260 L 650 230 Z" fill="#FAF8F3" stroke="#15192E" stroke-width="1.5" />
+              <path d="M 560 260 L 560 268 L 650 268 L 650 260 Z" fill="#D4CFC2" stroke="#15192E" stroke-width="1.5" />
+              <rect x="585" y="208" width="40" height="24" rx="2" fill="#15192E" />
+              <rect x="590" y="212" width="30" height="16" fill="#15192E" />
+              <rect x="600" y="232" width="10" height="3" fill="#15192E" />
+              <rect x="598" y="270" width="14" height="14" rx="2" fill="#15192E" />
+              <line x1="605" y1="284" x2="605" y2="296" stroke="#15192E" stroke-width="1.5" />
+            </g>
+
+            <!-- ===== Meeting room (right back) ===== -->
+            <g>
+              <!-- Room outline -->
+              <rect x="540" y="135" width="220" height="90" fill="#FAF8F3" stroke="#15192E" stroke-width="1.5" />
+              <text x="650" y="155" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#15192E" letter-spacing="0.5">MEETING ROOM</text>
+              <!-- Door gap -->
+              <rect x="540" y="195" width="3" height="30" fill="#F1EDE2" />
+              <!-- Table -->
+              <ellipse cx="650" cy="190" rx="60" ry="12" fill="#15192E" />
+              <!-- 5 chair-people around the table -->
+              <g>
+                <circle cx="600" cy="178" r="6" fill="#C68B58" />
+                <circle cx="625" cy="172" r="6" fill="#E8C9A0" />
+                <circle cx="650" cy="170" r="6" fill="#C68B58" />
+                <circle cx="675" cy="172" r="6" fill="#E8C9A0" />
+                <circle cx="700" cy="178" r="6" fill="#C68B58" />
+                <circle cx="650" cy="205" r="6" fill="#E8C9A0" />
+              </g>
+            </g>
+
+            <!-- ===== Break room (bottom-left) ===== -->
+            <g>
+              <rect x="60" y="320" width="240" height="130" fill="#FAF8F3" stroke="#15192E" stroke-width="1.5" />
+              <text x="180" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#15192E" letter-spacing="0.5">BREAK ROOM</text>
+
+              <!-- Counter with appliances -->
+              <rect x="78" y="350" width="100" height="30" fill="#D4CFC2" stroke="#15192E" stroke-width="1" />
+              <!-- coffee machine -->
+              <rect x="86" y="338" width="18" height="12" fill="#15192E" />
+              <circle cx="95" cy="344" r="2" fill="#F5D547" />
+              <!-- kettle -->
+              <ellipse cx="120" cy="346" rx="7" ry="5" fill="#7EE8DA" stroke="#15192E" stroke-width="1" />
+              <rect x="119" y="334" width="2" height="6" fill="#15192E" />
+              <!-- bowl of fruit -->
+              <ellipse cx="150" cy="354" rx="14" ry="4" fill="#15192E" />
+              <circle cx="143" cy="350" r="3" fill="#F5D547" />
+              <circle cx="150" cy="349" r="3" fill="#F5D547" />
+              <circle cx="157" cy="350" r="3" fill="#7EE8DA" />
+
+              <!-- Round table with chairs -->
+              <ellipse cx="240" cy="400" rx="38" ry="12" fill="#C8B6FF" stroke="#15192E" stroke-width="1.5" />
+              <!-- two people having coffee -->
+              <g transform="translate(218, 388)">
+                <circle cx="0" cy="0" r="7" fill="#E8C9A0" />
+                <rect x="-5" y="6" width="10" height="14" rx="2" fill="#0F4C5C" />
+              </g>
+              <g transform="translate(262, 388)">
+                <circle cx="0" cy="0" r="7" fill="#C68B58" />
+                <rect x="-5" y="6" width="10" height="14" rx="2" fill="#F5D547" />
+              </g>
+              <!-- coffee cups on table -->
+              <rect x="226" y="397" width="5" height="4" fill="#FAF8F3" stroke="#15192E" stroke-width="0.5" />
+              <rect x="250" y="397" width="5" height="4" fill="#FAF8F3" stroke="#15192E" stroke-width="0.5" />
+            </g>
+
+            <!-- ===== Corridor & figures walking through ===== -->
+            <!-- A person walking -->
+            <g transform="translate(380, 380)">
+              <circle cx="0" cy="0" r="10" fill="#E8C9A0" />
+              <rect x="-7" y="9" width="14" height="22" rx="3" fill="#C8B6FF" />
+              <!-- legs walking -->
+              <line x1="-4" y1="31" x2="-7" y2="44" stroke="#15192E" stroke-width="3" stroke-linecap="round" />
+              <line x1="4" y1="31" x2="9" y2="42" stroke="#15192E" stroke-width="3" stroke-linecap="round" />
+              <!-- arm with bag -->
+              <line x1="-7" y1="14" x2="-13" y2="26" stroke="#15192E" stroke-width="2" stroke-linecap="round" />
+              <rect x="-19" y="26" width="11" height="9" rx="1" fill="#15192E" />
+            </g>
+
+            <!-- A second person standing chatting -->
+            <g transform="translate(440, 385)">
+              <circle cx="0" cy="0" r="10" fill="#C68B58" />
+              <rect x="-7" y="9" width="14" height="22" rx="3" fill="#7EE8DA" />
+              <line x1="-4" y1="31" x2="-4" y2="44" stroke="#15192E" stroke-width="3" stroke-linecap="round" />
+              <line x1="4" y1="31" x2="4" y2="44" stroke="#15192E" stroke-width="3" stroke-linecap="round" />
+            </g>
+
+            <!-- ===== Bottom-right: collaboration / workshop area ===== -->
+            <g>
+              <!-- Whiteboard on stand -->
+              <rect x="500" y="320" width="80" height="50" fill="#FAF8F3" stroke="#15192E" stroke-width="1.5" />
+              <!-- scribbles on whiteboard -->
+              <line x1="510" y1="335" x2="540" y2="335" stroke="#1E3A8A" stroke-width="1.5" />
+              <line x1="510" y1="345" x2="565" y2="345" stroke="#1E3A8A" stroke-width="1.5" />
+              <line x1="510" y1="355" x2="535" y2="355" stroke="#1E3A8A" stroke-width="1.5" />
+              <rect x="515" y="362" width="50" height="4" fill="#F5D547" />
+              <!-- stand legs -->
+              <line x1="515" y1="370" x2="510" y2="395" stroke="#15192E" stroke-width="2" />
+              <line x1="565" y1="370" x2="570" y2="395" stroke="#15192E" stroke-width="2" />
+
+              <!-- Person presenting -->
+              <g transform="translate(620, 360)">
+                <circle cx="0" cy="0" r="10" fill="#E8C9A0" />
+                <rect x="-7" y="9" width="14" height="22" rx="3" fill="#15192E" />
+                <line x1="-4" y1="31" x2="-6" y2="44" stroke="#15192E" stroke-width="3" stroke-linecap="round" />
+                <line x1="4" y1="31" x2="6" y2="44" stroke="#15192E" stroke-width="3" stroke-linecap="round" />
+                <!-- arm pointing -->
+                <line x1="-7" y1="14" x2="-18" y2="6" stroke="#15192E" stroke-width="2" stroke-linecap="round" />
+              </g>
+
+              <!-- Seated team of two on cushions -->
+              <g transform="translate(680, 400)">
+                <ellipse cx="0" cy="0" rx="14" ry="6" fill="#C8B6FF" />
+                <circle cx="0" cy="-8" r="7" fill="#C68B58" />
+              </g>
+              <g transform="translate(715, 400)">
+                <ellipse cx="0" cy="0" rx="14" ry="6" fill="#7EE8DA" />
+                <circle cx="0" cy="-8" r="7" fill="#E8C9A0" />
+              </g>
+            </g>
+
+            <!-- ===== Plants scattered ===== -->
+            <!-- Plant near meeting room -->
+            <g transform="translate(500, 250)">
+              <path d="M -5 0 L -3 22 L 9 22 L 11 0 Z" fill="#15192E" />
+              <ellipse cx="-2" cy="-8" rx="6" ry="14" fill="#0F4C5C" transform="rotate(-15 -2 -8)" />
+              <ellipse cx="8" cy="-8" rx="6" ry="14" fill="#0F4C5C" transform="rotate(15 8 -8)" />
+              <ellipse cx="3" cy="-14" rx="6" ry="15" fill="#0F4C5C" />
+            </g>
+            <!-- Plant bottom-right corner -->
+            <g transform="translate(760, 350)">
+              <path d="M -8 0 L -5 28 L 12 28 L 15 0 Z" fill="#15192E" />
+              <ellipse cx="-4" cy="-10" rx="7" ry="16" fill="#0F4C5C" transform="rotate(-20 -4 -10)" />
+              <ellipse cx="12" cy="-10" rx="7" ry="16" fill="#0F4C5C" transform="rotate(20 12 -10)" />
+              <ellipse cx="4" cy="-18" rx="7" ry="18" fill="#0F4C5C" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="zoom-controls">
+          <label for="zoom-slider" class="zoom-label">
+            <span>Zoom level</span>
+            <span class="zoom-value" data-zoom-value>0%</span>
+          </label>
+
+          <input
+            type="range"
+            id="zoom-slider"
+            class="zoom-slider"
+            min="0"
+            max="100"
+            value="0"
+            step="1"
+            aria-label="Zoom into the office"
+          />
+
+          <div class="zoom-stops" aria-hidden="true">
+            <span>Whole office</span>
+            <span>Work area</span>
+            <span>A desk</span>
+          </div>
+        </div>
+
+        <p class="zoom-caption" data-zoom-caption>
+          You're looking at the whole office floor.
+        </p>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        The slider here uses a native HTML <code>&lt;input type="range"&gt;</code>. It's fully keyboard accessible — focus and use the arrow keys.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. Design considerations — paper
+       ============================================================ -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the visuals right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">Always show the current value</h3>
+          <p>A slider on its own tells the learner nothing about what they've selected. Display the current value next to or above the slider — and update it as they drag. If the slider drives a visual change (like zoom), that's the value display.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Visible handle, large enough to grab</h3>
+          <p>The drag handle (or thumb) should be at least 22px on the longest axis. Smaller handles are frustrating on touchscreens and impossible for users with motor difficulties. The track itself can be thin, but the handle has to be substantial.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Label the endpoints</h3>
+          <p>"0 to 100" usually isn't enough. "Not at all" to "Completely" is better. "Whole office" to "A single desk" is better still. The learner needs to know what each end of the slider <em>means</em>.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Accessibility &mdash; semantics</h3>
+          <p>Use <code>&lt;input type="range"&gt;</code>. Native range inputs are keyboard-operable out of the box (left/right arrows, page up/down, home/end), screen reader–announceable, and properly support <code>min</code>, <code>max</code>, and <code>step</code>. Custom-built sliders almost always get accessibility wrong.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility &mdash; alternative input</h3>
+          <p>If precision matters and a slider is the only way to enter a value, you're excluding users who can't drag. Pair the slider with a number input (or a set of preset buttons) for the same value. The slider becomes the friendly default; the number input is the fallback.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Steps and snapping</h3>
+          <p>If only certain values are meaningful (1, 2, 3, 4, 5), set the <code>step</code> attribute so the slider snaps. Otherwise the learner might sit between values and not know what's "selected." For a continuous range (zoom, opacity), step="1" or smaller is fine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. UX best practice — navy
+       ============================================================ -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to use sliders <span class="mark--lilac">that work</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">The output has to be visible.</h3>
+          <p>Sliders work when learners can see the effect of their input — the office zooms, the diagram scales, the line on the graph moves. If the output is hidden or abstract ("you scored 73"), a number input is clearer. The slider's whole superpower is that it's tactile.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Start at a meaningful position.</h3>
+          <p>If the slider starts at 0 (or the leftmost position), the learner sees a default. Choose that default deliberately. For an office zoom, "whole office" (0%) is the right default — that's the orientation view. For a self-rating, "neither agree nor disagree" (the middle) is usually the right starting position.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Give learners reasons to move it.</h3>
+          <p>A slider sitting on the page is just a slider. The learner moves it when the experience invites them: a prompt, a question, a visible change worth exploring. "Move the slider to discover the different parts of the office" is a clearer invitation than just sticking a slider on the screen.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Don't make a slider do two jobs at once.</h3>
+          <p>If one slider controls zoom <em>and</em> changes the labelled content <em>and</em> reveals new hotspots, learners get confused about what their input is actually doing. Pick one thing the slider controls. Use additional UI for the rest.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Be careful with reverse sliders.</h3>
+          <p>A slider where "less" is on the right and "more" is on the left feels wrong to most learners. Western reading order maps left-to-right onto a sense of "low to high." Buck this convention only when there's a real reason (a thermometer-style temperature scale, perhaps), and label both ends explicitly.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Sliders for Likert scales: usually no.</h3>
+          <p>A 1–5 rating scale is almost always clearer as radio buttons. The slider feels modern but adds drag friction and ambiguity about whether 2.7 is a valid answer. If you must use a slider for a Likert scale, snap it to integer steps and show the current label.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Touch first.</h3>
+          <p>A lot of corporate eLearning is consumed on phones during a commute or between meetings. A slider that's barely operable on touch (small handle, thin track) breaks the experience. Test on a phone before signing it off.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. Scenarios — paper
+       ============================================================ -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for a slider.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Zoom-and-explore office induction</h3>
+          <p>New starter induction: zoom from the whole floor to individual desks to meet the team. The slider replaces a click-through map with something more spatial.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Self-rating confidence checks</h3>
+          <p>"How confident do you feel about this topic, on a scale of 0 to 10?" Sliders work here when you want a continuous answer, not a category — and when the rating drives downstream content.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">"What if" simulations</h3>
+          <p>Adjust the inventory level, then see how customer satisfaction responds. The slider turns the input into an exploration. Works best in product, sales, or operations training.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Before/after image reveals</h3>
+          <p>A common pattern in compliance training: slide between "before" and "after" images of a workspace setup, a customer interaction, or a hazard. The slider acts as a curtain rather than a value selector.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. Final CTA — lilac
+       ============================================================ -->
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course<br />
+          <span class="accent-blue">built well?</span>
+        </h2>
+        <p class="lede cta-text">
+          We apply these principles on every course we build. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Zoom-into-office interactive demo.
+  // As the slider moves, scale the SVG and update the caption.
+  // Three caption "stops" reflect what the learner is looking at.
+  const slider = document.getElementById('zoom-slider') as HTMLInputElement | null;
+  const scene = document.querySelector<SVGSVGElement>('.office-scene');
+  const valueEl = document.querySelector<HTMLElement>('[data-zoom-value]');
+  const captionEl = document.querySelector<HTMLElement>('[data-zoom-caption]');
+
+  if (slider && scene && valueEl && captionEl) {
+    const captions = [
+      { from: 0,  to: 20,  text: "You're looking at the whole office floor — reception, desks, the meeting room, and the break room." },
+      { from: 20, to: 50,  text: "Zooming in. You can see the open work area where the team sits, with the meeting room behind." },
+      { from: 50, to: 80,  text: "Closer now. You can see people at their desks — and the meeting in progress nearby." },
+      { from: 80, to: 101, text: "Right up close. This is where you'd find your desk on day one." },
+    ];
+
+    const update = () => {
+      const v = Number(slider.value);
+      // Map slider 0-100 to scale 1.0 -> 5.0
+      const scale = 1 + (v / 100) * 4;
+      scene.style.transform = `scale(${scale})`;
+      valueEl.textContent = `${v}%`;
+      const caption = captions.find((c) => v >= c.from && v < c.to);
+      if (caption) captionEl.textContent = caption.text;
+    };
+
+    slider.addEventListener('input', update);
+    update();
+  }
+</script>
+
+<style>
+  /* ============================================================
+     Page-specific styles only.
+     ============================================================ */
+
+  /* ---- Hero ---- */
+  .component-hero {
+    padding-top: clamp(56px, 7vw, 80px);
+    padding-bottom: clamp(80px, 10vw, 120px);
+  }
+  .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-ink);
+    opacity: 0.7;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+  .breadcrumb a { color: var(--c-ink); text-decoration: none; transition: opacity 0.15s ease; }
+  .breadcrumb a:hover { opacity: 0.5; }
+  .breadcrumb-sep { opacity: 0.5; }
+  .breadcrumb-current { opacity: 0.6; }
+  .hero-pill { margin-bottom: 24px; }
+  .page-title { margin-bottom: 32px; max-width: 800px; }
+  .page-subtitle { max-width: 720px; }
+
+  /* ---- 2. Purpose ---- */
+  .purpose-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
+  }
+  .purpose-col .section-kicker { margin-bottom: 12px; }
+  .purpose-col .section-title { margin-bottom: 24px; font-size: clamp(24px, 2.6vw, 32px); }
+  .purpose-lede {
+    color: var(--c-ink-soft);
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .purpose-list { list-style: none; padding: 0; margin: 0; }
+  .purpose-list li {
+    padding: 10px 0 10px 26px;
+    position: relative;
+    color: var(--c-ink);
+    font-size: 16px;
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+  }
+  .purpose-list li:last-child { border-bottom: none; }
+  .purpose-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: var(--c-ink-muted);
+    font-family: var(--font-mono);
+  }
+  .purpose-list--neg li::before {
+    content: "×";
+    color: var(--c-ink);
+    opacity: 0.6;
+    font-weight: 600;
+  }
+
+  /* ---- 3. Interactive zoom example ---- */
+  .example-section .section-title { margin-bottom: 16px; }
+  .example-section .section-subtitle { margin-bottom: 48px; max-width: 720px; }
+
+  .example-card {
+    background: var(--c-paper);
+    border: 1px solid rgba(21, 25, 46, 0.1);
+    border-radius: var(--r-lg);
+    padding: clamp(20px, 3vw, 32px);
+    max-width: 880px;
+  }
+
+  /* The viewport clips the SVG as it scales beyond its container */
+  .zoom-viewport {
+    aspect-ratio: 8 / 5;
+    overflow: hidden;
+    border-radius: var(--r-md);
+    background: var(--c-paper-deep);
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .office-scene {
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 35%;
+    transition: transform 0.1s linear;
+  }
+
+  /* Slider controls */
+  .zoom-controls { margin-bottom: 16px; }
+  .zoom-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+  }
+  .zoom-label > span:first-child {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--c-ink-muted);
+  }
+  .zoom-value {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--c-ink);
+    font-weight: 500;
+  }
+
+  /* Native range styled — track + thumb. Cross-browser. */
+  .zoom-slider {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 24px; /* hit area */
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+  }
+  /* Track */
+  .zoom-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    background: rgba(21, 25, 46, 0.15);
+    border-radius: 2px;
+  }
+  .zoom-slider::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    background: rgba(21, 25, 46, 0.15);
+    border-radius: 2px;
+    border: none;
+  }
+  /* Thumb */
+  .zoom-slider::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    background: var(--c-ink);
+    border-radius: 50%;
+    margin-top: -9px;
+    border: 3px solid var(--c-paper);
+    box-shadow: 0 1px 3px rgba(21, 25, 46, 0.2);
+    cursor: grab;
+  }
+  .zoom-slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    background: var(--c-ink);
+    border-radius: 50%;
+    border: 3px solid var(--c-paper);
+    box-shadow: 0 1px 3px rgba(21, 25, 46, 0.2);
+    cursor: grab;
+  }
+  .zoom-slider:active::-webkit-slider-thumb { cursor: grabbing; }
+  .zoom-slider:active::-moz-range-thumb { cursor: grabbing; }
+  .zoom-slider:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 0 0 4px var(--c-lilac), 0 1px 3px rgba(21, 25, 46, 0.2);
+  }
+  .zoom-slider:focus-visible::-moz-range-thumb {
+    box-shadow: 0 0 0 4px var(--c-lilac), 0 1px 3px rgba(21, 25, 46, 0.2);
+  }
+
+  /* Labelled endpoints + midpoint */
+  .zoom-stops {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--c-ink-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* Caption updates as slider moves */
+  .zoom-caption {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: var(--c-paper-deep);
+    border-radius: var(--r-md);
+    color: var(--c-ink);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .example-note {
+    margin-top: 24px;
+    color: var(--c-ink-soft);
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 720px;
+  }
+  .example-note .meta { color: var(--c-ink-muted); margin-right: 4px; }
+  .example-note code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: var(--c-paper-deep);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--c-ink);
+  }
+
+  /* ---- 4. Design considerations ---- */
+  .design-section .section-title { margin-bottom: 56px; }
+  .design-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 40px;
+  }
+  .design-num { display: block; color: var(--c-ink-muted); margin-bottom: 12px; }
+  .design-item h3 { margin-bottom: 8px; }
+  .design-item p { color: var(--c-ink-soft); line-height: 1.65; font-size: 15px; }
+  .design-item code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: var(--c-paper-deep);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--c-ink);
+  }
+
+  /* ---- 5. UX best practice ---- */
+  .ux-section .section-title { margin-bottom: 56px; max-width: 900px; }
+  .ux-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 880px;
+  }
+  .ux-item {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(250, 248, 243, 0.12);
+  }
+  .ux-item:first-child { padding-top: 0; }
+  .ux-item:last-child { border-bottom: none; }
+  .ux-item h3 { margin-bottom: 10px; color: var(--c-paper); }
+  .ux-item p {
+    color: rgba(250, 248, 243, 0.78);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  .ux-item p strong { color: var(--c-paper); font-weight: 600; }
+  .ux-item p em { font-style: italic; }
+
+  /* ---- 6. Scenarios ---- */
+  .scenarios-section .section-title { margin-bottom: 56px; }
+  .scenarios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 40px;
+  }
+  .scenario-num { display: block; color: var(--c-ink-muted); margin-bottom: 12px; }
+  .scenario-card h3 { margin-bottom: 8px; }
+  .scenario-card p { color: var(--c-ink-soft); line-height: 1.65; font-size: 15px; }
+
+  /* ---- 7. Final CTA ---- */
+  .cta-content { max-width: 800px; }
+  .cta-title { margin-bottom: 24px; }
+  .cta-text { margin-bottom: 40px; max-width: 580px; }
+  .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 900px) {
+    .purpose-grid,
+    .design-grid,
+    .scenarios-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .cta-buttons .btn { width: 100%; }
+    .zoom-stops { font-size: 10px; }
+  }
+</style>

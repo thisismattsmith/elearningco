@@ -1,0 +1,187 @@
+---
+// src/pages/resources/design-kit/designing-for-accessibility.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+import '../../../styles/design-kit-essay.css';
+---
+
+<Layout
+  title="Designing for accessibility (practical) | Design Kit | The eLearning Company"
+  description="Practical accessibility for eLearning. Not WCAG theory — the specific decisions, in courses, that mean every learner can complete what you built."
+>
+  <section class="section section--turquoise component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Designing for accessibility</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Design advice</span>
+      <h1 class="display display-xl page-title">
+        Designing for<br />
+        <span class="accent-blue">accessibility.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Most accessibility guides are written about websites. eLearning courses have different problems — interactive activities, keyboard traps inside drag-and-drop, screen reader compatibility inside Articulate. This guide is practical, eLearning-specific, and assumes you don't want to read all 78 success criteria of WCAG 2.1.
+      </p>
+    </div>
+  </section>
+
+  <article class="section section--paper essay-section">
+    <div class="container">
+
+      <span class="section-kicker">Part one</span>
+      <h2 class="display display-md essay-title">Accessibility is not optional, and not a bolt-on.</h2>
+
+      <p class="essay-intro">
+        Two reasons. First, in most jurisdictions — including Australia under the Disability Discrimination Act — accessibility is a legal requirement for workplace training. Second, even if it weren't required, designing accessibly produces better courses for everyone. The keyboard navigation that helps a screen reader user also helps anyone using the course on a train without a mouse. Captions that serve deaf learners also serve people watching in a quiet office. Accessibility is a constraint that improves design.
+      </p>
+
+      <h3 class="essay-section-heading">The cost of bolting it on at the end is enormous.</h3>
+      <p>
+        Accessibility built into a course from day one adds maybe 10% to the build cost. Retrofitting accessibility into a finished course can double the build cost — re-recording voiceover for captions, re-coding interactions for keyboard support, rewriting alt-text against finalised images. The cheapest path is to design accessibly from the first wireframe. The second-cheapest is to never ship the course.
+      </p>
+
+      <h3 class="essay-section-heading">WCAG 2.1 AA is the working standard.</h3>
+      <p>
+        WCAG (Web Content Accessibility Guidelines) is the international standard. The three levels are A, AA, and AAA — most contracts and procurement specs target AA, which is achievable without compromising design. AAA is partial-only for most courses; aiming for it everywhere is impractical. WCAG 2.2 was published in 2023 and adds a small number of new criteria — worth being aware of, but if you're meeting 2.1 AA you're meeting roughly 95% of 2.2.
+      </p>
+
+      <h3 class="essay-section-heading">The four pillars, in plain terms.</h3>
+      <p>
+        WCAG groups requirements under four principles: <strong>Perceivable</strong> (content the learner can see or hear), <strong>Operable</strong> (controls the learner can use), <strong>Understandable</strong> (content the learner can follow), and <strong>Robust</strong> (content that works with assistive technology). When you're auditing a course, those four are the questions to ask: can they perceive it, operate it, understand it, and will their tools handle it?
+      </p>
+
+      <hr class="essay-divider" />
+
+      <span class="section-kicker">Part two</span>
+      <h2 class="display display-md essay-title">The specific eLearning failures and how to avoid them.</h2>
+
+      <p class="essay-intro">
+        Most eLearning accessibility issues fall into a small number of patterns. Fix these and you'll be ahead of 80% of courses on the market.
+      </p>
+
+      <h3 class="essay-section-heading">Keyboard navigation must work everywhere.</h3>
+      <p>
+        Every interactive element — buttons, links, <a href="/resources/design-kit/quizzes">quiz options</a>, <a href="/resources/design-kit/drag-and-drop">drag-and-drop</a> items, <a href="/resources/design-kit/hotspots">hotspots</a> — must be reachable by Tab and operable by Enter or Space. The most common failure: custom-built drag-and-drop activities that only respond to mouse. The fix: build interactions on real HTML inputs (or, in Storyline, ensure the keyboard-accessible state for each interactive layer is enabled). Test by unplugging your mouse and trying to complete the entire course with the keyboard. If you can't, neither can a screen reader user.
+      </p>
+
+      <h3 class="essay-section-heading">Focus order has to make sense.</h3>
+      <p>
+        When the learner presses Tab, focus should move through the page in reading order — top to bottom, left to right. The most common failure: a decorative element gets focus before the main content because of how it's stacked on the slide. In Storyline this is controlled via the focus order panel; in Rise it's mostly handled for you but breaks when you nest interactive elements. The test: Tab through the entire slide and check that focus lands in an order a sighted user would expect.
+      </p>
+
+      <h3 class="essay-section-heading">Every image needs alt text — or to be marked decorative.</h3>
+      <p>
+        Screen readers read every image they encounter. If the image is meaningful (a diagram, a screenshot, a chart), it needs alt text that describes what the image conveys, not what the image is. "Bar chart showing Q3 sales up 18%" beats "Bar chart of sales data." If the image is purely decorative (a stock photo for visual interest, an icon next to a text label), mark it as decorative — the screen reader will then skip it entirely, which is better than reading "image" or describing it pointlessly.
+      </p>
+
+      <h3 class="essay-section-heading">Captions for every video, transcripts for every audio.</h3>
+      <p>
+        Captions are required for video content (Success Criterion 1.2.2). Transcripts are required for audio-only content (1.2.1). Auto-generated captions are a starting point, not a finish line — they routinely mishear names, technical terms, and quiet speech. Budget for human review and correction. For voiceover-only narration, ensure a text transcript is available somewhere learners can find it; the on-screen text should not be the verbatim narration (that's a 1.2.1 fail and also tedious).
+      </p>
+
+      <h3 class="essay-section-heading">Don't carry meaning in colour alone.</h3>
+      <p>
+        Roughly 8% of men and 0.5% of women have some form of colour-blindness. A red "incorrect" and green "correct" pill conveys nothing to many of them. Always pair colour with a second cue: an icon (✗ / ✓), a word, a position, a shape change. Test by viewing the course in greyscale — if anything becomes ambiguous, the colour was doing too much work alone. See the <a href="/resources/design-kit/colour-theory-intro">colour theory</a> guide for more.
+      </p>
+
+      <h3 class="essay-section-heading">Contrast ratios — the actual numbers.</h3>
+      <p>
+        Body text against its background needs a contrast ratio of at least 4.5:1. Large text (18pt+ or 14pt+ bold) drops to 3:1. UI components and meaningful graphical content need 3:1. Free tools (WebAIM contrast checker, Stark, the browser's built-in inspectors) make this instant. Test every text-on-background combination before signing off — pale-grey-on-white body text is the single most common accessibility audit failure.
+      </p>
+
+      <h3 class="essay-section-heading">Timing should be controllable.</h3>
+      <p>
+        If your course auto-advances a slide after 30 seconds, or has a timed quiz, that's a problem for anyone who reads slowly — including dyslexic learners, learners using a screen reader, or anyone reading in their second language. Either remove timing constraints (almost always the right call) or provide clear ways to extend them. Forced auto-play is a related issue: any audio or video that starts without the learner triggering it fails WCAG and most learners' patience.
+      </p>
+
+      <h3 class="essay-section-heading">No flashing, no rapid motion.</h3>
+      <p>
+        Content that flashes more than three times per second can trigger seizures in people with photosensitive epilepsy. This is rarely a problem in eLearning unless someone has made an attention-grabbing animation. Still: test any animation against the rule, and avoid rapid blink/flash effects entirely. Also: respect the operating system's "reduce motion" setting — animations should be subtler or disabled when the user has indicated they prefer less motion.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <span class="section-kicker">Part three</span>
+      <h2 class="display display-md essay-title">Tool-specific notes.</h2>
+
+      <p class="essay-intro">
+        Different authoring tools handle accessibility differently. Quick guidance for the ones we work in.
+      </p>
+
+      <h3 class="essay-section-heading">Articulate Rise</h3>
+      <p>
+        Rise handles most of the accessibility heavy lifting automatically — proper heading hierarchy, keyboard navigation, screen reader compatibility on standard blocks. The traps are: custom embeds (which may not be accessible), the older "labelled graphic" block (older variants weren't keyboard-accessible — Rise has improved this), and any reliance on colour to communicate state. Stick to standard blocks, add alt text on every image, and you're 90% there. See the <a href="/resources/design-kit/articulate-rise">Articulate Rise</a> guide for more.
+      </p>
+
+      <h3 class="essay-section-heading">Articulate Storyline</h3>
+      <p>
+        Storyline gives you full control, which means you can break accessibility easily. The pitfalls: custom interactive layers that don't appear in the focus order, slides with too many overlapping objects (focus order becomes chaotic), and audio without captions. Storyline's focus-order panel is the single most important accessibility tool — review it for every slide. Storyline 360 supports closed captions natively for video.
+      </p>
+
+      <h3 class="essay-section-heading">Chameleon Creator, Mindsmith, Parta, HowToo</h3>
+      <p>
+        Each handles accessibility differently. <a href="/resources/design-kit/howtoo">HowToo</a> markets accessibility as a core feature and largely delivers; Chameleon and Parta have improved over time; Mindsmith is newer and varies. Whichever tool you use, the test is the same: keyboard navigation, screen reader compatibility, colour contrast, captions. Tool features don't substitute for testing the output.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <span class="section-kicker">Part four</span>
+      <h2 class="display display-md essay-title">A practical audit checklist.</h2>
+
+      <p class="essay-intro">
+        Before signing off any course, run through this list. It catches the common failures without demanding you read WCAG end to end.
+      </p>
+
+      <ul>
+        <li><strong>Tab through every slide.</strong> Does focus reach every interactive element? In a sensible order?</li>
+        <li><strong>Complete the course with the keyboard only.</strong> Quizzes, drag-and-drop, hotspots — all of it. Where does it fail?</li>
+        <li><strong>Run the course with a screen reader on.</strong> macOS has VoiceOver built in; Windows has Narrator; NVDA is free. The first time is painful but tells you everything.</li>
+        <li><strong>Check every text-background combination.</strong> Pop the colour pair into WebAIM's contrast checker. Does it pass AA?</li>
+        <li><strong>View the course in greyscale.</strong> Browser dev tools can do this. Does any meaning depend on colour alone?</li>
+        <li><strong>Captions on every video.</strong> Reviewed and corrected, not just auto-generated.</li>
+        <li><strong>Alt text on every image.</strong> Or marked as decorative. No defaults like "image" or "graphic".</li>
+        <li><strong>Test on real assistive tech if you can.</strong> If a known user of assistive tools can review the course, do it. The gap between "passes the checker" and "actually works" is real.</li>
+      </ul>
+
+      <hr class="essay-divider" />
+
+      <p class="essay-conclusion">
+        Accessible eLearning is design discipline, not specialism. Build the course so the keyboard works, the screen reader works, the colours convey meaning beyond colour alone, the contrast passes, and the timing respects the learner's pace. Most of this costs nothing if you start with it in mind. None of it is glamorous — but it's the difference between a course every learner can complete and one that excludes some of them by accident.
+      </p>
+
+      <p class="essay-related">
+        Related guides:
+        <a href="/resources/design-kit/colour-theory-intro">Intro to colour theory</a> ·
+        <a href="/resources/design-kit/quizzes">Quizzes</a> ·
+        <a href="/resources/design-kit/drag-and-drop">Drag and drop</a> ·
+        <a href="/resources/design-kit/howtoo">HowToo</a> ·
+        <a href="/resources/design-kit/articulate-storyline">Articulate Storyline</a>
+      </p>
+    </div>
+  </article>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course<br />
+          <span class="accent-blue">every learner can take?</span>
+        </h2>
+        <p class="lede cta-text">
+          We build accessibility into every course from day one — not bolted on at the end. WCAG 2.1 AA by default, three-week delivery, transparent pricing.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

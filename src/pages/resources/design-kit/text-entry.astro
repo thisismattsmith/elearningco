@@ -1,0 +1,368 @@
+---
+// src/pages/resources/design-kit/text-entry.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+---
+
+<Layout
+  title="Text entry in eLearning | Design Kit | The eLearning Company"
+  description="When to use free-text inputs and textareas in eLearning. How to set expectations, score (or not), and handle the harder design problems."
+>
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Text entry</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Component</span>
+      <h1 class="display display-xl page-title">
+        Text<br />
+        <span class="accent-blue">entry.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Single-line inputs and multi-line textareas. The component most likely to break a course's flow — typing on a phone is hard, scoring free text is harder, and learners are quick to skip anything that asks them to think. Used well, they're the deepest reflection you can build in.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Reflection and recall.</h2>
+          <p class="purpose-lede">
+            Text entry asks the learner to produce something rather than recognise it. It's the highest-effort interaction in eLearning, which is both its value and its risk — pay it off with content where the typing genuinely matters.
+          </p>
+          <ul class="purpose-list">
+            <li>Reflection prompts ("What's one thing you'd take from this module?").</li>
+            <li>Short-answer questions with a defined correct response.</li>
+            <li>Form inputs for name, email, role — the basics.</li>
+            <li>Open-ended scenario responses where there's no fixed answer.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Tasks that can be done with a click.</h2>
+          <p class="purpose-lede">
+            Typing is expensive. If the learner could give the same answer by clicking a <a href="/resources/design-kit/radio-buttons">radio button</a> or ticking a <a href="/resources/design-kit/checkboxes">checkbox</a>, use those instead. Reserve typing for moments where the act of writing adds value.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Multiple choice questions disguised as fill-in-the-blank.</li>
+            <li>Forced reflection mid-quiz where it interrupts assessment.</li>
+            <li>Anything on mobile where typing is a barrier to completion.</li>
+            <li>Inputs whose answers can never be scored or acted on.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Working example: single-line and textarea with counter -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working examples</span>
+      <h2 class="display display-md section-title">Single-line and multi-line.</h2>
+      <p class="lede section-subtitle">
+        Two common patterns: a single-line input for short answers, and a textarea with a character counter for reflection prompts. Both with clear labels, helper text, and validation feedback.
+      </p>
+
+      <div class="example-card txt-card">
+        <!-- Single-line input -->
+        <div class="txt-group">
+          <label class="txt-label" for="txt-short">
+            <span class="meta">Short answer</span>
+            <span class="txt-required" aria-hidden="true">Required</span>
+          </label>
+          <p class="txt-prompt" id="txt-short-prompt">In one word, how would you describe your team's communication style?</p>
+          <input
+            id="txt-short"
+            type="text"
+            class="txt-input"
+            placeholder="One word…"
+            aria-describedby="txt-short-prompt txt-short-helper"
+            data-txt-short
+          />
+          <p class="txt-helper" id="txt-short-helper" data-txt-short-helper>
+            One word. The act of choosing forces a real reflection.
+          </p>
+        </div>
+
+        <hr class="txt-divider" />
+
+        <!-- Multi-line textarea -->
+        <div class="txt-group">
+          <label class="txt-label" for="txt-long">
+            <span class="meta">Reflection prompt</span>
+            <span class="txt-counter" data-txt-long-counter>0 / 280</span>
+          </label>
+          <p class="txt-prompt" id="txt-long-prompt">What's one specific thing you'd try differently in your next 1:1 based on this module?</p>
+          <textarea
+            id="txt-long"
+            class="txt-textarea"
+            placeholder="A sentence or two is enough…"
+            maxlength="280"
+            rows="3"
+            aria-describedby="txt-long-prompt txt-long-helper"
+            data-txt-long
+          ></textarea>
+          <p class="txt-helper" id="txt-long-helper">
+            Your answer is saved as you type. There's no right answer — the value is in the noticing.
+          </p>
+        </div>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        The single-line example doesn't have a "correct" answer — most reflection inputs shouldn't. The textarea uses a max length to nudge concision; without it, learners either write nothing or way too much.
+      </p>
+    </div>
+  </section>
+
+  <!-- Design considerations -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the visuals right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">Label every input</h3>
+          <p>Every text input needs a visible label above or beside it. Placeholder text alone isn't a label — it disappears the moment the learner starts typing, and it's invisible to screen readers as a label. Use a real <code>&lt;label&gt;</code> element associated with the input.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Use helper text for expectations</h3>
+          <p>"One word." "A sentence or two." "Full name as it appears on your ID." Helper text sets the expectation before the learner types, which prevents the awkward "did I write too much / too little?" moment. Place it directly below the input.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Show character counters where length matters</h3>
+          <p>For inputs with a max length, show a live counter. It tells the learner they're approaching the limit and prevents the frustration of hitting it mid-sentence. Position it next to the label or right-aligned with the input.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Accessibility — describe-by, not just visible</h3>
+          <p>Helper text and counter must be linked via <code>aria-describedby</code>. Screen reader users get nothing from text that's only visually adjacent to the input. The same applies to error messages — visible <em>and</em> announced.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility — visible focus</h3>
+          <p>Tab to an input and the focus state needs to be obvious — a thicker border, a coloured ring, a shadow. The browser default "thin blue dotted line" is barely visible on most coloured backgrounds. Make it intentional.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Sensible defaults: autocorrect, autocapitalise</h3>
+          <p>For long-form reflection: autocorrect on, autocapitalise sentences. For short technical fields (names, codes): autocorrect off, autocapitalise as appropriate. The defaults vary by browser and OS — set them explicitly with <code>autocapitalize</code>, <code>autocorrect</code>, and <code>spellcheck</code>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UX best practice -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to use text entry <span class="mark--lilac">deliberately</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">Ask yourself: could this be a click?</h3>
+          <p>If the answer could just as easily come from a <a href="/resources/design-kit/radio-buttons">radio button</a>, a <a href="/resources/design-kit/checkboxes">checkbox</a>, or a <a href="/resources/design-kit/toggle-buttons">toggle</a>, use those instead. Typing is high-effort. Save it for moments where the act of writing — the searching for the right word, the construction of a sentence — is itself the value.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">For reflection, don't score.</h3>
+          <p>If the prompt is "What's one thing you'd try differently?", there's no right answer. Don't try to match the input against keywords. Don't show "well done" feedback. Don't gate progress on the response. The learner's answer is between them and themselves — your job is to create the prompt and step back.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">For short answers, accept variation.</h3>
+          <p>If the input is scoreable — a definition, a value, a code — accept reasonable variations. "Cardiopulmonary resuscitation" and "CPR" and "cpr" are the same answer. Trim whitespace. Ignore case. Treat synonyms as equivalent. Strict string matching frustrates learners who got it right but typed it slightly differently.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Set a length expectation.</h3>
+          <p>"One word", "A sentence", "Two to three sentences", "Up to 100 words" — set the expectation in the helper text. Learners will calibrate. Without it, you'll get a mix of single-word responses and full essays, neither of which is what you wanted.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Save as the learner types.</h3>
+          <p>If the course loses the learner's input on navigation away — a network blip, a tab close, a back button — they won't fill it in twice. Persist text inputs to local storage or to the LMS as the learner types. Losing reflection is worse than losing a quiz answer because the learner can't recover the moment.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Confirm receipt, don't praise.</h3>
+          <p>"Thanks — your answer is saved" beats "Great work!" The learner doesn't know if their answer was great. False praise erodes trust. Confirmation that the system received the input is enough — the learner moves on with confidence.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Mobile: be honest with yourself.</h3>
+          <p>Typing on a phone is genuinely hard. If your course will be taken primarily on mobile, every text entry is friction. Either move text inputs to optional positions in the course, switch to clickable patterns, or commit to the trade-off and acknowledge it in your completion metrics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for text entry.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Mid-course reflection</h3>
+          <p>"What stood out to you in the last section?" — a textarea pause that prompts the learner to consolidate. Don't score. Don't gate. Just create the moment.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Defined-answer short questions</h3>
+          <p>"What is the acronym for personal protective equipment?" — short, scoreable, accepts variations. Useful occasionally as variety alongside <a href="/resources/design-kit/quizzes">multiple choice</a> questions.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Goal-setting at module start</h3>
+          <p>"In one sentence, what do you want to be able to do by the end of this module?" Set at the start, returned to at the end as a self-check.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Form fields for course completion</h3>
+          <p>Name, email, role for certificate generation. Simple, single-purpose, and the moment the typing is worth it because the output is a personalised certificate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course<br />
+          <span class="accent-blue">built well?</span>
+        </h2>
+        <p class="lede cta-text">
+          We apply these principles on every course we build. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Single-line: confirm receipt as learner types
+  const shortInput  = document.querySelector<HTMLInputElement>('[data-txt-short]');
+  const shortHelper = document.querySelector<HTMLElement>('[data-txt-short-helper]');
+
+  shortInput?.addEventListener('input', () => {
+    if (!shortHelper) return;
+    const v = shortInput.value.trim();
+    if (v.length === 0) {
+      shortHelper.textContent = 'One word. The act of choosing forces a real reflection.';
+    } else if (v.split(/\s+/).length > 3) {
+      shortHelper.textContent = 'Try to land on one word — the constraint is the point.';
+    } else {
+      shortHelper.textContent = `Saved: "${v}". You can change it any time.`;
+    }
+  });
+
+  // Multi-line: character counter
+  const longInput   = document.querySelector<HTMLTextAreaElement>('[data-txt-long]');
+  const longCounter = document.querySelector<HTMLElement>('[data-txt-long-counter]');
+
+  longInput?.addEventListener('input', () => {
+    if (!longCounter) return;
+    const n = longInput.value.length;
+    longCounter.textContent = `${n} / 280`;
+    longCounter.classList.toggle('txt-counter--warning', n > 240);
+  });
+</script>
+
+<style>
+  .txt-card { max-width: 620px; }
+  .txt-group { padding: 6px 0; }
+  .txt-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .txt-required {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--c-ink-muted);
+  }
+  .txt-counter {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--c-ink-muted);
+    transition: color 0.2s ease;
+  }
+  .txt-counter--warning { color: rgba(220, 38, 38, 0.8); }
+
+  .txt-prompt {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--c-ink);
+    margin: 0 0 12px 0;
+    font-weight: 500;
+  }
+
+  .txt-input,
+  .txt-textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid rgba(21, 25, 46, 0.18);
+    border-radius: var(--r-md);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    background: var(--c-paper);
+    color: var(--c-ink);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    box-sizing: border-box;
+  }
+  .txt-textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+    line-height: 1.55;
+  }
+  .txt-input:focus,
+  .txt-textarea:focus {
+    outline: none;
+    border-color: var(--c-ink);
+    box-shadow: 0 0 0 3px var(--c-lilac);
+  }
+
+  .txt-helper {
+    margin: 8px 0 0 0;
+    color: var(--c-ink-soft);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .txt-divider {
+    margin: 28px 0;
+    border: none;
+    border-top: 1px solid rgba(21, 25, 46, 0.08);
+  }
+</style>

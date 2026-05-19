@@ -1,0 +1,550 @@
+---
+// src/pages/resources/design-kit/checkboxes.astro
+import Layout from '../../../components/layout/Layout.astro';
+---
+
+<Layout
+  title="Checkboxes in eLearning | Design Kit | The eLearning Company"
+  description="When to use checkboxes (and when to use radio buttons instead). How many to show, how to phrase options, and a working multi-select example."
+>
+  <!-- ============================================================
+       1. Hero — lilac (Components)
+       ============================================================ -->
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Checkboxes</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Component</span>
+      <h1 class="display display-xl page-title">
+        <span class="accent-blue">Checkboxes.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Sometimes called multi-select. Checkboxes let learners pick more than one option from a list. If they can pick more than one, it's checkboxes — not radio buttons.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. What it's for / What it isn't for — paper
+       ============================================================ -->
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Multi-select questions and lists.</h2>
+          <p class="purpose-lede">
+            Each checkbox toggles independently. Selecting one doesn't deselect the others — that's the defining behaviour and the only reason to reach for checkboxes rather than radio buttons.
+          </p>
+          <ul class="purpose-list">
+            <li>"Select all that apply" questions.</li>
+            <li>Filters where multiple criteria can be combined.</li>
+            <li>Optional preferences or toggles in a settings list.</li>
+            <li>Consent and agreement checkboxes — one per item.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Single-choice anything.</h2>
+          <p class="purpose-lede">
+            If the learner should only pick one answer — even if "none of them" is a valid response — you want <strong>radio buttons</strong>, not checkboxes.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Questions with one correct answer (use radio buttons).</li>
+            <li>Yes/no toggles for a single setting (use a toggle).</li>
+            <li>Long lists of more than 7 items (use a multi-select dropdown or chips).</li>
+            <li>Combining a "select all" with mutually exclusive options.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. Interactive example — paper-deep
+       ============================================================ -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working example</span>
+      <h2 class="display display-md section-title">Try it.</h2>
+      <p class="lede section-subtitle">
+        A typical eLearning multi-select check-in. Tick any number of options. Each checkbox is independent — selecting one doesn't deselect the others. The count updates as you go.
+      </p>
+
+      <div class="example-card">
+        <div class="example-card-meta">
+          <span class="meta">Question 3 of 5</span>
+          <span class="meta" data-count>0 selected</span>
+        </div>
+
+        <h3 class="example-question">Which of these have you done in the last fortnight?</h3>
+        <p class="example-prompt">Tick all that apply. There's no wrong answer.</p>
+
+        <fieldset class="checkbox-group">
+          <legend class="sr-only">Activities in the last fortnight</legend>
+
+          <label class="checkbox-option">
+            <input type="checkbox" name="example-cb" value="1" />
+            <span class="checkbox-box" aria-hidden="true">
+              <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M2 6l3 3 5-6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span class="checkbox-label">Given feedback to a teammate.</span>
+          </label>
+
+          <label class="checkbox-option">
+            <input type="checkbox" name="example-cb" value="2" />
+            <span class="checkbox-box" aria-hidden="true">
+              <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M2 6l3 3 5-6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span class="checkbox-label">Asked for feedback on something you made.</span>
+          </label>
+
+          <label class="checkbox-option">
+            <input type="checkbox" name="example-cb" value="3" />
+            <span class="checkbox-box" aria-hidden="true">
+              <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M2 6l3 3 5-6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span class="checkbox-label">Had a 1:1 with your manager.</span>
+          </label>
+
+          <label class="checkbox-option">
+            <input type="checkbox" name="example-cb" value="4" />
+            <span class="checkbox-box" aria-hidden="true">
+              <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M2 6l3 3 5-6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span class="checkbox-label">Helped onboard someone new.</span>
+          </label>
+
+          <label class="checkbox-option">
+            <input type="checkbox" name="example-cb" value="5" />
+            <span class="checkbox-box" aria-hidden="true">
+              <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M2 6l3 3 5-6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span class="checkbox-label">Said no to something to protect your time.</span>
+          </label>
+        </fieldset>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        We're showing a count of selections, not a "correct" state. Multi-select questions usually aren't right/wrong — they're a snapshot of what's true for the learner.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. Design considerations — paper
+       ============================================================ -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the visuals right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">Square, not circular</h3>
+          <p>Checkboxes are square; radio buttons are circular. This is a hard convention. Reversing it confuses learners about which interaction they're in. If you've inherited a design with circular multi-selects, fix it — don't argue for consistency with the bad pattern.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Visible tick on selection</h3>
+          <p>The selected state needs a clear tick (or cross) inside the box. A filled colour alone isn't enough — colour blindness and low contrast displays make colour-only states unreliable.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Large clickable row</h3>
+          <p>The whole label and the checkbox should be one clickable target. A 14px checkbox in 200px of whitespace is technically clickable but feels broken. Wrap the input in a <code>&lt;label&gt;</code> and make the label clickable too.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Accessibility &mdash; semantics</h3>
+          <p>Use native <code>&lt;input type="checkbox"&gt;</code> inside <code>&lt;label&gt;</code>, grouped inside a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code>. Screen readers will announce the group, the question, and the checked state of each option. Custom-built checkboxes almost never get this right.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility &mdash; keyboard</h3>
+          <p>Tab focuses each checkbox in turn. Space toggles. Unlike radio buttons, arrow keys do <em>not</em> navigate between checkboxes — each one is independent. Make sure your custom-styled boxes preserve this behaviour.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Indeterminate state</h3>
+          <p>A third visual state — neither checked nor unchecked — is useful for "some sub-items selected" or "select all" controls when only some are picked. Most authoring tools support this natively. Use it where it earns its place; ignore it for simple lists.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. UX best practice — navy
+       ============================================================ -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to use checkboxes <span class="mark--lilac">well</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">If only one answer fits, you don't need checkboxes.</h3>
+          <p>This is the test. "Which of these is a renewable energy source?" — one right answer. Use radio buttons. "Which of these are renewable energy sources?" — multiple right answers. Use checkboxes. The plural form of the question is your tell.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Make it clear that multiple selections are expected.</h3>
+          <p>The question wording has to signal multi-select. "Tick all that apply", "Select any that are true", or "Choose your three favourites" are all clearer than just listing options. Without that signal, learners assume single-choice and only tick one — even when the design says otherwise.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">3 to 7 options. After that, switch patterns.</h3>
+          <p>Two options is a single yes/no. Eight or more starts overwhelming the learner — and scrolling a checkbox list on a phone is painful. For long lists, use a search input or grouped categories. For very long lists, rethink the question.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Avoid "all of the above" and "none of the above" entirely.</h3>
+          <p>"All of the above" doesn't work for checkboxes — the learner ticks all the individual items, which makes the meta-option redundant. "None of the above" is technically valid but rarely useful: if no options apply, learners should be able to submit nothing and move on. Design for that case instead.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Don't mix exclusive options into a multi-select.</h3>
+          <p>A checkbox group with "Mornings", "Afternoons", "Evenings", and "I have no preference" is broken: the last option is exclusive. Learners either tick it alone (correct) or tick it along with others (logically inconsistent). Either split into two questions or use radio buttons with an "any of the above" option.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Confirm what was selected on submit.</h3>
+          <p>If the question is consequential — feedback decisions, eligibility for a path, a learning plan — echo back what the learner picked before they move on. "You selected: A, C, D. Is this right?" prevents accidental submissions and gives the learner confidence their answer landed.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Order matters, even when items are independent.</h3>
+          <p>Group related items. Lead with the most common answers if you know them. Alphabetical order is fine for filter lists; for survey questions, intentional order works better. Random order on each attempt is rarely useful for checkboxes — learners need consistent positions to scan a multi-answer list efficiently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. Scenarios — paper
+       ============================================================ -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for checkboxes.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Risk identification in WHS</h3>
+          <p>"Which of these are hazards in this image?" — multiple correct answers, no fixed order. Classic checkbox use case.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Pre-course self-assessment</h3>
+          <p>"Which of these topics have you worked with before?" — a baseline check that adapts the rest of the course. No right or wrong answer.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Consent and acknowledgements</h3>
+          <p>Multiple discrete agreements at the end of a compliance course — privacy policy, code of conduct, training acknowledgement. Each is its own decision.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Filters in a resource library</h3>
+          <p>"Show me content tagged with: leadership / sales / for managers." Each filter is independent and combinable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. Final CTA — lilac
+       ============================================================ -->
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course<br />
+          <span class="accent-blue">built well?</span>
+        </h2>
+        <p class="lede cta-text">
+          We apply these principles on every course we build. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Update the "X selected" counter as boxes toggle.
+  const boxes = document.querySelectorAll<HTMLInputElement>('input[name="example-cb"]');
+  const counter = document.querySelector<HTMLElement>('[data-count]');
+  const updateCount = () => {
+    const n = Array.from(boxes).filter((b) => b.checked).length;
+    if (counter) counter.textContent = n === 1 ? '1 selected' : `${n} selected`;
+  };
+  boxes.forEach((b) => b.addEventListener('change', updateCount));
+</script>
+
+<style>
+  /* ============================================================
+     Page-specific styles. Most patterns shared with radio-buttons.
+     ============================================================ */
+
+  /* Hero — same as radio-buttons.astro */
+  .component-hero {
+    padding-top: clamp(56px, 7vw, 80px);
+    padding-bottom: clamp(80px, 10vw, 120px);
+  }
+  .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-ink);
+    opacity: 0.7;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+  .breadcrumb a { color: var(--c-ink); text-decoration: none; transition: opacity 0.15s ease; }
+  .breadcrumb a:hover { opacity: 0.5; }
+  .breadcrumb-sep { opacity: 0.5; }
+  .breadcrumb-current { opacity: 0.6; }
+  .hero-pill { margin-bottom: 24px; }
+  .page-title { margin-bottom: 32px; max-width: 800px; }
+  .page-subtitle { max-width: 720px; }
+
+  /* Purpose grid — same pattern */
+  .purpose-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
+  }
+  .purpose-col .section-kicker { margin-bottom: 12px; }
+  .purpose-col .section-title { margin-bottom: 24px; font-size: clamp(24px, 2.6vw, 32px); }
+  .purpose-lede { color: var(--c-ink-soft); font-size: 17px; line-height: 1.6; margin-bottom: 24px; }
+  .purpose-lede strong { color: var(--c-ink); font-weight: 600; }
+  .purpose-list { list-style: none; padding: 0; margin: 0; }
+  .purpose-list li {
+    padding: 10px 0 10px 26px;
+    position: relative;
+    color: var(--c-ink);
+    font-size: 16px;
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+  }
+  .purpose-list li:last-child { border-bottom: none; }
+  .purpose-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: var(--c-ink-muted);
+    font-family: var(--font-mono);
+  }
+  .purpose-list--neg li::before {
+    content: "×";
+    color: var(--c-ink);
+    opacity: 0.6;
+    font-weight: 600;
+  }
+
+  /* Example card */
+  .example-section .section-title { margin-bottom: 16px; }
+  .example-section .section-subtitle { margin-bottom: 48px; max-width: 720px; }
+
+  .example-card {
+    background: var(--c-paper);
+    border: 1px solid rgba(21, 25, 46, 0.1);
+    border-radius: var(--r-lg);
+    padding: clamp(28px, 4vw, 40px);
+    max-width: 720px;
+  }
+  .example-card-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+    margin-bottom: 24px;
+    color: var(--c-ink-muted);
+  }
+  .example-question {
+    font-family: var(--font-sans);
+    font-size: clamp(20px, 2vw, 24px);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--c-ink);
+    margin-bottom: 8px;
+  }
+  .example-prompt {
+    color: var(--c-ink-soft);
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+
+  /* Checkbox styling — square box, tick reveals on :checked */
+  .checkbox-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .checkbox-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    border: 1px solid rgba(21, 25, 46, 0.12);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .checkbox-option:hover { border-color: var(--c-ink); background: rgba(21, 25, 46, 0.02); }
+  .checkbox-option:has(input:checked) {
+    border-color: var(--c-ink);
+    background: rgba(21, 25, 46, 0.04);
+  }
+  .checkbox-option input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .checkbox-box {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border: 2px solid rgba(21, 25, 46, 0.35);
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-paper);
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .checkbox-box svg { opacity: 0; transition: opacity 0.15s ease; }
+  .checkbox-option input:checked + .checkbox-box {
+    background: var(--c-ink);
+    border-color: var(--c-ink);
+  }
+  .checkbox-option input:checked + .checkbox-box svg { opacity: 1; }
+  .checkbox-option input:focus-visible + .checkbox-box {
+    box-shadow: 0 0 0 3px var(--c-lilac);
+  }
+  .checkbox-label {
+    color: var(--c-ink);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .example-note {
+    margin-top: 24px;
+    color: var(--c-ink-soft);
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 720px;
+  }
+  .example-note .meta { color: var(--c-ink-muted); margin-right: 4px; }
+
+  /* Shared with other detail pages */
+  .design-section .section-title { margin-bottom: 56px; }
+  .design-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 40px;
+  }
+  .design-num { display: block; color: var(--c-ink-muted); margin-bottom: 12px; }
+  .design-item h3 { margin-bottom: 8px; }
+  .design-item p { color: var(--c-ink-soft); line-height: 1.65; font-size: 15px; }
+  .design-item code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: var(--c-paper-deep);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--c-ink);
+  }
+
+  .ux-section .section-title { margin-bottom: 56px; max-width: 900px; }
+  .ux-list { display: flex; flex-direction: column; max-width: 880px; }
+  .ux-item {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(250, 248, 243, 0.12);
+  }
+  .ux-item:first-child { padding-top: 0; }
+  .ux-item:last-child { border-bottom: none; }
+  .ux-item h3 { margin-bottom: 10px; color: var(--c-paper); }
+  .ux-item p {
+    color: rgba(250, 248, 243, 0.78);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  .ux-item p strong { color: var(--c-paper); font-weight: 600; }
+  .ux-item p em { font-style: italic; }
+
+  .scenarios-section .section-title { margin-bottom: 56px; }
+  .scenarios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 40px;
+  }
+  .scenario-num { display: block; color: var(--c-ink-muted); margin-bottom: 12px; }
+  .scenario-card h3 { margin-bottom: 8px; }
+  .scenario-card p { color: var(--c-ink-soft); line-height: 1.65; font-size: 15px; }
+
+  .cta-content { max-width: 800px; }
+  .cta-title { margin-bottom: 24px; }
+  .cta-text { margin-bottom: 40px; max-width: 580px; }
+  .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  @media (max-width: 900px) {
+    .purpose-grid,
+    .design-grid,
+    .scenarios-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .cta-buttons .btn { width: 100%; }
+  }
+</style>

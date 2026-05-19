@@ -1603,6 +1603,12 @@ const urlSlug = category.slug;
     const progressFill = browser.querySelector<HTMLElement>('.progress-fill');
     const progressText = browser.querySelector<HTMLElement>('.course-progress-text');
 
+    // Snapshot the first server-rendered <li> as a template. We clone this
+    // for subsequent questions instead of building HTML strings, which
+    // preserves Astro's scoped-CSS data-* attributes. Strings via innerHTML
+    // lose those attributes and lose all the styling with them.
+    const optionTemplate = optionsList?.querySelector<HTMLLIElement>('li')?.cloneNode(true) as HTMLLIElement | undefined;
+
     // Index 0 = the initial question (already rendered), 1+ = additional
     // questions, length = trigger completion view
     let stepIndex = 0;
@@ -1611,19 +1617,18 @@ const urlSlug = category.slug;
     const renderQuestion = (q: { number: number; question: string; prompt: string; options: string[] }) => {
       if (questionEl) questionEl.textContent = q.question;
       if (promptEl) promptEl.textContent = q.prompt;
-      if (optionsList) {
-        optionsList.innerHTML = q.options.slice(0, 3).map((opt: string) => `
-          <li>
-            <button type="button" class="course-option" aria-pressed="false">
-              <span class="option-box" aria-hidden="true">
-                <svg class="option-check" viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M2 6l3 3 5-6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <span class="option-label">${opt.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</span>
-            </button>
-          </li>
-        `).join('');
+      if (optionsList && optionTemplate) {
+        // Wipe existing options
+        optionsList.replaceChildren();
+        // Clone the template for each option and set its label/state
+        q.options.slice(0, 3).forEach((opt: string) => {
+          const li = optionTemplate.cloneNode(true) as HTMLLIElement;
+          const btn = li.querySelector<HTMLButtonElement>('.course-option');
+          const label = li.querySelector<HTMLElement>('.option-label');
+          if (btn) btn.setAttribute('aria-pressed', 'false');
+          if (label) label.textContent = opt;
+          optionsList.appendChild(li);
+        });
         attachOptionHandlers();
       }
       if (progressText) progressText.textContent = `Question ${q.number} of ${data.total}`;

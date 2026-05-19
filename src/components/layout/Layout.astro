@@ -5,9 +5,22 @@ import '../../styles/global.css';
 interface Props {
   title: string;
   description: string;
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
+
+// Determine the active top-level section from the current URL so the
+// matching nav link can be highlighted. Pages don't need to pass anything
+// in — this works automatically based on the URL.
+const pathname = Astro.url.pathname;
+const activeSection: 'pricing' | 'about' | 'resources' | 'blog' | 'training' | null =
+  pathname.startsWith('/pricing')   ? 'pricing'   :
+  pathname.startsWith('/about')     ? 'about'     :
+  pathname.startsWith('/resources') ? 'resources' :
+  pathname.startsWith('/blog')      ? 'blog'      :
+  pathname.startsWith('/training')  ? 'training'  :
+  null;
 ---
 
 <!DOCTYPE html>
@@ -18,6 +31,7 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -52,9 +66,10 @@ const { title, description } = Astro.props;
           </a>
 
           <div class="nav-links">
-            <a href="/pricing">Pricing</a>
-            <a href="/about">How it works</a>
-            <a href="/blog">Blog</a>
+            <a href="/pricing" class:list={[{ active: activeSection === 'pricing' }]}>Pricing</a>
+            <a href="/about" class:list={[{ active: activeSection === 'about' }]}>How it works</a>
+            <a href="/resources" class:list={[{ active: activeSection === 'resources' }]}>Resources</a>
+            <a href="/blog" class:list={[{ active: activeSection === 'blog' }]}>Blog</a>
             <a href="/contact" class="nav-cta">Get a quote</a>
           </div>
 
@@ -94,6 +109,7 @@ const { title, description } = Astro.props;
             <h4>Company</h4>
             <ul>
               <li><a href="/about">About us</a></li>
+              <li><a href="/resources">Resources</a></li>
               <li><a href="/blog">Blog</a></li>
               <li><a href="/contact">Contact</a></li>
             </ul>

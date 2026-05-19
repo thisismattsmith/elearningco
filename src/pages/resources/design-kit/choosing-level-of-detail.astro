@@ -1,0 +1,159 @@
+---
+// src/pages/resources/design-kit/choosing-level-of-detail.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+import '../../../styles/design-kit-essay.css';
+---
+
+<Layout
+  title="Choosing the right level of detail | Design Kit | The eLearning Company"
+  description="When to go deep, when to summarise, and how to decide. The most common eLearning failure isn't bad content — it's content at the wrong depth for the audience."
+>
+  <section class="section section--turquoise component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Choosing the right level of detail</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Design advice</span>
+      <h1 class="display display-xl page-title">
+        Choosing<br />
+        <span class="accent-blue">the right level of detail.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Most eLearning fails not because the content is wrong, but because it's at the wrong depth. Too much detail and learners disengage. Too little and they leave unable to apply anything. Picking the right level — and being honest about what depth your audience actually needs — is the highest-impact design decision after picking the topic itself.
+      </p>
+    </div>
+  </section>
+
+  <article class="section section--paper essay-section">
+    <div class="container">
+
+      <!-- Part 1: why depth is hard -->
+      <span class="section-kicker">Part one</span>
+      <h2 class="display display-md essay-title">Why depth is hard to get right.</h2>
+
+      <p class="essay-intro">
+        Subject matter experts default to depth — they know the nuances, they want to share them, they worry that a shallow course is dishonest. Designers and stakeholders default to breadth — they want coverage, they want learners to "be familiar" with everything. Both pressures pull the course toward too much. Almost no one in the conversation is arguing for less.
+      </p>
+
+      <h3 class="essay-section-heading">SMEs don't notice their own expertise.</h3>
+      <p>
+        The single hardest problem in instructional design: subject matter experts can't accurately judge what counts as obvious. To an experienced WHS officer, "do a risk assessment before starting" is the foundation, not a step worth teaching. To a new contractor, it's the actual job. SMEs systematically under-include the basics and over-include the nuances. The designer's job is partly to push back — to ask "but what does someone with zero experience need first?"
+      </p>
+
+      <h3 class="essay-section-heading">Stakeholders want coverage; learners want utility.</h3>
+      <p>
+        Stakeholders ask "did we cover X?" Learners ask "can I do my job now?" These produce opposite design pressures. Coverage means including every relevant topic; utility means including only what changes behaviour. Most courses lose to coverage, end up too long, and learners disengage. The honest conversation with stakeholders: "we have 30 minutes of attention from the learner. What do they actually need to be able to do?"
+      </p>
+
+      <h3 class="essay-section-heading">Detail is easier to write than judgement.</h3>
+      <p>
+        It's easier to list ten requirements than to write the one sentence that explains which two matter most. Detail accumulates by default in any review process — every reviewer adds something. Trimming, on the other hand, requires confidence and authority. Most courses don't have anyone with both. The result: courses that grow toward density even when nobody intended them to.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <!-- Part 2: how to decide -->
+      <span class="section-kicker">Part two</span>
+      <h2 class="display display-md essay-title">How to decide what level of detail fits.</h2>
+
+      <p class="essay-intro">
+        The right depth depends on three things: who the learner is, what they'll do with the content, and when they'll do it. Get clear on all three before writing the first slide.
+      </p>
+
+      <h3 class="essay-section-heading">Start with the action, work back to the content.</h3>
+      <p>
+        "After this course, the learner can confidently <strong>do X</strong>." Whatever fills that blank is your guide. Content that supports the action stays. Content that's nice-to-know but doesn't change what the learner does is candidate for removal. This sounds obvious; in practice it's the single biggest filter most courses fail to apply.
+      </p>
+
+      <h3 class="essay-section-heading">Distinguish need-to-know from nice-to-know.</h3>
+      <p>
+        Need-to-know: the learner can't do the job without it. Nice-to-know: useful context, but not blocking action. Most courses mix these together at equal weight. Better: lead with need-to-know in the main content, then offer nice-to-know inside <a href="/resources/design-kit/click-to-reveal">click-to-reveal</a> patterns or as optional "go deeper" sections. The structure itself tells the learner what's required reading and what's bonus.
+      </p>
+
+      <h3 class="essay-section-heading">Match the depth to the timing.</h3>
+      <p>
+        Content the learner will use tomorrow can be deep — they'll apply it before forgetting. Content the learner won't touch for six months has to be shallow and memorable — they'll only remember the headline. Mismatching depth to timing is one of the most common failures: detailed annual training that nobody can apply because they took it 11 months ago.
+      </p>
+
+      <h3 class="essay-section-heading">Audit by audience, not by topic.</h3>
+      <p>
+        "How much do they already know?" is the question to ask before "what do we include?" A senior accountant taking compliance training and a new hire taking the same course need different depth. Where the audience is mixed, decide whose needs win — usually the least-experienced, with a "skip ahead" option for those who don't need the basics. Trying to serve both at full depth produces a course that serves neither.
+      </p>
+
+      <h3 class="essay-section-heading">Build a depth-budget.</h3>
+      <p>
+        Decide upfront how long the course will be. Forty minutes? Sixty? Then ration depth accordingly. If the course needs to cover six topics in 40 minutes, each topic gets roughly seven minutes of content — which limits depth. Working within a constraint forces decisions about what stays. "We'll just make it 90 minutes" is the wrong escape hatch; longer courses suffer engagement decay long before they reach the end.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <!-- Part 3: handling the edge cases -->
+      <span class="section-kicker">Part three</span>
+      <h2 class="display display-md essay-title">Handling specific situations.</h2>
+
+      <p class="essay-intro">
+        Some situations need particular handling — places where the general rules above need adjusting.
+      </p>
+
+      <h3 class="essay-section-heading">Regulatory or legal content</h3>
+      <p>
+        Compliance content often has hard-coded requirements: certain phrases must appear, certain examples must be cited. Resist the temptation to extend depth beyond the legal floor. Cover what regulation requires and stop. Adding "well, we should also mention X because it's related" turns a 25-minute compliance module into a 60-minute one without legally requiring it. The legal requirement is your depth budget; respect it.
+      </p>
+
+      <h3 class="essay-section-heading">Technical or safety-critical content</h3>
+      <p>
+        Where errors cost lives or money, more depth is justifiable — but design as if the learner will refer back later. Build the core content around the most common 80% of situations, and put the rare cases into <a href="/resources/design-kit/click-to-reveal">expandable sections</a> or a separate reference. A safety procedure that covers every edge case in equal detail teaches none of them well; a procedure that covers the common cases deeply and the edge cases referentially teaches the common cases.
+      </p>
+
+      <h3 class="essay-section-heading">Mixed audiences</h3>
+      <p>
+        If a course must serve novices and experts at the same time, design a path through, not a single track. Lead with foundations, mark them clearly ("If you're already familiar with this, skip to the next section"), then go deeper for the experts. <a href="/resources/design-kit/quizzes">Pre-course self-assessment</a> can route learners to the right starting point. Trying to write content that flatters both audiences at once produces patronising content for experts and confusing content for novices.
+      </p>
+
+      <h3 class="essay-section-heading">When you genuinely need more depth than time allows</h3>
+      <p>
+        Sometimes the answer is a series, not a single course. A 20-minute introduction, followed by a 30-minute deep dive, followed by an applied workshop is better than a single 80-minute course covering the same content. Engagement decay within a session is brutal; engagement across separate sessions resets. If the content really is that important, give it the room of a multi-part curriculum.
+      </p>
+
+      <hr class="essay-divider" />
+
+      <p class="essay-conclusion">
+        Depth is a design choice, not a default. Pick it deliberately by working back from what the learner needs to be able to do, with the time and audience you have. Be willing to remove content that doesn't change behaviour. The shorter, sharper course usually beats the longer, comprehensive one — especially when learners are giving the course their first attention, not their final review.
+      </p>
+
+      <p class="essay-related">
+        Related guides:
+        <a href="/resources/design-kit/writing-assessment-questions">Writing good assessment questions</a> ·
+        <a href="/resources/design-kit/writing-engaging-scenarios">Writing engaging scenarios</a> ·
+        <a href="/resources/design-kit/using-white-space">Using white space</a> ·
+        <a href="/resources/design-kit/click-to-reveal">Click to reveal</a>
+      </p>
+    </div>
+  </article>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a course that's<br />
+          <span class="accent-blue">deep enough?</span>
+        </h2>
+        <p class="lede cta-text">
+          We help you find the right depth for your audience — not too dense, not too shallow. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

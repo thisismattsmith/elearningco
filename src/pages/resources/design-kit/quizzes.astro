@@ -1,0 +1,607 @@
+---
+// src/pages/resources/design-kit/quizzes.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+---
+
+<Layout
+  title="Quizzes in eLearning | Design Kit | The eLearning Company"
+  description="How to design quizzes that actually measure learning. Includes a working three-question quiz with feedback and scoring."
+>
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Quizzes</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Interaction</span>
+      <h1 class="display display-xl page-title">
+        <span class="accent-blue">Quizzes.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        A quiz is the assembled experience of multiple questions — the wrapping that holds your assessment together. A quiz can be great or it can be performative. Most aren't designed; they're assembled. The difference is in the structure, not the questions.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper purpose-section">
+    <div class="container">
+      <div class="purpose-grid">
+        <div class="purpose-col">
+          <span class="section-kicker">What they're for</span>
+          <h2 class="heading-xl section-title">Measuring or reinforcing learning.</h2>
+          <p class="purpose-lede">
+            Quizzes serve one of two purposes. Either they reinforce learning through retrieval practice (formative), or they measure whether the learner has achieved the objectives (summative). Both are valuable. The trouble starts when courses use one when they meant the other.
+          </p>
+          <ul class="purpose-list">
+            <li>Formative — knowledge checks inside the course, low stakes, high feedback.</li>
+            <li>Summative — end-of-module assessment, defined pass mark, less feedback during.</li>
+            <li>Pre-course — gauging existing knowledge to adapt the path forward.</li>
+            <li>Compliance certification — proof that the learner met the standard.</li>
+          </ul>
+        </div>
+
+        <div class="purpose-col purpose-col--alt">
+          <span class="section-kicker">What they're not for</span>
+          <h2 class="heading-xl section-title">Filling time or proving you covered content.</h2>
+          <p class="purpose-lede">
+            A quiz that exists just because "every module needs a quiz" usually tests trivia, not understanding. If the questions don't connect to the objectives, the quiz fails the learner and reveals that the module is unclear about what it actually teaches.
+          </p>
+          <ul class="purpose-list purpose-list--neg">
+            <li>Trivia about content you didn't intend to assess.</li>
+            <li>Self-grading reflection — that's not a quiz, that's a journal.</li>
+            <li>Quiz-as-punishment for not paying attention.</li>
+            <li>Box-ticking exercises with no consequence.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Working 3-question quiz -->
+  <section class="section section--paper-deep example-section">
+    <div class="container">
+      <span class="section-kicker">Working example</span>
+      <h2 class="display display-md section-title">Take the quiz.</h2>
+      <p class="lede section-subtitle">
+        A short formative quiz on quiz design. Three questions, mixed formats (one single-answer, one multi-select, one true/false). Feedback after each. Score at the end. Try it — and notice the design choices as you go.
+      </p>
+
+      <div class="example-card quiz-card" data-quiz-card>
+        <!-- Progress -->
+        <div class="quiz-meta">
+          <span class="meta" data-quiz-progress>Question 1 of 3</span>
+          <span class="meta" data-quiz-score>0 of 0 correct</span>
+        </div>
+
+        <!-- Question stage -->
+        <div class="quiz-stage" data-quiz-stage>
+          <h4 class="quiz-question" data-quiz-question>Loading question…</h4>
+          <p class="quiz-prompt" data-quiz-prompt></p>
+
+          <div class="quiz-choices" data-quiz-choices></div>
+
+          <div class="quiz-feedback" data-quiz-feedback hidden></div>
+
+          <div class="quiz-actions">
+            <button class="pbtn pbtn--primary" type="button" data-quiz-submit disabled>Submit answer</button>
+            <button class="pbtn pbtn--primary" type="button" data-quiz-next hidden>Next question →</button>
+          </div>
+        </div>
+
+        <!-- Results stage -->
+        <div class="quiz-results" data-quiz-results hidden>
+          <h4 class="quiz-results-heading" data-quiz-results-heading>Quiz complete</h4>
+          <p class="quiz-results-body" data-quiz-results-body></p>
+          <button class="pbtn pbtn--secondary" type="button" data-quiz-retake>Try again</button>
+        </div>
+      </div>
+
+      <p class="example-note">
+        <span class="meta">Note ·</span>
+        Submit is disabled until the learner has selected something. After submitting, the answer locks and the feedback appears — they can't change their mind, but they get to see why. The Next button only appears after feedback.
+      </p>
+    </div>
+  </section>
+
+  <!-- Design considerations -->
+  <section class="section section--paper design-section">
+    <div class="container">
+      <span class="section-kicker">Design considerations</span>
+      <h2 class="display display-md section-title">Get the structure right.</h2>
+
+      <div class="design-grid">
+        <div class="design-item">
+          <span class="meta design-num">01</span>
+          <h3 class="heading-sm">One question per screen, by default</h3>
+          <p>Scrolling quizzes invite skim-and-skip behaviour. One question per screen forces the learner to engage with each question on its own terms. The exception is short quizzes (3-5 questions) where the entire quiz fits on a single screen without scrolling.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">02</span>
+          <h3 class="heading-sm">Progress indicator</h3>
+          <p>"Question 3 of 8" tells the learner where they are. Without it, every question feels like it could be the last — and the uncertainty is unkind. A subtle counter or progress bar near the top of the question is enough.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">03</span>
+          <h3 class="heading-sm">Lock answers after submission</h3>
+          <p>Once an answer is submitted and feedback shown, the answer should be uneditable. Otherwise learners change their answer after seeing the feedback — and the quiz becomes a guess-and-correct exercise rather than an assessment.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">04</span>
+          <h3 class="heading-sm">Accessibility — use native form controls</h3>
+          <p>Build each question on real <code>&lt;input type="radio"&gt;</code> or <code>&lt;input type="checkbox"&gt;</code> inputs. See the <a href="/resources/design-kit/radio-buttons">radio buttons</a> and <a href="/resources/design-kit/checkboxes">checkboxes</a> guides for why. Custom-built quiz UI almost always breaks keyboard and screen-reader behaviour.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">05</span>
+          <h3 class="heading-sm">Accessibility — announce question changes</h3>
+          <p>When the next question loads, screen readers need to know. Use an <code>aria-live</code> region for the question text, or move keyboard focus to the new question's heading. Without this signal, the page silently changes and screen reader users miss the cue.</p>
+        </div>
+        <div class="design-item">
+          <span class="meta design-num">06</span>
+          <h3 class="heading-sm">Show feedback in context</h3>
+          <p>Per-question feedback should appear directly below the answered question, not in a modal or a separate screen. The learner needs to see <em>their answer</em>, <em>the result</em>, and <em>the explanation</em> together. Modal feedback breaks that context.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UX best practice -->
+  <section class="section section--navy ux-section">
+    <div class="container">
+      <span class="section-kicker">UX best practice</span>
+      <h2 class="display display-md section-title">
+        How to design a quiz <span class="mark--lilac">that earns its place</span>.
+      </h2>
+
+      <div class="ux-list">
+        <div class="ux-item">
+          <h3 class="heading-md">Decide formative or summative first.</h3>
+          <p>A formative quiz reinforces learning — low stakes, immediate feedback, no pass mark. A summative quiz measures learning — higher stakes, feedback withheld during, pass mark applied at the end. Don't mix the two. A quiz that pretends to be casual then enforces a pass mark feels like a trick.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Three to ten questions is the sweet spot.</h3>
+          <p>Fewer than three and you can't measure anything reliably — a single wrong answer becomes a third of the score. More than ten and learners fatigue, especially in compliance settings where the quiz follows a long module. If you need more questions for psychometric reasons, split them into multiple shorter quizzes spaced across the course.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Mix question types deliberately.</h3>
+          <p>All single-answer multiple choice gets monotonous. A mix of <a href="/resources/design-kit/radio-buttons">single-answer</a>, <a href="/resources/design-kit/checkboxes">multi-select</a>, true/false, and the occasional <a href="/resources/design-kit/drag-and-drop">drag-and-drop</a> or <a href="/resources/design-kit/hotspots">hotspot</a> question keeps engagement. But each question type should be chosen because it's right for what's being tested — see <a href="/resources/design-kit/writing-assessment-questions">Writing good assessment questions</a> for which format fits which content.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Per-question feedback that teaches.</h3>
+          <p>"Correct!" and "Incorrect!" are wasted moments. Per-question feedback should explain why an answer is right — and ideally, why each distractor is wrong. This turns assessment into teaching. If the quiz is summative and you're saving feedback for the end, write the end-of-quiz feedback so it goes question by question, not just a score.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Decide whether learners can review their answers.</h3>
+          <p>For formative quizzes — yes. Let learners scroll back through their answers and feedback before continuing. For summative quizzes — no. Review during the quiz lets learners change strategy mid-way; review after the pass mark is calculated is fine.</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Random order — but only when it helps.</h3>
+          <p>Randomising question order across attempts stops learners memorising "Question 3 is C." Randomising option order within a question stops them memorising "the answer is always option B." Useful for re-attemptable quizzes. Not useful — and sometimes harmful — when questions have an intentional sequence or when options have a natural order (severity, time, size).</p>
+        </div>
+
+        <div class="ux-item">
+          <h3 class="heading-md">Handle "didn't pass" with care.</h3>
+          <p>The screen after a failed attempt is the most important screen in the quiz. Be kind. Tell the learner what they missed, give them a path back to the relevant content, and let them try again without making it feel like punishment. A failed quiz is an opportunity to teach — taking that opportunity well builds learner trust.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios -->
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">Real scenarios</span>
+      <h2 class="display display-md section-title">When you'd reach for a quiz.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Mid-module knowledge checks</h3>
+          <p>Three to five questions after a content section, low stakes, immediate feedback. Retrieval practice — one of the strongest learning interventions available.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">Compliance certification</h3>
+          <p>Final summative assessment with a defined pass mark (usually 80%). Pass = certificate, fail = retake. Be deliberate about whether the learner sees their wrong answers before retaking.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Pre-course self-assessment</h3>
+          <p>Three to five questions at the start of an optional course, no pass mark, used only to recommend "start here" or "skip ahead". Never graded against the learner.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Spaced retrieval over time</h3>
+          <p>The same short quiz delivered three times: at the end of the course, two weeks later, and two months later. Spaced retrieval is one of the most evidence-backed learning interventions there is.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Want a quiz<br />
+          <span class="accent-blue">that actually measures?</span>
+        </h2>
+        <p class="lede cta-text">
+          We design assessments that test understanding, not test-wisdom. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Quiz state machine: 3 questions, mixed formats, feedback after each.
+  type QuestionType = 'single' | 'multi' | 'truefalse';
+  interface Question {
+    type: QuestionType;
+    text: string;
+    prompt?: string;
+    options: { id: string; text: string }[];
+    correct: string[];   // Array of correct option ids
+    feedback: {
+      correct: string;
+      incorrect: string;
+    };
+  }
+
+  const questions: Question[] = [
+    {
+      type: 'single',
+      text: 'How long should a formative knowledge-check quiz typically be?',
+      prompt: 'Pick the most defensible answer.',
+      options: [
+        { id: 'a', text: 'One question — anything more interrupts the lesson.' },
+        { id: 'b', text: 'Three to five questions.' },
+        { id: 'c', text: 'At least fifteen, so it covers everything.' },
+        { id: 'd', text: 'It depends entirely on the content.' },
+      ],
+      correct: ['b'],
+      feedback: {
+        correct: 'Right. Three to five is the sweet spot — enough to test understanding, short enough to keep momentum.',
+        incorrect: 'Three to five is the sweet spot for formative knowledge checks. Fewer than three, you can\'t reliably measure anything. More than five, learners fatigue.',
+      },
+    },
+    {
+      type: 'multi',
+      text: 'Which of these are signs your quiz is testing test-wisdom rather than understanding?',
+      prompt: 'Tick all that apply.',
+      options: [
+        { id: 'a', text: 'The correct answer is noticeably longer than the distractors.' },
+        { id: 'b', text: 'Three of the four options are obviously silly.' },
+        { id: 'c', text: 'Question wording is paraphrased differently from the source material.' },
+        { id: 'd', text: 'Options share grammatical structure that gives the answer away.' },
+      ],
+      correct: ['a', 'b', 'd'],
+      feedback: {
+        correct: 'All three (A, B, D) are signs of weak question design. C is the opposite — paraphrasing prevents learners from pattern-matching to the slide.',
+        incorrect: 'A, B, and D are the signs. C is actually good practice — paraphrasing the source material tests understanding rather than recognition.',
+      },
+    },
+    {
+      type: 'truefalse',
+      text: 'True or false: a summative quiz should always show learners which questions they got wrong before they retake it.',
+      options: [
+        { id: 'true',  text: 'True' },
+        { id: 'false', text: 'False' },
+      ],
+      correct: ['false'],
+      feedback: {
+        correct: 'Right. The trade-off matters — showing wrong answers helps learning but lets learners memorise specific answers for the retake. Most courses opt for "show the topic areas you missed, but not the specific questions."',
+        incorrect: 'The answer is more nuanced. Showing specific wrong answers helps learning but also lets learners memorise their way to a pass mark. Most well-designed summative quizzes show topic areas, not the exact questions, before a retake.',
+      },
+    },
+  ];
+
+  let idx = 0;
+  let score = 0;
+  let selected: Set<string> = new Set();
+  let submitted = false;
+
+  const card        = document.querySelector<HTMLElement>('[data-quiz-card]');
+  const progressEl  = document.querySelector<HTMLElement>('[data-quiz-progress]');
+  const scoreEl     = document.querySelector<HTMLElement>('[data-quiz-score]');
+  const stage       = document.querySelector<HTMLElement>('[data-quiz-stage]');
+  const questionEl  = document.querySelector<HTMLElement>('[data-quiz-question]');
+  const promptEl    = document.querySelector<HTMLElement>('[data-quiz-prompt]');
+  const choicesEl   = document.querySelector<HTMLElement>('[data-quiz-choices]');
+  const feedbackEl  = document.querySelector<HTMLElement>('[data-quiz-feedback]');
+  const submitBtn   = document.querySelector<HTMLButtonElement>('[data-quiz-submit]');
+  const nextBtn     = document.querySelector<HTMLButtonElement>('[data-quiz-next]');
+  const resultsEl   = document.querySelector<HTMLElement>('[data-quiz-results]');
+  const resultsHead = document.querySelector<HTMLElement>('[data-quiz-results-heading]');
+  const resultsBody = document.querySelector<HTMLElement>('[data-quiz-results-body]');
+  const retakeBtn   = document.querySelector<HTMLButtonElement>('[data-quiz-retake]');
+
+  function renderQuestion() {
+    if (!questionEl || !promptEl || !choicesEl || !feedbackEl || !submitBtn || !nextBtn || !progressEl || !scoreEl) return;
+
+    const q = questions[idx];
+    progressEl.textContent = `Question ${idx + 1} of ${questions.length}`;
+    scoreEl.textContent = `${score} of ${idx} correct`;
+    questionEl.textContent = q.text;
+    promptEl.textContent = q.prompt || '';
+    selected.clear();
+    submitted = false;
+
+    // Build the choices
+    const inputType = (q.type === 'multi') ? 'checkbox' : 'radio';
+    choicesEl.innerHTML = q.options.map((opt) => `
+      <label class="quiz-choice">
+        <input type="${inputType}" name="quiz-q${idx}" value="${opt.id}" />
+        <span class="quiz-choice-text">${opt.text}</span>
+      </label>
+    `).join('');
+
+    // Wire up inputs to track selection
+    const inputs = choicesEl.querySelectorAll<HTMLInputElement>('input');
+    inputs.forEach((inp) => {
+      inp.addEventListener('change', () => {
+        if (submitted) return;
+        if (inputType === 'radio') {
+          selected.clear();
+          if (inp.checked) selected.add(inp.value);
+        } else {
+          if (inp.checked) selected.add(inp.value);
+          else selected.delete(inp.value);
+        }
+        submitBtn.disabled = selected.size === 0;
+      });
+    });
+
+    feedbackEl.hidden = true;
+    feedbackEl.innerHTML = '';
+    submitBtn.hidden = false;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submit answer';
+    nextBtn.hidden = true;
+    nextBtn.textContent = (idx === questions.length - 1) ? 'See results →' : 'Next question →';
+  }
+
+  function showFeedback() {
+    if (!feedbackEl || !choicesEl || !submitBtn || !nextBtn) return;
+    const q = questions[idx];
+    submitted = true;
+
+    // Compare sets
+    const correctSet = new Set(q.correct);
+    const isCorrect = (
+      selected.size === correctSet.size &&
+      Array.from(selected).every((v) => correctSet.has(v))
+    );
+    if (isCorrect) score++;
+
+    // Lock inputs
+    choicesEl.querySelectorAll<HTMLInputElement>('input').forEach((inp) => {
+      inp.disabled = true;
+      const label = inp.closest('.quiz-choice');
+      if (correctSet.has(inp.value)) label?.classList.add('quiz-choice--correct');
+      else if (selected.has(inp.value)) label?.classList.add('quiz-choice--incorrect');
+    });
+
+    feedbackEl.innerHTML = `
+      <p class="quiz-feedback-label ${isCorrect ? 'quiz-feedback-label--correct' : 'quiz-feedback-label--incorrect'}">
+        ${isCorrect ? 'Correct.' : 'Not quite.'}
+      </p>
+      <p class="quiz-feedback-body">${isCorrect ? q.feedback.correct : q.feedback.incorrect}</p>
+    `;
+    feedbackEl.hidden = false;
+    submitBtn.hidden = true;
+    nextBtn.hidden = false;
+
+    // Update score display
+    if (scoreEl) scoreEl.textContent = `${score} of ${idx + 1} correct`;
+  }
+
+  function showResults() {
+    if (!stage || !resultsEl || !resultsHead || !resultsBody) return;
+    stage.hidden = true;
+    resultsEl.hidden = false;
+
+    const pct = Math.round((score / questions.length) * 100);
+    let heading: string;
+    let body: string;
+    if (pct === 100)        { heading = 'Top marks.';        body = `You got ${score} of ${questions.length} right. Notice how the feedback gave you reasoning, not just a tick — that's the kind of feedback we'd build into a real course.`; }
+    else if (pct >= 67)     { heading = 'Solid.';            body = `You got ${score} of ${questions.length} right. The question(s) you missed are good prompts to come back to — see the explanations above for the reasoning.`; }
+    else                    { heading = 'Worth another go.'; body = `You got ${score} of ${questions.length} right. In a real course we'd link you back to the relevant content before letting you retake — see the UX section on "handle didn't pass with care".`; }
+
+    resultsHead.textContent = heading;
+    resultsBody.textContent = body;
+  }
+
+  function resetQuiz() {
+    if (!stage || !resultsEl) return;
+    idx = 0;
+    score = 0;
+    selected.clear();
+    submitted = false;
+    stage.hidden = false;
+    resultsEl.hidden = true;
+    renderQuestion();
+  }
+
+  submitBtn?.addEventListener('click', () => {
+    if (selected.size > 0 && !submitted) showFeedback();
+  });
+  nextBtn?.addEventListener('click', () => {
+    if (idx < questions.length - 1) {
+      idx++;
+      renderQuestion();
+    } else {
+      showResults();
+    }
+  });
+  retakeBtn?.addEventListener('click', resetQuiz);
+
+  renderQuestion();
+</script>
+
+<style is:global>
+  /* NOTE: is:global is required because quiz choices and feedback are
+     rendered entirely client-side via innerHTML, with no server-rendered
+     template to clone. Scoped CSS wouldn't match the dynamic elements. */
+  .quiz-card { max-width: 720px; }
+  .quiz-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(21, 25, 46, 0.08);
+    margin-bottom: 24px;
+  }
+
+  .quiz-question {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--c-ink);
+    margin: 0 0 8px 0;
+  }
+  .quiz-prompt {
+    color: var(--c-ink-soft);
+    font-size: 14px;
+    margin: 0 0 20px 0;
+  }
+
+  .quiz-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .quiz-choice {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--c-paper);
+    border: 1px solid rgba(21, 25, 46, 0.12);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .quiz-choice:hover:not(:has(input:disabled)) {
+    border-color: var(--c-ink);
+  }
+  .quiz-choice:has(input:checked) {
+    border-color: var(--c-ink);
+    background: rgba(21, 25, 46, 0.03);
+  }
+  .quiz-choice input {
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: var(--c-ink);
+  }
+  .quiz-choice input:disabled { cursor: default; }
+  .quiz-choice-text {
+    color: var(--c-ink);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .quiz-choice--correct {
+    border-color: rgba(34, 139, 34, 0.6);
+    background: rgba(34, 139, 34, 0.06);
+  }
+  .quiz-choice--incorrect {
+    border-color: rgba(220, 38, 38, 0.6);
+    background: rgba(220, 38, 38, 0.06);
+  }
+
+  .quiz-feedback {
+    margin-bottom: 20px;
+    padding: 16px 18px;
+    background: var(--c-paper-deep);
+    border-radius: var(--r-md);
+  }
+  .quiz-feedback-label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .quiz-feedback-label--correct { color: rgb(34, 139, 34); }
+  .quiz-feedback-label--incorrect { color: rgb(180, 28, 28); }
+  .quiz-feedback-body {
+    color: var(--c-ink);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .quiz-actions {
+    display: flex;
+    gap: 10px;
+  }
+  /* Quiz uses its own pbtn class for consistency with primary-buttons example */
+  .pbtn {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 22px;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .pbtn--primary {
+    background: var(--c-ink);
+    color: var(--c-paper);
+    border-color: var(--c-ink);
+  }
+  .pbtn--primary:hover:not(:disabled) { background: var(--c-blue); border-color: var(--c-blue); }
+  .pbtn--primary:focus-visible {
+    outline: 2px solid var(--c-lilac);
+    outline-offset: 2px;
+  }
+  .pbtn--primary:disabled {
+    background: rgba(21, 25, 46, 0.15);
+    color: rgba(21, 25, 46, 0.45);
+    border-color: rgba(21, 25, 46, 0.15);
+    cursor: not-allowed;
+  }
+  .pbtn--secondary {
+    background: transparent;
+    color: var(--c-ink);
+    border-color: var(--c-ink);
+  }
+  .pbtn--secondary:hover { background: var(--c-ink); color: var(--c-paper); }
+
+  /* Results screen */
+  .quiz-results { text-align: left; }
+  .quiz-results-heading {
+    font-family: var(--font-sans);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--c-ink);
+    margin: 0 0 12px 0;
+    letter-spacing: -0.01em;
+  }
+  .quiz-results-body {
+    color: var(--c-ink-soft);
+    font-size: 15px;
+    line-height: 1.65;
+    margin: 0 0 24px 0;
+  }
+</style>

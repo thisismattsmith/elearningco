@@ -1,0 +1,196 @@
+---
+// src/pages/resources/design-kit/howtoo.astro
+import Layout from '../../../components/layout/Layout.astro';
+import '../../../styles/design-kit-detail.css';
+import '../../../styles/design-kit-tool.css';
+---
+
+<Layout
+  title="HowToo | Design Kit | The eLearning Company"
+  description="An honest look at HowToo — an Australian-built authoring tool with strong accessibility credentials and an AI course creator."
+>
+  <section class="section section--yellow component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources">Resources</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/resources/design-kit">Design kit</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">HowToo</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">eLearning tool</span>
+      <h1 class="display display-xl page-title">
+        <span class="accent-blue">HowToo.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        HowToo is an Australian-built authoring tool with strong accessibility credentials, an AI course creator, and a built-in "Learning Academy" feature for hosted delivery. Customers include HubSpot, American Express, and CyberCX.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper tool-section">
+    <div class="container">
+      <div class="tool-meta">
+        <div class="tool-meta-item">
+          <span class="meta tool-meta-label">Type</span>
+          <p class="tool-meta-value">Web-based authoring + optional hosted "Learning Academy"</p>
+        </div>
+        <div class="tool-meta-item">
+          <span class="meta tool-meta-label">Output</span>
+          <p class="tool-meta-value">SCORM, xAPI, public links, hosted delivery</p>
+        </div>
+        <div class="tool-meta-item">
+          <span class="meta tool-meta-label">Pricing</span>
+          <p class="tool-meta-value">From $US1,080/year. Higher tiers and Enterprise pricing on request.</p>
+        </div>
+        <div class="tool-meta-item">
+          <span class="meta tool-meta-label">Best for</span>
+          <p class="tool-meta-value">Teams where accessibility is a hard requirement; ANZ-based L&amp;D wanting local support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper-deep tool-strengths-section">
+    <div class="container">
+      <span class="section-kicker">Strengths</span>
+      <h2 class="display display-md section-title">What it's great at.</h2>
+
+      <div class="tool-points">
+        <div class="tool-point">
+          <h3 class="heading-sm">WCAG 2.1 AA accessibility baseline</h3>
+          <p>HowToo's strongest pitch: accessibility is built in, not retrofitted. Output meets WCAG 2.1 AA standards by default, with a built-in accessibility checker flagging issues as you author. For government, healthcare, and regulated industries where accessibility certification is required, this is genuinely valuable.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">AI course creator</h3>
+          <p>Similar in concept to <a href="/resources/design-kit/mindsmith">Mindsmith</a> — point HowToo at source content and it generates a structured course. The output is competent and the editing experience is friendlier than starting blank. Less aggressive than Mindsmith's all-AI workflow, more of an accelerator on top of conventional authoring.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Built-in Learning Academy</h3>
+          <p>Higher-tier plans include a hosted delivery platform — branded landing page, learner accounts, completion tracking, certificates. For organisations delivering training to people outside their LMS (contractors, customers, partners), this can replace a small LMS purchase.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Easy enough for non-designers</h3>
+          <p>Templates are guided and opinionated. Non-designer authors (HR, ops, subject matter experts) can produce passable-looking courses without help. The tool's design choices keep them from making the worst layout mistakes.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Australian support and time zone</h3>
+          <p>Like <a href="/resources/design-kit/chameleon-creator">Chameleon Creator</a>, HowToo is ANZ-based, so support runs on Australian hours. For local teams, this is materially better than US-based support windows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper tool-weaknesses-section">
+    <div class="container">
+      <span class="section-kicker">Weaknesses</span>
+      <h2 class="display display-md section-title">Where it struggles.</h2>
+
+      <div class="tool-points">
+        <div class="tool-point">
+          <h3 class="heading-sm">Limited layout flexibility</h3>
+          <p>Users consistently flag the same complaint: HowToo's layouts are too constrained. The trade-off for accessibility-by-default is less freedom to position elements. Power users from <a href="/resources/design-kit/articulate-storyline">Storyline</a> or even <a href="/resources/design-kit/articulate-rise">Rise</a> will feel boxed in.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Per-user pricing scales fast</h3>
+          <p>The published base is per user per year. For solo authors it's cheaper than <a href="/resources/design-kit/articulate-rise">Articulate 360</a>. For teams of 5+, the per-user model starts to bite — and Enterprise pricing isn't published, so budgeting requires a sales conversation.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">No deep branching or simulation</h3>
+          <p>Like most modern web-based authoring tools, HowToo handles linear and lightly-branched content well. Complex <a href="/resources/design-kit/branching-scenarios">branching scenarios</a> with state tracking, or interactive simulations, need <a href="/resources/design-kit/articulate-storyline">Storyline</a>.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">Smaller ecosystem</h3>
+          <p>Compared to Articulate's mature community, template marketplace, and freelance talent pool, HowToo's ecosystem is small. Help is more likely to come from the support team than the community.</p>
+        </div>
+        <div class="tool-point">
+          <h3 class="heading-sm">The Learning Academy adds platform lock-in</h3>
+          <p>The hosted-delivery features are convenient, but courses built to take advantage of them don't port cleanly to another LMS. SCORM export still works, but the hosted experience is part of the product's value.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy tool-decision-section">
+    <div class="container">
+      <span class="section-kicker">Decision</span>
+      <h2 class="display display-md section-title">
+        When HowToo is <span class="mark--lilac">the right call</span>.
+      </h2>
+
+      <div class="decision-grid">
+        <div class="decision-col">
+          <h3 class="heading-md decision-heading">Pick HowToo when</h3>
+          <ul class="decision-list">
+            <li>Accessibility (WCAG 2.1 AA) is a hard requirement, not a nice-to-have.</li>
+            <li>You're an ANZ-based L&amp;D team that values local support.</li>
+            <li>You need a hosted delivery option without buying a full LMS.</li>
+            <li>Non-designer authors will use the tool and need guardrails.</li>
+            <li>You're a freelancer or small consultancy and the per-user pricing works.</li>
+          </ul>
+        </div>
+        <div class="decision-col decision-col--alt">
+          <h3 class="heading-md decision-heading">Pick something else when</h3>
+          <ul class="decision-list">
+            <li>You need pixel-level layout control — <a href="/resources/design-kit/articulate-storyline">Storyline</a> or <a href="/resources/design-kit/chameleon-creator">Chameleon Creator</a>.</li>
+            <li>You need <a href="/resources/design-kit/branching-scenarios">complex branching</a> or simulations — <a href="/resources/design-kit/articulate-storyline">Storyline</a>.</li>
+            <li>You're scaling a large team and the per-user pricing becomes uncompetitive.</li>
+            <li>You want a fully AI-native workflow — <a href="/resources/design-kit/mindsmith">Mindsmith</a> is more committed to that pattern.</li>
+            <li>The team is already on the Articulate ecosystem and switching cost outweighs HowToo's strengths.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper scenarios-section">
+    <div class="container">
+      <span class="section-kicker">When we'd reach for HowToo</span>
+      <h2 class="display display-md section-title">In practice.</h2>
+
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <span class="meta scenario-num">01</span>
+          <h3 class="heading-sm">Accessibility-mandatory content</h3>
+          <p>Government, public-sector, healthcare, and other regulated environments where WCAG compliance is non-negotiable. HowToo's built-in checker makes audit-ready output the default.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">02</span>
+          <h3 class="heading-sm">External-audience training</h3>
+          <p>Customer education, partner enablement, contractor onboarding — where the Learning Academy hosting eliminates the LMS-access problem cleanly.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">03</span>
+          <h3 class="heading-sm">Citizen-developer L&amp;D teams</h3>
+          <p>Where the L&amp;D function is one person plus part-time SMEs. HowToo's templates and guardrails keep the output professional even when authors aren't full-time designers.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="meta scenario-num">04</span>
+          <h3 class="heading-sm">Compliance training with certificates</h3>
+          <p>Modules that need a completion certificate the learner can download and present. HowToo bundles this into the Learning Academy feature without bolting on a separate tool.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Need a course built<br />
+          <span class="accent-blue">in your tool?</span>
+        </h2>
+        <p class="lede cta-text">
+          We can build your eLearning in HowToo, or advise on what other tools may suit you. Three-week delivery, transparent pricing, zero drama.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/resources/design-kit" class="btn btn--secondary">Back to design kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

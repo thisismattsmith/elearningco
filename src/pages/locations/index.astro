@@ -1,0 +1,289 @@
+---
+// src/pages/locations/index.astro
+// Index page listing all Australian capital cities we serve.
+import Layout from '../../components/layout/Layout.astro';
+
+const cities = [
+  {
+    slug: 'sydney',
+    name: 'Sydney',
+    state: 'New South Wales',
+    industries: ['Finance', 'Tech', 'Professional Services', 'Healthcare', 'Retail'],
+    businessHub: "Australia's largest business centre with strong financial services and tech sectors.",
+  },
+  {
+    slug: 'melbourne',
+    name: 'Melbourne',
+    state: 'Victoria',
+    industries: ['Healthcare', 'Manufacturing', 'Retail', 'Education', 'Professional Services'],
+    businessHub: 'Major corporate hub with diverse industries and strong L&D culture.',
+  },
+  {
+    slug: 'brisbane',
+    name: 'Brisbane',
+    state: 'Queensland',
+    industries: ['Mining', 'Construction', 'Healthcare', 'Tourism', 'Government'],
+    businessHub: 'Growing business centre with strong resources and government sectors.',
+  },
+  {
+    slug: 'perth',
+    name: 'Perth',
+    state: 'Western Australia',
+    industries: ['Mining', 'Resources', 'Construction', 'Energy', 'Logistics'],
+    businessHub: "Australia's resources capital with significant mining and energy sectors.",
+  },
+  {
+    slug: 'adelaide',
+    name: 'Adelaide',
+    state: 'South Australia',
+    industries: ['Defence', 'Manufacturing', 'Wine', 'Healthcare', 'Education'],
+    businessHub: 'Diverse economy with strong defence, manufacturing, and education sectors.',
+  },
+  {
+    slug: 'canberra',
+    name: 'Canberra',
+    state: 'Australian Capital Territory',
+    industries: ['Government', 'Public Service', 'Defence', 'Education', 'Healthcare'],
+    businessHub: "Australia's capital and centre of federal government and defence.",
+  },
+  {
+    slug: 'hobart',
+    name: 'Hobart',
+    state: 'Tasmania',
+    industries: ['Tourism', 'Agriculture', 'Healthcare', 'Education', 'Manufacturing'],
+    businessHub: 'Tasmania\'s capital with growing tourism, agriculture, and tech sectors.',
+  },
+];
+---
+
+<Layout
+  title="Australian eLearning Development Locations | The eLearning Company"
+  description="Custom eLearning development for organisations across Australia. Sydney, Melbourne, Brisbane, Perth, Adelaide, Canberra, and Hobart — three-week delivery, fixed pricing."
+>
+  <!-- ============================================================
+       1. Hero — lilac
+       ============================================================ -->
+  <section class="section section--lilac component-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Locations</span>
+      </nav>
+
+      <span class="pill-meta hero-pill">Australian eLearning development</span>
+      <h1 class="display display-xl page-title">
+        We work with<br />
+        <span class="accent-blue">organisations everywhere.</span>
+      </h1>
+      <p class="lede page-subtitle">
+        Based in Victoria, working with organisations across every Australian capital and beyond. Three-week delivery, fixed pricing, transparent process — wherever you are.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. Cities grid — paper
+       ============================================================ -->
+  <section class="section section--paper">
+    <div class="container">
+      <div class="cities-grid">
+        {cities.map((city) => (
+          <a href={`/locations/${city.slug}`} class="city-card">
+            <div class="city-card-stripe" aria-hidden="true"></div>
+            <div class="city-card-body">
+              <h2 class="heading-md city-card-title">{city.name}</h2>
+              <span class="meta city-card-state">{city.state}</span>
+              <p class="city-card-body-text">{city.businessHub}</p>
+              <div class="city-card-industries">
+                <span class="meta city-card-industries-label">Some industries we serve</span>
+                <ul class="city-card-industries-list">
+                  {city.industries.map((industry) => (
+                    <li>{industry}</li>
+                  ))}
+                </ul>
+              </div>
+              <span class="city-card-cta">Learn more <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. Beyond capitals — paper-deep
+       ============================================================ -->
+  <section class="section section--paper-deep">
+    <div class="container">
+      <div class="beyond-grid">
+        <div class="beyond-text">
+          <span class="section-kicker">Beyond the capitals</span>
+          <h2 class="display display-md beyond-title">
+            We work with regional and remote teams too.
+          </h2>
+          <p class="beyond-body">
+            If your team is spread across regional offices, mine sites, hospitals in remote areas, or anywhere else in Australia, the work happens the same way: a kickoff call (over video), structured async communication during development, and a course that respects all the constraints your audience operates under — including slower internet connections and mobile-first usage.
+          </p>
+          <p class="beyond-body">
+            We also work with Australian organisations that have international offices. Single language, multi-language, time-zone-aware support — all in scope.
+          </p>
+        </div>
+        <div class="beyond-cta">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/about" class="btn btn--secondary">How it works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. Final CTA — lilac
+       ============================================================ -->
+  <section class="section section--lilac final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="display display-lg cta-title">
+          Wherever you are,<br />
+          <span class="accent-blue">we'd like to work with you.</span>
+        </h2>
+        <p class="lede cta-text">
+          Three-week delivery, fixed pricing, zero drama. Send us a brief and we'll respond with a quote within 24 hours.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn--primary">Get a quote</a>
+          <a href="/pricing" class="btn btn--secondary">See pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .cities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    margin-top: 12px;
+  }
+
+  .city-card {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: inherit;
+    background: var(--c-paper-deep);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .city-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(21, 25, 46, 0.08);
+  }
+
+  .city-card-stripe {
+    width: 6px;
+    flex-shrink: 0;
+    background: var(--c-blue);
+  }
+  .city-card:nth-child(2n) .city-card-stripe { background: var(--c-lilac-deep); }
+  .city-card:nth-child(3n) .city-card-stripe { background: var(--c-turquoise-deep); }
+  .city-card:nth-child(4n) .city-card-stripe { background: var(--c-yellow-deep); }
+
+  .city-card-body {
+    padding: 24px 26px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .city-card-title {
+    margin: 0;
+    color: var(--c-ink);
+  }
+
+  .city-card-state {
+    color: var(--c-ink-muted);
+  }
+
+  .city-card-body-text {
+    margin: 8px 0 4px;
+    color: var(--c-ink-soft);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .city-card-industries {
+    margin-top: 8px;
+  }
+
+  .city-card-industries-label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--c-ink-muted);
+  }
+
+  .city-card-industries-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .city-card-industries-list li {
+    font-size: 12px;
+    color: var(--c-ink-soft);
+    background: var(--c-paper);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+
+  .city-card-cta {
+    margin-top: auto;
+    padding-top: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--c-blue);
+  }
+
+  .beyond-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .beyond-title {
+    margin: 8px 0 16px;
+    color: var(--c-ink);
+  }
+
+  .beyond-body {
+    color: var(--c-ink-soft);
+    line-height: 1.65;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .beyond-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  @media (max-width: 760px) {
+    .beyond-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .beyond-cta {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+</style>
